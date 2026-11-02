@@ -1,4 +1,4 @@
-name: Bootstrap Python CI
+name: Python and shared contract CI
 on:
   push:
     branches: [main]
@@ -15,7 +15,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Run unit tests
+      - name: Run unit and shared contract conformance tests
         run: PYTHONPATH=src python -m unittest discover -s tests -v
       - name: Generate synthetic replay
         run: PYTHONPATH=src python -m deviation demo --out /tmp/deviation_demo.json

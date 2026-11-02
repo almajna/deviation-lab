@@ -13,7 +13,7 @@
    `git worktree add -b feat/data-audit ../deviation-data main`
    `git worktree add -b feat/web-arena ../deviation-web main`
 3. Builders read `AGENTS.md` + assigned issue and prompt, then work only in owned paths. No agent should edit from another agent's worktree.
-4. Every PR contains test log, evidence and limitations. CI must pass; reviewer challenges scientific assumptions. Integrator merges one at a time after authorization and rechecks dependent branches.
+4. Every PR contains test log, evidence and limitations. CI must pass; reviewer challenges scientific assumptions. The human owner merges one at a time after exact-head approval; the integrator verifies the merge and rechecks dependent branches. Agents never merge, enable auto-merge or bypass review.
 5. All shared data changes are PRs with a schema version bump and fixtures. Frontend uses fixture traces to avoid blocking, later replaces them with generated experiment traces.
 6. `docs/STATUS.md` tracks only verified work; “I will do X” is not “X is done.”
 
@@ -22,6 +22,8 @@ Long-running coding sessions do not automatically coordinate themselves. If sess
 
 ## Permissions boundaries
 Default: code changes and local tests only; branch/PR creation allowed if authenticated and user approved. No direct main pushes, final merges, payments, GitHub settings changes, hosted publishing, external outreach or disclosure of private information without user approval. GitHub write access is not implied by screenshot/public URL.
+
+Development agents do not invoke merge endpoints, enable merge queues/auto-merge, dismiss required reviews or add themselves/apps to bypass lists. CI retains read-only repository permissions. Scientific or contract approval must identify the exact current head; new substantive commits require re-review. A merged PR without recorded approval is not a scientific gate. See `MERGE_GOVERNANCE.md` for the read-only investigation and proposed repository protections, which are not yet applied.
 
 ## Human review gates
 - Gate A: dataset and information-set scientific validity.

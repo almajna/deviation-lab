@@ -1,15 +1,15 @@
 # DEVIATION — status
 
-**Stage:** Phase 1 paired ingestion verified; empirical gate NO-GO. No scientific benchmark or interactive app has been completed.
+**Stage:** Phase 1 accepted for limited exploratory development; Gate A shared-contract v0.2 approval/merge pending. Historical audit NO-GO remains unchanged; no broad empirical qualification or completed benchmark/app.
 **Release status:** NOT READY.
 **Real-world result claims:** NONE.
-**Last verified:** 2026-11-02: bootstrap PR #1 merged; Phase 1 local tests and independent sample reproduction passed. Hosted Phase 1 CI is recorded in its PR. See `docs/DATA_AUDIT.md` and `artifacts/data_audit.json`.
+**Last verified:** 2026-11-02: PRs #3/#4 merged into main and synchronized before this proposal. Approved development assumptions are in `docs/RESEARCH.md`; tested v0.2 proposal and merge-governance investigation are in the Gate A PR. No real-data fit, mechanism run or final evaluation was performed here.
 
 ## Milestone tracker
 | ID | Milestone | Status | Owner | Required proof |
 |---|---|---|---|---|
-| M0 | Research design and contracts | Bootstrap draft, approval pending | Codex integrator | Audit PR, passing CI, human approves scientific plan |
-| M1 | Real data audit | Technical PASS: 247 four-arm tasks / 988 outcomes; empirical NO-GO | Research worker | Pinned checksums, reproduced aggregates/splits, cost/quality limitations in `docs/DATA_AUDIT.md` |
+| M0 | Research design and contracts | Limited assumptions approved; v0.2 exact-head approval/merge pending | Codex integrator | Gate A PR, CI, independent review, explicit owner approval |
+| M1 | Real data audit | Accepted exploratory pool: 247 tasks / 988 outcomes; no broad empirical GO | Research worker | Unchanged Phase 1 evidence and approved limitations |
 | M2 | Simulator core | Toy scaffold only | Core worker | Hidden-info tests, replay, cost/utility accounting |
 | M3 | Markets | Not started | Mechanism worker | Mechanism math + accounting/unit tests |
 | M4 | Attacks | Not started | Adversarial worker | Reproducible exploit and exact bounded check |
@@ -20,6 +20,7 @@
 | M9 | Release | Not started | Integrator + human | `docs/RELEASE_CHECKLIST.md` and external review |
 
 ## Human decisions
-- Approve scientific protocol after dataset audit.
+- Approve the exact v0.2 contract PR head before Phase 2/Phase 6.
+- Approve proposed main protections and identify a separate GitHub reviewer before activating them.
 - Approve important scope/assumption changes.
 - Authorize final release only after independent audit.

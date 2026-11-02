@@ -8,7 +8,7 @@ A market forecasts where a limited AI inference budget would help most; strategi
 ## Scope
 
 ### Empirical track: offline model routing
-For each prompt i and candidate model m, use recorded quality q(i,m) and estimated or observed cost c(i,m), when the dataset supports a complete paired matrix. The allocator observes only features available before model selection. It chooses one model per task with an aggregate cost budget B. Evaluate quality and cost offline, including what-if allocations where both model outcomes are recorded. This is **not** proof of real-time savings or live market truthfulness. Forecasts and bidder information are synthetic or otherwise must be separately sourced.
+Use recorded judged preference proxy q(i,m) and reported historical cost c(i,m) where paired observations are verified. The allocator sees permitted pre-decision information and fixed training-only reservations r(m), choosing routes under reservation budget B. Report realized costs, overruns and violations after decisions. The approved 247-task pool is exploratory only. This is not objective coding correctness, verified billing, guaranteed deployment budgets, real-time savings or live market truthfulness. Forecasters and adversaries are synthetic. See `docs/RESEARCH.md` and the shared-contract gate.
 
 ### Economic track: controlled mechanisms and adversaries
 A finite information game where agents receive private noisy signals about model outcomes/uplift; their beliefs, reports, trades and payoffs are explicit. Compare direct reports, proper scoring, LMSR-style virtual market and a simple bid mechanism; include an unambiguous non-market average/aggregator. Have strategic agents with stated external interests (e.g. routing to their favored model). Search for manipulations, compare honest vs adversarial welfare, record a reproducible attack. Separate observed versus modeled events in UI.
@@ -75,4 +75,4 @@ Accelerated well-resourced coding-agent run: 4–8 calendar weeks for meaningful
 - Review final report, visual quality, and public release.
 
 ## Current implementation reality
-This package contains documentation, CI and a tiny synthetic Python reference, **not** the completed benchmark, market, adversarial engine, evolution system, or website. See `docs/STATUS.md`.
+The repository contains a verified Phase 1 loader/audit, documentation, CI and a tiny synthetic reference. Shared v0.2 contracts are proposed for approval; Phase 2/Phase 6 implementation waits for approval and merge. The benchmark, market, attacks, evolution system and website are not complete. See `docs/STATUS.md`.

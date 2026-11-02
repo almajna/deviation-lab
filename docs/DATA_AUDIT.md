@@ -2,7 +2,9 @@
 
 **Verified 2026-11-02. Technical paired ingestion: PASS. Empirical/downstream gate: NO-GO.**
 
-Issue: [#2](https://github.com/almajna/deviation-lab/issues/2). The integrator owns this report. `docs/CONTRACTS.md` remains unchanged and unapproved. Recorded outputs have been ingested; no empirical mechanism/benchmark claim is established, and the existing CLI demo remains synthetic.
+**Subsequent owner decision, 2026-11-02:** Phase 1 is accepted for exploratory engineering under the five assumptions in `RESEARCH.md`. The historical NO-GO evidence and JSON artifacts stay unchanged; broad claims/final evaluation remain unapproved. The dedicated v0.2 contract PR needs independent review, explicit approval and merge before Phase 2/Phase 6 starts. See `GATE_A.md`.
+
+Issue: [#2](https://github.com/almajna/deviation-lab/issues/2). The integrator owns this report. At the Phase 1 audit checkpoint, shared contracts were unchanged and unapproved; the subsequent v0.2 proposal is now separately pending approval in `GATE_A.md`. Recorded outputs have been ingested; no empirical mechanism/benchmark claim is established, and the existing CLI demo remains synthetic.
 
 ## Reproduction and proof
 
@@ -89,7 +91,7 @@ Splits hash seed 7 plus NFKC/case/whitespace-normalized prompt hash. All arms an
 
 The 247-task exploratory cohort gives **172 train / 31 validation / 44 test**. It is `EXPLORATORY_NOT_FROZEN`; no router is trained/evaluated. Source `test` is a provenance label, not our final holdout. Complete-case exclusions depend on realized cost validity and may bias research; do not treat this audit cohort as an untouched final test set.
 
-## Scientific gate and next action
+## Historical Phase 1 gate and subsequent development path
 
 **Technical pairing PASS; empirical/downstream NO-GO.** Before scientific approval under existing Gate A:
 
@@ -97,4 +99,4 @@ The 247-task exploratory cohort gives **172 train / 31 validation / 44 test**. I
 2. Verify billing provenance if observed billed costs are required; otherwise explicitly adopt reported/estimated retrospective costs without observed-dollar-savings claims.
 3. Define the pre-decision budget policy (training-only cost estimates or declared caps) before hard-budget deployability claims. Future realized costs remain hidden.
 
-These are research assumptions, not permission requests for routine engineering choices. Existing scientific/contract approval remains pending. No downstream market, attack, simulator integration, or visual backend implementation has begun. **Incremental spend: $0.**
+The owner subsequently accepted noisy proxy quality, reported retrospective costs and training-only fixed reservations for limited development (`RESEARCH.md`, `DECISIONS.md`). Shared contracts still require exact-head approval/merge. No broad empirical/final-holdout approval is implied; no market, attack, simulator integration or visual backend implementation has begun. **Incremental spend: $0.**
