@@ -10,17 +10,19 @@ Use Python >=3.11; no third-party Python packages, credentials, model calls, or 
 
 ```bash
 PYTHONPATH=src python3 -m unittest discover -s tests -v
+audit_cache="$(mktemp -d)"
+audit_evidence="$(mktemp -d)"
 PYTHONPATH=src python3 -m deviation.data \
   --manifest data/source_manifest.json \
-  --cache /tmp/deviation-data-cache \
-  --out /tmp/deviation-data-evidence --download
+  --cache "$audit_cache" \
+  --out "$audit_evidence" --download
 ```
 
-On this Mac use `/opt/homebrew/bin/python3.12`, or prepend `/opt/homebrew/opt/python@3.12/libexec/bin` to PATH; default Python is 3.9.6. Remove `--download` for offline cache reproduction. Size, range, checksum, schema, and pairing failures are explicit errors.
+Use a Python >=3.11 interpreter. Reuse the populated cache and remove `--download` for offline reproduction. Size, range, checksum, schema, and pairing failures are explicit errors. Cache/output directory names are local runtime choices and are not part of the committed evidence.
 
 Reproduction reads an 8,388,608-byte LLMRouterBench archive prefix, a 262,144-byte RouterBench prefix, and the 963,444-byte original ArenaHard question file: **9,614,196 payload bytes**. A separate bounded 32 MiB archive exploration reached only one complete Winogrande model, insufficient to validate its costed pair coverage. Neither full dataset was downloaded. No upstream program or benchmark-generated code was executed; pickle was inspected as bytes/opcodes, never deserialized.
 
-Local verification: all **24 tests** and the existing `scripts/check.sh` passed under Python 3.12.15. An independent read-only reviewer reproduced the sample and all three evidence files byte-for-byte, then rechecked validator fixes. A separate clean-cache download also reproduced all committed evidence exactly. Hosted CI is linked in the PR; no remote result is inferred from local tests.
+Local verification after the review follow-up: all **26 tests** passed under Python 3.12.15, including failure-prefix regression and synthetic CLI integration. The existing `scripts/check.sh` verifies the full suite and synthetic starter trace. Independent review and reproduction evidence, its limitations, and the engineering-only APPROVE outcome are recorded in [DATA_REVIEW.md](DATA_REVIEW.md). A separate clean-cache download reproduced all committed evidence exactly. Hosted CI is linked in the PR; no remote result is inferred from local tests.
 
 `artifacts/data_audit.json` holds aggregate evidence, `artifacts/data_manifest.json` pins source/member hashes, and `artifacts/splits.json` contains opaque task/group hashes only. Cache bytes remain outside Git. The offline fixture is explicitly `SYNTHETIC_FIXTURE`. **No raw questions, answers, outputs, or per-row real scores/costs are redistributed in this PR.** Whole-archive LFS digests in the manifest are upstream metadata, explicitly not locally verified; prefix and selected member digests were verified.
 
@@ -67,7 +69,7 @@ An anonymized schema projection is `task_id=<opaque SHA-256>`, `model_id=<source
 
 The [ArenaHard evaluator](https://github.com/ynulihao/LLMRouterBench/blob/811df08b1b37646064eeb8cb6acfd498bf99885a/evaluation/ArenaHard/arenahard.py) judges against a baseline: win/tie/loss = 1/0.5/0, with no objective ground truth. Missing baselines/invalid judgments can also become zero; retained rows omit individual judge status and historical judge configuration. Existing protocol permits judged quality, but **objective coding correctness and validity of every zero are unverified**.
 
-The [generator](https://github.com/ynulihao/LLMRouterBench/blob/811df08b1b37646064eeb8cb6acfd498bf99885a/generators/generator.py) prefers API `usage.cost`, otherwise token counts times configured prices. Historical rows omit which path and code/config revision produced the cost. Call these **reported USD amounts of unresolved API-reported/token-priced provenance**, not verified invoices. Five other complete local-model files in the initial prefix had all-zero costs; they are outside the priced sample and cannot be assumed free compute.
+The [generator](https://github.com/ynulihao/LLMRouterBench/blob/811df08b1b37646064eeb8cb6acfd498bf99885a/generators/generator.py) prefers API `usage.cost`, otherwise token counts times configured prices. Historical rows omit which path and code/config revision produced the cost. Call these **reported USD amounts of unresolved API-reported/token-priced provenance**, not verified invoices. Six other complete local-model files in the initial prefix had all-zero costs; they are outside the priced sample and cannot be assumed free compute. The complete-file count and model names were rechecked during the [review follow-up](DATA_REVIEW.md).
 
 The [collector](https://github.com/ynulihao/LLMRouterBench/blob/811df08b1b37646064eeb8cb6acfd498bf99885a/data_collector/runner.py) can retain failures with null scores/zero costs. Our adapter rejects null scores rather than copying the upstream baseline loader's null-to-zero behavior. Unknown/missing/negative costs, nonfinite/out-of-range scores, failures, duplicates, demo files, mixed provenance/metrics/units, and mismatched questions/truths fail explicitly. Audit-mode exclusions remain visible.
 

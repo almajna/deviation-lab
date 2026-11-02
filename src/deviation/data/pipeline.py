@@ -123,7 +123,7 @@ def load_llmrouterbench(document: dict, *, revision: str, metric: str,
                     raise AuditError(f"invalid {name}")
             raw = row.get("raw_output")
             if (not isinstance(raw, str) or not raw.strip()
-                    or raw.startswith(("Processing failed:", "Unexpected error:"))):
+                    or raw.startswith(("Generation failed:", "Processing failed:", "Unexpected error:"))):
                 raise AuditError("missing or failed model output")
             truth = row.get("ground_truth")
             accepted.append(OutcomeRecord(

@@ -130,6 +130,17 @@ class TestDataValidation(unittest.TestCase):
                 with self.assertRaises(AuditError):
                     validate_records([replace(r, **change) for r in records()])
 
+    def test_generation_failed_prefix_is_rejected_with_valid_score_and_cost(self):
+        doc = documents()[0]
+        doc["records"][0]["raw_output"] = "Generation failed: synthetic upstream failure"
+        # Valid score/cost/token fields must not disguise an unsuccessful call.
+        with self.assertRaisesRegex(AuditError, "missing or failed model output"):
+            load(doc)
+        accepted, rejected = load(doc, collect_invalid=True)
+        self.assertEqual(len(accepted), 3)
+        self.assertEqual(rejected, [{"model_id": "mock-A", "position": 0,
+                                     "reason": "missing or failed model output"}])
+
     def test_decision_projection_does_not_depend_on_hidden_values(self):
         rows = records()
         before = decision_view(rows)
