@@ -9,6 +9,6 @@ You are the lead integrator for DEVIATION at `https://github.com/almajna/deviati
 3. Define concrete type-safe Python interfaces and versioned JSON event schemas, with fixtures and schema validation, expanding `docs/CONTRACTS.md` only after documenting compatibility.
 4. Create issues M1–M9 if authenticated GitHub access is available; otherwise create a PR-ready task backlog in docs. Each issue requires owner, dependencies, touched paths, proof artifacts, gates and a prompt link.
 5. Verify data-audit work can begin separately and frontend can implement against fixture traces. Prepare integration order and worktree names. Keep integration/workers as actual sessions, not imaginary background tasks.
-6. Run CI and produce a precise blocker/status report. Do not change visibility, commit to main, merge, publish, spend, or use paid inference without user approval.
+6. Run CI and produce a precise blocker/status report. Agents never commit to main, merge, enable auto-merge/merge queues or bypass review. A human merges after independent review, green CI and exact-head approval. Do not change visibility, publish, spend or use paid inference without separate user approval.
 
 **Deliverable:** a feature-branch PR containing reconciled architecture/docs/CI and issue backlog, with exact tests run. **Stop for human scientific-architecture review before beginning full implementation.**

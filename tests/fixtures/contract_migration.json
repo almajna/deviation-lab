@@ -1,0 +1,73 @@
+{
+  "automatic_cost_reinterpretation": false,
+  "fixture_kind": "SYNTHETIC_MIGRATION_ONLY",
+  "from_version": "0.1",
+  "legacy_artifact": {
+    "config": {
+      "budget": 4.0,
+      "cost_unit": "synthetic_units",
+      "mechanism": "greedy-forecast-upgrade"
+    },
+    "data_kind": "SYNTHETIC",
+    "events": [
+      {
+        "actor": "toy_allocator",
+        "payload": {
+          "model_id": "strong",
+          "task_id": "task-001"
+        },
+        "seq": 0,
+        "time_step": 0,
+        "type": "allocation"
+      },
+      {
+        "actor": "toy_allocator",
+        "payload": {
+          "model_id": "cheap",
+          "task_id": "task-002"
+        },
+        "seq": 1,
+        "time_step": 1,
+        "type": "allocation"
+      },
+      {
+        "actor": "toy_allocator",
+        "payload": {
+          "model_id": "cheap",
+          "task_id": "task-003"
+        },
+        "seq": 2,
+        "time_step": 2,
+        "type": "allocation"
+      },
+      {
+        "actor": "system",
+        "payload": {
+          "cost": 4.0,
+          "quality": 2.0
+        },
+        "seq": 3,
+        "time_step": 3,
+        "type": "settlement"
+      }
+    ],
+    "experiment_id": "toy-seed-7",
+    "metrics": {
+      "cheapest_cost": 3.0,
+      "cheapest_quality": 1.0,
+      "cost": 4.0,
+      "quality": 2.0
+    },
+    "provenance": {
+      "code_revision": "bootstrap",
+      "source": "DEVIATION synthetic example"
+    },
+    "schema_version": "0.1",
+    "seed": 7,
+    "warning": "NO real AI data, NO prediction market, NO adversarial results in this synthetic bootstrap example."
+  },
+  "legacy_artifact_sha256": "6eabb1130a24ec8c5dead7a569c00e8439890fdff590e1749449b7207235834c",
+  "migration_policy": "explicit_training_and_settlement_receipts_required",
+  "target_fixture": "contracts_v0_2.json",
+  "to_version": "0.2"
+}

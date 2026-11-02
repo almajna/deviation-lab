@@ -16,7 +16,7 @@ Build DEVIATION, an adversarial benchmark for resource-allocation mechanisms in 
 7. Evaluation must include meaningful non-market baselines and frozen held-out tasks. Do not optimize against the final test split.
 8. Do not invent results, citations, downloads, performance numbers, screenshots, or agent execution statuses.
 9. Never overwrite the existing MIT license or README without explaining/obtaining review. Review third-party dataset licenses separately.
-10. Do not push to `main`, merge PRs, change GitHub visibility, publish public claims, or incur monetary charges without authorization.
+10. Agents must not push to `main`, merge PRs, enable auto-merge/merge queues, dismiss required reviews, or bypass repository rules. A human merges only after independent review, passing CI and approval of the exact current head. General approval to develop is not merge authorization. Do not change GitHub visibility, publish public claims, or incur monetary charges without authorization.
 11. Do not execute AI-generated code, untrusted benchmark solutions, or user submissions outside an appropriate sandbox.
 12. Keep heavyweight data and secrets out of Git. Prefer public reproducible download manifests.
 
@@ -31,3 +31,5 @@ Research assumption changes, privacy/security risks, dataset restrictions, exter
 
 ## First gate
 Do not begin the market, attack, or visual backend integration until `docs/DATA_AUDIT.md` shows actual schema and pair coverage (or a documented fallback) and `docs/CONTRACTS.md` is approved.
+
+The 2026-11-02 owner approval permits the limited assumptions in `docs/RESEARCH.md`; it does not approve the proposed v0.2 contracts by itself. Do not start Phase 2 or Phase 6 implementation until the dedicated Gate A PR has independent review, explicit owner contract approval and a verified human merge. A merged PR alone does not establish scientific/contract approval. Never run a final holdout as part of engineering checks.

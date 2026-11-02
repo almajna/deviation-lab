@@ -1,0 +1,129 @@
+{
+  "components": {
+    "action": {
+      "fields": [
+        "action_fee",
+        "agent_id",
+        "forecast_kind",
+        "kind",
+        "schema_version",
+        "task_id",
+        "values"
+      ],
+      "validator": "validate_action"
+    },
+    "allocation_plan": {
+      "fields": [
+        "allocations",
+        "cost_unit",
+        "reservation_artifact_sha256",
+        "reservation_budget",
+        "schema_version"
+      ],
+      "validator": "validate_allocation"
+    },
+    "information": {
+      "fields": [
+        "action_fee",
+        "action_seq",
+        "agent_id",
+        "agent_kind",
+        "available_credits",
+        "cost_unit",
+        "history",
+        "model_reservations",
+        "private_signal",
+        "reservation_artifact_sha256",
+        "reservation_budget_remaining",
+        "schema_version",
+        "task",
+        "time_step"
+      ],
+      "validator": "validate_information"
+    },
+    "ledger": {
+      "fields": [
+        "agent_utilities",
+        "final_balances",
+        "initial_balances",
+        "maker_account",
+        "maker_cash_pnl",
+        "maker_initial_subsidy",
+        "maker_realized_loss",
+        "schema_version",
+        "transfers",
+        "unit"
+      ],
+      "validator": "validate_ledger"
+    },
+    "realized_report": {
+      "fields": [
+        "cost_unit",
+        "net_overrun",
+        "phase",
+        "positive_task_overruns",
+        "realized_budget_excess",
+        "realized_budget_violated",
+        "realized_spend",
+        "reservation_spend",
+        "schema_version",
+        "selected_costs",
+        "unused_reservations"
+      ],
+      "validator": "validate_realized_report"
+    },
+    "reservation_artifact": {
+      "fields": [
+        "artifact_sha256",
+        "cost_unit",
+        "data_kind",
+        "fit_group_ids",
+        "fit_row_count",
+        "method",
+        "reservations",
+        "scale",
+        "schema_version",
+        "source_manifest_sha256",
+        "split_manifest_sha256"
+      ],
+      "validator": "validate_reservations"
+    },
+    "run_config": {
+      "fields": [
+        "agent_accounts",
+        "cost_unit",
+        "exogenous_history_actors",
+        "fee_sink_account",
+        "initial_balances",
+        "maker_account",
+        "reservation_budget",
+        "schema_version"
+      ],
+      "validator": "validate_run_config"
+    },
+    "trace": {
+      "fields": [
+        "agent_origin",
+        "cost_unit",
+        "data_kind",
+        "events",
+        "experiment_id",
+        "phase",
+        "provenance",
+        "quality_semantics",
+        "reservation_artifact_sha256",
+        "schema_version",
+        "seed"
+      ],
+      "validator": "validate_trace"
+    }
+  },
+  "documentation": "docs/CONTRACTS.md",
+  "fixture": "tests/fixtures/contracts_v0_2.json",
+  "format": "DEVIATION_CONTRACT_INDEX",
+  "migration_fixture": "tests/fixtures/contract_migration.json",
+  "normative_reference": "src/deviation/contracts.py",
+  "schema_version": "0.2",
+  "status": "PROPOSED_FOR_APPROVAL",
+  "unknown_fields": "reject"
+}

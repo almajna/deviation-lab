@@ -1,0 +1,41 @@
+{
+  "attribution_limit": "Account attribution does not identify which human, client, API token, or process performed a merge. Historical auto-merge settings are not reconstructed.",
+  "auto_merge_enabled": false,
+  "main_protected": false,
+  "observed_actions_check": {
+    "app_id": 15368,
+    "app_slug": "github-actions",
+    "name": "unit-smoke"
+  },
+  "observed_date": "2026-11-02",
+  "proposal_applied": false,
+  "pull_requests": [
+    {
+      "auto_merge": null,
+      "merge_commit_sha": "c9b4761c3416ee28cc80aa74f0301846b6d5b3af",
+      "merged_at": "2026-11-02T23:20:47Z",
+      "merged_by_account": "almajna",
+      "number": 3,
+      "submitted_github_reviews": 0
+    },
+    {
+      "auto_merge": null,
+      "merge_commit_sha": "5b97cc7e7cc51f0194b1345fa0b4707e8be9c72d",
+      "merged_at": "2026-11-02T23:34:28Z",
+      "merged_by_account": "almajna",
+      "number": 4,
+      "submitted_github_reviews": 0
+    }
+  ],
+  "repository": "almajna/deviation-lab",
+  "repository_settings_changed": false,
+  "required_status_check_contexts": [],
+  "rulesets_visible_in_settings": 0,
+  "sources": [
+    "https://api.github.com/repos/almajna/deviation-lab/branches/main",
+    "https://api.github.com/repos/almajna/deviation-lab/pulls/3",
+    "https://api.github.com/repos/almajna/deviation-lab/pulls/4",
+    "https://github.com/almajna/deviation-lab/settings/branches",
+    "https://github.com/almajna/deviation-lab/settings/rules"
+  ]
+}
