@@ -1,0 +1,159 @@
+{
+  "data_kind": "SYNTHETIC_FIXTURE",
+  "documents": [
+    {
+      "dataset_name": "mock",
+      "split": "fixture",
+      "model_name": "mock-A",
+      "demo": false,
+      "counts": 4,
+      "records": [
+        {
+          "index": 1,
+          "origin_query": "Mock question ONE",
+          "prompt": "Fixture template: Mock question ONE",
+          "prediction": [
+            {
+              "role": "assistant",
+              "content": "SYNTHETIC response"
+            }
+          ],
+          "ground_truth": "SYNTHETIC expected",
+          "score": 0,
+          "cost": 1,
+          "prompt_tokens": 10,
+          "completion_tokens": 5,
+          "raw_output": "SYNTHETIC generated response, no real model invocation"
+        },
+        {
+          "index": 2,
+          "origin_query": "  mock   question one  ",
+          "prompt": "Fixture template:   mock   question one  ",
+          "prediction": [
+            {
+              "role": "assistant",
+              "content": "SYNTHETIC response"
+            }
+          ],
+          "ground_truth": "SYNTHETIC expected",
+          "score": 0.5,
+          "cost": 1,
+          "prompt_tokens": 10,
+          "completion_tokens": 5,
+          "raw_output": "SYNTHETIC generated response, no real model invocation"
+        },
+        {
+          "index": 3,
+          "origin_query": "Mock question three",
+          "prompt": "Fixture template: Mock question three",
+          "prediction": [
+            {
+              "role": "assistant",
+              "content": "SYNTHETIC response"
+            }
+          ],
+          "ground_truth": "SYNTHETIC expected",
+          "score": 1,
+          "cost": 1,
+          "prompt_tokens": 10,
+          "completion_tokens": 5,
+          "raw_output": "SYNTHETIC generated response, no real model invocation"
+        },
+        {
+          "index": 4,
+          "origin_query": "Mock question four",
+          "prompt": "Fixture template: Mock question four",
+          "prediction": [
+            {
+              "role": "assistant",
+              "content": "SYNTHETIC response"
+            }
+          ],
+          "ground_truth": "SYNTHETIC expected",
+          "score": 0.5,
+          "cost": 1,
+          "prompt_tokens": 10,
+          "completion_tokens": 5,
+          "raw_output": "SYNTHETIC generated response, no real model invocation"
+        }
+      ]
+    },
+    {
+      "dataset_name": "mock",
+      "split": "fixture",
+      "model_name": "mock-B",
+      "demo": false,
+      "counts": 4,
+      "records": [
+        {
+          "index": 1,
+          "origin_query": "Mock question ONE",
+          "prompt": "Fixture template: Mock question ONE",
+          "prediction": [
+            {
+              "role": "assistant",
+              "content": "SYNTHETIC response"
+            }
+          ],
+          "ground_truth": "SYNTHETIC expected",
+          "score": 0,
+          "cost": 2,
+          "prompt_tokens": 10,
+          "completion_tokens": 5,
+          "raw_output": "SYNTHETIC generated response, no real model invocation"
+        },
+        {
+          "index": 2,
+          "origin_query": "  mock   question one  ",
+          "prompt": "Fixture template:   mock   question one  ",
+          "prediction": [
+            {
+              "role": "assistant",
+              "content": "SYNTHETIC response"
+            }
+          ],
+          "ground_truth": "SYNTHETIC expected",
+          "score": 0.5,
+          "cost": 2,
+          "prompt_tokens": 10,
+          "completion_tokens": 5,
+          "raw_output": "SYNTHETIC generated response, no real model invocation"
+        },
+        {
+          "index": 3,
+          "origin_query": "Mock question three",
+          "prompt": "Fixture template: Mock question three",
+          "prediction": [
+            {
+              "role": "assistant",
+              "content": "SYNTHETIC response"
+            }
+          ],
+          "ground_truth": "SYNTHETIC expected",
+          "score": 1,
+          "cost": 2,
+          "prompt_tokens": 10,
+          "completion_tokens": 5,
+          "raw_output": "SYNTHETIC generated response, no real model invocation"
+        },
+        {
+          "index": 4,
+          "origin_query": "Mock question four",
+          "prompt": "Fixture template: Mock question four",
+          "prediction": [
+            {
+              "role": "assistant",
+              "content": "SYNTHETIC response"
+            }
+          ],
+          "ground_truth": "SYNTHETIC expected",
+          "score": 0.5,
+          "cost": 2,
+          "prompt_tokens": 10,
+          "completion_tokens": 5,
+          "raw_output": "SYNTHETIC generated response, no real model invocation"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "inputs": {
+    "arena_questions": {
+      "actual_sha256": "6cfe75abb0e09cd39e7f9b0b18ea96d41be2d4d9ddf76dc1d07d78b6accb2039",
+      "bytes": 963444,
+      "range_prefix": false,
+      "sha256": "6cfe75abb0e09cd39e7f9b0b18ea96d41be2d4d9ddf76dc1d07d78b6accb2039",
+      "url": "https://huggingface.co/datasets/lmarena-ai/arena-hard-auto/resolve/15f3746e21432264ce9b453999bde4f3c946d2e6/data/arena-hard-v2.0/question.jsonl"
+    },
+    "llm_archive_prefix": {
+      "actual_sha256": "8a64d5dbb81b82c1a7227760912544f86c5cb05eef22b8fe8f676a75d5b99dcb",
+      "bytes": 8388608,
+      "full_file_bytes": 1283503080,
+      "range_prefix": true,
+      "sha256": "8a64d5dbb81b82c1a7227760912544f86c5cb05eef22b8fe8f676a75d5b99dcb",
+      "url": "https://huggingface.co/datasets/NPULH/LLMRouterBench/resolve/b95870f9e60c589e82f7972c91ffa8de9ca89f85/bench-release.tar.gz?download=true",
+      "whole_archive_lfs_sha256": "b79f8cde1a6f029c2efa663a3a3b6f7748defb22341fe59f328cebef6648c8f1",
+      "whole_archive_locally_verified": false
+    },
+    "router_pickle_prefix": {
+      "actual_sha256": "4f27bfd377eae0f8be6ebecc2bf0785d4a26789ba7811a4581aac41cf1e3adf6",
+      "bytes": 262144,
+      "full_file_bytes": 99567659,
+      "range_prefix": true,
+      "sha256": "4f27bfd377eae0f8be6ebecc2bf0785d4a26789ba7811a4581aac41cf1e3adf6",
+      "url": "https://huggingface.co/datasets/withmartian/routerbench/resolve/784021482c3f320c6619ed4b3bb3b41a21424fcb/routerbench_0shot.pkl?download=true",
+      "whole_file_lfs_sha256": "ba4f77f19517610a707c374e99322d7750c30fc4ae7ff5527888595a1e65d36d",
+      "whole_file_locally_verified": false
+    }
+  },
+  "raw_data_redistributed": false,
+  "schema_version": "data-audit-1",
+  "selected_members": [
+    {
+      "model_id": "claude-sonnet-4",
+      "path": "bench-release/arenahard_coding/claude-sonnet-4/arenahard-coding-claude-sonnet-4-20251029_191638.json",
+      "records": 253,
+      "sha256": "fa1e0a5980573996709271b8440b9d6c9b494eb4ce50411ed1e023820b3b53c4"
+    },
+    {
+      "model_id": "deepseek-v3.1-terminus",
+      "path": "bench-release/arenahard_coding/deepseek-v3.1-terminus/arenahard-coding-deepseek-v3.1-terminus-20251029_190331.json",
+      "records": 253,
+      "sha256": "f13afe9e9150a56156b787d37897286c53769f6322608a6f54f1f5a26c0affc8"
+    },
+    {
+      "model_id": "gemini-2.5-flash",
+      "path": "bench-release/arenahard_coding/gemini-2.5-flash/arenahard-coding-gemini-2.5-flash-20251028_084349.json",
+      "records": 253,
+      "sha256": "15ef974f13a47673d7552dae34a4f4f24858ee2349647b6ab4f229f02486c93a"
+    },
+    {
+      "model_id": "qwen3-235b-a22b-2507",
+      "path": "bench-release/arenahard_coding/qwen3-235b-a22b-2507/arenahard-coding-qwen3-235b-a22b-2507-20251029_201146.json",
+      "records": 253,
+      "sha256": "666ec5c9b76744718dc41a6e166c713004eca33163a0dc694fc2bbbe1cbbf18f"
+    }
+  ],
+  "source_manifest_sha256": "0111867fccf70626c41bd948e2a2059fc601d3f5dd028be9992d7f7dfde6eef6",
+  "sources": [
+    {
+      "license": "MIT original contributions; inherited source terms retained",
+      "name": "LLMRouterBench_code",
+      "revision": "811df08b1b37646064eeb8cb6acfd498bf99885a",
+      "url": "https://github.com/ynulihao/LLMRouterBench"
+    },
+    {
+      "license": "MIT original contributions; inherited source terms retained",
+      "name": "LLMRouterBench_data",
+      "revision": "b95870f9e60c589e82f7972c91ffa8de9ca89f85",
+      "url": "https://huggingface.co/datasets/NPULH/LLMRouterBench"
+    },
+    {
+      "license": "Apache-2.0 declared by source dataset card",
+      "name": "ArenaHard_original_prompts",
+      "revision": "15f3746e21432264ce9b453999bde4f3c946d2e6",
+      "url": "https://huggingface.co/datasets/lmarena-ai/arena-hard-auto"
+    },
+    {
+      "license": "not declared at this dataset revision",
+      "name": "RouterBench_data",
+      "revision": "784021482c3f320c6619ed4b3bb3b41a21424fcb",
+      "url": "https://huggingface.co/datasets/withmartian/routerbench"
+    },
+    {
+      "license": "MIT code; not evidence of HF dataset redistribution permission",
+      "name": "RouterBench_code",
+      "revision": "cc67d1008bd8f3cf1e8040cc3ba4034d31b93c0c",
+      "url": "https://github.com/withmartian/routerbench"
+    }
+  ]
+}
