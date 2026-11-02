@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deviation-lab"
+version = "0.0.1"
+description = "Starter scaffold for a research laboratory on adversarial AI resource markets"
+readme = "START_HERE.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "DEVIATION contributors"}]
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
