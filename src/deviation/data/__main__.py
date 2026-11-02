@@ -10,6 +10,14 @@ from .pipeline import (AuditError, decision_view, digest, grouped_splits,
 
 
 def audit(manifest: dict, cache: Path, *, download: bool = False) -> dict:
+    # Explicitly marked synthetic manifests exercise the same acquisition and
+    # validation path without mislabeling generated fixtures as real observations.
+    data_kind = manifest.get("data_kind", "RECORDED_LLM_OUTCOMES")
+    if data_kind not in {"RECORDED_LLM_OUTCOMES", "SYNTHETIC_FIXTURE"}:
+        raise AuditError("invalid data kind")
+    synthetic = data_kind == "SYNTHETIC_FIXTURE"
+    cost_unit = "synthetic_units" if synthetic else "reported_usd"
+    cost_basis = "synthetic_fixture" if synthetic else "api_usage_cost_or_token_pricing_unresolved"
     inputs = {name: cached_input(spec, cache, download=download)
               for name, spec in manifest["inputs"].items()}
     members = result_members(inputs["llm_archive_prefix"], manifest["llm_sample"]["members"])
@@ -29,8 +37,8 @@ def audit(manifest: dict, cache: Path, *, download: bool = False) -> dict:
         source_counts[spec["model_id"]] = len(doc["records"])
         accepted, invalid = load_llmrouterbench(
             doc, revision=manifest["llm_sample"]["revision"],
-            metric="arena_hard_judged_win_tie_loss", cost_unit="reported_usd",
-            cost_basis="api_usage_cost_or_token_pricing_unresolved", collect_invalid=True)
+            metric="synthetic_fixture_quality" if synthetic else "arena_hard_judged_win_tie_loss",
+            cost_unit=cost_unit, cost_basis=cost_basis, data_kind=data_kind, collect_invalid=True)
         records.extend(accepted)
         rejected.extend(invalid)
     models = tuple(sorted(source_counts))
@@ -48,8 +56,9 @@ def audit(manifest: dict, cache: Path, *, download: bool = False) -> dict:
     validate_splits(cohort, splits)
     split_counts = dict(sorted(Counter(e["split"] for e in splits["tasks"].values()).items()))
     report = {
-        "schema_version": "data-audit-1", "data_kind": "RECORDED_LLM_OUTCOMES",
-        "scope": "bounded arenahard_coding subset; not representative of all benchmark domains",
+        "schema_version": "data-audit-1", "data_kind": data_kind,
+        "scope": ("synthetic integration fixture; no real model observations" if synthetic
+                  else "bounded arenahard_coding subset; not representative of all benchmark domains"),
         "technical_pairing": "PASS", "empirical_gate": "NO_GO",
         "blockers": manifest["empirical_gate_blockers"],
         "llmrouterbench": {
@@ -63,9 +72,10 @@ def audit(manifest: dict, cache: Path, *, download: bool = False) -> dict:
             "complete_cohort_records": len(cohort),
             "complete_tasks_with_model_specific_prompt_templates": formatted_mismatches,
             "selection_warning": "Complete-case exclusions depend on realized cost validity; audit cohort only, not a frozen evaluation set.",
-            "score_semantics": "judged baseline win=1, tie=0.5, loss=0; invalid judging can also become 0",
-            "cost_unit": "reported_usd",
-            "cost_basis": "api_usage_cost_or_token_pricing_unresolved",
+            "score_semantics": ("synthetic fixture quality" if synthetic else
+                                "judged baseline win=1, tie=0.5, loss=0; invalid judging can also become 0"),
+            "cost_unit": cost_unit,
+            "cost_basis": cost_basis,
             "cost_available_before_decision": False,
         },
         "routerbench": {
@@ -73,8 +83,10 @@ def audit(manifest: dict, cache: Path, *, download: bool = False) -> dict:
             "prefix_bytes": len(inputs["router_pickle_prefix"]),
             "pickle_protocol": inputs["router_pickle_prefix"][1],
             "ingestion": "NOT_DESERIALIZED; upstream pickle is not a safe interchange format",
-            "paired_task_count": None, "dataset_license": "not declared at pinned HF revision",
-            "cost_basis": "estimated from API/reference pricing; not observed invoices",
+            "paired_task_count": None,
+            "dataset_license": "synthetic fixture" if synthetic else "not declared at pinned HF revision",
+            "cost_basis": ("synthetic fixture only" if synthetic else
+                           "estimated from API/reference pricing; not observed invoices"),
         },
         "decision_fields": ["task_id", "prompt", "model_options"],
         "split_status": splits["status"], "split_counts": split_counts,
