@@ -1,0 +1,110 @@
+{
+  "blockers": [
+    "Retained ArenaHard scores do not identify invalid judging/missing baselines separately from genuine losses; per-row judge status/configuration must be recovered or the uncertain proxy explicitly accepted under Gate A.",
+    "Per-record cost provenance does not distinguish API usage.cost from token-price estimates; observed billed cost is unverified. Do not claim observed compute-dollar savings.",
+    "Realized response-dependent costs are not decision-time information. A training-only estimate or declared ex-ante budget/cap policy must be specified and reviewed before hard-budget mechanism research.",
+    "Human Gate A scientific/claim approval and the existing shared-contract review remain pending; no downstream implementation is authorized by this audit."
+  ],
+  "data_kind": "RECORDED_LLM_OUTCOMES",
+  "decision_fields": [
+    "task_id",
+    "prompt",
+    "model_options"
+  ],
+  "empirical_gate": "NO_GO",
+  "incremental_spend_usd": 0,
+  "llmrouterbench": {
+    "complete_cohort_records": 988,
+    "complete_paired_tasks": 247,
+    "complete_tasks_with_model_specific_prompt_templates": 0,
+    "cost_available_before_decision": false,
+    "cost_basis": "api_usage_cost_or_token_pricing_unresolved",
+    "cost_unit": "reported_usd",
+    "ground_truth_present_records": 0,
+    "incomplete_tasks": 6,
+    "missing_by_model": {
+      "claude-sonnet-4": 0,
+      "deepseek-v3.1-terminus": 0,
+      "gemini-2.5-flash": 2,
+      "qwen3-235b-a22b-2507": 4
+    },
+    "model_counts": {
+      "claude-sonnet-4": 253,
+      "deepseek-v3.1-terminus": 253,
+      "gemini-2.5-flash": 251,
+      "qwen3-235b-a22b-2507": 249
+    },
+    "original_prompt_matches": 253,
+    "original_source_rows": 750,
+    "overlap_matrix": {
+      "claude-sonnet-4": {
+        "claude-sonnet-4": 253,
+        "deepseek-v3.1-terminus": 253,
+        "gemini-2.5-flash": 251,
+        "qwen3-235b-a22b-2507": 249
+      },
+      "deepseek-v3.1-terminus": {
+        "claude-sonnet-4": 253,
+        "deepseek-v3.1-terminus": 253,
+        "gemini-2.5-flash": 251,
+        "qwen3-235b-a22b-2507": 249
+      },
+      "gemini-2.5-flash": {
+        "claude-sonnet-4": 251,
+        "deepseek-v3.1-terminus": 251,
+        "gemini-2.5-flash": 251,
+        "qwen3-235b-a22b-2507": 247
+      },
+      "qwen3-235b-a22b-2507": {
+        "claude-sonnet-4": 249,
+        "deepseek-v3.1-terminus": 249,
+        "gemini-2.5-flash": 247,
+        "qwen3-235b-a22b-2507": 249
+      }
+    },
+    "quality_value_counts": {
+      "0.0": 287,
+      "0.5": 223,
+      "1.0": 496
+    },
+    "raw_aligned_tasks": 253,
+    "rejection_counts": {
+      "zero real cost has unverified provenance": 6
+    },
+    "rejections_by_model": {
+      "gemini-2.5-flash": 2,
+      "qwen3-235b-a22b-2507": 4
+    },
+    "score_semantics": "judged baseline win=1, tie=0.5, loss=0; invalid judging can also become 0",
+    "selection_warning": "Complete-case exclusions depend on realized cost validity; audit cohort only, not a frozen evaluation set.",
+    "source_model_counts": {
+      "claude-sonnet-4": 253,
+      "deepseek-v3.1-terminus": 253,
+      "gemini-2.5-flash": 253,
+      "qwen3-235b-a22b-2507": 253
+    },
+    "source_records": 1012,
+    "tasks_with_any_valid_outcome": 253,
+    "valid_records": 1006,
+    "zero_or_invalid_cost_and_outcome_rows": 6
+  },
+  "routerbench": {
+    "cost_basis": "estimated from API/reference pricing; not observed invoices",
+    "dataset_license": "not declared at pinned HF revision",
+    "ingestion": "NOT_DESERIALIZED; upstream pickle is not a safe interchange format",
+    "paired_task_count": null,
+    "pickle_protocol": 5,
+    "prefix_bytes": 262144,
+    "revision": "784021482c3f320c6619ed4b3bb3b41a21424fcb"
+  },
+  "schema_version": "data-audit-1",
+  "scope": "bounded arenahard_coding subset; not representative of all benchmark domains",
+  "split_counts": {
+    "test": 44,
+    "train": 172,
+    "validation": 31
+  },
+  "split_manifest_sha256": "f9890582e6f0a7dfbc8d43e318c40dd49934724126755ec9ffb6d383232d5ca4",
+  "split_status": "EXPLORATORY_NOT_FROZEN",
+  "technical_pairing": "PASS"
+}
