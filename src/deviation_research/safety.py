@@ -107,6 +107,15 @@ def run(runner, payload, *, wall_seconds=None):
                 process.wait()
                 raise SandboxError("worker wall timeout", usage("WALL_TIMEOUT",
                     (out/"stdout.log").read_text(errors="replace"), (out/"stderr.log").read_text(errors="replace")))
+            finally:
+                # Embedded callers may catch KeyboardInterrupt/SystemExit and
+                # keep the driver alive. Never leave a detached worker behind.
+                if process.poll() is None:
+                    try:
+                        os.killpg(process.pid, signal.SIGKILL)
+                    except ProcessLookupError:
+                        pass
+                    process.wait()
         if code:
             error = (out/"stderr.log").read_text(errors="replace")[-2500:]
             raise SandboxError(f"sandbox worker exit {code}: {error}", usage("EXIT_"+str(code),
