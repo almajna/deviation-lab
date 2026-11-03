@@ -106,7 +106,7 @@ MPLCONFIGDIR=replay/mpl python scripts/report_certificate_benchmark.py replay/me
 Economic values, proofs, work counts and source bindings reproduce exactly;
 wall times vary by hardware/load. The first declared base/seed101 case for each
 mechanism is retained as a complete example proof regardless of outcome. The
-driver emits all proof files. No fee/spending or holdout access occurred.
+driver emits all proof files. No monetary spend or final holdout access occurred.
 All 81 complete proofs are also retained in a compressed archive directory with
 hashes of compressed and original JSON bytes; they can be independently checked
 without rerunning any optimizer.
