@@ -20,10 +20,15 @@ recorded in the result manifest. Later changes must be disclosed separately.
 3. **Useful certification (contingent):** report the fraction closing the gap,
    absolute gap, proof bytes, visited states, engine transitions and separately
    measured generation/check time. We claim a practical improvement only if the
-   paired median end-to-end time (generation + independent check) is at most
-   0.8 times a completed exact baseline on the same solved nontrivial cases, with
+   median of paired per-case end-to-end time ratios (generation + independent
+   check, divided by the faster completed independent exact baseline) is at most
+   0.8 on the same zero-gap nontrivial cases, with
    at least 10 cases. Timing samples are descriptive, not independent economic
    observations. Fewer cases or a missed threshold is inconclusive/negative.
+   Nontrivial means at least two independently admissible root actions. Each
+   per-case time is the median of three measured runs, following one warm run.
+   The primary ratio is (median solve time + median checker time) divided by
+   the smaller median time of the completed exhaustive/DP baselines.
 4. **Search quality (contingent):** compare incumbent utility against ordinary
    beam search with the same configured expansion cap, and against independent
    exhaustive enumeration and exact memoized dynamic programming where complete.
@@ -73,11 +78,17 @@ and certified numeric primitives, not the optimizer or its bound routines.
 It is a distinct mathematical implementation, not a formally verified theorem.
 
 One warm run plus three timed repeats are planned; retain all raw times, use the
-median per case, report min/max and paired case bootstrap intervals with 2,000
-draws and seed 991. Fixtures are the unit of comparison. Grid/seed intervals
+median per case, report min/max and paired seed-block bootstrap intervals with
+2,000 draws and seed 991 (resample seeds, keeping all their eligible profiles and
+mechanisms together). With only three seed blocks these intervals are coarse.
+Grid/seed intervals
 describe this finite suite, not a sampled real-world population. Deterministic
 utilities require exact agreement, not sampling intervals. Timings are excluded
 from byte-for-byte result comparison; all economic/proof/count fields are checked.
+
+Protocol review clarified these criteria before any numerical execution. Static
+report rows always search one commitment regardless of profile horizon; actual
+horizons are reported, and repeated report settings are not evidence of scaling.
 
 ## Interpretation and limits
 
