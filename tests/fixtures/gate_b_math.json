@@ -1,0 +1,140 @@
+{
+  "categories": [
+    "zero",
+    "half",
+    "one"
+  ],
+  "data_kind": "SYNTHETIC",
+  "external_utility_example": {
+    "additional_effort": 1,
+    "cash_loss": 3,
+    "expected_external_gain": 5,
+    "expected_utility_gain": 1
+  },
+  "fixture_scope": "HAND_SPECIFIED_MATHEMATICAL_CASES_NOT_EXECUTED_MARKET_OR_COMPLETE_REPLAY",
+  "market_example": {
+    "accepted_event": {
+      "actor": "SYNTHETIC-agent",
+      "payload": {
+        "fee": 1,
+        "fee_sink_after": 1,
+        "fee_sink_before": 0,
+        "maker_cash_after": 16,
+        "maker_cash_before": 11,
+        "market_id": "SYNTHETIC-task/model-a",
+        "max_net_debit": 6,
+        "order_id": "SYNTHETIC-buy-one",
+        "position_after": [
+          0,
+          0,
+          10
+        ],
+        "position_before": [
+          0,
+          0,
+          0
+        ],
+        "price_counts_after": [
+          635825,
+          635825,
+          1728350
+        ],
+        "price_counts_before": [
+          1000000,
+          1000000,
+          1000000
+        ],
+        "price_denominator": 3000000,
+        "q_after": [
+          0,
+          0,
+          10
+        ],
+        "q_before": [
+          0,
+          0,
+          0
+        ],
+        "quote_interval": [
+          "4.5283242526394139",
+          "4.5283242526394141"
+        ],
+        "quote_policy_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "quote_precision": 80,
+        "share_delta": [
+          0,
+          0,
+          10
+        ],
+        "signed_maker_charge": 5,
+        "state_seq_after": 1,
+        "state_seq_before": 0,
+        "trader_cash_after": 14,
+        "trader_cash_before": 20,
+        "transfer_ids": [
+          "SYNTHETIC-trade-payment",
+          "SYNTHETIC-fee"
+        ]
+      },
+      "seq": 0,
+      "stage": "TRADE_OR_UPDATE",
+      "time_step": 0,
+      "type": "trade_accepted",
+      "visibility": "PUBLIC"
+    },
+    "b": 10,
+    "initial_funding": 11,
+    "roundtrip": {
+      "agent_final": 17,
+      "maker_final": 12,
+      "net_agent_profit": -3,
+      "sell_signed_charge": -4,
+      "sink_final": 2
+    },
+    "win_resolution": {
+      "agent_final": 24,
+      "maker_final": 6,
+      "maker_pnl": -5,
+      "maker_realized_loss": 5,
+      "sink_final": 1
+    },
+    "zero_resolution": {
+      "agent_final": 14,
+      "maker_final": 16,
+      "maker_pnl": 5,
+      "maker_realized_loss": 0,
+      "sink_final": 1
+    }
+  },
+  "proposal_version": "0.3",
+  "score_example": {
+    "K": 200,
+    "alternative_counts": [
+      3,
+      3,
+      4
+    ],
+    "alternative_expected_reward": "136",
+    "belief_counts": [
+      2,
+      3,
+      5
+    ],
+    "counts": [
+      2,
+      3,
+      5
+    ],
+    "denominator": 10,
+    "expected_reward": "138",
+    "final_pool": 38,
+    "initial_pool": 200,
+    "one_payout": 162,
+    "scale_k": 1,
+    "scores_by_category": [
+      102,
+      122,
+      162
+    ]
+  }
+}
