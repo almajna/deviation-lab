@@ -36,11 +36,7 @@ jobs:
         run: python -I -m deviation_research reproduce --evidence "$RUNNER_TEMP/research" --out "$RUNNER_TEMP/reproduction"
       - name: Strict historical and current research source migration
         run: |
-          if test -f artifacts/research/rebase/manifest.json; then
-            python -I -m deviation_research_replay --out "$RUNNER_TEMP/research-rebase" --verify artifacts/research/rebase/manifest.json
-          else
-            python -I -m deviation_research_replay --out "$RUNNER_TEMP/research-rebase"
-          fi
+          python -I -m deviation_research_replay --out "$RUNNER_TEMP/research-rebase" --verify artifacts/research/rebase/manifest.json
       - name: Verify retained negative, failure and resource evidence bindings
         run: |
           python - <<'PY'

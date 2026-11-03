@@ -73,6 +73,7 @@ def historical_source():
 
 def historical_environment():
     env = os.environ.copy(); env.pop("PYTHONHOME",None)
+    env.pop("PYTHONOPTIMIZE",None)
     env["PYTHONPATH"] = str(Path(historical_source().name)/"src")
     env["PYTHONDONTWRITEBYTECODE"] = "1"
     return env
@@ -90,8 +91,8 @@ from unittest.mock import patch
 from deviation_research.records import source_hash
 from deviation.verification.checker import source_sha
 from deviation_research.review import review
-assert source_hash() == %r
-assert source_sha() == %r
+if source_hash() != %r: raise ValueError('HISTORICAL_HARNESS_SOURCE_MISMATCH')
+if source_sha() != %r: raise ValueError('HISTORICAL_ENGINE_SOURCE_MISMATCH')
 with patch('deviation.attacks.certified.solver.solve',side_effect=AssertionError('optimizer forbidden')), patch('deviation.attacks.game.Game.expected',side_effect=AssertionError('producer payoff forbidden')), patch('deviation.attacks.game.Game.allocation',side_effect=AssertionError('producer allocation forbidden')):
  print(json.dumps(review(json.load(sys.stdin)),allow_nan=False))
 ''' % (HISTORICAL_HARNESS_SHA,HISTORICAL_ENGINE_SHA)

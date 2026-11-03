@@ -3,6 +3,8 @@ from copy import deepcopy
 from pathlib import Path
 import json
 import unittest
+from unittest.mock import patch
+import os
 
 from deviation.data.pipeline import digest
 from deviation.attacks.environments import environment
@@ -42,6 +44,12 @@ class RebaseTests(unittest.TestCase):
         forged = deepcopy(self.old); forged["rows"][0]["payoff"]["utility"][0] += 1
         with self.assertRaises(ValueError):
             historical_review({"plan":self.plan,"result":forged})
+
+    def test_historical_binding_survives_optimized_environment(self):
+        with patch.dict(os.environ,{"PYTHONOPTIMIZE":"2"}), \
+             patch("deviation_research_replay.provenance.HISTORICAL_HARNESS_SHA","0"*64):
+            with self.assertRaisesRegex(ValueError,"HISTORICAL_HARNESS_SOURCE_MISMATCH"):
+                historical_review({"plan":self.plan,"result":self.old})
 
     def test_current_checker_still_rejects_historical_source(self):
         row = self.old["rows"][0]

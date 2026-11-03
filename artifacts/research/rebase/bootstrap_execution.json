@@ -1,0 +1,26 @@
+{
+  "version": "research-rebase-bootstrap-1",
+  "executed_commit": "f5333fa34aea07705027fb3d963502bd90559c6e",
+  "run_url": "https://github.com/almajna/deviation-lab/actions/runs/41727987640",
+  "job_id": 126237675002,
+  "status": "SUCCESS",
+  "retained_actual_manifest": "bootstrap.manifest.json",
+  "scientific_files": 56,
+  "event_relationships": 54,
+  "findings": {
+    "bounds": "SUPPORTED_ON_REGISTERED_GRID",
+    "correlation": "REJECTED_ON_REGISTERED_GRID",
+    "fees": "REJECTED_ON_EVALUATED_CELLS",
+    "lmsr": "SUPPORTED_ON_REGISTERED_GRID"
+  },
+  "guard_hardening": {
+    "changed_file": "src/deviation_research_replay/provenance.py",
+    "historical_actual_sha256": "1c2be629373557749a428f70c1c5a9d949f99b54342dcad90651bd391f4f6007",
+    "expected_hardened_sha256": "6bff22687edd6e7897272bf89b665e28d0842297ca47ae93ca8b8a1b24fa15ac",
+    "change": "Replace optimization-sensitive asserts with explicit source mismatch failures and remove inherited PYTHONOPTIMIZE. All56 scientific file hashes remain the observed bootstrap values. Expected manifest binds the stronger guard; final CI must actually regenerate and match it before acceptance."
+  },
+  "final_strict_reproduction": "REQUIRED_NOT_YET_CLAIMED",
+  "new_inference_calls": 0,
+  "paid_spend_usd": 0,
+  "final_holdout_accessed": false
+}
