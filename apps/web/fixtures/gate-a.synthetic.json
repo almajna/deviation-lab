@@ -1,0 +1,131 @@
+{
+  "agent_origin": "SYNTHETIC",
+  "cost_unit": "nano_synthetic_units",
+  "data_kind": "SYNTHETIC",
+  "events": [
+    {
+      "actor": "seed-history",
+      "payload": {
+        "forecast_kind": "expected_preference_proxy",
+        "task_id": "eval-1",
+        "values": {
+          "a": 0.4,
+          "b": 0.6
+        }
+      },
+      "seq": 0,
+      "time_step": 0,
+      "type": "public_forecast",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "allocator",
+      "payload": {
+        "model_id": "a",
+        "reserved_cost": 200,
+        "task_id": "eval-1"
+      },
+      "seq": 1,
+      "time_step": 1,
+      "type": "reservation",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "allocator",
+      "payload": {
+        "model_id": "b",
+        "reserved_cost": 300,
+        "task_id": "eval-2"
+      },
+      "seq": 2,
+      "time_step": 1,
+      "type": "reservation",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "cost_unit": "nano_synthetic_units",
+        "net_overrun": 400,
+        "phase": "SETTLED",
+        "positive_task_overruns": 500,
+        "realized_budget_excess": 300,
+        "realized_budget_violated": true,
+        "realized_spend": 900,
+        "reservation_spend": 500,
+        "schema_version": "0.2",
+        "selected_costs": [
+          {
+            "model_id": "a",
+            "realized_cost": 700,
+            "task_id": "eval-1"
+          },
+          {
+            "model_id": "b",
+            "realized_cost": 200,
+            "task_id": "eval-2"
+          }
+        ],
+        "unused_reservations": 100
+      },
+      "seq": 3,
+      "time_step": 2,
+      "type": "realized_cost_report",
+      "visibility": "POST_SETTLEMENT"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "amount": 2,
+        "payee": "fee_sink",
+        "payer": "agent-1",
+        "reason": "action_fee",
+        "transfer_id": "fee-1"
+      },
+      "seq": 4,
+      "time_step": 2,
+      "type": "ledger_transfer",
+      "visibility": "POST_SETTLEMENT"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "amount": 6,
+        "payee": "agent-1",
+        "payer": "maker",
+        "reason": "settlement",
+        "transfer_id": "reward-1"
+      },
+      "seq": 5,
+      "time_step": 2,
+      "type": "ledger_transfer",
+      "visibility": "POST_SETTLEMENT"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "agent-1": {
+          "cash_delta": 4,
+          "external_benefit": 3,
+          "noncash_effort_cost": 1,
+          "utility": 6
+        }
+      },
+      "seq": 6,
+      "time_step": 2,
+      "type": "utility_summary",
+      "visibility": "POST_SETTLEMENT"
+    }
+  ],
+  "experiment_id": "SYNTHETIC-contract-conformance",
+  "phase": "SETTLED",
+  "provenance": {
+    "code_revision": "SYNTHETIC_FIXTURE",
+    "source_manifest_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "split_manifest_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  },
+  "quality_semantics": "synthetic_fixture",
+  "reservation_artifact_sha256": "4252d8a88f793a7acd3b21d64ffd8099d40d3e84210a37ba488ce5105e7bd4c8",
+  "schema_version": "0.2",
+  "seed": 7
+}
