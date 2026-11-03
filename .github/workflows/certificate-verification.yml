@@ -15,6 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
@@ -22,15 +25,20 @@ jobs:
         run: python -m pip install --no-deps .
       - name: All unit and mathematical tests
         run: python -m unittest discover -s tests -v
+      - name: Stage exact source for immutable published proof archive
+        run: |
+          mkdir -p "$RUNNER_TEMP/verification-source"
+          git archive f199007eca28097f70115c5f9a20276b046fe95c | tar -x -C "$RUNNER_TEMP/verification-source"
+          echo "PYTHONPATH=$RUNNER_TEMP/verification-source/src" >> "$GITHUB_ENV"
       - name: Reproduce all frozen development cases through independent checker
-        run: python -I -m deviation.verification --out "$RUNNER_TEMP/independent" --no-timings --verify artifacts/verification/results.json
-      - name: Check all retained example proofs against current source
+        run: python -m deviation.verification --out "$RUNNER_TEMP/independent" --no-timings --verify artifacts/verification/results.json
+      - name: Check all retained example proofs against exact original source
         run: |
           for mechanism in lmsr interactive-pool pool; do
-            python -I -m deviation.verification --certificate "artifacts/verification/examples/base-101-$mechanism.json" --mechanism "$mechanism"
+            python -m deviation.verification --certificate "artifacts/verification/examples/base-101-$mechanism.json" --mechanism "$mechanism"
           done
       - name: Independently check all retained compressed proofs without optimization
-        run: python scripts/check_certificate_archive.py artifacts/verification
+        run: python "$RUNNER_TEMP/verification-source/scripts/check_certificate_archive.py" artifacts/verification
       - name: Verify scientific figure and input bindings
         run: |
           python - <<'PY'

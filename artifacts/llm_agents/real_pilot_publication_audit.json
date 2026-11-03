@@ -1,0 +1,20 @@
+{
+  "agent_private_fields": "ARTIFICIAL_EXOGENOUS_BELIEFS_VIRTUAL_CREDITS_NOT_USER_CONFIDENTIAL_DATA",
+  "complete_prompts_checked": 24,
+  "episodes_checked": 6,
+  "metadata": "PUBLIC_RUN_IDS_PUBLIC_MODEL_HASHES_DEPENDENCY_VERSIONS_ONLY",
+  "model_output_string_values": 0,
+  "model_outputs": "NUMERIC_JSON_WITH_ALLOWLISTED_KEYS_ONLY; INVALID_ACTIONS_REMAIN_INVALID",
+  "personal_or_external_task_inputs": 0,
+  "prompt_origin": "EXACT_RECONSTRUCTION_FROM_PREEXISTING_AUTHORED_SYNTHETIC_FIXTURES",
+  "publication_classification": "NON_SENSITIVE_AUTHORED_RESEARCH_FIXTURE_AND_OBSERVED_MODEL_OUTPUT",
+  "replay": {
+    "episodes_reproduced": 6,
+    "new_inference_calls": 0,
+    "source_pilot_sha256": "1c11adc7b687fc608562456938c115a9878bc5394fc16a9c25a254956aae4a0b",
+    "version": "llm-pilot-replay-1"
+  },
+  "source_pilot_sha256": "1c11adc7b687fc608562456938c115a9878bc5394fc16a9c25a254956aae4a0b",
+  "token_ids": "TOKENIZER_INTEGERS_FOR_THE_SAME_PUBLIC_SYNTHETIC_TEXT_NOT_AUTHENTICATION_TOKENS",
+  "version": "llm-pilot-publication-audit-1"
+}

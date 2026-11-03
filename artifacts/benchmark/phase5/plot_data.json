@@ -1,0 +1,1536 @@
+{
+  "recorded": [
+    {
+      "batch_violation_fraction": 0.75,
+      "brier": 0.6464500302031063,
+      "clusters": 8,
+      "condition": "0/1",
+      "difference_lower": 0.0,
+      "difference_upper": 0.0,
+      "difference_vs_calibrated_pool": 0.0,
+      "mean_batch_calibration_abs_error": 0.12914834229390681,
+      "mean_quality": 0.7580645161290323,
+      "mechanism": "lmsr",
+      "quality_lower": 0.6612903225806451,
+      "quality_upper": 0.8548387096774194,
+      "realized_historical_spend": 35529660.0,
+      "regret": 0.03225806451612903,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 91.33333333333333,
+          "outcome_sum": 55.666666666666664,
+          "prediction_sum": 46.04386111111111
+        },
+        {
+          "count": 32.666666666666664,
+          "outcome_sum": 22.333333333333332,
+          "prediction_sum": 22.28193333333333
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 30050966.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.75,
+      "brier": 0.6169634856630825,
+      "clusters": 8,
+      "condition": "0/1",
+      "difference_lower": 0.0,
+      "difference_upper": 0.0,
+      "difference_vs_calibrated_pool": 0.0,
+      "mean_batch_calibration_abs_error": 0.12499999999999999,
+      "mean_quality": 0.7580645161290323,
+      "mechanism": "pool",
+      "quality_lower": 0.6612903225806451,
+      "quality_upper": 0.8548387096774194,
+      "realized_historical_spend": 35529660.0,
+      "regret": 0.03225806451612903,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 64.0,
+          "outcome_sum": 38.0,
+          "prediction_sum": 35.43750000000001
+        },
+        {
+          "count": 60.0,
+          "outcome_sum": 40.0,
+          "prediction_sum": 38.979166666666664
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 30050966.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.75,
+      "brier": 0.6169634856630825,
+      "clusters": 8,
+      "condition": "0/1",
+      "difference_lower": 0.0,
+      "difference_upper": 0.0,
+      "difference_vs_calibrated_pool": 0.0,
+      "mean_batch_calibration_abs_error": 0.12499999999999999,
+      "mean_quality": 0.7580645161290323,
+      "mechanism": "interactive-pool",
+      "quality_lower": 0.6612903225806451,
+      "quality_upper": 0.8548387096774194,
+      "realized_historical_spend": 35529660.0,
+      "regret": 0.03225806451612903,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 64.0,
+          "outcome_sum": 38.0,
+          "prediction_sum": 35.43750000000001
+        },
+        {
+          "count": 60.0,
+          "outcome_sum": 40.0,
+          "prediction_sum": 38.979166666666664
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 30050966.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.75,
+      "brier": 0.6169634856630825,
+      "clusters": 8,
+      "condition": "0/1",
+      "difference_lower": 0.0,
+      "difference_upper": 0.0,
+      "difference_vs_calibrated_pool": 0.0,
+      "mean_batch_calibration_abs_error": 0.12499999999999999,
+      "mean_quality": 0.7580645161290323,
+      "mechanism": "calibrated-pool",
+      "quality_lower": 0.6612903225806451,
+      "quality_upper": 0.8548387096774194,
+      "realized_historical_spend": 35529660.0,
+      "regret": 0.03225806451612903,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 64.0,
+          "outcome_sum": 38.0,
+          "prediction_sum": 35.43750000000001
+        },
+        {
+          "count": 60.0,
+          "outcome_sum": 40.0,
+          "prediction_sum": 38.979166666666664
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 30050966.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.5,
+      "brier": 0.6169634856630825,
+      "clusters": 8,
+      "condition": "0/1",
+      "difference_lower": -0.31666666666666665,
+      "difference_upper": -0.12903225806451613,
+      "difference_vs_calibrated_pool": -0.2150537634408602,
+      "mean_batch_calibration_abs_error": 0.12499999999999999,
+      "mean_quality": 0.543010752688172,
+      "mechanism": "random",
+      "quality_lower": 0.47023809523809523,
+      "quality_upper": 0.6145833333333333,
+      "realized_historical_spend": 32839683.333333332,
+      "regret": 0.24731182795698925,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 64.0,
+          "outcome_sum": 38.0,
+          "prediction_sum": 35.43750000000001
+        },
+        {
+          "count": 60.0,
+          "outcome_sum": 40.0,
+          "prediction_sum": 38.979166666666664
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 28314790.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.75,
+      "brier": 0.6169634856630825,
+      "clusters": 8,
+      "condition": "0/1",
+      "difference_lower": 0.0,
+      "difference_upper": 0.0,
+      "difference_vs_calibrated_pool": 0.0,
+      "mean_batch_calibration_abs_error": 0.12499999999999999,
+      "mean_quality": 0.7580645161290323,
+      "mechanism": "cheapest",
+      "quality_lower": 0.6612903225806451,
+      "quality_upper": 0.8548387096774194,
+      "realized_historical_spend": 35529660.0,
+      "regret": 0.03225806451612903,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 64.0,
+          "outcome_sum": 38.0,
+          "prediction_sum": 35.43750000000001
+        },
+        {
+          "count": 60.0,
+          "outcome_sum": 40.0,
+          "prediction_sum": 38.979166666666664
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 30050966.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.75,
+      "brier": 0.6169634856630825,
+      "clusters": 8,
+      "condition": "0/1",
+      "difference_lower": 0.0,
+      "difference_upper": 0.0,
+      "difference_vs_calibrated_pool": 0.0,
+      "mean_batch_calibration_abs_error": 0.12499999999999999,
+      "mean_quality": 0.7580645161290323,
+      "mechanism": "best-fixed",
+      "quality_lower": 0.6612903225806451,
+      "quality_upper": 0.8548387096774194,
+      "realized_historical_spend": 35529660.0,
+      "regret": 0.03225806451612903,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 64.0,
+          "outcome_sum": 38.0,
+          "prediction_sum": 35.43750000000001
+        },
+        {
+          "count": 60.0,
+          "outcome_sum": 40.0,
+          "prediction_sum": 38.979166666666664
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 30050966.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.75,
+      "brier": 0.6353046594982079,
+      "clusters": 8,
+      "condition": "0/1",
+      "difference_lower": 0.0,
+      "difference_upper": 0.0,
+      "difference_vs_calibrated_pool": 0.0,
+      "mean_batch_calibration_abs_error": 0.09879032258064518,
+      "mean_quality": 0.7580645161290323,
+      "mechanism": "text-router",
+      "quality_lower": 0.6612903225806451,
+      "quality_upper": 0.8548387096774194,
+      "realized_historical_spend": 35529660.0,
+      "regret": 0.03225806451612903,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 87.0,
+          "outcome_sum": 51.5,
+          "prediction_sum": 49.416666666666664
+        },
+        {
+          "count": 37.0,
+          "outcome_sum": 26.5,
+          "prediction_sum": 25.666666666666668
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 30050966.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.625,
+      "brier": 0.6169634856630825,
+      "clusters": 8,
+      "condition": "0/1",
+      "difference_lower": 0.0,
+      "difference_upper": 0.078125,
+      "difference_vs_calibrated_pool": 0.03225806451612903,
+      "mean_batch_calibration_abs_error": 0.12499999999999999,
+      "mean_quality": 0.7903225806451613,
+      "mechanism": "oracle-analysis-only",
+      "quality_lower": 0.7096774193548387,
+      "quality_upper": 0.8709677419354839,
+      "realized_historical_spend": 33590780.0,
+      "regret": 0.0,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 64.0,
+          "outcome_sum": 38.0,
+          "prediction_sum": 35.43750000000001
+        },
+        {
+          "count": 60.0,
+          "outcome_sum": 40.0,
+          "prediction_sum": 38.979166666666664
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 28213492.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.0,
+      "brier": 0.6464500302031063,
+      "clusters": 8,
+      "condition": "1/1",
+      "difference_lower": -0.14516129032258066,
+      "difference_upper": 0.03333333333333335,
+      "difference_vs_calibrated_pool": -0.04838709677419354,
+      "mean_batch_calibration_abs_error": 0.12914834229390681,
+      "mean_quality": 0.7096774193548387,
+      "mechanism": "lmsr",
+      "quality_lower": 0.6236559139784946,
+      "quality_upper": 0.8010752688172043,
+      "realized_historical_spend": 73507206.66666667,
+      "regret": 0.20967741935483872,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 91.33333333333333,
+          "outcome_sum": 55.666666666666664,
+          "prediction_sum": 46.04386111111111
+        },
+        {
+          "count": 32.666666666666664,
+          "outcome_sum": 22.333333333333332,
+          "prediction_sum": 22.28193333333333
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 86500848.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.0,
+      "brier": 0.6169634856630825,
+      "clusters": 8,
+      "condition": "1/1",
+      "difference_lower": 0.0,
+      "difference_upper": 0.0,
+      "difference_vs_calibrated_pool": 0.0,
+      "mean_batch_calibration_abs_error": 0.12499999999999999,
+      "mean_quality": 0.7580645161290323,
+      "mechanism": "pool",
+      "quality_lower": 0.6612903225806451,
+      "quality_upper": 0.8548387096774194,
+      "realized_historical_spend": 35529660.0,
+      "regret": 0.16129032258064516,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 64.0,
+          "outcome_sum": 38.0,
+          "prediction_sum": 35.43750000000001
+        },
+        {
+          "count": 60.0,
+          "outcome_sum": 40.0,
+          "prediction_sum": 38.979166666666664
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 30050966.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.0,
+      "brier": 0.6169634856630825,
+      "clusters": 8,
+      "condition": "1/1",
+      "difference_lower": 0.0,
+      "difference_upper": 0.0,
+      "difference_vs_calibrated_pool": 0.0,
+      "mean_batch_calibration_abs_error": 0.12499999999999999,
+      "mean_quality": 0.7580645161290323,
+      "mechanism": "interactive-pool",
+      "quality_lower": 0.6612903225806451,
+      "quality_upper": 0.8548387096774194,
+      "realized_historical_spend": 35529660.0,
+      "regret": 0.16129032258064516,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 64.0,
+          "outcome_sum": 38.0,
+          "prediction_sum": 35.43750000000001
+        },
+        {
+          "count": 60.0,
+          "outcome_sum": 40.0,
+          "prediction_sum": 38.979166666666664
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 30050966.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.0,
+      "brier": 0.6169634856630825,
+      "clusters": 8,
+      "condition": "1/1",
+      "difference_lower": 0.0,
+      "difference_upper": 0.0,
+      "difference_vs_calibrated_pool": 0.0,
+      "mean_batch_calibration_abs_error": 0.12499999999999999,
+      "mean_quality": 0.7580645161290323,
+      "mechanism": "calibrated-pool",
+      "quality_lower": 0.6612903225806451,
+      "quality_upper": 0.8548387096774194,
+      "realized_historical_spend": 35529660.0,
+      "regret": 0.16129032258064516,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 64.0,
+          "outcome_sum": 38.0,
+          "prediction_sum": 35.43750000000001
+        },
+        {
+          "count": 60.0,
+          "outcome_sum": 40.0,
+          "prediction_sum": 38.979166666666664
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 30050966.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.0,
+      "brier": 0.6169634856630825,
+      "clusters": 8,
+      "condition": "1/1",
+      "difference_lower": -0.3010752688172043,
+      "difference_upper": -0.0053763440860215015,
+      "difference_vs_calibrated_pool": -0.13440860215053763,
+      "mean_batch_calibration_abs_error": 0.12499999999999999,
+      "mean_quality": 0.6236559139784946,
+      "mechanism": "random",
+      "quality_lower": 0.5222222222222223,
+      "quality_upper": 0.7135416666666666,
+      "realized_historical_spend": 202601210.0,
+      "regret": 0.2956989247311828,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 64.0,
+          "outcome_sum": 38.0,
+          "prediction_sum": 35.43750000000001
+        },
+        {
+          "count": 60.0,
+          "outcome_sum": 40.0,
+          "prediction_sum": 38.979166666666664
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 192144000.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.0,
+      "brier": 0.6169634856630825,
+      "clusters": 8,
+      "condition": "1/1",
+      "difference_lower": 0.0,
+      "difference_upper": 0.0,
+      "difference_vs_calibrated_pool": 0.0,
+      "mean_batch_calibration_abs_error": 0.12499999999999999,
+      "mean_quality": 0.7580645161290323,
+      "mechanism": "cheapest",
+      "quality_lower": 0.6612903225806451,
+      "quality_upper": 0.8548387096774194,
+      "realized_historical_spend": 35529660.0,
+      "regret": 0.16129032258064516,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 64.0,
+          "outcome_sum": 38.0,
+          "prediction_sum": 35.43750000000001
+        },
+        {
+          "count": 60.0,
+          "outcome_sum": 40.0,
+          "prediction_sum": 38.979166666666664
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 30050966.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.0,
+      "brier": 0.6169634856630825,
+      "clusters": 8,
+      "condition": "1/1",
+      "difference_lower": 0.0,
+      "difference_upper": 0.0,
+      "difference_vs_calibrated_pool": 0.0,
+      "mean_batch_calibration_abs_error": 0.12499999999999999,
+      "mean_quality": 0.7580645161290323,
+      "mechanism": "best-fixed",
+      "quality_lower": 0.6612903225806451,
+      "quality_upper": 0.8548387096774194,
+      "realized_historical_spend": 35529660.0,
+      "regret": 0.16129032258064516,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 64.0,
+          "outcome_sum": 38.0,
+          "prediction_sum": 35.43750000000001
+        },
+        {
+          "count": 60.0,
+          "outcome_sum": 40.0,
+          "prediction_sum": 38.979166666666664
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 30050966.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.0,
+      "brier": 0.6353046594982079,
+      "clusters": 8,
+      "condition": "1/1",
+      "difference_lower": 0.0,
+      "difference_upper": 0.0,
+      "difference_vs_calibrated_pool": 0.0,
+      "mean_batch_calibration_abs_error": 0.09879032258064518,
+      "mean_quality": 0.7580645161290323,
+      "mechanism": "text-router",
+      "quality_lower": 0.6612903225806451,
+      "quality_upper": 0.8548387096774194,
+      "realized_historical_spend": 35529660.0,
+      "regret": 0.16129032258064516,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 87.0,
+          "outcome_sum": 51.5,
+          "prediction_sum": 49.416666666666664
+        },
+        {
+          "count": 37.0,
+          "outcome_sum": 26.5,
+          "prediction_sum": 25.666666666666668
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 30050966.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.0,
+      "brier": 0.6169634856630825,
+      "clusters": 8,
+      "condition": "1/1",
+      "difference_lower": 0.0967741935483871,
+      "difference_upper": 0.23214285714285715,
+      "difference_vs_calibrated_pool": 0.16129032258064516,
+      "mean_batch_calibration_abs_error": 0.12499999999999999,
+      "mean_quality": 0.9193548387096774,
+      "mechanism": "oracle-analysis-only",
+      "quality_lower": 0.8548387096774194,
+      "quality_upper": 0.9827586206896551,
+      "realized_historical_spend": 143449890.0,
+      "regret": 0.0,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 64.0,
+          "outcome_sum": 38.0,
+          "prediction_sum": 35.43750000000001
+        },
+        {
+          "count": 60.0,
+          "outcome_sum": 40.0,
+          "prediction_sum": 38.979166666666664
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 135901765.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.0,
+      "brier": 0.6464500302031063,
+      "clusters": 8,
+      "condition": "1/2",
+      "difference_lower": -0.14516129032258066,
+      "difference_upper": 0.03333333333333335,
+      "difference_vs_calibrated_pool": -0.04838709677419354,
+      "mean_batch_calibration_abs_error": 0.12914834229390681,
+      "mean_quality": 0.7096774193548387,
+      "mechanism": "lmsr",
+      "quality_lower": 0.6236559139784946,
+      "quality_upper": 0.8010752688172043,
+      "realized_historical_spend": 73507206.66666667,
+      "regret": 0.20967741935483872,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 91.33333333333333,
+          "outcome_sum": 55.666666666666664,
+          "prediction_sum": 46.04386111111111
+        },
+        {
+          "count": 32.666666666666664,
+          "outcome_sum": 22.333333333333332,
+          "prediction_sum": 22.28193333333333
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 86500848.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.0,
+      "brier": 0.6169634856630825,
+      "clusters": 8,
+      "condition": "1/2",
+      "difference_lower": 0.0,
+      "difference_upper": 0.0,
+      "difference_vs_calibrated_pool": 0.0,
+      "mean_batch_calibration_abs_error": 0.12499999999999999,
+      "mean_quality": 0.7580645161290323,
+      "mechanism": "pool",
+      "quality_lower": 0.6612903225806451,
+      "quality_upper": 0.8548387096774194,
+      "realized_historical_spend": 35529660.0,
+      "regret": 0.16129032258064516,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 64.0,
+          "outcome_sum": 38.0,
+          "prediction_sum": 35.43750000000001
+        },
+        {
+          "count": 60.0,
+          "outcome_sum": 40.0,
+          "prediction_sum": 38.979166666666664
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 30050966.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.0,
+      "brier": 0.6169634856630825,
+      "clusters": 8,
+      "condition": "1/2",
+      "difference_lower": 0.0,
+      "difference_upper": 0.0,
+      "difference_vs_calibrated_pool": 0.0,
+      "mean_batch_calibration_abs_error": 0.12499999999999999,
+      "mean_quality": 0.7580645161290323,
+      "mechanism": "interactive-pool",
+      "quality_lower": 0.6612903225806451,
+      "quality_upper": 0.8548387096774194,
+      "realized_historical_spend": 35529660.0,
+      "regret": 0.16129032258064516,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 64.0,
+          "outcome_sum": 38.0,
+          "prediction_sum": 35.43750000000001
+        },
+        {
+          "count": 60.0,
+          "outcome_sum": 40.0,
+          "prediction_sum": 38.979166666666664
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 30050966.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.0,
+      "brier": 0.6169634856630825,
+      "clusters": 8,
+      "condition": "1/2",
+      "difference_lower": 0.0,
+      "difference_upper": 0.0,
+      "difference_vs_calibrated_pool": 0.0,
+      "mean_batch_calibration_abs_error": 0.12499999999999999,
+      "mean_quality": 0.7580645161290323,
+      "mechanism": "calibrated-pool",
+      "quality_lower": 0.6612903225806451,
+      "quality_upper": 0.8548387096774194,
+      "realized_historical_spend": 35529660.0,
+      "regret": 0.16129032258064516,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 64.0,
+          "outcome_sum": 38.0,
+          "prediction_sum": 35.43750000000001
+        },
+        {
+          "count": 60.0,
+          "outcome_sum": 40.0,
+          "prediction_sum": 38.979166666666664
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 30050966.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.041666666666666664,
+      "brier": 0.6169634856630825,
+      "clusters": 8,
+      "condition": "1/2",
+      "difference_lower": -0.3010752688172043,
+      "difference_upper": -0.0053763440860215015,
+      "difference_vs_calibrated_pool": -0.13440860215053763,
+      "mean_batch_calibration_abs_error": 0.12499999999999999,
+      "mean_quality": 0.6236559139784946,
+      "mechanism": "random",
+      "quality_lower": 0.5222222222222223,
+      "quality_upper": 0.7135416666666666,
+      "realized_historical_spend": 202601210.0,
+      "regret": 0.2956989247311828,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 64.0,
+          "outcome_sum": 38.0,
+          "prediction_sum": 35.43750000000001
+        },
+        {
+          "count": 60.0,
+          "outcome_sum": 40.0,
+          "prediction_sum": 38.979166666666664
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 192144000.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.0,
+      "brier": 0.6169634856630825,
+      "clusters": 8,
+      "condition": "1/2",
+      "difference_lower": 0.0,
+      "difference_upper": 0.0,
+      "difference_vs_calibrated_pool": 0.0,
+      "mean_batch_calibration_abs_error": 0.12499999999999999,
+      "mean_quality": 0.7580645161290323,
+      "mechanism": "cheapest",
+      "quality_lower": 0.6612903225806451,
+      "quality_upper": 0.8548387096774194,
+      "realized_historical_spend": 35529660.0,
+      "regret": 0.16129032258064516,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 64.0,
+          "outcome_sum": 38.0,
+          "prediction_sum": 35.43750000000001
+        },
+        {
+          "count": 60.0,
+          "outcome_sum": 40.0,
+          "prediction_sum": 38.979166666666664
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 30050966.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.0,
+      "brier": 0.6169634856630825,
+      "clusters": 8,
+      "condition": "1/2",
+      "difference_lower": 0.0,
+      "difference_upper": 0.0,
+      "difference_vs_calibrated_pool": 0.0,
+      "mean_batch_calibration_abs_error": 0.12499999999999999,
+      "mean_quality": 0.7580645161290323,
+      "mechanism": "best-fixed",
+      "quality_lower": 0.6612903225806451,
+      "quality_upper": 0.8548387096774194,
+      "realized_historical_spend": 35529660.0,
+      "regret": 0.16129032258064516,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 64.0,
+          "outcome_sum": 38.0,
+          "prediction_sum": 35.43750000000001
+        },
+        {
+          "count": 60.0,
+          "outcome_sum": 40.0,
+          "prediction_sum": 38.979166666666664
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 30050966.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.0,
+      "brier": 0.6353046594982079,
+      "clusters": 8,
+      "condition": "1/2",
+      "difference_lower": 0.0,
+      "difference_upper": 0.0,
+      "difference_vs_calibrated_pool": 0.0,
+      "mean_batch_calibration_abs_error": 0.09879032258064518,
+      "mean_quality": 0.7580645161290323,
+      "mechanism": "text-router",
+      "quality_lower": 0.6612903225806451,
+      "quality_upper": 0.8548387096774194,
+      "realized_historical_spend": 35529660.0,
+      "regret": 0.16129032258064516,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 87.0,
+          "outcome_sum": 51.5,
+          "prediction_sum": 49.416666666666664
+        },
+        {
+          "count": 37.0,
+          "outcome_sum": 26.5,
+          "prediction_sum": 25.666666666666668
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 30050966.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    },
+    {
+      "batch_violation_fraction": 0.0,
+      "brier": 0.6169634856630825,
+      "clusters": 8,
+      "condition": "1/2",
+      "difference_lower": 0.0967741935483871,
+      "difference_upper": 0.23214285714285715,
+      "difference_vs_calibrated_pool": 0.16129032258064516,
+      "mean_batch_calibration_abs_error": 0.12499999999999999,
+      "mean_quality": 0.9193548387096774,
+      "mechanism": "oracle-analysis-only",
+      "quality_lower": 0.8548387096774194,
+      "quality_upper": 0.9827586206896551,
+      "realized_historical_spend": 143449890.0,
+      "regret": 0.0,
+      "reliability_bins": [
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        },
+        {
+          "count": 64.0,
+          "outcome_sum": 38.0,
+          "prediction_sum": 35.43750000000001
+        },
+        {
+          "count": 60.0,
+          "outcome_sum": 40.0,
+          "prediction_sum": 38.979166666666664
+        },
+        {
+          "count": 0.0,
+          "outcome_sum": 0.0,
+          "prediction_sum": 0.0
+        }
+      ],
+      "reservation_spend": 135901765.0,
+      "track": "RECORDED_OUTCOMES_SYNTHETIC_FORECASTERS"
+    }
+  ],
+  "synthetic": [
+    {
+      "cash_gain": 0.0,
+      "external_gain": 0.0,
+      "interpretation": "INCONCLUSIVE_OR_NONPOSITIVE",
+      "lower": 0.0,
+      "mean_proxy_loss": 0.0,
+      "mean_utility_gain": 0.0,
+      "mechanism": "calibrated-pool",
+      "profile": "base-unseen-seeds",
+      "rerouted_fraction": 0.0,
+      "track": "WHOLLY_SYNTHETIC",
+      "upper": 0.0,
+      "worlds": 8,
+      "zero_external_gain": 0.0
+    },
+    {
+      "cash_gain": 0.0,
+      "external_gain": 0.0,
+      "interpretation": "INCONCLUSIVE_OR_NONPOSITIVE",
+      "lower": 0.0,
+      "mean_proxy_loss": 0.0,
+      "mean_utility_gain": 0.0,
+      "mechanism": "interactive-pool",
+      "profile": "base-unseen-seeds",
+      "rerouted_fraction": 0.0,
+      "track": "WHOLLY_SYNTHETIC",
+      "upper": 0.0,
+      "worlds": 8,
+      "zero_external_gain": 0.0
+    },
+    {
+      "cash_gain": 0.0,
+      "external_gain": 0.0,
+      "interpretation": "INCONCLUSIVE_OR_NONPOSITIVE",
+      "lower": 0.0,
+      "mean_proxy_loss": 0.0,
+      "mean_utility_gain": 0.0,
+      "mechanism": "lmsr",
+      "profile": "base-unseen-seeds",
+      "rerouted_fraction": 0.0,
+      "track": "WHOLLY_SYNTHETIC",
+      "upper": 0.0,
+      "worlds": 8,
+      "zero_external_gain": 0.0
+    },
+    {
+      "cash_gain": 0.0,
+      "external_gain": 0.0,
+      "interpretation": "INCONCLUSIVE_OR_NONPOSITIVE",
+      "lower": 0.0,
+      "mean_proxy_loss": 0.0,
+      "mean_utility_gain": 0.0,
+      "mechanism": "calibrated-pool",
+      "profile": "correlated-information",
+      "rerouted_fraction": 0.0,
+      "track": "WHOLLY_SYNTHETIC",
+      "upper": 0.0,
+      "worlds": 8,
+      "zero_external_gain": 0.0
+    },
+    {
+      "cash_gain": 0.0,
+      "external_gain": 1.0,
+      "interpretation": "INCONCLUSIVE_OR_NONPOSITIVE",
+      "lower": 0.0,
+      "mean_proxy_loss": 0.0,
+      "mean_utility_gain": 1.0,
+      "mechanism": "interactive-pool",
+      "profile": "correlated-information",
+      "rerouted_fraction": 0.125,
+      "track": "WHOLLY_SYNTHETIC",
+      "upper": 2.5,
+      "worlds": 8,
+      "zero_external_gain": 0.0
+    },
+    {
+      "cash_gain": 0.0,
+      "external_gain": 0.0,
+      "interpretation": "INCONCLUSIVE_OR_NONPOSITIVE",
+      "lower": 0.0,
+      "mean_proxy_loss": 0.0,
+      "mean_utility_gain": 0.0,
+      "mechanism": "lmsr",
+      "profile": "correlated-information",
+      "rerouted_fraction": 0.0,
+      "track": "WHOLLY_SYNTHETIC",
+      "upper": 0.0,
+      "worlds": 8,
+      "zero_external_gain": 0.0
+    },
+    {
+      "cash_gain": 0.0,
+      "external_gain": 0.0,
+      "interpretation": "INCONCLUSIVE_OR_NONPOSITIVE",
+      "lower": 0.0,
+      "mean_proxy_loss": 0.0,
+      "mean_utility_gain": 0.0,
+      "mechanism": "calibrated-pool",
+      "profile": "friction-and-weak-information",
+      "rerouted_fraction": 0.0,
+      "track": "WHOLLY_SYNTHETIC",
+      "upper": 0.0,
+      "worlds": 8,
+      "zero_external_gain": 0.0
+    },
+    {
+      "cash_gain": -4.0,
+      "external_gain": 0.0,
+      "interpretation": "INCONCLUSIVE_OR_NONPOSITIVE",
+      "lower": -4.0,
+      "mean_proxy_loss": 0.0,
+      "mean_utility_gain": -4.0,
+      "mechanism": "interactive-pool",
+      "profile": "friction-and-weak-information",
+      "rerouted_fraction": 0.0,
+      "track": "WHOLLY_SYNTHETIC",
+      "upper": -4.0,
+      "worlds": 8,
+      "zero_external_gain": 0.0
+    },
+    {
+      "cash_gain": 0.0,
+      "external_gain": 0.0,
+      "interpretation": "INCONCLUSIVE_OR_NONPOSITIVE",
+      "lower": 0.0,
+      "mean_proxy_loss": 0.0,
+      "mean_utility_gain": 0.0,
+      "mechanism": "lmsr",
+      "profile": "friction-and-weak-information",
+      "rerouted_fraction": 0.0,
+      "track": "WHOLLY_SYNTHETIC",
+      "upper": 0.0,
+      "worlds": 8,
+      "zero_external_gain": 0.0
+    },
+    {
+      "cash_gain": 0.0,
+      "external_gain": 0.0,
+      "interpretation": "INCONCLUSIVE_OR_NONPOSITIVE",
+      "lower": 0.0,
+      "mean_proxy_loss": 0.0,
+      "mean_utility_gain": 0.0,
+      "mechanism": "calibrated-pool",
+      "profile": "high-incentive-liquid",
+      "rerouted_fraction": 0.0,
+      "track": "WHOLLY_SYNTHETIC",
+      "upper": 0.0,
+      "worlds": 8,
+      "zero_external_gain": 0.0
+    },
+    {
+      "cash_gain": 0.0,
+      "external_gain": 0.0,
+      "interpretation": "INCONCLUSIVE_OR_NONPOSITIVE",
+      "lower": 0.0,
+      "mean_proxy_loss": 0.0,
+      "mean_utility_gain": 0.0,
+      "mechanism": "interactive-pool",
+      "profile": "high-incentive-liquid",
+      "rerouted_fraction": 0.0,
+      "track": "WHOLLY_SYNTHETIC",
+      "upper": 0.0,
+      "worlds": 8,
+      "zero_external_gain": 0.0
+    },
+    {
+      "cash_gain": 0.0,
+      "external_gain": 0.0,
+      "interpretation": "INCONCLUSIVE_OR_NONPOSITIVE",
+      "lower": 0.0,
+      "mean_proxy_loss": 0.0,
+      "mean_utility_gain": 0.0,
+      "mechanism": "lmsr",
+      "profile": "high-incentive-liquid",
+      "rerouted_fraction": 0.0,
+      "track": "WHOLLY_SYNTHETIC",
+      "upper": 0.0,
+      "worlds": 8,
+      "zero_external_gain": 0.0
+    },
+    {
+      "cash_gain": 0.0,
+      "external_gain": 0.0,
+      "interpretation": "INCONCLUSIVE_OR_NONPOSITIVE",
+      "lower": 0.0,
+      "mean_proxy_loss": 0.0,
+      "mean_utility_gain": 0.0,
+      "mechanism": "calibrated-pool",
+      "profile": "integer-friction-control",
+      "rerouted_fraction": 0.0,
+      "track": "WHOLLY_SYNTHETIC",
+      "upper": 0.0,
+      "worlds": 8,
+      "zero_external_gain": 0.0
+    },
+    {
+      "cash_gain": 0.0,
+      "external_gain": 0.0,
+      "interpretation": "INCONCLUSIVE_OR_NONPOSITIVE",
+      "lower": 0.0,
+      "mean_proxy_loss": 0.0,
+      "mean_utility_gain": 0.0,
+      "mechanism": "interactive-pool",
+      "profile": "integer-friction-control",
+      "rerouted_fraction": 0.0,
+      "track": "WHOLLY_SYNTHETIC",
+      "upper": 0.0,
+      "worlds": 8,
+      "zero_external_gain": 0.0
+    },
+    {
+      "cash_gain": 0.0,
+      "external_gain": 0.0,
+      "interpretation": "INCONCLUSIVE_OR_NONPOSITIVE",
+      "lower": 0.0,
+      "mean_proxy_loss": 0.0,
+      "mean_utility_gain": 0.0,
+      "mechanism": "lmsr",
+      "profile": "integer-friction-control",
+      "rerouted_fraction": 0.0,
+      "track": "WHOLLY_SYNTHETIC",
+      "upper": 0.0,
+      "worlds": 8,
+      "zero_external_gain": 0.0
+    },
+    {
+      "cash_gain": 0.0,
+      "external_gain": 0.0,
+      "interpretation": "INCONCLUSIVE_OR_NONPOSITIVE",
+      "lower": 0.0,
+      "mean_proxy_loss": 0.0,
+      "mean_utility_gain": 0.0,
+      "mechanism": "calibrated-pool",
+      "profile": "low-incentive",
+      "rerouted_fraction": 0.0,
+      "track": "WHOLLY_SYNTHETIC",
+      "upper": 0.0,
+      "worlds": 8,
+      "zero_external_gain": 0.0
+    },
+    {
+      "cash_gain": 0.0,
+      "external_gain": 0.0,
+      "interpretation": "INCONCLUSIVE_OR_NONPOSITIVE",
+      "lower": 0.0,
+      "mean_proxy_loss": 0.0,
+      "mean_utility_gain": 0.0,
+      "mechanism": "interactive-pool",
+      "profile": "low-incentive",
+      "rerouted_fraction": 0.0,
+      "track": "WHOLLY_SYNTHETIC",
+      "upper": 0.0,
+      "worlds": 8,
+      "zero_external_gain": 0.0
+    },
+    {
+      "cash_gain": 0.0,
+      "external_gain": 0.0,
+      "interpretation": "INCONCLUSIVE_OR_NONPOSITIVE",
+      "lower": 0.0,
+      "mean_proxy_loss": 0.0,
+      "mean_utility_gain": 0.0,
+      "mechanism": "lmsr",
+      "profile": "low-incentive",
+      "rerouted_fraction": 0.0,
+      "track": "WHOLLY_SYNTHETIC",
+      "upper": 0.0,
+      "worlds": 8,
+      "zero_external_gain": 0.0
+    },
+    {
+      "cash_gain": 0.0,
+      "external_gain": 0.0,
+      "interpretation": "INCONCLUSIVE_OR_NONPOSITIVE",
+      "lower": 0.0,
+      "mean_proxy_loss": 0.0,
+      "mean_utility_gain": 0.0,
+      "mechanism": "calibrated-pool",
+      "profile": "split-controller",
+      "rerouted_fraction": 0.0,
+      "track": "WHOLLY_SYNTHETIC",
+      "upper": 0.0,
+      "worlds": 8,
+      "zero_external_gain": 0.0
+    },
+    {
+      "cash_gain": 0.0,
+      "external_gain": 0.0,
+      "interpretation": "INCONCLUSIVE_OR_NONPOSITIVE",
+      "lower": 0.0,
+      "mean_proxy_loss": 0.0,
+      "mean_utility_gain": 0.0,
+      "mechanism": "interactive-pool",
+      "profile": "split-controller",
+      "rerouted_fraction": 0.0,
+      "track": "WHOLLY_SYNTHETIC",
+      "upper": 0.0,
+      "worlds": 8,
+      "zero_external_gain": 0.0
+    },
+    {
+      "cash_gain": 0.0,
+      "external_gain": 0.0,
+      "interpretation": "INCONCLUSIVE_OR_NONPOSITIVE",
+      "lower": 0.0,
+      "mean_proxy_loss": 0.0,
+      "mean_utility_gain": 0.0,
+      "mechanism": "lmsr",
+      "profile": "split-controller",
+      "rerouted_fraction": 0.0,
+      "track": "WHOLLY_SYNTHETIC",
+      "upper": 0.0,
+      "worlds": 8,
+      "zero_external_gain": 0.0
+    }
+  ]
+}

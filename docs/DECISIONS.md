@@ -68,3 +68,32 @@ Verified PR #14 merged and 1afe571 ancestor of main 5306ded. Implement Phase 4 i
 
 ## D-CERT-001 — 2026-11-02 — Additive finite attack certificates
 Owner-requested Agent 1 implementation, tracked in #20 on isolated codex/certified-attack-discovery. Retain approved engine, existing outcome-free terminal/final-report subgames and fixed subjective beliefs; add best-bound search, rounded-charge endpoint relaxation and an independently executable proof checker. Preserve unresolved boundary nodes on truncation. Shared contracts, Agent 2 verification/experiments, Agent 3 harness and final holdout remain unchanged. Alternatives: label beam optima certified, assume unobserved future policies, or solve a continuous-cost surrogate; rejected. The contribution is an engine-specific checkable bound, not new economic manipulation or global robustness. Source-bound historical artifacts stay immutable and CI checks them at base source 8cf8bd3; new sidecars bind current source. Routine reversible engineering within existing approved model; no new scientific assumption or spend. Human review/merge and independent Agent 2 benchmarking remain separate.
+## D-018 — 2026-11-02 — Prereviewed exploratory benchmarking without final access
+Verified PR #16 merged on main 8cf8bd3; branch codex/scientific-benchmark. Freeze protocol and independent review before evaluation. Use train-only text forecasts/inner OOF calibration, fixed mean reservations and 31 validation tasks; exclude existing 44 exploratory test tasks and all final evaluation. A separate likelihood-based synthetic track enumerates finite full-schedule policy templates on development worlds, then freezes for unseen nature/configuration worlds. Fixed padded registry normalizes identity resources; intrinsic action capabilities remain unequal and disclosed. Independent pre-evaluation review corrected Q1 integer inactivity and unreachable interactive revisions before results. Preserve every null/negative row and conditional paired intervals; do not infer superiority, robustness, Bayesian equilibrium, actual bills or empirical attack transfer. New benchmark sidecars and current-source fixtures leave engine/contracts/frontend/historical evidence unchanged. Owner integrator; reversible engineering decisions within approved Gate B; evidence in Phase 5 protocol/review/results. $0; final-protocol/final-cohort/release approval remains human-only.
+
+## D-019 — 2026-11-02 — Correct cross-version aggregate reproducibility without retuning
+Hosted Python 3.11 strict replay exposed floating-reduction differences from Python 3.12, independently reproduced natively and by legacy-sum emulation. Maximum difference 1.42e-14; policy choices, allocations/pre-decision hashes, payoffs/costs and primary findings unchanged. Replace floating reductions with explicit math.fsum, preserve exact decision arithmetic and strict replay, add regression tests and both-version CI, regenerate source-bound artifacts and renew independent review. Frozen protocol/metrics/worlds/selection class/parameters remain unchanged; no final holdout. This post-result engineering correction is disclosed rather than represented as pre-result code. Reversible integrator decision; $0; human exact-head review/merge still required.
+## D-A3-001 — 2026-11-02 — Isolate real-agent instrument and retain zero-inference blocker
+Owner's Agent 3 request authorizes a local inference harness with honest fallback.
+Use sibling package `deviation_llm_agents` and actor-provenance sidecars over
+unchanged approved synthetic engine transitions. This preserves shared contracts
+and historical source fingerprints. No installed inference runtime/weights were
+found in the bounded inventory; temporary dependency retrieval failed DNS.
+Do not count scripted controls or task answers as actual agent decisions. Local
+loopback transport is opt-in, pinned, no-pull/no-cloud/no-tools, with explicit
+trusted-server limitations. Routine reversible engineering choice, independently
+reviewed; protocol/report/evidence in Agent 3-owned paths; $0. No holdout,
+new scientific assumption approval, merge or public research claim is implied.
+
+## D-A3-002 — 2026-11-03 — Correct actor attribution and attempt free CPU inference
+User requests Agent 4's verified PR #24 attribution fix and a real-model pilot
+if free inference is available. Filter accepted trades by focal event actor;
+label system totals and controller/system scope of other metrics. Two-actor
+regressions prevent control trades becoming focal behavior. Local inference is
+still blocked; verified public visibility and GitHub standard-runner pricing
+permit a bounded CPU job at $0 without artifact/cache storage or paid fallbacks.
+Freeze model/revision/weight hash/license, prompt and six matched conditions
+before execution. This user-authorized extension is synthetic-world,
+local-to-runner open-weight inference, not a new shared contract or holdout run.
+Retain failures/nulls and independent review. Reversible; owner Agent 3;
+human merge/release still required.

@@ -1,0 +1,18 @@
+{
+  "amendments_before_evaluation": [
+    "Q3 main treatments; explicit Q1 integer-friction control",
+    "immediate/delayed report timing, twenty templates; descriptive reliability bins"
+  ],
+  "document_sha256": "045be3ce5a0ddf5f42de2a25852dbc4fc4218fb6282dd11f365530e53edb29de",
+  "evaluation_performed_before_review": false,
+  "limitations": [
+    "same-model-family agent review, not external peer review or GitHub approval",
+    "no final holdout authorization",
+    "single-domain selected development cohort; conditional batch intervals",
+    "finite policy class and small simulation sample; no full-game optimum"
+  ],
+  "protocol_sha256": "8feebbfcdebc20f18463a068839bd7125b89a5caae5691c5bbd470e83cca5390",
+  "reviewer": "independent-read-only-phase5_protocol_review",
+  "verdict": "PASS_EXPLORATORY_VALIDATION_ONLY",
+  "version": "protocol-review-1"
+}

@@ -1,0 +1,10 @@
+mechanism,external_benefit,directional_runs,rerouted_vs_signal,positive_expected_gain_vs_signal,gain_and_rerouting
+lmsr,0,12,0,0,0
+lmsr,20,12,9,0,0
+lmsr,200,12,9,3,3
+pool,0,12,6,0,0
+pool,20,12,6,0,0
+pool,200,12,6,0,0
+cheapest,0,12,0,0,0
+cheapest,20,12,0,0,0
+cheapest,200,12,0,0,0

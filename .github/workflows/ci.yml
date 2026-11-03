@@ -4,66 +4,48 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
-
+permissions:
+  contents: read
 jobs:
   unit-smoke:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
+    timeout-minutes: 45
+    strategy:
+      matrix:
+        python-version: ['3.11', '3.12']
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: false
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
-      - name: Run unit and shared contract conformance tests
-        run: PYTHONPATH=src python -m unittest discover -s tests -v
-      - name: Stage immutable Phase 4 source for existing source-bound artifacts
-        run: |
-          mkdir -p "$RUNNER_TEMP/phase4-source"
-          git archive 8cf8bd318c1a28533aeb88c52c6ad4092aec119e | tar -x -C "$RUNNER_TEMP/phase4-source"
-      - name: Install current package and check pinned Phase 4 simulator artifacts
+          python-version: ${{ matrix.python-version }}
+      - name: Install combined package and pinned scientific plotting dependency
         run: |
           python -m pip install --no-deps .
-          PYTHONPATH="$RUNNER_TEMP/phase4-source/src" python -m deviation.simulator tests/fixtures/simulator/two_task.json --out "$RUNNER_TEMP/simulator" --verify artifacts/simulator/phase4_source/receipts.json
-          PYTHONPATH="$RUNNER_TEMP/phase4-source/src" python -m deviation.markets tests/fixtures/markets/two_task.json --out "$RUNNER_TEMP/market" --verify artifacts/markets/phase4_source/receipts.json
-      - name: Verify immutable Phase 2 receipts at their pinned historical source
+          python -m pip install matplotlib==3.10.7
+      - name: Complete combined unit, boundary and mathematical suite
+        run: python -m unittest discover -s tests -v
+      - name: Strict original-source and installed integration reproduction
+        env:
+          MPLCONFIGDIR: ${{ runner.temp }}/mpl
         run: |
-          historical_source="$RUNNER_TEMP/deviation-historical-source"
-          mkdir -p "$historical_source"
-          git archive 390e1b7a63cf31306d78815e381f81ec7245f8d6 | tar -x -C "$historical_source"
-          PYTHONPATH="$historical_source/src" python -m deviation.simulator tests/fixtures/simulator/two_task.json --out "$RUNNER_TEMP/historical-replay" --verify artifacts/simulator/two_task/receipts.json
-      - name: Verify immutable Phase 3 receipts at their pinned historical source
+          python -I -m deviation_integration --cache "$RUNNER_TEMP/audit-cache" --download --out "$RUNNER_TEMP/integration" --plots --verify artifacts/integration/manifest.json
+      - name: Generate synthetic replay and validate flags
         run: |
-          phase3_source="$RUNNER_TEMP/deviation-phase3-source"
-          mkdir -p "$phase3_source"
-          git archive 1afe571d84831d9d0868dbdef5ae46df1c4c0b2d | tar -x -C "$phase3_source"
-          PYTHONPATH="$phase3_source/src" python -m deviation.simulator tests/fixtures/simulator/two_task.json --out "$RUNNER_TEMP/phase3-simulator" --verify artifacts/simulator/v0_3_source/receipts.json
-          PYTHONPATH="$phase3_source/src" python -m deviation.markets tests/fixtures/markets/two_task.json --out "$RUNNER_TEMP/phase3-market" --verify artifacts/markets/two_task/receipts.json
-      - name: Reproduce immutable Phase 4 counterexample and campaign at pinned source
-        run: |
-          PYTHONPATH="$RUNNER_TEMP/phase4-source/src" python -m deviation.attacks replay artifacts/attacks/phase4/selected --out "$RUNNER_TEMP/attack-replay"
-          diff -r artifacts/attacks/phase4/selected "$RUNNER_TEMP/attack-replay"
-          PYTHONPATH="$RUNNER_TEMP/phase4-source/src" python -m deviation.attacks campaign experiments/adversarial_protocol.json --out "$RUNNER_TEMP/attack-campaign"
-          cmp artifacts/attacks/phase4/campaign.json "$RUNNER_TEMP/attack-campaign/campaign.json"
-          PYTHONPATH="$RUNNER_TEMP/phase4-source/src" python -m deviation.attacks sensitivity artifacts/attacks/phase4/selected --out "$RUNNER_TEMP/attack-sensitivity"
-          cmp artifacts/attacks/phase4/sensitivity.json "$RUNNER_TEMP/attack-sensitivity/sensitivity.json"
-      - name: Reproduce immutable Agent 1 certificates at their pinned source
-        run: |
-          mkdir -p "$RUNNER_TEMP/certificate-producer-source"
-          git archive 3151edb463484498a5b686bf607dff4f062d66a4 | tar -x -C "$RUNNER_TEMP/certificate-producer-source"
-          PYTHONPATH="$RUNNER_TEMP/certificate-producer-source/src" python -m deviation.attacks.certified examples --out "$RUNNER_TEMP/certified" --verify artifacts/attacks/certified
-          PYTHONPATH="$RUNNER_TEMP/certificate-producer-source/src" python -m deviation.attacks.certified verify artifacts/attacks/certified/scenario.json artifacts/attacks/certified/small-lmsr.certificate.json
-      - name: Generate synthetic replay
-        run: PYTHONPATH=src python -m deviation demo --out /tmp/deviation_demo.json
-      - name: Validate trace flags
-        run: |
+          python -I -m deviation demo --out "$RUNNER_TEMP/deviation_demo.json"
           python - <<'PY'
-          import json
-          d = json.load(open('/tmp/deviation_demo.json', encoding='utf-8'))
+          import json, os
+          from pathlib import Path
+          d = json.loads((Path(os.environ['RUNNER_TEMP'])/'deviation_demo.json').read_text())
           assert d['data_kind'] == 'SYNTHETIC'
           assert d['metrics']['cost'] <= d['config']['budget']
           assert len(d['events']) > 0
-          print('Synthetic trace validated')
           PY
+      - name: Print step receipts on failure
+        if: failure()
+        run: |
+          if test -f "$RUNNER_TEMP/integration/execution.json"; then cat "$RUNNER_TEMP/integration/execution.json"; fi
+          if test -f "$RUNNER_TEMP/integration/FAILURE.json"; then cat "$RUNNER_TEMP/integration/FAILURE.json"; fi
+          if test -d "$RUNNER_TEMP/integration/logs"; then tail -n 20 "$RUNNER_TEMP/integration/logs/"*.log; fi

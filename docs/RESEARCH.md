@@ -67,3 +67,7 @@ Market loses to aggregation; attack only works with unrealistic external incenti
 
 ## Research note template
 For every reported result, publish: hypothesis, source data hash, split manifest, exact run command, mechanism and attacker code hash, observed effect and uncertainty, limitation, and the JSONL event trace where applicable.
+
+## Phase 5 exploratory execution checkpoint
+
+Gate A/B and Phase 2–4 merges/owner development approvals are recorded in project history. Phase 5 protocol/review/config are in `PHASE_5_PROTOCOL.md` and experiments/benchmark_*.json. Independent review and two design corrections preceded all evaluation. Results in `PHASE_5_RESULTS.md` use only 172 training / 31 validation tasks plus separately labeled controlled synthetic worlds; 44 exploratory test tasks are excluded from modeling/evaluation. No final cohort is provisioned or authorized. The benchmark does not demonstrate market superiority or a generalized profitable harmful deviation. Further changes using these validation results are new exploratory development, not an untouched final test. No shared contracts, scientific claim scope or final-evaluation authorization changed.

@@ -1,0 +1,80 @@
+{
+  "version": "llm-pilot-execution-1",
+  "repository": "almajna/deviation-lab",
+  "repository_visibility": "public",
+  "run_id": 41666251738,
+  "job_id": 126022255193,
+  "run_url": "https://github.com/almajna/deviation-lab/actions/runs/41666251738",
+  "job_url": "https://github.com/almajna/deviation-lab/actions/runs/41666251738/job/126022255193",
+  "head_commit": "1bcd83faf1389fd0ceb6bbe120272ad4ca0f2587",
+  "head_tree": "2c4c47a9254a74dac494d8a3b2a171584502e1da",
+  "prospective_protocol_commit": "fe90b89aa513f4c78bdfeedd998869e848520566",
+  "adapter_source_sha256": "b4df995829657b2d488b3f0b9577b07b1cdb81ba998359f7bdaf539a3ca362d1",
+  "protocol_sha256": "7b0c363fbe1495081a66c927821bab61790ca112e881b6b9e5ba5de742657e2e",
+  "canonical_log_bundle_sha256": "b2da1da8f2217a02e888952bb376170306ea80dd40ab564bf13ee27553b2969a",
+  "pilot_object_sha256": "1c11adc7b687fc608562456938c115a9878bc5394fc16a9c25a254956aae4a0b",
+  "job_conclusion": "success",
+  "job_started_at": "2026-11-03T15:40:08Z",
+  "job_completed_at": "2026-11-03T15:49:36Z",
+  "runner_labels": [
+    "ubuntu-24.04"
+  ],
+  "steps": [
+    {
+      "name": "Set up job",
+      "conclusion": "success",
+      "started_at": "2026-11-03T15:40:09Z",
+      "completed_at": "2026-11-03T15:40:09Z"
+    },
+    {
+      "name": "Run actions/checkout@v4",
+      "conclusion": "success",
+      "started_at": "2026-11-03T15:40:09Z",
+      "completed_at": "2026-11-03T15:40:10Z"
+    },
+    {
+      "name": "Run actions/setup-python@v5",
+      "conclusion": "success",
+      "started_at": "2026-11-03T15:40:10Z",
+      "completed_at": "2026-11-03T15:40:10Z"
+    },
+    {
+      "name": "Install pinned CPU-only inference runtime",
+      "conclusion": "success",
+      "started_at": "2026-11-03T15:40:10Z",
+      "completed_at": "2026-11-03T15:40:36Z"
+    },
+    {
+      "name": "Execute fixed six-episode pilot and emit auditable log bundle",
+      "conclusion": "success",
+      "started_at": "2026-11-03T15:40:36Z",
+      "completed_at": "2026-11-03T15:49:34Z"
+    },
+    {
+      "name": "Post Run actions/setup-python@v5",
+      "conclusion": "success",
+      "started_at": "2026-11-03T15:49:34Z",
+      "completed_at": "2026-11-03T15:49:34Z"
+    },
+    {
+      "name": "Post Run actions/checkout@v4",
+      "conclusion": "success",
+      "started_at": "2026-11-03T15:49:34Z",
+      "completed_at": "2026-11-03T15:49:34Z"
+    },
+    {
+      "name": "Complete job",
+      "conclusion": "success",
+      "started_at": "2026-11-03T15:49:34Z",
+      "completed_at": "2026-11-03T15:49:34Z"
+    }
+  ],
+  "inference_host": "Standard GitHub-hosted ubuntu-24.04 CPU; not the user's Mac",
+  "paid_apis": 0,
+  "persistent_model_or_artifact_uploads": 0,
+  "pricing_sources": [
+    "https://docs.github.com/en/actions/reference/runners/github-hosted-runners",
+    "https://docs.github.com/en/billing/concepts/product-billing/github-actions"
+  ],
+  "evidence_transfer": "Complete gzip/base64 JSON bundle in ordinary job logs; no Actions artifact/cache upload"
+}
