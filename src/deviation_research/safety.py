@@ -16,7 +16,9 @@ LIMITS = dict(wall_seconds=35, cpu_seconds=25, memory_mb=768, file_bytes=2_000_0
 
 
 class SandboxError(RuntimeError):
-    pass
+    def __init__(self, message, receipt=None):
+        super().__init__(message)
+        self.receipt = receipt
 
 
 def _limits():
@@ -40,11 +42,20 @@ def backend():
 def run(runner, payload, *, wall_seconds=None):
     if runner not in RUNNERS:
         raise SandboxError("runner is not allowlisted")
-    wall = min(LIMITS["wall_seconds"], wall_seconds or LIMITS["wall_seconds"])
+    wall = min(LIMITS["wall_seconds"], LIMITS["wall_seconds"] if wall_seconds is None else wall_seconds)
     if wall <= 0:
         raise SandboxError("cycle wall budget exhausted")
     kind = backend()
     started = time.monotonic()
+    before_cpu = resource.getrusage(resource.RUSAGE_CHILDREN)
+    def usage(status, stdout="", stderr=""):
+        after_cpu = resource.getrusage(resource.RUSAGE_CHILDREN)
+        return {"backend": kind, "limits": LIMITS, "status": status,
+                "wall_seconds": time.monotonic()-started,
+                "cpu_seconds": after_cpu.ru_utime+after_cpu.ru_stime-before_cpu.ru_utime-before_cpu.ru_stime,
+                "inference_calls": 0, "paid_spend_usd": 0,
+                "stdout_tail": stdout[-2000:], "stderr_tail": stderr[-2500:],
+                "memory_limit_enforced": platform.system() == "Linux"}
     # Stage only Python packages and explicit JSON input. No repository data,
     # credentials, git checkout, source downloads, or final cohort is mounted.
     with tempfile.TemporaryDirectory(prefix="deviation-research-worker-") as temp:
@@ -79,22 +90,26 @@ def run(runner, payload, *, wall_seconds=None):
                        "PYTHONDONTWRITEBYTECODE": "1", "HOME": str(out), "TMPDIR": str(out), "LANG": "C.UTF-8"}
         # File-backed logs are capped by RLIMIT_FSIZE; no unbounded pipe buffer.
         with (out/"stdout.log").open("wb") as stdout, (out/"stderr.log").open("wb") as stderr:
+            remaining = wall-(time.monotonic()-started)
+            if remaining <= 0:
+                raise SandboxError("worker staging exhausted wall budget", usage("STAGING_TIMEOUT"))
             process = subprocess.Popen(command, cwd=base, env=environment, stdout=stdout, stderr=stderr,
                                        start_new_session=True, preexec_fn=_limits)
             try:
-                code = process.wait(timeout=wall)
+                code = process.wait(timeout=remaining)
             except subprocess.TimeoutExpired:
                 os.killpg(process.pid, signal.SIGKILL)
                 process.wait()
-                raise SandboxError("worker wall timeout")
+                raise SandboxError("worker wall timeout", usage("WALL_TIMEOUT",
+                    (out/"stdout.log").read_text(errors="replace"), (out/"stderr.log").read_text(errors="replace")))
         if code:
             error = (out/"stderr.log").read_text(errors="replace")[-2500:]
-            raise SandboxError(f"sandbox worker exit {code}: {error}")
+            raise SandboxError(f"sandbox worker exit {code}: {error}", usage("EXIT_"+str(code),
+                (out/"stdout.log").read_text(errors="replace"), error))
         result = out/"result.json"
         if not result.exists() or result.stat().st_size > LIMITS["output_bytes"]:
-            raise SandboxError("missing or oversized result")
-        value = json.loads(result.read_text())
-        receipt = {"backend": kind, "limits": LIMITS, "wall_seconds": time.monotonic()-started,
-                   "inference_calls": 0, "paid_spend_usd": 0,
-                   "memory_limit_enforced": platform.system() == "Linux"}
-        return value, receipt
+            raise SandboxError("missing or oversized result", usage("INVALID_OUTPUT"))
+        envelope = json.loads(result.read_text())
+        receipt = usage("COMPLETED")
+        receipt.update({k: envelope[k] for k in ("harness_source_sha256", "engine_source_sha256")})
+        return envelope["value"], receipt

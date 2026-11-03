@@ -28,7 +28,7 @@ jobs:
       - name: Search public metadata with hard request, byte and time budgets
         run: python -I -m deviation_research scout --out "$RUNNER_TEMP/scout.json" --max-requests 12 --wall-seconds 65
       - name: Execute preregistered bounded synthetic cycle
-        run: python -I -m deviation_research cycle --memory "$RUNNER_TEMP/research/memory.sqlite" --out "$RUNNER_TEMP/research"
+        run: python -I -m deviation_research cycle --scout-receipt "$RUNNER_TEMP/scout.json" --memory "$RUNNER_TEMP/research/memory.sqlite" --out "$RUNNER_TEMP/research"
       - name: Cold-process reproduce every result and event
         run: python -I -m deviation_research reproduce --evidence "$RUNNER_TEMP/research" --out "$RUNNER_TEMP/reproduction"
       - name: Reproduce committed evidence when present

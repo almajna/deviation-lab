@@ -9,7 +9,7 @@ from unittest.mock import patch
 
 from deviation_research.records import Memory, sha
 from deviation_research.scout import scout, normalize, validate_sources, request
-from deviation_research.orchestrator import validate_plan, cycle
+from deviation_research.orchestrator import validate_plan, cycle, execution_key
 from deviation_research.review import review
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -66,6 +66,32 @@ class ResearchIntegrity(unittest.TestCase):
             review({"plan": {"runner": "lmsr_baseline"}, "result": {"kind": "lmsr_baseline", "data_kind": "OBSERVED_LLM_AGENT_INTERACTIONS", "rows": []}})
         with self.assertRaises(ValueError):
             review({"plan": {"runner": "lmsr_baseline"}, "result": {"kind": "lmsr_baseline", "data_kind": "SYNTHETIC", "rows": []}})
+
+    def test_forged_repeated_baseline_and_nonregistered_profile_rejected(self):
+        repeated = {"b": 1, "before": [0, 0, 0], "after": [1, 0, 0]}
+        with self.assertRaisesRegex(ValueError, "exact unique grid"):
+            review({"plan": {"runner": "lmsr_baseline"}, "result": {"kind": "lmsr_baseline", "data_kind": "SYNTHETIC", "rows": [repeated]*243}})
+        foreign = {"profile": {"capital": 999}, "seed": 13}
+        with self.assertRaisesRegex(ValueError, "nonregistered"):
+            review({"plan": {"runner": "fee_sensitivity", "seeds": [13]}, "result": {"kind": "fee_sensitivity", "data_kind": "SYNTHETIC", "rows": [foreign]*6}})
+
+    def test_rank_and_claim_rewording_do_not_retry_same_science(self):
+        plan = json.loads((ROOT/"research/plan.json").read_text())["directions"][0]
+        modified = deepcopy(plan)
+        modified.update(title="New title", overlap="New survey", hypothesis="Unsupported grand claim")
+        modified["scores"]["novelty"] = 5
+        self.assertEqual(execution_key(plan), execution_key(modified))
+        modified["seeds"][0] += 1
+        self.assertNotEqual(execution_key(plan), execution_key(modified))
+
+    def test_memory_index_tampering_is_detected(self):
+        with tempfile.TemporaryDirectory() as temp:
+            memory = Memory(Path(temp)/"m.sqlite")
+            memory.reserve("key", {"plan_sha256": "plan"})
+            memory.db.execute("UPDATE runs SET state='completed'")
+            with self.assertRaisesRegex(ValueError, "run index"):
+                memory.verify()
+            memory.close()
 
     def test_failed_cycle_is_persisted_and_not_retried(self):
         with tempfile.TemporaryDirectory() as temp:

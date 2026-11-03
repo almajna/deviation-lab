@@ -12,8 +12,10 @@ Python 3.11+, the existing local package, and an OS sandbox are required. Linux 
 python -m pip install --no-deps .
 python -I -m deviation_research scout --out /tmp/scout.json
 python -I -m deviation_research cycle --memory /tmp/research-memory.sqlite --out /tmp/research-cycle
+python -I -m deviation_research cycle --online --memory /tmp/research-memory.sqlite --out /tmp/next-research-cycle
 python -I -m deviation_research reproduce --evidence /tmp/research-cycle --out /tmp/research-reproduced
 python -I -m deviation_research export --memory /tmp/research-memory.sqlite --out /tmp/research-events.jsonl
+python -I -m deviation_research inspect --memory /tmp/research-memory.sqlite
 DEVIATION_REQUIRE_SANDBOX=1 python -m unittest discover -s tests -p 'test_research*.py' -v
 ```
 
@@ -31,7 +33,7 @@ Reuse the memory path for later sessions. Successful, negative, failed and inter
 | Memory | Transactional SQLite reservations plus hash-chained append-only events and JSONL export | Durable when the database is retained; hashes are integrity checks, not identity signatures |
 | Orchestrator | Preregister, rank, reserve, execute, retain all outputs, review and reject | Four jobs, 240-second cycle wall budget; later invocation skips previously reserved ideas |
 
-Online results are discovery candidates. The checked-in source registry records bibliography identity, verification URL/date/method and identity digest from actual primary-source reads. It stores metadata and original notes, not redistributed papers. Identity digests detect accidental substitution; they cannot establish the authenticity or correctness of a source or prevent a malicious editor from rehashing a forgery. Discovered sources require primary-source reading before they can support a plan. The MVP's experiments use the explicitly reviewed source snapshot, so rate limits or search outages cannot silently alter the scientific plan.
+Online results are discovery candidates. `cycle --online` runs the bounded scout, persists all request receipts and candidate events, and then ranks/executes the reviewed plans. The default cycle imports the actual captured `research/scout.json`; `--scout-receipt` imports another bounded capture. Reproduction reuses the original capture and frozen full plan/registry, including custom inputs. The checked-in source registry records bibliography identity, verification URL/date/method and identity digest from actual primary-source reads. It stores metadata and original notes, not redistributed papers. Identity digests detect accidental substitution; they cannot establish the authenticity or correctness of a source or prevent a malicious editor from rehashing a forgery. Discovered sources require primary-source reading before they can support a plan. The MVP's experiments use the explicitly reviewed source snapshot, so rate limits or search outages cannot silently alter the scientific plan. A process timer bounds DNS/streaming as well as socket operations. This POSIX scout is a main-thread command.
 
 ## Architecture references and prior art
 
@@ -62,3 +64,7 @@ Research events have their own version `research-events-1`; simulation contracts
 CI executes OS canary isolation (outside-file read/write and internet blocked), forged-result rejection, plan/citation/assumption tampering, failed-job retention and duplicate suppression. It reproduces every result, review and event in a fresh process. Historical source-bound experiments remain verified by the inherited workflows. Unit tests and numerical gates are author evidence; independent scientific review remains required and must report its actual status.
 
 Full-text semantic reading, open-ended idea invention, arbitrary public-code reproduction, optimized literature retrieval and a live scientist model are future work requiring a suitable free backend and further sandbox/claims review. The MVP offers a safe extensible execution/memory boundary and honest small experiments, not automatic breakthrough certification.
+
+## Retained initial execution
+
+Plan/code were published prospectively at `ce59d6d4074f93b51ed27207144343594d68650d`. [Initial CI run](https://github.com/almajna/deviation-lab/actions/runs/41693085210) passed isolation and the 243-cell LMSR baseline but exposed adapter schema errors in the three direction jobs. `artifacts/research/initial/` retains the actual summary and a bounded base64-encoded gzip-tar capture of results/failures/network receipts. Correcting numeric-payoff/allocation encoding and reservation/evaluation field names does not change the frozen seeds, hypotheses or criteria. The explicit fresh execution after these fixes is an infrastructure retry, not hidden favorable-result selection. Semantic execution identity now ignores titles, rankings and survey prose. Automated support attaches only to the machine-readable criterion; arbitrary narrative claims still require scientific review.
