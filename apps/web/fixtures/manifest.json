@@ -1,0 +1,14 @@
+{
+  "approved_commit": "a0449c9add2ee3aeb1741d48d41e725d5e8db261",
+  "approved_files_sha256": {
+    "schemas/contracts-v0.2.json": "15424b8232b455fd903dfffbbdac81ca3d189c1e766f2d728eb799df9fafcf06",
+    "src/deviation/contracts.py": "dcd175fd35452cff07380eaca85dd7cbc5b6257709892d50356175e551bbe000",
+    "tests/fixtures/contracts_v0_2.json": "8aae9c65a592f1e3d0c80ca27accf78eefad5efd8f04705310dc50111ab03a5e"
+  },
+  "base_main": "cb4fb585171f4dde371e4dfa4319d21e9ca70bc1",
+  "data_kind": "SYNTHETIC",
+  "fixture_origin": "HAND_AUTHORED_CONFORMANCE_NOT_SIMULATOR_OUTPUT",
+  "preparation_version": "visual-handoff-1",
+  "public_trace_sha256": "503b5449c7a870acd8a42a62c7aabacf410a642951281f73d9c981a2b9a8d761",
+  "source_projection": "tests/fixtures/contracts_v0_2.json#/trace"
+}
