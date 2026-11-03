@@ -36,6 +36,18 @@ jobs:
           if test -f artifacts/research/mvp/summary.json; then
             python -I -m deviation_research reproduce --evidence artifacts/research/mvp --out "$RUNNER_TEMP/committed-reproduction"
           fi
+      - name: Verify retained negative, failure and resource evidence bindings
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from hashlib import sha256
+          import json
+          base = Path('artifacts/research')
+          manifest = base/'PROVENANCE.json'
+          if manifest.exists():
+              for name, expected in json.loads(manifest.read_text())['files'].items():
+                  assert sha256((base/name).read_bytes()).hexdigest() == expected, name
+          PY
       - name: Preserve all successes, failures and network receipts
         if: always()
         uses: actions/upload-artifact@v4

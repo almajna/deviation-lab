@@ -25,11 +25,15 @@ class ResearchSandbox(unittest.TestCase):
 
     @unittest.skipUnless(os.environ.get("DEVIATION_REQUIRE_SANDBOX") == "1", "OS isolation integration runs in required CI job")
     def test_sandboxed_baseline_and_forged_result(self):
-        value, _ = run("lmsr_baseline", {})
+        value, resources = run("lmsr_baseline", {})
+        self.assertGreater(resources["worker_cpu_seconds"], 0)
+        self.assertGreater(resources["worker_peak_rss_kib"], 0)
         review, _ = run("review", {"plan": {"runner": "lmsr_baseline"}, "result": value})
         self.assertEqual(review["integrity"], "PASS")
         value["rows"][0]["engine_charge"] += 1
-        with self.assertRaises(SandboxError): run("review", {"plan": {"runner": "lmsr_baseline"}, "result": value})
+        with self.assertRaises(SandboxError) as caught:
+            run("review", {"plan": {"runner": "lmsr_baseline"}, "result": value})
+        self.assertGreater(caught.exception.receipt["worker_cpu_seconds"], 0)
 
 
 if __name__ == "__main__":
