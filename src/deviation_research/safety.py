@@ -50,12 +50,17 @@ def run(runner, payload, *, wall_seconds=None):
     before_cpu = resource.getrusage(resource.RUSAGE_CHILDREN)
     def usage(status, stdout="", stderr=""):
         after_cpu = resource.getrusage(resource.RUSAGE_CHILDREN)
-        return {"backend": kind, "limits": LIMITS, "status": status,
+        receipt = {"backend": kind, "limits": LIMITS, "status": status,
                 "wall_seconds": time.monotonic()-started,
-                "cpu_seconds": after_cpu.ru_utime+after_cpu.ru_stime-before_cpu.ru_utime-before_cpu.ru_stime,
+                "supervisor_reaped_cpu_seconds": after_cpu.ru_utime+after_cpu.ru_stime-before_cpu.ru_utime-before_cpu.ru_stime,
+                "worker_cpu_seconds": None, "worker_peak_rss_kib": None,
                 "inference_calls": 0, "paid_spend_usd": 0,
                 "stdout_tail": stdout[-2000:], "stderr_tail": stderr[-2500:],
                 "memory_limit_enforced": platform.system() == "Linux"}
+        path = out/"worker-resources.json"
+        if path.exists() and path.stat().st_size <= 2048:
+            receipt.update(json.loads(path.read_text()))
+        return receipt
     # Stage only Python packages and explicit JSON input. No repository data,
     # credentials, git checkout, source downloads, or final cohort is mounted.
     with tempfile.TemporaryDirectory(prefix="deviation-research-worker-") as temp:

@@ -152,6 +152,17 @@ def isolation_probe(plan):
 
 def main():
     runner, input_path, output_path = sys.argv[1:]
+    import atexit
+    import resource
+    import platform
+    def record_usage():
+        usage = resource.getrusage(resource.RUSAGE_SELF)
+        Path(output_path).with_name("worker-resources.json").write_text(json.dumps({
+            "worker_cpu_seconds": usage.ru_utime+usage.ru_stime,
+            "worker_peak_rss_kib": usage.ru_maxrss/1024 if platform.system() == "Darwin" else usage.ru_maxrss}))
+    # Uncaught Python exceptions still retain usage; SIGKILL/CPU-limit deaths
+    # may not run exit hooks and must be reported as unavailable by the parent.
+    atexit.register(record_usage)
     payload = json.loads(Path(input_path).read_text())
     if runner == "review":
         from .review import review
