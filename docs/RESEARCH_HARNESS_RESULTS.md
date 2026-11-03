@@ -1,5 +1,7 @@
 # First bounded research cycle
 
+**Rebase note:** this is immutable historical evidence from the source identified below. On integrated main, use the source-pinned replay adapter described in [RESEARCH_HARNESS_REBASE.md](RESEARCH_HARNESS_REBASE.md). The original direct current-source verifier intentionally rejects historical fingerprints; it has not been weakened. Original findings and captured files remain unchanged.
+
 Issue [#26](https://github.com/almajna/deviation-lab/issues/26), implementation [PR #27](https://github.com/almajna/deviation-lab/pull/27). All cases are **SYNTHETIC DEVELOPMENT**, with prescribed beliefs and simulated strategic actions. No live LLM-agent decisions, recorded benchmark task rows, final holdout or paid inference are used.
 
 ## Registration and original failures
@@ -30,7 +32,7 @@ The online capture made 12 public metadata requests: nine succeeded and three Se
 ```sh
 python -m pip install --no-deps .
 DEVIATION_REQUIRE_SANDBOX=1 python -m unittest discover -s tests -p 'test_research*.py' -v
-python -I -m deviation_research reproduce --evidence artifacts/research/mvp --out /tmp/research-reproduction
+python -I -m deviation_research_replay --out /tmp/research-reproduction --verify artifacts/research/rebase/manifest.json
 python -I -m deviation_research cycle --online --memory /tmp/research-memory.sqlite --out /tmp/new-research-cycle
 python -I -m deviation_research inspect --memory /tmp/research-memory.sqlite
 ```

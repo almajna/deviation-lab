@@ -15,6 +15,9 @@ jobs:
       PYTHONDONTWRITEBYTECODE: '1'
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -31,10 +34,12 @@ jobs:
         run: python -I -m deviation_research cycle --scout-receipt "$RUNNER_TEMP/scout.json" --memory "$RUNNER_TEMP/research/memory.sqlite" --out "$RUNNER_TEMP/research"
       - name: Cold-process reproduce every result and event
         run: python -I -m deviation_research reproduce --evidence "$RUNNER_TEMP/research" --out "$RUNNER_TEMP/reproduction"
-      - name: Reproduce committed evidence when present
+      - name: Strict historical and current research source migration
         run: |
-          if test -f artifacts/research/mvp/summary.json; then
-            python -I -m deviation_research reproduce --evidence artifacts/research/mvp --out "$RUNNER_TEMP/committed-reproduction"
+          if test -f artifacts/research/rebase/manifest.json; then
+            python -I -m deviation_research_replay --out "$RUNNER_TEMP/research-rebase" --verify artifacts/research/rebase/manifest.json
+          else
+            python -I -m deviation_research_replay --out "$RUNNER_TEMP/research-rebase"
           fi
       - name: Verify retained negative, failure and resource evidence bindings
         run: |
@@ -55,6 +60,7 @@ jobs:
           name: bounded-research-evidence
           path: |
             ${{ runner.temp }}/research
+            ${{ runner.temp }}/research-rebase
             ${{ runner.temp }}/scout.json
           retention-days: 14
       - name: Log compact deterministic evidence for audit
@@ -65,7 +71,7 @@ jobs:
           root = pathlib.Path(os.environ['RUNNER_TEMP'])
           buffer = io.BytesIO()
           with tarfile.open(fileobj=buffer, mode='w:gz') as archive:
-              for folder in ['research', 'scout.json']:
+              for folder in ['research', 'research-rebase', 'scout.json']:
                   path = root/folder
                   if path.exists():
                       for item in ([path] if path.is_file() else sorted(path.rglob('*'))):

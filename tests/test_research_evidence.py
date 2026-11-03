@@ -5,7 +5,8 @@ from pathlib import Path
 import unittest
 from unittest.mock import patch
 
-from deviation_research.review import review
+# Historical fixtures retain the exact original reviewer and package binding.
+from deviation_research_replay import historical_review as review
 
 BASE = Path(__file__).resolve().parents[1]/"artifacts/research/mvp"
 

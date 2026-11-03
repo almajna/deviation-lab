@@ -1,5 +1,7 @@
 # Bounded DEVIATION research harness
 
+For the historical sample after main's backend integration, run `python -I -m deviation_research_replay --out /tmp/research-reproduction --verify artifacts/research/rebase/manifest.json`. See [RESEARCH_HARNESS_REBASE.md](RESEARCH_HARNESS_REBASE.md). Direct `deviation_research reproduce` still strictly reproduces freshly generated current-source cycles; it deliberately rejects the historical sample under a different package fingerprint.
+
 Issue [#26](https://github.com/almajna/deviation-lab/issues/26). Additive package `deviation_research`, stacked on #25/#23. Existing approved engines, source-bound certificates, dataset rules, simulation event schemas and final cohort are unchanged.
 
 This is executable deterministic research orchestration over reviewed templates. It does not contain a live LLM scientist, unrestricted code generator, semantic novelty oracle or a guarantee of discovery. No inference is required. New methods require an adapter, scientific review and sandbox tests; a paper or repository discovered online is never executed.
