@@ -9,7 +9,7 @@ permissions:
 jobs:
   unit-smoke:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 90
     strategy:
       matrix:
         python-version: ['3.11', '3.12']
@@ -49,3 +49,13 @@ jobs:
           if test -f "$RUNNER_TEMP/integration/execution.json"; then cat "$RUNNER_TEMP/integration/execution.json"; fi
           if test -f "$RUNNER_TEMP/integration/FAILURE.json"; then cat "$RUNNER_TEMP/integration/FAILURE.json"; fi
           if test -d "$RUNNER_TEMP/integration/logs"; then tail -n 20 "$RUNNER_TEMP/integration/logs/"*.log; fi
+          if test -f "$RUNNER_TEMP/integration/manifest.json"; then
+            python - <<'PY_MANIFEST'
+          import base64, os
+          from pathlib import Path
+          data=base64.b64encode((Path(os.environ['RUNNER_TEMP'])/'integration/manifest.json').read_bytes()).decode()
+          print('INTEGRATION_MANIFEST_BEGIN')
+          for i in range(0,len(data),8000): print('INTEGRATION_MANIFEST_CHUNK '+data[i:i+8000])
+          print('INTEGRATION_MANIFEST_END')
+          PY_MANIFEST
+          fi

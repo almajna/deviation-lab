@@ -97,3 +97,16 @@ before execution. This user-authorized extension is synthetic-world,
 local-to-runner open-weight inference, not a new shared contract or holdout run.
 Retain failures/nulls and independent review. Reversible; owner Agent 3;
 human merge/release still required.
+
+## D-INTEGRATION-001 — 2026-11-03 — Recover and strictly integrate four research tracks
+Owner requested #19/#23/#25/#24 integration on codex/final-backend-integration,
+issue #28. Original Mac workspace went offline before integration code reached
+GitHub; remote branch retained f199007 (#25 stacked on #23). Recover that history,
+merge existing #19/#24 heads, restore the missing sibling integration layer and
+verify it afresh in cloud. Preserve all artifact/proof, engine, protocol, README,
+license and shared-contract bytes. Historical receipts replay at reviewed source;
+current outputs are separately generated and strictly manifest-bound. Record each
+declared digest rebinding instead of weakening source checks or changing scientific
+values. Recorded LLM actions replay with exact original contexts and zero inference;
+remove automatic inference from integration CI. Routine reversible engineering;
+no final cohort, changed success criterion, spend, main push, merge or release.

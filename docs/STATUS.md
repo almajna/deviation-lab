@@ -1,9 +1,9 @@
 # DEVIATION — status
 
-**Stage:** Phase 4 PR #16 merged, synchronized main 8cf8bd3 verified. Phase 5 prereviewed exploratory benchmark implemented; 31 recorded validation tasks and 168 synthetic cases evaluated. No demonstrated market superiority or final evaluation.
+**Stage:** Backend integration of PRs #19/#23/#25/#24 on codex/final-backend-integration, issue #28. Original evidence and scientific limitations preserved; full cloud reproduction and exact-head CI/review in progress. No final evaluation or release.
 **Release status:** NOT READY.
 **Real-world result claims:** NONE.
-**Last verified:** 2026-11-02 Pacific: independent protocol review preceded evaluation; source and clean-installed numerical reproduction passed. Final exact-head review/test count/hosted CI are recorded in the Phase 5 PR. All earlier artifacts remain immutable.
+**Last verified:** 2026-11-03 Pacific: recovered source history and immutable original bytes; 245 tests pass on native Python 3.11/3.12 in the cloud and an independent clean Python 3.12 wheel. Full historical/current replay and exact-head hosted CI are in progress. See BACKEND_INTEGRATION.md and integration PR for final evidence.
 
 ## Milestone tracker
 | ID | Milestone | Status | Owner | Required proof |
@@ -16,7 +16,7 @@
 | M5 | Benchmark | Working exploratory benchmark; reviewed protocol, paired baselines/uncertainty, negative/null results; under PR review | Research worker | Issue #18, source-bound tables/plots, clean installed reproduction and CI; final holdout disabled |
 | M6 | Visualization | Preparation PR #10 merged; app implementation/visual quality not verified by backend owner | Claude Code frontend worker | Issue #8, frontend PR with build/interaction/screenshots |
 | M7 | Policy search | Not started | Research worker | Search traces, held-out test, zero-cost default |
-| M8 | Red-team review | Not started | Independent reviewer | Signed-off critical issues or blockers |
+| M8 | Red-team review | Independent backend source/math/reproduction review in progress; no release qualification | Independent reviewer | Exact-source evidence and integration PR; external/human review separate |
 | M9 | Release | Not started | Integrator + human | `docs/RELEASE_CHECKLIST.md` and external review |
 
 ## Human decisions
