@@ -1,0 +1,22 @@
+{
+  "checks": [
+    {
+      "mean_total_proxy_pool_minus_market": {
+        "False": "0",
+        "True": "-1/6"
+      },
+      "uncertainty": "Three seed blocks, two tasks each; descriptive only, no generalization inference"
+    }
+  ],
+  "coverage_status": "COMPLETE_DECLARED_GRID",
+  "criterion": "pool_correlated_nonnegative_relative",
+  "criterion_status": "REJECTED_ON_REGISTERED_GRID",
+  "independent_scientific_review": "PENDING",
+  "integrity": "PASS",
+  "limitation": "Automated numerical gate, separately implemented certificate checker, shared trusted engine. No external peer review.",
+  "narrative_claim_status": "SCIENTIFIC_REVIEW_REQUIRED",
+  "novelty": "NOT_ESTABLISHED",
+  "result_sha256": "a6d2307460c8c2c4b113e43cc1f11ac46cf17a0b66abb3dddf39055dc41b94fb",
+  "signed_diagnostic_status": "NOT_REQUESTED",
+  "version": "research-review-1"
+}

@@ -1,0 +1,143 @@
+{
+  "data_kind": "SYNTHETIC",
+  "inference_calls": 0,
+  "novelty": "NOT_ESTABLISHED",
+  "paid_spend_usd": 0,
+  "preregistration_sha256": "ac16ee8aedffba1143e86cff5a60c549e7e6a77d7da8c42b20f3ee63ddc157f6",
+  "records": [
+    {
+      "id": "lmsr",
+      "key": "b706cb192f97e350a7a29c0a23694af628d5e0567e1cf3c29f31836adccd2a9d",
+      "result_sha256": "b58073d744b6a9dd33f9105fb48a228ba95090aecdf2facfe3fc6f5ad08be1ff",
+      "review": {
+        "checks": [
+          "243 analytic charge, funding and sampled bounded-loss checks",
+          "Separately preregistered signed/multi-share diagnostic: 21 potential deltas, charges and certified intervals"
+        ],
+        "coverage_status": "COMPLETE_DECLARED_GRID",
+        "criterion": "all_analytic_checks",
+        "criterion_status": "SUPPORTED_ON_REGISTERED_GRID",
+        "independent_scientific_review": "PENDING",
+        "integrity": "PASS",
+        "limitation": "Automated numerical gate, separately implemented certificate checker, shared trusted engine. No external peer review.",
+        "narrative_claim_status": "SCIENTIFIC_REVIEW_REQUIRED",
+        "novelty": "NOT_ESTABLISHED",
+        "result_sha256": "b58073d744b6a9dd33f9105fb48a228ba95090aecdf2facfe3fc6f5ad08be1ff",
+        "signed_diagnostic_status": "PASS_ON_DECLARED_21_TRANSITIONS",
+        "version": "research-review-1"
+      },
+      "rows": 243,
+      "status": "completed"
+    },
+    {
+      "id": "fees",
+      "key": "89f4a732d14c96c8b07acb0c3cc23e83844d03d96ae93dd08773857d59705e6b",
+      "result_sha256": "7f240b85656d53b419d9292e4675b7c0e9b29a0ebd0a73bec7859ce876831db1",
+      "review": {
+        "checks": [
+          {
+            "monotonic": false,
+            "paired_gains": {
+              "13/0": {
+                "0": "0",
+                "2": "0",
+                "4": "0"
+              },
+              "13/6": {
+                "0": "0",
+                "2": "13/3",
+                "4": "7/3"
+              },
+              "47/0": {
+                "0": "0",
+                "2": "0",
+                "4": "0"
+              },
+              "47/6": {
+                "0": "0",
+                "2": "0",
+                "4": "0"
+              }
+            },
+            "strict": false,
+            "unsupported_cases": 6,
+            "zero_external_null": true
+          },
+          "Every certificate and exact-baseline witness independently replayed"
+        ],
+        "coverage_status": "PARTIAL_UNSUPPORTED_CASES",
+        "criterion": "fee_monotonic_with_strict_and_null_controls",
+        "criterion_status": "REJECTED_ON_EVALUATED_CELLS",
+        "independent_scientific_review": "PENDING",
+        "integrity": "PASS",
+        "limitation": "Automated numerical gate, separately implemented certificate checker, shared trusted engine. No external peer review.",
+        "narrative_claim_status": "SCIENTIFIC_REVIEW_REQUIRED",
+        "novelty": "NOT_ESTABLISHED",
+        "result_sha256": "7f240b85656d53b419d9292e4675b7c0e9b29a0ebd0a73bec7859ce876831db1",
+        "signed_diagnostic_status": "NOT_REQUESTED",
+        "version": "research-review-1"
+      },
+      "rows": 18,
+      "status": "completed"
+    },
+    {
+      "id": "bounds",
+      "key": "6c243764af2fcf2b36536730cd4246b28c64c38c254135366f4745ce867eca4b",
+      "result_sha256": "e418e5e9c9905eb2768f42bc5e724ab4837f21c02da302f7f89af3c6db7fad7e",
+      "review": {
+        "checks": [
+          {
+            "strict_improvement": true,
+            "weak_dominance": true
+          },
+          "Every certificate and exact-baseline witness independently replayed"
+        ],
+        "coverage_status": "COMPLETE_DECLARED_GRID",
+        "criterion": "endpoint_dominance_with_strict",
+        "criterion_status": "SUPPORTED_ON_REGISTERED_GRID",
+        "independent_scientific_review": "PENDING",
+        "integrity": "PASS",
+        "limitation": "Automated numerical gate, separately implemented certificate checker, shared trusted engine. No external peer review.",
+        "narrative_claim_status": "SCIENTIFIC_REVIEW_REQUIRED",
+        "novelty": "NOT_ESTABLISHED",
+        "result_sha256": "e418e5e9c9905eb2768f42bc5e724ab4837f21c02da302f7f89af3c6db7fad7e",
+        "signed_diagnostic_status": "NOT_REQUESTED",
+        "version": "research-review-1"
+      },
+      "rows": 12,
+      "status": "completed"
+    },
+    {
+      "id": "correlation",
+      "key": "e32fa66d7b37e9460d346285b46c6c17d9e29ed4c832a3c131fef65d97db7429",
+      "result_sha256": "a6d2307460c8c2c4b113e43cc1f11ac46cf17a0b66abb3dddf39055dc41b94fb",
+      "review": {
+        "checks": [
+          {
+            "mean_total_proxy_pool_minus_market": {
+              "False": "0",
+              "True": "-1/6"
+            },
+            "uncertainty": "Three seed blocks, two tasks each; descriptive only, no generalization inference"
+          }
+        ],
+        "coverage_status": "COMPLETE_DECLARED_GRID",
+        "criterion": "pool_correlated_nonnegative_relative",
+        "criterion_status": "REJECTED_ON_REGISTERED_GRID",
+        "independent_scientific_review": "PENDING",
+        "integrity": "PASS",
+        "limitation": "Automated numerical gate, separately implemented certificate checker, shared trusted engine. No external peer review.",
+        "narrative_claim_status": "SCIENTIFIC_REVIEW_REQUIRED",
+        "novelty": "NOT_ESTABLISHED",
+        "result_sha256": "a6d2307460c8c2c4b113e43cc1f11ac46cf17a0b66abb3dddf39055dc41b94fb",
+        "signed_diagnostic_status": "NOT_REQUESTED",
+        "version": "research-review-1"
+      },
+      "rows": 36,
+      "status": "completed"
+    }
+  ],
+  "scientific_review": "PENDING",
+  "sha256": "cc7ad2c9a21d6551eba44e8e2cb61b55cb473b02dd9db8e9489f52849fd64744",
+  "version": "research-cycle-1"
+}

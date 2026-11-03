@@ -1,0 +1,44 @@
+{
+  "checks": [
+    {
+      "monotonic": false,
+      "paired_gains": {
+        "13/0": {
+          "0": "0",
+          "2": "0",
+          "4": "0"
+        },
+        "13/6": {
+          "0": "0",
+          "2": "13/3",
+          "4": "7/3"
+        },
+        "47/0": {
+          "0": "0",
+          "2": "0",
+          "4": "0"
+        },
+        "47/6": {
+          "0": "0",
+          "2": "0",
+          "4": "0"
+        }
+      },
+      "strict": false,
+      "unsupported_cases": 6,
+      "zero_external_null": true
+    },
+    "Every certificate and exact-baseline witness independently replayed"
+  ],
+  "coverage_status": "PARTIAL_UNSUPPORTED_CASES",
+  "criterion": "fee_monotonic_with_strict_and_null_controls",
+  "criterion_status": "REJECTED_ON_EVALUATED_CELLS",
+  "independent_scientific_review": "PENDING",
+  "integrity": "PASS",
+  "limitation": "Automated numerical gate, separately implemented certificate checker, shared trusted engine. No external peer review.",
+  "narrative_claim_status": "SCIENTIFIC_REVIEW_REQUIRED",
+  "novelty": "NOT_ESTABLISHED",
+  "result_sha256": "7f240b85656d53b419d9292e4675b7c0e9b29a0ebd0a73bec7859ce876831db1",
+  "signed_diagnostic_status": "NOT_REQUESTED",
+  "version": "research-review-1"
+}

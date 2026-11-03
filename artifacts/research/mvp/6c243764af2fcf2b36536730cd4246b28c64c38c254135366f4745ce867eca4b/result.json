@@ -1,0 +1,6008 @@
+{
+  "data_kind": "SYNTHETIC",
+  "kind": "certificate_ablation",
+  "rows": [
+    {
+      "allocation": [
+        {
+          "model_id": "m0",
+          "reserved_cost": 1,
+          "task_id": "task-0"
+        },
+        {
+          "model_id": "m0",
+          "reserved_cost": 1,
+          "task_id": "task-1"
+        }
+      ],
+      "beam": {
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "utility": [
+          120,
+          1
+        ]
+      },
+      "certificate": {
+        "action_space": "engine-l1-orders-or-simplex-reports-1",
+        "claim": "EXACT_FINITE_SUBGAME",
+        "controller": "strategic",
+        "gap": [
+          0,
+          1
+        ],
+        "incumbent_commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "lower": [
+          120,
+          1
+        ],
+        "nodes": [
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 1
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 2
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 3
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 4
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              120,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              119,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              359,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              334,
+              3
+            ]
+          }
+        ],
+        "objective": "SUBJECTIVE_EXPECTED_CONTROLLER_UTILITY",
+        "observation_sha256": "818f6be478eec8381a449241b3f998c3989056e36b7c60149e67d6096f1bea16",
+        "scope": "terminal",
+        "search": {
+          "expansions": 1,
+          "generated": 5,
+          "max_expansions": 20
+        },
+        "sha256": "37d97f4e681ec25f5e6c912f0b4b11b2448ad18414bbc03112a989b2feed3d73",
+        "source_sha256": "7d88cd5dfa1d0bd72f0d7c9796a06206ceb1451228171ad67b1041b8a6049b78",
+        "upper": [
+          120,
+          1
+        ],
+        "vector_limit": 0,
+        "version": "attack-certificate-1"
+      },
+      "dynamic_programming": {
+        "cache_hits": 0,
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "leaves": 4,
+        "nodes": 5,
+        "status": "EXACT",
+        "transitions": 4,
+        "utility": [
+          120,
+          1
+        ]
+      },
+      "exhaustive": {
+        "cache_hits": 0,
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "leaves": 4,
+        "nodes": 5,
+        "status": "EXACT",
+        "transitions": 4,
+        "utility": [
+          120,
+          1
+        ]
+      },
+      "honest": [
+        120,
+        1
+      ],
+      "honest_commands": [
+        {
+          "actor": "z0",
+          "expected_state_seq": 0,
+          "kind": "no_op",
+          "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+          "order_id": "z0/order-4",
+          "schema_version": "0.3",
+          "stage": "TRADE_OR_UPDATE"
+        }
+      ],
+      "independent_check": {
+        "allocation": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "checked_nodes": 5,
+        "engine_transitions": 5,
+        "gap": [
+          0,
+          1
+        ],
+        "lower": [
+          120,
+          1
+        ],
+        "payoff": {
+          "cash": [
+            112,
+            1
+          ],
+          "effort": [
+            0,
+            1
+          ],
+          "external": [
+            8,
+            1
+          ],
+          "utility": [
+            120,
+            1
+          ]
+        },
+        "upper": [
+          120,
+          1
+        ],
+        "version": "independent-certificate-check-1"
+      },
+      "no_action": [
+        120,
+        1
+      ],
+      "payoff": {
+        "cash": [
+          112,
+          1
+        ],
+        "effort": [
+          0,
+          1
+        ],
+        "external": [
+          8,
+          1
+        ],
+        "utility": [
+          120,
+          1
+        ]
+      },
+      "profile": {
+        "aliases": 1,
+        "b": 3,
+        "capital": 8,
+        "external": 8,
+        "fee": 0,
+        "horizon": 1,
+        "information": "mixed",
+        "quantity": 1
+      },
+      "root_endpoint_upper": [
+        128,
+        1
+      ],
+      "root_fallback_upper": [
+        129,
+        1
+      ],
+      "seed": 13,
+      "vector_limit": 0
+    },
+    {
+      "allocation": [
+        {
+          "model_id": "m0",
+          "reserved_cost": 1,
+          "task_id": "task-0"
+        },
+        {
+          "model_id": "m0",
+          "reserved_cost": 1,
+          "task_id": "task-1"
+        }
+      ],
+      "beam": {
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "utility": [
+          120,
+          1
+        ]
+      },
+      "certificate": {
+        "action_space": "engine-l1-orders-or-simplex-reports-1",
+        "claim": "EXACT_FINITE_SUBGAME",
+        "controller": "strategic",
+        "gap": [
+          0,
+          1
+        ],
+        "incumbent_commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "lower": [
+          120,
+          1
+        ],
+        "nodes": [
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 1
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 2
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 3
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 4
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              120,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              119,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              359,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              334,
+              3
+            ]
+          }
+        ],
+        "objective": "SUBJECTIVE_EXPECTED_CONTROLLER_UTILITY",
+        "observation_sha256": "818f6be478eec8381a449241b3f998c3989056e36b7c60149e67d6096f1bea16",
+        "scope": "terminal",
+        "search": {
+          "expansions": 1,
+          "generated": 5,
+          "max_expansions": 20
+        },
+        "sha256": "4ecfc2a1b63093a454ce0e029a5c8edc993bd4da9b4f0fcf4751ad6af0918582",
+        "source_sha256": "7d88cd5dfa1d0bd72f0d7c9796a06206ceb1451228171ad67b1041b8a6049b78",
+        "upper": [
+          120,
+          1
+        ],
+        "vector_limit": 5000,
+        "version": "attack-certificate-1"
+      },
+      "dynamic_programming": {
+        "cache_hits": 0,
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "leaves": 4,
+        "nodes": 5,
+        "status": "EXACT",
+        "transitions": 4,
+        "utility": [
+          120,
+          1
+        ]
+      },
+      "exhaustive": {
+        "cache_hits": 0,
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "leaves": 4,
+        "nodes": 5,
+        "status": "EXACT",
+        "transitions": 4,
+        "utility": [
+          120,
+          1
+        ]
+      },
+      "honest": [
+        120,
+        1
+      ],
+      "honest_commands": [
+        {
+          "actor": "z0",
+          "expected_state_seq": 0,
+          "kind": "no_op",
+          "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+          "order_id": "z0/order-4",
+          "schema_version": "0.3",
+          "stage": "TRADE_OR_UPDATE"
+        }
+      ],
+      "independent_check": {
+        "allocation": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "checked_nodes": 5,
+        "engine_transitions": 5,
+        "gap": [
+          0,
+          1
+        ],
+        "lower": [
+          120,
+          1
+        ],
+        "payoff": {
+          "cash": [
+            112,
+            1
+          ],
+          "effort": [
+            0,
+            1
+          ],
+          "external": [
+            8,
+            1
+          ],
+          "utility": [
+            120,
+            1
+          ]
+        },
+        "upper": [
+          120,
+          1
+        ],
+        "version": "independent-certificate-check-1"
+      },
+      "no_action": [
+        120,
+        1
+      ],
+      "payoff": {
+        "cash": [
+          112,
+          1
+        ],
+        "effort": [
+          0,
+          1
+        ],
+        "external": [
+          8,
+          1
+        ],
+        "utility": [
+          120,
+          1
+        ]
+      },
+      "profile": {
+        "aliases": 1,
+        "b": 3,
+        "capital": 8,
+        "external": 8,
+        "fee": 0,
+        "horizon": 1,
+        "information": "mixed",
+        "quantity": 1
+      },
+      "root_endpoint_upper": [
+        128,
+        1
+      ],
+      "root_fallback_upper": [
+        129,
+        1
+      ],
+      "seed": 13,
+      "vector_limit": 5000
+    },
+    {
+      "allocation": [
+        {
+          "model_id": "m0",
+          "reserved_cost": 1,
+          "task_id": "task-0"
+        },
+        {
+          "model_id": "m0",
+          "reserved_cost": 1,
+          "task_id": "task-1"
+        }
+      ],
+      "beam": {
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          },
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "order_id": "z0/order-5",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "utility": [
+          120,
+          1
+        ]
+      },
+      "certificate": {
+        "action_space": "engine-l1-orders-or-simplex-reports-1",
+        "claim": "EXACT_FINITE_SUBGAME",
+        "controller": "strategic",
+        "gap": [
+          0,
+          1
+        ],
+        "incumbent_commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          },
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "order_id": "z0/order-5",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "lower": [
+          120,
+          1
+        ],
+        "nodes": [
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 1
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 2
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 3
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 4
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 5
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 6
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 7
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 8
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 17
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 18
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 19
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 20
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 9
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 10
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 11
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 12
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 13
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 14
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 15
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 16
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              120,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              335,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              119,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              358,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              359,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              334,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              356,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              119,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              334,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              111,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              331,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              356,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              119,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              356,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              118,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              355,
+              3
+            ]
+          }
+        ],
+        "objective": "SUBJECTIVE_EXPECTED_CONTROLLER_UTILITY",
+        "observation_sha256": "3e772bc8c00bf7ae3d2e747972f4625dbb6ae162f504cff108eb7700e2c27da0",
+        "scope": "terminal",
+        "search": {
+          "expansions": 5,
+          "generated": 21,
+          "max_expansions": 20
+        },
+        "sha256": "5e4d9b6fe598a1a9d2cf07d2bdcd7a7dc8370123cecca3559387fce928625d65",
+        "source_sha256": "7d88cd5dfa1d0bd72f0d7c9796a06206ceb1451228171ad67b1041b8a6049b78",
+        "upper": [
+          120,
+          1
+        ],
+        "vector_limit": 0,
+        "version": "attack-certificate-1"
+      },
+      "dynamic_programming": {
+        "cache_hits": 0,
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          },
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "order_id": "z0/order-5",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "leaves": 16,
+        "nodes": 21,
+        "status": "EXACT",
+        "transitions": 20,
+        "utility": [
+          120,
+          1
+        ]
+      },
+      "exhaustive": {
+        "cache_hits": 0,
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          },
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "order_id": "z0/order-5",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "leaves": 16,
+        "nodes": 21,
+        "status": "EXACT",
+        "transitions": 20,
+        "utility": [
+          120,
+          1
+        ]
+      },
+      "honest": [
+        120,
+        1
+      ],
+      "honest_commands": [
+        {
+          "actor": "z0",
+          "expected_state_seq": 0,
+          "kind": "no_op",
+          "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+          "order_id": "z0/order-4",
+          "schema_version": "0.3",
+          "stage": "TRADE_OR_UPDATE"
+        },
+        {
+          "actor": "z0",
+          "expected_state_seq": 0,
+          "kind": "no_op",
+          "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+          "order_id": "z0/order-5",
+          "schema_version": "0.3",
+          "stage": "TRADE_OR_UPDATE"
+        }
+      ],
+      "independent_check": {
+        "allocation": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "checked_nodes": 21,
+        "engine_transitions": 22,
+        "gap": [
+          0,
+          1
+        ],
+        "lower": [
+          120,
+          1
+        ],
+        "payoff": {
+          "cash": [
+            112,
+            1
+          ],
+          "effort": [
+            0,
+            1
+          ],
+          "external": [
+            8,
+            1
+          ],
+          "utility": [
+            120,
+            1
+          ]
+        },
+        "upper": [
+          120,
+          1
+        ],
+        "version": "independent-certificate-check-1"
+      },
+      "no_action": [
+        120,
+        1
+      ],
+      "payoff": {
+        "cash": [
+          112,
+          1
+        ],
+        "effort": [
+          0,
+          1
+        ],
+        "external": [
+          8,
+          1
+        ],
+        "utility": [
+          120,
+          1
+        ]
+      },
+      "profile": {
+        "aliases": 1,
+        "b": 3,
+        "capital": 8,
+        "external": 8,
+        "fee": 0,
+        "horizon": 2,
+        "information": "mixed",
+        "quantity": 1
+      },
+      "root_endpoint_upper": [
+        128,
+        1
+      ],
+      "root_fallback_upper": [
+        130,
+        1
+      ],
+      "seed": 13,
+      "vector_limit": 0
+    },
+    {
+      "allocation": [
+        {
+          "model_id": "m0",
+          "reserved_cost": 1,
+          "task_id": "task-0"
+        },
+        {
+          "model_id": "m0",
+          "reserved_cost": 1,
+          "task_id": "task-1"
+        }
+      ],
+      "beam": {
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          },
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "order_id": "z0/order-5",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "utility": [
+          120,
+          1
+        ]
+      },
+      "certificate": {
+        "action_space": "engine-l1-orders-or-simplex-reports-1",
+        "claim": "EXACT_FINITE_SUBGAME",
+        "controller": "strategic",
+        "gap": [
+          0,
+          1
+        ],
+        "incumbent_commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          },
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "order_id": "z0/order-5",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "lower": [
+          120,
+          1
+        ],
+        "nodes": [
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 1
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 2
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 3
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 4
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 5
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 6
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 7
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 8
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 17
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 18
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 19
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 20
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 9
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 10
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 11
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 12
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 13
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 14
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 15
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 16
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              120,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              335,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              119,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              358,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              359,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              334,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              356,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              119,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              334,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              111,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              331,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              356,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              119,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              356,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              118,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              355,
+              3
+            ]
+          }
+        ],
+        "objective": "SUBJECTIVE_EXPECTED_CONTROLLER_UTILITY",
+        "observation_sha256": "3e772bc8c00bf7ae3d2e747972f4625dbb6ae162f504cff108eb7700e2c27da0",
+        "scope": "terminal",
+        "search": {
+          "expansions": 5,
+          "generated": 21,
+          "max_expansions": 20
+        },
+        "sha256": "1d52816c618dc660493bc9e274a4422be9f97309f2b543d68c0878b6f384b1f0",
+        "source_sha256": "7d88cd5dfa1d0bd72f0d7c9796a06206ceb1451228171ad67b1041b8a6049b78",
+        "upper": [
+          120,
+          1
+        ],
+        "vector_limit": 5000,
+        "version": "attack-certificate-1"
+      },
+      "dynamic_programming": {
+        "cache_hits": 0,
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          },
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "order_id": "z0/order-5",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "leaves": 16,
+        "nodes": 21,
+        "status": "EXACT",
+        "transitions": 20,
+        "utility": [
+          120,
+          1
+        ]
+      },
+      "exhaustive": {
+        "cache_hits": 0,
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          },
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "order_id": "z0/order-5",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "leaves": 16,
+        "nodes": 21,
+        "status": "EXACT",
+        "transitions": 20,
+        "utility": [
+          120,
+          1
+        ]
+      },
+      "honest": [
+        120,
+        1
+      ],
+      "honest_commands": [
+        {
+          "actor": "z0",
+          "expected_state_seq": 0,
+          "kind": "no_op",
+          "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+          "order_id": "z0/order-4",
+          "schema_version": "0.3",
+          "stage": "TRADE_OR_UPDATE"
+        },
+        {
+          "actor": "z0",
+          "expected_state_seq": 0,
+          "kind": "no_op",
+          "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+          "order_id": "z0/order-5",
+          "schema_version": "0.3",
+          "stage": "TRADE_OR_UPDATE"
+        }
+      ],
+      "independent_check": {
+        "allocation": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "checked_nodes": 21,
+        "engine_transitions": 22,
+        "gap": [
+          0,
+          1
+        ],
+        "lower": [
+          120,
+          1
+        ],
+        "payoff": {
+          "cash": [
+            112,
+            1
+          ],
+          "effort": [
+            0,
+            1
+          ],
+          "external": [
+            8,
+            1
+          ],
+          "utility": [
+            120,
+            1
+          ]
+        },
+        "upper": [
+          120,
+          1
+        ],
+        "version": "independent-certificate-check-1"
+      },
+      "no_action": [
+        120,
+        1
+      ],
+      "payoff": {
+        "cash": [
+          112,
+          1
+        ],
+        "effort": [
+          0,
+          1
+        ],
+        "external": [
+          8,
+          1
+        ],
+        "utility": [
+          120,
+          1
+        ]
+      },
+      "profile": {
+        "aliases": 1,
+        "b": 3,
+        "capital": 8,
+        "external": 8,
+        "fee": 0,
+        "horizon": 2,
+        "information": "mixed",
+        "quantity": 1
+      },
+      "root_endpoint_upper": [
+        128,
+        1
+      ],
+      "root_fallback_upper": [
+        130,
+        1
+      ],
+      "seed": 13,
+      "vector_limit": 5000
+    },
+    {
+      "allocation": [
+        {
+          "model_id": "m0",
+          "reserved_cost": 1,
+          "task_id": "task-0"
+        },
+        {
+          "model_id": "m0",
+          "reserved_cost": 1,
+          "task_id": "task-1"
+        }
+      ],
+      "beam": {
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "utility": [
+          128,
+          1
+        ]
+      },
+      "certificate": {
+        "action_space": "engine-l1-orders-or-simplex-reports-1",
+        "claim": "EXACT_FINITE_SUBGAME",
+        "controller": "strategic",
+        "gap": [
+          0,
+          1
+        ],
+        "incumbent_commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "lower": [
+          128,
+          1
+        ],
+        "nodes": [
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 1
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 2
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 3
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 4
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              128,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              358,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              127,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              383,
+              3
+            ]
+          }
+        ],
+        "objective": "SUBJECTIVE_EXPECTED_CONTROLLER_UTILITY",
+        "observation_sha256": "ec49563a42604cb7b58941dfa5e53a207967f8c342e2d6ed4dd878d79ad17975",
+        "scope": "terminal",
+        "search": {
+          "expansions": 1,
+          "generated": 5,
+          "max_expansions": 20
+        },
+        "sha256": "2fe0a3e15216360e87ba241704d0166fbd02a32a6c06b8362dea9771cc9a66e3",
+        "source_sha256": "7d88cd5dfa1d0bd72f0d7c9796a06206ceb1451228171ad67b1041b8a6049b78",
+        "upper": [
+          128,
+          1
+        ],
+        "vector_limit": 0,
+        "version": "attack-certificate-1"
+      },
+      "dynamic_programming": {
+        "cache_hits": 0,
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "leaves": 4,
+        "nodes": 5,
+        "status": "EXACT",
+        "transitions": 4,
+        "utility": [
+          128,
+          1
+        ]
+      },
+      "exhaustive": {
+        "cache_hits": 0,
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "leaves": 4,
+        "nodes": 5,
+        "status": "EXACT",
+        "transitions": 4,
+        "utility": [
+          128,
+          1
+        ]
+      },
+      "honest": [
+        128,
+        1
+      ],
+      "honest_commands": [
+        {
+          "actor": "z0",
+          "expected_state_seq": 0,
+          "kind": "no_op",
+          "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+          "order_id": "z0/order-4",
+          "schema_version": "0.3",
+          "stage": "TRADE_OR_UPDATE"
+        }
+      ],
+      "independent_check": {
+        "allocation": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "checked_nodes": 5,
+        "engine_transitions": 5,
+        "gap": [
+          0,
+          1
+        ],
+        "lower": [
+          128,
+          1
+        ],
+        "payoff": {
+          "cash": [
+            120,
+            1
+          ],
+          "effort": [
+            0,
+            1
+          ],
+          "external": [
+            8,
+            1
+          ],
+          "utility": [
+            128,
+            1
+          ]
+        },
+        "upper": [
+          128,
+          1
+        ],
+        "version": "independent-certificate-check-1"
+      },
+      "no_action": [
+        128,
+        1
+      ],
+      "payoff": {
+        "cash": [
+          120,
+          1
+        ],
+        "effort": [
+          0,
+          1
+        ],
+        "external": [
+          8,
+          1
+        ],
+        "utility": [
+          128,
+          1
+        ]
+      },
+      "profile": {
+        "aliases": 1,
+        "b": 3,
+        "capital": 8,
+        "external": 8,
+        "fee": 0,
+        "horizon": 1,
+        "information": "mixed",
+        "quantity": 1
+      },
+      "root_endpoint_upper": [
+        136,
+        1
+      ],
+      "root_fallback_upper": [
+        137,
+        1
+      ],
+      "seed": 29,
+      "vector_limit": 0
+    },
+    {
+      "allocation": [
+        {
+          "model_id": "m0",
+          "reserved_cost": 1,
+          "task_id": "task-0"
+        },
+        {
+          "model_id": "m0",
+          "reserved_cost": 1,
+          "task_id": "task-1"
+        }
+      ],
+      "beam": {
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "utility": [
+          128,
+          1
+        ]
+      },
+      "certificate": {
+        "action_space": "engine-l1-orders-or-simplex-reports-1",
+        "claim": "EXACT_FINITE_SUBGAME",
+        "controller": "strategic",
+        "gap": [
+          0,
+          1
+        ],
+        "incumbent_commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "lower": [
+          128,
+          1
+        ],
+        "nodes": [
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 1
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 2
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 3
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 4
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              128,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              358,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              127,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              383,
+              3
+            ]
+          }
+        ],
+        "objective": "SUBJECTIVE_EXPECTED_CONTROLLER_UTILITY",
+        "observation_sha256": "ec49563a42604cb7b58941dfa5e53a207967f8c342e2d6ed4dd878d79ad17975",
+        "scope": "terminal",
+        "search": {
+          "expansions": 1,
+          "generated": 5,
+          "max_expansions": 20
+        },
+        "sha256": "739aab3eaaef7c269f3844d877cdace54eb0e797a8cc6c8e75e9f8ead43d5985",
+        "source_sha256": "7d88cd5dfa1d0bd72f0d7c9796a06206ceb1451228171ad67b1041b8a6049b78",
+        "upper": [
+          128,
+          1
+        ],
+        "vector_limit": 5000,
+        "version": "attack-certificate-1"
+      },
+      "dynamic_programming": {
+        "cache_hits": 0,
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "leaves": 4,
+        "nodes": 5,
+        "status": "EXACT",
+        "transitions": 4,
+        "utility": [
+          128,
+          1
+        ]
+      },
+      "exhaustive": {
+        "cache_hits": 0,
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "leaves": 4,
+        "nodes": 5,
+        "status": "EXACT",
+        "transitions": 4,
+        "utility": [
+          128,
+          1
+        ]
+      },
+      "honest": [
+        128,
+        1
+      ],
+      "honest_commands": [
+        {
+          "actor": "z0",
+          "expected_state_seq": 0,
+          "kind": "no_op",
+          "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+          "order_id": "z0/order-4",
+          "schema_version": "0.3",
+          "stage": "TRADE_OR_UPDATE"
+        }
+      ],
+      "independent_check": {
+        "allocation": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "checked_nodes": 5,
+        "engine_transitions": 5,
+        "gap": [
+          0,
+          1
+        ],
+        "lower": [
+          128,
+          1
+        ],
+        "payoff": {
+          "cash": [
+            120,
+            1
+          ],
+          "effort": [
+            0,
+            1
+          ],
+          "external": [
+            8,
+            1
+          ],
+          "utility": [
+            128,
+            1
+          ]
+        },
+        "upper": [
+          128,
+          1
+        ],
+        "version": "independent-certificate-check-1"
+      },
+      "no_action": [
+        128,
+        1
+      ],
+      "payoff": {
+        "cash": [
+          120,
+          1
+        ],
+        "effort": [
+          0,
+          1
+        ],
+        "external": [
+          8,
+          1
+        ],
+        "utility": [
+          128,
+          1
+        ]
+      },
+      "profile": {
+        "aliases": 1,
+        "b": 3,
+        "capital": 8,
+        "external": 8,
+        "fee": 0,
+        "horizon": 1,
+        "information": "mixed",
+        "quantity": 1
+      },
+      "root_endpoint_upper": [
+        136,
+        1
+      ],
+      "root_fallback_upper": [
+        137,
+        1
+      ],
+      "seed": 29,
+      "vector_limit": 5000
+    },
+    {
+      "allocation": [
+        {
+          "model_id": "m1",
+          "reserved_cost": 2,
+          "task_id": "task-0"
+        },
+        {
+          "model_id": "m0",
+          "reserved_cost": 1,
+          "task_id": "task-1"
+        }
+      ],
+      "beam": {
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          },
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "trade_shares",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "max_net_debit": 1,
+            "order_id": "z0/order-5",
+            "schema_version": "0.3",
+            "share_delta": [
+              1,
+              0,
+              0
+            ],
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "utility": [
+          407,
+          3
+        ]
+      },
+      "certificate": {
+        "action_space": "engine-l1-orders-or-simplex-reports-1",
+        "claim": "EXACT_FINITE_SUBGAME",
+        "controller": "strategic",
+        "gap": [
+          0,
+          1
+        ],
+        "incumbent_commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          },
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "trade_shares",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "max_net_debit": 1,
+            "order_id": "z0/order-5",
+            "schema_version": "0.3",
+            "share_delta": [
+              1,
+              0,
+              0
+            ],
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "lower": [
+          407,
+          3
+        ],
+        "nodes": [
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 1
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 2
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 3
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 4
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 5
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 6
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 7
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 8
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 13
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 14
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 15
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 16
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 17
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 18
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 19
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 20
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 9
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 10
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 11
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 12
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              128,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              127,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              382,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              407,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              383,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              380,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              127,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              406,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              358,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              355,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              356,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              119,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              127,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              126,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              379,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              404,
+              3
+            ]
+          }
+        ],
+        "objective": "SUBJECTIVE_EXPECTED_CONTROLLER_UTILITY",
+        "observation_sha256": "16d2165661ae9793e36ebc47a5f1f48f11f0154135b2730d09c29e15813e2a49",
+        "scope": "terminal",
+        "search": {
+          "expansions": 5,
+          "generated": 21,
+          "max_expansions": 20
+        },
+        "sha256": "eb73e57761a28a6b551d14b57af7a4aa1fd71f204d0b7297d174862ee2aa5bfa",
+        "source_sha256": "7d88cd5dfa1d0bd72f0d7c9796a06206ceb1451228171ad67b1041b8a6049b78",
+        "upper": [
+          407,
+          3
+        ],
+        "vector_limit": 0,
+        "version": "attack-certificate-1"
+      },
+      "dynamic_programming": {
+        "cache_hits": 0,
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          },
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "trade_shares",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "max_net_debit": 1,
+            "order_id": "z0/order-5",
+            "schema_version": "0.3",
+            "share_delta": [
+              1,
+              0,
+              0
+            ],
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "leaves": 16,
+        "nodes": 21,
+        "status": "EXACT",
+        "transitions": 20,
+        "utility": [
+          407,
+          3
+        ]
+      },
+      "exhaustive": {
+        "cache_hits": 0,
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          },
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "trade_shares",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "max_net_debit": 1,
+            "order_id": "z0/order-5",
+            "schema_version": "0.3",
+            "share_delta": [
+              1,
+              0,
+              0
+            ],
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "leaves": 16,
+        "nodes": 21,
+        "status": "EXACT",
+        "transitions": 20,
+        "utility": [
+          407,
+          3
+        ]
+      },
+      "honest": [
+        128,
+        1
+      ],
+      "honest_commands": [
+        {
+          "actor": "z0",
+          "expected_state_seq": 0,
+          "kind": "no_op",
+          "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+          "order_id": "z0/order-4",
+          "schema_version": "0.3",
+          "stage": "TRADE_OR_UPDATE"
+        },
+        {
+          "actor": "z0",
+          "expected_state_seq": 0,
+          "kind": "no_op",
+          "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+          "order_id": "z0/order-5",
+          "schema_version": "0.3",
+          "stage": "TRADE_OR_UPDATE"
+        }
+      ],
+      "independent_check": {
+        "allocation": [
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "checked_nodes": 21,
+        "engine_transitions": 22,
+        "gap": [
+          0,
+          1
+        ],
+        "lower": [
+          407,
+          3
+        ],
+        "payoff": {
+          "cash": [
+            359,
+            3
+          ],
+          "effort": [
+            0,
+            1
+          ],
+          "external": [
+            16,
+            1
+          ],
+          "utility": [
+            407,
+            3
+          ]
+        },
+        "upper": [
+          407,
+          3
+        ],
+        "version": "independent-certificate-check-1"
+      },
+      "no_action": [
+        128,
+        1
+      ],
+      "payoff": {
+        "cash": [
+          359,
+          3
+        ],
+        "effort": [
+          0,
+          1
+        ],
+        "external": [
+          16,
+          1
+        ],
+        "utility": [
+          407,
+          3
+        ]
+      },
+      "profile": {
+        "aliases": 1,
+        "b": 3,
+        "capital": 8,
+        "external": 8,
+        "fee": 0,
+        "horizon": 2,
+        "information": "mixed",
+        "quantity": 1
+      },
+      "root_endpoint_upper": [
+        136,
+        1
+      ],
+      "root_fallback_upper": [
+        138,
+        1
+      ],
+      "seed": 29,
+      "vector_limit": 0
+    },
+    {
+      "allocation": [
+        {
+          "model_id": "m1",
+          "reserved_cost": 2,
+          "task_id": "task-0"
+        },
+        {
+          "model_id": "m0",
+          "reserved_cost": 1,
+          "task_id": "task-1"
+        }
+      ],
+      "beam": {
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          },
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "trade_shares",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "max_net_debit": 1,
+            "order_id": "z0/order-5",
+            "schema_version": "0.3",
+            "share_delta": [
+              1,
+              0,
+              0
+            ],
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "utility": [
+          407,
+          3
+        ]
+      },
+      "certificate": {
+        "action_space": "engine-l1-orders-or-simplex-reports-1",
+        "claim": "EXACT_FINITE_SUBGAME",
+        "controller": "strategic",
+        "gap": [
+          0,
+          1
+        ],
+        "incumbent_commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          },
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "trade_shares",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "max_net_debit": 1,
+            "order_id": "z0/order-5",
+            "schema_version": "0.3",
+            "share_delta": [
+              1,
+              0,
+              0
+            ],
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "lower": [
+          407,
+          3
+        ],
+        "nodes": [
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 1
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 2
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 3
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 4
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 5
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 6
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 7
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 8
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "kind": "bound",
+            "upper": [
+              406,
+              3
+            ]
+          },
+          {
+            "kind": "bound",
+            "upper": [
+              135,
+              1
+            ]
+          },
+          {
+            "kind": "bound",
+            "upper": [
+              407,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              128,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              127,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              382,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              407,
+              3
+            ]
+          }
+        ],
+        "objective": "SUBJECTIVE_EXPECTED_CONTROLLER_UTILITY",
+        "observation_sha256": "16d2165661ae9793e36ebc47a5f1f48f11f0154135b2730d09c29e15813e2a49",
+        "scope": "terminal",
+        "search": {
+          "expansions": 2,
+          "generated": 9,
+          "max_expansions": 20
+        },
+        "sha256": "9685ccdadd27caf9d25f2da64e172875fb00c5e081158cbc65c7c873233cae13",
+        "source_sha256": "7d88cd5dfa1d0bd72f0d7c9796a06206ceb1451228171ad67b1041b8a6049b78",
+        "upper": [
+          407,
+          3
+        ],
+        "vector_limit": 5000,
+        "version": "attack-certificate-1"
+      },
+      "dynamic_programming": {
+        "cache_hits": 0,
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          },
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "trade_shares",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "max_net_debit": 1,
+            "order_id": "z0/order-5",
+            "schema_version": "0.3",
+            "share_delta": [
+              1,
+              0,
+              0
+            ],
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "leaves": 16,
+        "nodes": 21,
+        "status": "EXACT",
+        "transitions": 20,
+        "utility": [
+          407,
+          3
+        ]
+      },
+      "exhaustive": {
+        "cache_hits": 0,
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          },
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "trade_shares",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "max_net_debit": 1,
+            "order_id": "z0/order-5",
+            "schema_version": "0.3",
+            "share_delta": [
+              1,
+              0,
+              0
+            ],
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "leaves": 16,
+        "nodes": 21,
+        "status": "EXACT",
+        "transitions": 20,
+        "utility": [
+          407,
+          3
+        ]
+      },
+      "honest": [
+        128,
+        1
+      ],
+      "honest_commands": [
+        {
+          "actor": "z0",
+          "expected_state_seq": 0,
+          "kind": "no_op",
+          "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+          "order_id": "z0/order-4",
+          "schema_version": "0.3",
+          "stage": "TRADE_OR_UPDATE"
+        },
+        {
+          "actor": "z0",
+          "expected_state_seq": 0,
+          "kind": "no_op",
+          "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+          "order_id": "z0/order-5",
+          "schema_version": "0.3",
+          "stage": "TRADE_OR_UPDATE"
+        }
+      ],
+      "independent_check": {
+        "allocation": [
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "checked_nodes": 9,
+        "engine_transitions": 10,
+        "gap": [
+          0,
+          1
+        ],
+        "lower": [
+          407,
+          3
+        ],
+        "payoff": {
+          "cash": [
+            359,
+            3
+          ],
+          "effort": [
+            0,
+            1
+          ],
+          "external": [
+            16,
+            1
+          ],
+          "utility": [
+            407,
+            3
+          ]
+        },
+        "upper": [
+          407,
+          3
+        ],
+        "version": "independent-certificate-check-1"
+      },
+      "no_action": [
+        128,
+        1
+      ],
+      "payoff": {
+        "cash": [
+          359,
+          3
+        ],
+        "effort": [
+          0,
+          1
+        ],
+        "external": [
+          16,
+          1
+        ],
+        "utility": [
+          407,
+          3
+        ]
+      },
+      "profile": {
+        "aliases": 1,
+        "b": 3,
+        "capital": 8,
+        "external": 8,
+        "fee": 0,
+        "horizon": 2,
+        "information": "mixed",
+        "quantity": 1
+      },
+      "root_endpoint_upper": [
+        136,
+        1
+      ],
+      "root_fallback_upper": [
+        138,
+        1
+      ],
+      "seed": 29,
+      "vector_limit": 5000
+    },
+    {
+      "allocation": [
+        {
+          "model_id": "m1",
+          "reserved_cost": 2,
+          "task_id": "task-0"
+        },
+        {
+          "model_id": "m0",
+          "reserved_cost": 1,
+          "task_id": "task-1"
+        }
+      ],
+      "beam": {
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "trade_shares",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "max_net_debit": 1,
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "share_delta": [
+              1,
+              0,
+              0
+            ],
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "utility": [
+          407,
+          3
+        ]
+      },
+      "certificate": {
+        "action_space": "engine-l1-orders-or-simplex-reports-1",
+        "claim": "EXACT_FINITE_SUBGAME",
+        "controller": "strategic",
+        "gap": [
+          0,
+          1
+        ],
+        "incumbent_commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "trade_shares",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "max_net_debit": 1,
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "share_delta": [
+              1,
+              0,
+              0
+            ],
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "lower": [
+          407,
+          3
+        ],
+        "nodes": [
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 1
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 2
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 3
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 4
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              128,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              127,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              382,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              407,
+              3
+            ]
+          }
+        ],
+        "objective": "SUBJECTIVE_EXPECTED_CONTROLLER_UTILITY",
+        "observation_sha256": "265dfa298f8016e13c0bac0488c0bd0349e53c0179aa7fffd8c9872201892a77",
+        "scope": "terminal",
+        "search": {
+          "expansions": 1,
+          "generated": 5,
+          "max_expansions": 20
+        },
+        "sha256": "363ed058c07d5700a91683806718f7048138577522191e74311b3c33f98e05e1",
+        "source_sha256": "7d88cd5dfa1d0bd72f0d7c9796a06206ceb1451228171ad67b1041b8a6049b78",
+        "upper": [
+          407,
+          3
+        ],
+        "vector_limit": 0,
+        "version": "attack-certificate-1"
+      },
+      "dynamic_programming": {
+        "cache_hits": 0,
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "trade_shares",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "max_net_debit": 1,
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "share_delta": [
+              1,
+              0,
+              0
+            ],
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "leaves": 4,
+        "nodes": 5,
+        "status": "EXACT",
+        "transitions": 4,
+        "utility": [
+          407,
+          3
+        ]
+      },
+      "exhaustive": {
+        "cache_hits": 0,
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "trade_shares",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "max_net_debit": 1,
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "share_delta": [
+              1,
+              0,
+              0
+            ],
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "leaves": 4,
+        "nodes": 5,
+        "status": "EXACT",
+        "transitions": 4,
+        "utility": [
+          407,
+          3
+        ]
+      },
+      "honest": [
+        128,
+        1
+      ],
+      "honest_commands": [
+        {
+          "actor": "z0",
+          "expected_state_seq": 0,
+          "kind": "no_op",
+          "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+          "order_id": "z0/order-4",
+          "schema_version": "0.3",
+          "stage": "TRADE_OR_UPDATE"
+        }
+      ],
+      "independent_check": {
+        "allocation": [
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "checked_nodes": 5,
+        "engine_transitions": 5,
+        "gap": [
+          0,
+          1
+        ],
+        "lower": [
+          407,
+          3
+        ],
+        "payoff": {
+          "cash": [
+            383,
+            3
+          ],
+          "effort": [
+            0,
+            1
+          ],
+          "external": [
+            8,
+            1
+          ],
+          "utility": [
+            407,
+            3
+          ]
+        },
+        "upper": [
+          407,
+          3
+        ],
+        "version": "independent-certificate-check-1"
+      },
+      "no_action": [
+        128,
+        1
+      ],
+      "payoff": {
+        "cash": [
+          383,
+          3
+        ],
+        "effort": [
+          0,
+          1
+        ],
+        "external": [
+          8,
+          1
+        ],
+        "utility": [
+          407,
+          3
+        ]
+      },
+      "profile": {
+        "aliases": 1,
+        "b": 3,
+        "capital": 8,
+        "external": 8,
+        "fee": 0,
+        "horizon": 1,
+        "information": "mixed",
+        "quantity": 1
+      },
+      "root_endpoint_upper": [
+        136,
+        1
+      ],
+      "root_fallback_upper": [
+        137,
+        1
+      ],
+      "seed": 47,
+      "vector_limit": 0
+    },
+    {
+      "allocation": [
+        {
+          "model_id": "m1",
+          "reserved_cost": 2,
+          "task_id": "task-0"
+        },
+        {
+          "model_id": "m0",
+          "reserved_cost": 1,
+          "task_id": "task-1"
+        }
+      ],
+      "beam": {
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "trade_shares",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "max_net_debit": 1,
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "share_delta": [
+              1,
+              0,
+              0
+            ],
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "utility": [
+          407,
+          3
+        ]
+      },
+      "certificate": {
+        "action_space": "engine-l1-orders-or-simplex-reports-1",
+        "claim": "EXACT_FINITE_SUBGAME",
+        "controller": "strategic",
+        "gap": [
+          0,
+          1
+        ],
+        "incumbent_commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "trade_shares",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "max_net_debit": 1,
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "share_delta": [
+              1,
+              0,
+              0
+            ],
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "lower": [
+          407,
+          3
+        ],
+        "nodes": [
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 1
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 2
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 3
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 4
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              128,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              127,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              382,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              407,
+              3
+            ]
+          }
+        ],
+        "objective": "SUBJECTIVE_EXPECTED_CONTROLLER_UTILITY",
+        "observation_sha256": "265dfa298f8016e13c0bac0488c0bd0349e53c0179aa7fffd8c9872201892a77",
+        "scope": "terminal",
+        "search": {
+          "expansions": 1,
+          "generated": 5,
+          "max_expansions": 20
+        },
+        "sha256": "2028e64915d939e4a1e11a38a9506c8248f7e2c3cbd3bedf2d0f026a670e2998",
+        "source_sha256": "7d88cd5dfa1d0bd72f0d7c9796a06206ceb1451228171ad67b1041b8a6049b78",
+        "upper": [
+          407,
+          3
+        ],
+        "vector_limit": 5000,
+        "version": "attack-certificate-1"
+      },
+      "dynamic_programming": {
+        "cache_hits": 0,
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "trade_shares",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "max_net_debit": 1,
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "share_delta": [
+              1,
+              0,
+              0
+            ],
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "leaves": 4,
+        "nodes": 5,
+        "status": "EXACT",
+        "transitions": 4,
+        "utility": [
+          407,
+          3
+        ]
+      },
+      "exhaustive": {
+        "cache_hits": 0,
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "trade_shares",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "max_net_debit": 1,
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "share_delta": [
+              1,
+              0,
+              0
+            ],
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "leaves": 4,
+        "nodes": 5,
+        "status": "EXACT",
+        "transitions": 4,
+        "utility": [
+          407,
+          3
+        ]
+      },
+      "honest": [
+        128,
+        1
+      ],
+      "honest_commands": [
+        {
+          "actor": "z0",
+          "expected_state_seq": 0,
+          "kind": "no_op",
+          "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+          "order_id": "z0/order-4",
+          "schema_version": "0.3",
+          "stage": "TRADE_OR_UPDATE"
+        }
+      ],
+      "independent_check": {
+        "allocation": [
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "checked_nodes": 5,
+        "engine_transitions": 5,
+        "gap": [
+          0,
+          1
+        ],
+        "lower": [
+          407,
+          3
+        ],
+        "payoff": {
+          "cash": [
+            383,
+            3
+          ],
+          "effort": [
+            0,
+            1
+          ],
+          "external": [
+            8,
+            1
+          ],
+          "utility": [
+            407,
+            3
+          ]
+        },
+        "upper": [
+          407,
+          3
+        ],
+        "version": "independent-certificate-check-1"
+      },
+      "no_action": [
+        128,
+        1
+      ],
+      "payoff": {
+        "cash": [
+          383,
+          3
+        ],
+        "effort": [
+          0,
+          1
+        ],
+        "external": [
+          8,
+          1
+        ],
+        "utility": [
+          407,
+          3
+        ]
+      },
+      "profile": {
+        "aliases": 1,
+        "b": 3,
+        "capital": 8,
+        "external": 8,
+        "fee": 0,
+        "horizon": 1,
+        "information": "mixed",
+        "quantity": 1
+      },
+      "root_endpoint_upper": [
+        136,
+        1
+      ],
+      "root_fallback_upper": [
+        137,
+        1
+      ],
+      "seed": 47,
+      "vector_limit": 5000
+    },
+    {
+      "allocation": [
+        {
+          "model_id": "m1",
+          "reserved_cost": 2,
+          "task_id": "task-0"
+        },
+        {
+          "model_id": "m0",
+          "reserved_cost": 1,
+          "task_id": "task-1"
+        }
+      ],
+      "beam": {
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "trade_shares",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "max_net_debit": 1,
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "share_delta": [
+              1,
+              0,
+              0
+            ],
+            "stage": "TRADE_OR_UPDATE"
+          },
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "order_id": "z0/order-5",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "utility": [
+          407,
+          3
+        ]
+      },
+      "certificate": {
+        "action_space": "engine-l1-orders-or-simplex-reports-1",
+        "claim": "EXACT_FINITE_SUBGAME",
+        "controller": "strategic",
+        "gap": [
+          0,
+          1
+        ],
+        "incumbent_commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "trade_shares",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "max_net_debit": 1,
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "share_delta": [
+              1,
+              0,
+              0
+            ],
+            "stage": "TRADE_OR_UPDATE"
+          },
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "order_id": "z0/order-5",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "lower": [
+          407,
+          3
+        ],
+        "nodes": [
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 1
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 2
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 3
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 4
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 5
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 6
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 7
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 8
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 17
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 18
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 19
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 20
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 13
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 14
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 15
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 16
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 9
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 10
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 11
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 12
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              128,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              135,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              127,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              128,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              407,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              404,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              404,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              383,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              382,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              403,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              379,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              382,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              127,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              126,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              126,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              127,
+              1
+            ]
+          }
+        ],
+        "objective": "SUBJECTIVE_EXPECTED_CONTROLLER_UTILITY",
+        "observation_sha256": "9eac65556e717a184285701c0a3f8dd7b2ab2a439b1cc13486e2fae4b1d329cf",
+        "scope": "terminal",
+        "search": {
+          "expansions": 5,
+          "generated": 21,
+          "max_expansions": 20
+        },
+        "sha256": "b0e6684cd168e2b82ba450cd9d75e7561c252794c39ec3fe87bac4dc42e8b922",
+        "source_sha256": "7d88cd5dfa1d0bd72f0d7c9796a06206ceb1451228171ad67b1041b8a6049b78",
+        "upper": [
+          407,
+          3
+        ],
+        "vector_limit": 0,
+        "version": "attack-certificate-1"
+      },
+      "dynamic_programming": {
+        "cache_hits": 0,
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "trade_shares",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "max_net_debit": 1,
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "share_delta": [
+              1,
+              0,
+              0
+            ],
+            "stage": "TRADE_OR_UPDATE"
+          },
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "order_id": "z0/order-5",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "leaves": 16,
+        "nodes": 21,
+        "status": "EXACT",
+        "transitions": 20,
+        "utility": [
+          407,
+          3
+        ]
+      },
+      "exhaustive": {
+        "cache_hits": 0,
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "trade_shares",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "max_net_debit": 1,
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "share_delta": [
+              1,
+              0,
+              0
+            ],
+            "stage": "TRADE_OR_UPDATE"
+          },
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "order_id": "z0/order-5",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "leaves": 16,
+        "nodes": 21,
+        "status": "EXACT",
+        "transitions": 20,
+        "utility": [
+          407,
+          3
+        ]
+      },
+      "honest": [
+        128,
+        1
+      ],
+      "honest_commands": [
+        {
+          "actor": "z0",
+          "expected_state_seq": 0,
+          "kind": "no_op",
+          "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+          "order_id": "z0/order-4",
+          "schema_version": "0.3",
+          "stage": "TRADE_OR_UPDATE"
+        },
+        {
+          "actor": "z0",
+          "expected_state_seq": 0,
+          "kind": "no_op",
+          "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+          "order_id": "z0/order-5",
+          "schema_version": "0.3",
+          "stage": "TRADE_OR_UPDATE"
+        }
+      ],
+      "independent_check": {
+        "allocation": [
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "checked_nodes": 21,
+        "engine_transitions": 22,
+        "gap": [
+          0,
+          1
+        ],
+        "lower": [
+          407,
+          3
+        ],
+        "payoff": {
+          "cash": [
+            383,
+            3
+          ],
+          "effort": [
+            0,
+            1
+          ],
+          "external": [
+            8,
+            1
+          ],
+          "utility": [
+            407,
+            3
+          ]
+        },
+        "upper": [
+          407,
+          3
+        ],
+        "version": "independent-certificate-check-1"
+      },
+      "no_action": [
+        128,
+        1
+      ],
+      "payoff": {
+        "cash": [
+          383,
+          3
+        ],
+        "effort": [
+          0,
+          1
+        ],
+        "external": [
+          8,
+          1
+        ],
+        "utility": [
+          407,
+          3
+        ]
+      },
+      "profile": {
+        "aliases": 1,
+        "b": 3,
+        "capital": 8,
+        "external": 8,
+        "fee": 0,
+        "horizon": 2,
+        "information": "mixed",
+        "quantity": 1
+      },
+      "root_endpoint_upper": [
+        136,
+        1
+      ],
+      "root_fallback_upper": [
+        138,
+        1
+      ],
+      "seed": 47,
+      "vector_limit": 0
+    },
+    {
+      "allocation": [
+        {
+          "model_id": "m1",
+          "reserved_cost": 2,
+          "task_id": "task-0"
+        },
+        {
+          "model_id": "m0",
+          "reserved_cost": 1,
+          "task_id": "task-1"
+        }
+      ],
+      "beam": {
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "trade_shares",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "max_net_debit": 1,
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "share_delta": [
+              1,
+              0,
+              0
+            ],
+            "stage": "TRADE_OR_UPDATE"
+          },
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "order_id": "z0/order-5",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "utility": [
+          407,
+          3
+        ]
+      },
+      "certificate": {
+        "action_space": "engine-l1-orders-or-simplex-reports-1",
+        "claim": "EXACT_FINITE_SUBGAME",
+        "controller": "strategic",
+        "gap": [
+          0,
+          1
+        ],
+        "incumbent_commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "trade_shares",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "max_net_debit": 1,
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "share_delta": [
+              1,
+              0,
+              0
+            ],
+            "stage": "TRADE_OR_UPDATE"
+          },
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "order_id": "z0/order-5",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "lower": [
+          407,
+          3
+        ],
+        "nodes": [
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 1
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 2
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 3
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-4",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 4
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 5
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 6
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 7
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 8
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "kind": "bound",
+            "upper": [
+              135,
+              1
+            ]
+          },
+          {
+            "kind": "bound",
+            "upper": [
+              406,
+              3
+            ]
+          },
+          {
+            "children": [
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "no_op",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 9
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 10
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 11
+              },
+              {
+                "command": {
+                  "actor": "z0",
+                  "expected_state_seq": 0,
+                  "kind": "trade_shares",
+                  "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+                  "max_net_debit": 1,
+                  "order_id": "z0/order-5",
+                  "schema_version": "0.3",
+                  "share_delta": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "stage": "TRADE_OR_UPDATE"
+                },
+                "node": 12
+              }
+            ],
+            "kind": "split"
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              128,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              135,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              127,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              128,
+              1
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              407,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              404,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              404,
+              3
+            ]
+          },
+          {
+            "kind": "terminal",
+            "upper": [
+              383,
+              3
+            ]
+          }
+        ],
+        "objective": "SUBJECTIVE_EXPECTED_CONTROLLER_UTILITY",
+        "observation_sha256": "9eac65556e717a184285701c0a3f8dd7b2ab2a439b1cc13486e2fae4b1d329cf",
+        "scope": "terminal",
+        "search": {
+          "expansions": 3,
+          "generated": 13,
+          "max_expansions": 20
+        },
+        "sha256": "a844b051d6905915001f77069a1320407c42ccc93e9b6ab258678a6308afd92c",
+        "source_sha256": "7d88cd5dfa1d0bd72f0d7c9796a06206ceb1451228171ad67b1041b8a6049b78",
+        "upper": [
+          407,
+          3
+        ],
+        "vector_limit": 5000,
+        "version": "attack-certificate-1"
+      },
+      "dynamic_programming": {
+        "cache_hits": 0,
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "trade_shares",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "max_net_debit": 1,
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "share_delta": [
+              1,
+              0,
+              0
+            ],
+            "stage": "TRADE_OR_UPDATE"
+          },
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "order_id": "z0/order-5",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "leaves": 16,
+        "nodes": 21,
+        "status": "EXACT",
+        "transitions": 20,
+        "utility": [
+          407,
+          3
+        ]
+      },
+      "exhaustive": {
+        "cache_hits": 0,
+        "commands": [
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "trade_shares",
+            "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+            "max_net_debit": 1,
+            "order_id": "z0/order-4",
+            "schema_version": "0.3",
+            "share_delta": [
+              1,
+              0,
+              0
+            ],
+            "stage": "TRADE_OR_UPDATE"
+          },
+          {
+            "actor": "z0",
+            "expected_state_seq": 0,
+            "kind": "no_op",
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "order_id": "z0/order-5",
+            "schema_version": "0.3",
+            "stage": "TRADE_OR_UPDATE"
+          }
+        ],
+        "leaves": 16,
+        "nodes": 21,
+        "status": "EXACT",
+        "transitions": 20,
+        "utility": [
+          407,
+          3
+        ]
+      },
+      "honest": [
+        128,
+        1
+      ],
+      "honest_commands": [
+        {
+          "actor": "z0",
+          "expected_state_seq": 0,
+          "kind": "no_op",
+          "market_id": "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2",
+          "order_id": "z0/order-4",
+          "schema_version": "0.3",
+          "stage": "TRADE_OR_UPDATE"
+        },
+        {
+          "actor": "z0",
+          "expected_state_seq": 0,
+          "kind": "no_op",
+          "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+          "order_id": "z0/order-5",
+          "schema_version": "0.3",
+          "stage": "TRADE_OR_UPDATE"
+        }
+      ],
+      "independent_check": {
+        "allocation": [
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "checked_nodes": 13,
+        "engine_transitions": 14,
+        "gap": [
+          0,
+          1
+        ],
+        "lower": [
+          407,
+          3
+        ],
+        "payoff": {
+          "cash": [
+            383,
+            3
+          ],
+          "effort": [
+            0,
+            1
+          ],
+          "external": [
+            8,
+            1
+          ],
+          "utility": [
+            407,
+            3
+          ]
+        },
+        "upper": [
+          407,
+          3
+        ],
+        "version": "independent-certificate-check-1"
+      },
+      "no_action": [
+        128,
+        1
+      ],
+      "payoff": {
+        "cash": [
+          383,
+          3
+        ],
+        "effort": [
+          0,
+          1
+        ],
+        "external": [
+          8,
+          1
+        ],
+        "utility": [
+          407,
+          3
+        ]
+      },
+      "profile": {
+        "aliases": 1,
+        "b": 3,
+        "capital": 8,
+        "external": 8,
+        "fee": 0,
+        "horizon": 2,
+        "information": "mixed",
+        "quantity": 1
+      },
+      "root_endpoint_upper": [
+        136,
+        1
+      ],
+      "root_fallback_upper": [
+        138,
+        1
+      ],
+      "seed": 47,
+      "vector_limit": 5000
+    }
+  ]
+}

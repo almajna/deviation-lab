@@ -1,0 +1,192 @@
+{
+  "sources": [
+    {
+      "authors": [
+        "Yutaro Yamada",
+        "Robert Tjarko Lange",
+        "Cong Lu",
+        "Shengran Hu",
+        "Chris Lu",
+        "Jakob Foerster",
+        "Jeff Clune",
+        "David Ha"
+      ],
+      "id": "ai-scientist-v2",
+      "identity_sha256": "c61535ccae753177ffeb29d0b3b72ac18e75288819a8968c4092bd9fae893878",
+      "kind": "architecture",
+      "notes": "Hypothesis/experiment/review staging and bounded search are architectural references. No code imported or inference run.",
+      "title": "The AI Scientist-v2: Workshop-Level Automated Scientific Discovery via Agentic Tree Search",
+      "url": "https://arxiv.org/abs/2504.08066",
+      "verification": {
+        "content_scope": "bibliographic metadata and abstract or method; not an archived full-text download",
+        "method": "primary_metadata_read",
+        "retrieved_on": "2026-11-03",
+        "transport": "session_web_retrieval"
+      },
+      "verification_url": "https://github.com/SakanaAI/AI-Scientist-v2",
+      "year": 2025
+    },
+    {
+      "authors": [
+        "Giulio Starace",
+        "Oliver Jaffe",
+        "Dane Sherburn",
+        "James Aung",
+        "Jun Shern Chan",
+        "Leon Maksin",
+        "Rachel Dias",
+        "Evan Mays",
+        "Benjamin Kinsella",
+        "Wyatt Thompson",
+        "Johannes Heidecke",
+        "Amelia Glaese",
+        "Tejal Patwardhan"
+      ],
+      "id": "paperbench",
+      "identity_sha256": "f0db595426fa2d40a22aaf7bc9c1531c92ad7f58160dab7a7ed602f898315a27",
+      "kind": "architecture",
+      "notes": "Adapt separate execution/reproduction/grading and explicit rubrics. Not a PaperBench score or full replication.",
+      "title": "PaperBench: Evaluating AI's Ability to Replicate AI Research",
+      "url": "https://arxiv.org/abs/2504.01848",
+      "verification": {
+        "content_scope": "bibliographic metadata and abstract or method; not an archived full-text download",
+        "method": "primary_metadata_read",
+        "retrieved_on": "2026-11-03",
+        "transport": "session_web_retrieval"
+      },
+      "verification_url": "https://openai.com/index/paperbench/",
+      "year": 2025
+    },
+    {
+      "authors": [
+        "Robin Hanson"
+      ],
+      "id": "hanson-lmsr",
+      "identity_sha256": "d24046520e0a340d213172ce195cc37ed3bad73ee25b85043c198eb560322046",
+      "kind": "published_method",
+      "notes": "Author PDF is January 2002 draft; journal volume 1(1) is 2007; publisher web upload date says 2012. These are separate dates. Reproduce the equivalent cost-function representation with three outcomes.",
+      "title": "Logarithmic Market Scoring Rules for Modular Combinatorial Information Aggregation",
+      "url": "https://mason.gmu.edu/~rhanson/mktscore.pdf",
+      "verification": {
+        "content_scope": "bibliographic metadata and abstract or method; not an archived full-text download",
+        "method": "primary_metadata_read",
+        "retrieved_on": "2026-11-03",
+        "transport": "session_web_retrieval"
+      },
+      "verification_url": "https://www.ubplj.org/index.php/jpm/article/view/417",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "Yiling Chen",
+        "Ian Kash",
+        "Mike Ruberry",
+        "Victor Shnayder"
+      ],
+      "id": "chen-decision",
+      "identity_sha256": "52ebe723e2de94294b0f3138a16df4be45510ad1274f502207ff79a46cb1a86a",
+      "kind": "economic_prior_art",
+      "notes": "WINE 2011, DOI 10.1007/978-3-642-25510-6_7. Known decision-dependent incentives. DEVIATION settles recorded counterfactuals and includes external benefits: different assumptions. Not reproducing this mechanism.",
+      "title": "Decision Markets with Good Incentives",
+      "url": "https://dash.harvard.edu/entities/publication/73120378-a5f7-6bd4-e053-0100007fdf3b",
+      "verification": {
+        "content_scope": "bibliographic metadata and abstract or method; not an archived full-text download",
+        "method": "primary_metadata_read",
+        "retrieved_on": "2026-11-03",
+        "transport": "session_web_retrieval"
+      },
+      "verification_url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/DM_full_version.pdf",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "Shiqi Wang",
+        "Huan Zhang",
+        "Kaidi Xu",
+        "Xue Lin",
+        "Suman Jana",
+        "Cho-Jui Hsieh",
+        "J. Zico Kolter"
+      ],
+      "id": "beta-crown",
+      "identity_sha256": "044874112ab161ab99700d6998accc5a0ba84d929b9db54200f79639d6c71afa",
+      "kind": "formal_verification_prior_art",
+      "notes": "NeurIPS 2021. Branch-and-bound with strong relaxations is established prior art. Neural-network domain; no faithful direct performance comparison or reproduction claimed.",
+      "title": "Beta-CROWN: Efficient Bound Propagation with Per-neuron Split Constraints for Complete and Incomplete Neural Network Robustness Verification",
+      "url": "https://arxiv.org/abs/2103.06624",
+      "verification": {
+        "content_scope": "bibliographic metadata and abstract or method; not an archived full-text download",
+        "method": "primary_metadata_read",
+        "retrieved_on": "2026-11-03",
+        "transport": "session_web_retrieval"
+      },
+      "verification_url": "https://arxiv.org/abs/2103.06624",
+      "year": 2021
+    },
+    {
+      "authors": [
+        "Hong-Ming Chiu",
+        "Hao Chen",
+        "Huan Zhang",
+        "Richard Y. Zhang"
+      ],
+      "id": "sdp-crown",
+      "identity_sha256": "25662a01f6bee540a3427d138ce5cc84232dc7ebcf449bba1ae14ae41f00a2cf",
+      "kind": "conference",
+      "notes": "ICML 2025. Tightness versus computation is known; no neural verification code executed.",
+      "title": "SDP-CROWN: Efficient Bound Propagation for Neural Network Verification with Tightness of Semidefinite Programming",
+      "url": "https://proceedings.mlr.press/v267/chiu25a.html",
+      "verification": {
+        "content_scope": "bibliographic metadata and abstract or method; not an archived full-text download",
+        "method": "primary_metadata_read",
+        "retrieved_on": "2026-11-03",
+        "transport": "session_web_retrieval"
+      },
+      "verification_url": "https://proceedings.mlr.press/v267/chiu25a.html",
+      "year": 2025
+    },
+    {
+      "authors": [
+        "Rob J Hyndman",
+        "George Athanasopoulos"
+      ],
+      "id": "forecast-combination",
+      "identity_sha256": "147f9162d115a8ca976e281479c511a3551d1b1d48f58d316f4327f68a442d68",
+      "kind": "aggregation_prior_art",
+      "notes": "Author textbook motivates simple averaging as a strong comparator, not a claim about economic equilibrium or agent incentives.",
+      "title": "Forecasting: Principles and Practice, 3rd edition, section 13.4 Forecast combinations",
+      "url": "https://otexts.com/fpp3/practical.html",
+      "verification": {
+        "content_scope": "bibliographic metadata and abstract or method; not an archived full-text download",
+        "method": "primary_metadata_read",
+        "retrieved_on": "2026-11-03",
+        "transport": "session_web_retrieval"
+      },
+      "verification_url": "https://otexts.com/fpp3/practical.html",
+      "year": 2021
+    },
+    {
+      "authors": [
+        "Pawel Struski",
+        "Jakub Swistak",
+        "Inez Okulska",
+        "Przemyslaw Biecek"
+      ],
+      "id": "llm-market-behavior",
+      "identity_sha256": "fd69a5911a540d413b89ea243802e3f3b741db330e7fc2fe019a2d9808e374ff",
+      "kind": "llm_economics",
+      "notes": "Metadata/abstract verified on arXiv. Double-auction setting differs from DEVIATION; synthetic actions cannot replicate live-agent findings.",
+      "title": "Competitive Market Behavior of LLMs",
+      "url": "https://arxiv.org/abs/2609.02580",
+      "verification": {
+        "content_scope": "bibliographic metadata and abstract or method; not an archived full-text download",
+        "method": "primary_metadata_read",
+        "retrieved_on": "2026-11-03",
+        "transport": "session_web_retrieval"
+      },
+      "verification_url": "https://arxiv.org/abs/2609.02580",
+      "year": 2026
+    }
+  ],
+  "version": "research-sources-1"
+}

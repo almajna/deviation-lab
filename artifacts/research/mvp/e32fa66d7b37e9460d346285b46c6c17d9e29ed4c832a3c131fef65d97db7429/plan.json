@@ -1,0 +1,39 @@
+{
+  "assumption_changes": [],
+  "baselines": [
+    "simple pool",
+    "uniform",
+    "cheapest",
+    "budget-feasible random",
+    "best fixed from training"
+  ],
+  "evidence_kind": "SYNTHETIC",
+  "failure_rule": "Negative shared-perturbation mean or a smaller difference than independent perturbations rejects the hypothesis; any budget violation invalidates the run.",
+  "gap": "Probe whether an existing hypothesis survives matched budget and signal controls, including participation/subsidy accounting.",
+  "hypothesis": "Mean paired pool-minus-LMSR realized proxy is nonnegative under shared perturbations and at least its independent-perturbation value on the registered synthetic tasks.",
+  "id": "correlation",
+  "information_boundary": "Only public tasks, prescribed private beliefs, training-only reservations and past permitted observations enter decisions. Realized synthetic outcomes/costs are accessed only after allocation freezes.",
+  "novelty_status": "UNESTABLISHED_PRIOR_ART_OVERLAP",
+  "overlap": "Simple averaging and forecast correlation effects are established. DEVIATION RESEARCH H2 already anticipates this. No new mechanism or empirical-market superiority claim.",
+  "owner_approval_required": false,
+  "runner": "forecast_correlation",
+  "scope": "APPROVED_SYNTHETIC_DEVELOPMENT_ONLY",
+  "scores": {
+    "baseline_strength": 4,
+    "feasibility": 4,
+    "importance": 4,
+    "novelty": 1,
+    "usefulness": 4
+  },
+  "seeds": [
+    13,
+    29,
+    47
+  ],
+  "sources": [
+    "forecast-combination",
+    "chen-decision"
+  ],
+  "success_rule": "pool_correlated_nonnegative_relative",
+  "title": "Does simple pooling match the market under correlated forecast errors?"
+}

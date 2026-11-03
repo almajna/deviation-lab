@@ -1,0 +1,41 @@
+{
+  "assumption_changes": [],
+  "baselines": [
+    "independent exhaustive enumeration",
+    "memoized exact dynamic programming",
+    "width-2 beam",
+    "signal following",
+    "no action",
+    "zero external incentive"
+  ],
+  "evidence_kind": "SYNTHETIC",
+  "failure_rule": "Any increasing paired gain, no strict decrease, positive zero-external control, censored exact baseline or failed certificate rejects the hypothesis.",
+  "gap": "Map paired fee response and negative controls under the existing terminal-suffix model.",
+  "hypothesis": "For the registered seeds, raising fee from 0 to 2 to 4 weakly reduces exact gain over no-action with external reward 6, strictly for at least one seed; zero-external controls have no positive gain.",
+  "id": "fees",
+  "information_boundary": "Only public tasks, prescribed private beliefs, training-only reservations and past permitted observations enter decisions. Realized synthetic outcomes/costs are accessed only after allocation freezes.",
+  "novelty_status": "UNESTABLISHED_PRIOR_ART_OVERLAP",
+  "overlap": "External incentives and decision-market manipulation are established. Fee effects already occur in DEVIATION #25. This is a small new grid diagnostic, not novelty.",
+  "owner_approval_required": false,
+  "runner": "fee_sensitivity",
+  "scope": "APPROVED_SYNTHETIC_DEVELOPMENT_ONLY",
+  "scores": {
+    "baseline_strength": 5,
+    "feasibility": 5,
+    "importance": 4,
+    "novelty": 1,
+    "usefulness": 4
+  },
+  "seeds": [
+    13,
+    29,
+    47
+  ],
+  "sources": [
+    "hanson-lmsr",
+    "chen-decision",
+    "llm-market-behavior"
+  ],
+  "success_rule": "fee_monotonic_with_strict_and_null_controls",
+  "title": "Do transaction fees suppress finite outside-incentive attack gains?"
+}
