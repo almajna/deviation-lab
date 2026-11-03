@@ -1,5 +1,9 @@
 # Architecture / scientific decision log
 
+## D-RH-001 — 2026-11-03 — Bounded deterministic research adapters
+
+Implement issue #26 as an additive `deviation_research` package, stacked on #25/#23. Use verified metadata, authored falsifiable plans, isolated allowlisted standard-library experiments, a separate numerical checker process and transactional append-only memory. No paid inference, downloaded-code execution, model-scientist claim, final-holdout access or shared economic-contract change. Existing source-bound engine artifacts remain byte-identical. New research assumptions or adapters require owner/scientific review. Routine reversible engineering choice; no new scientific assumption approval requested. Local nested OS sandbox creation is denied by the host, so actual isolated execution must be demonstrated in CI; failures are not substituted with unsandboxed runs.
+
 ## Agent 2 — independent certificate evaluation (2026-11-02 Pacific)
 
 Own additive verification package and synthetic fixtures in #22 / PR #25, stacked
