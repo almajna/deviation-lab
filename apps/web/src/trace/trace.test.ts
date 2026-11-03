@@ -3,10 +3,11 @@ import { execSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { CONFORMANCE_FIXTURE } from '../data/fixtures';
-import { narrate, narrateOpening } from './narrate';
+import { exact, narrate, narrateEnd, narrateOpening } from './narrate';
+import { sceneLayout } from '../scene/layout';
 import { cohortAccounts, replayAt, settlementIndex } from './replay';
 import type { CompletedTrace, TraceBundle } from './types';
-import { bundleFromJson, TraceError, validateLedger, validateRunConfig, validateTasks, validateTrace } from './validate';
+import { bundleFromJson, canonical, TraceError, validateLedger, validateRunConfig, validateTasks, validateTrace } from './validate';
 
 // The source pack is read here, in Node, only to check the public projection. It is never bundled.
 const FIXTURE_PATH = new URL('../../../../tests/fixtures/contracts_v0_2.json', import.meta.url);
@@ -253,18 +254,87 @@ describe('narration', () => {
   const text = (k: number) => {
     const s = replayAt(b, k);
     const n = k < 0 ? narrateOpening(b, s) : narrate(b.trace.events[k], s);
-    return n.headline.map((x) => (typeof x === 'string' ? x : String(x.n))).join('') + ' ' + n.detail;
+    return n.headline.map((x) => (typeof x === 'string' ? x : String(x.n))).join('') + ' ' + n.detail + ' ' + (n.note ?? '');
   };
   it('never calls a forecast a probability of success', () => {
     for (let k = -1; k < 7; k++) expect(text(k)).not.toMatch(/probability of (coding )?success|chance of success/i);
     expect(text(0)).toMatch(/not a probability/);
   });
   it('states the overrun honestly and separates it from allocation error', () => {
-    expect(text(3)).toMatch(/900.*600.*300 over/);
+    expect(text(3)).toMatch(/900.*300 over budget/);
+    expect(text(3)).toMatch(/against the budget, \+300/);
     expect(text(3)).toMatch(/not an allocation error/);
   });
   it('reports the forecast/choice mismatch without inventing a reason', () => {
     expect(text(1)).toMatch(/does not record why/);
+  });
+});
+
+// ── B3: no budget claim without a budget; impossible accounting rejected ──
+describe('B3 budget claims and impossible accounting', () => {
+  const bare = (): TraceBundle => ({ id: 'bare', label: 'bare', origin: 'LOADED_FILE', trace: clone() });
+  it('a trace with no budget source never mentions a budget', () => {
+    const b = bare();
+    for (let k = -1; k <= b.trace.events.length; k++) {
+      const s = replayAt(b, k);
+      const n = k < 0 ? narrateOpening(b, s) : k >= b.trace.events.length ? narrateEnd(b, s) : narrate(b.trace.events[k], s);
+      const all = [n.headline.map((x) => (typeof x === 'string' ? x : String(x.n))).join(''), n.detail, n.note ?? '', ...(n.points ?? []).map((p) => p.map((x) => (typeof x === 'string' ? x : String(x.n))).join(''))].join(' ');
+      expect(all, `k=${k}`).not.toMatch(/budget/i);
+    }
+  });
+  it('rejects a budget excess no valid budget could produce', () => {
+    const t = clone();
+    (t.events[3].payload as any).realized_budget_excess = 450; // > realized − reserved = 400
+    expect(() => validateTrace(t)).toThrowError(/budget excess 450 is impossible/);
+  });
+});
+
+// ── B4: equality never depends on JSON key order ───────────────────────────
+describe('B4 key-order independence', () => {
+  const reorder = (v: any): any => (Array.isArray(v) ? v.map(reorder) : v && typeof v === 'object' ? Object.fromEntries(Object.keys(v).reverse().map((k) => [k, reorder(v[k])])) : v);
+  it('canonical() ignores key order but not values or array order', () => {
+    expect(canonical({ a: 1, b: { c: 2, d: [1, 2] } })).toBe(canonical({ b: { d: [1, 2], c: 2 }, a: 1 }));
+    expect(canonical({ a: [1, 2] })).not.toBe(canonical({ a: [2, 1] }));
+  });
+  it('companions with reordered keys validate', () => {
+    const tr = reorder(raw.trace);
+    expect(() => validateTrace(tr)).not.toThrow();
+    expect(() => validateRunConfig(reorder(raw.run_config), tr)).not.toThrow();
+    expect(() => validateLedger(reorder(raw.ledger), tr, reorder(raw.run_config))).not.toThrow();
+    expect(() => validateTasks(reorder(raw.decision_tasks), tr)).not.toThrow();
+  });
+});
+
+// ── Scene geometry: derived only from the known state ─────────────────────
+describe('scene layout', () => {
+  const b = CONFORMANCE_FIXTURE;
+  it('draws nothing from later events at any position', () => {
+    for (let k = -1; k <= b.trace.events.length; k++) {
+      for (const mode of ['wide', 'tall'] as const) {
+        const L = sceneLayout(replayAt(b, k), mode);
+        const s = replayAt(b, k);
+        expect(L.blocks.length).toBe(s.tasks.filter((t) => t.reservation?.model_id).length);
+        expect(L.accounts.length).toBe(s.accounts.length);
+        expect(L.arcs.length).toBe(s.transfers.length);
+        expect(!!L.excess).toBe(!!s.report && s.report.realized_budget_violated);
+        expect(L.sealed).toBe(!s.report);
+      }
+    }
+  });
+  it('block widths are proportional to recorded costs', () => {
+    const L = sceneLayout(replayAt(b, 3), 'wide');
+    const [e1, e2] = L.blocks;
+    expect(e1.base / e2.base).toBeCloseTo(700 / 200, 5);
+    expect(e1.reservedW! / e2.reservedW!).toBeCloseTo(200 / 300, 5);
+    expect(e1.base / e1.reservedW!).toBeCloseTo(700 / 200, 5);
+    expect(L.excess?.text).toBe('+300 over budget');
+  });
+  it('forecast labels show the recorded value exactly', () => {
+    const L = sceneLayout(replayAt(b, 0), 'wide');
+    expect(L.forecasts.map((f) => f.text)).toEqual(['a 0.40', 'b 0.60']);
+    expect(exact(0.125)).toBe('0.125');
+    expect(exact(0.1234567)).toBe('0.1234567');
+    expect(exact(1)).toBe('1.00');
   });
 });
 

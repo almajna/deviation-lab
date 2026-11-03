@@ -66,7 +66,13 @@ function intMap(v: unknown, where: string, signed = false): Record<string, numbe
   return v as Record<string, number>;
 }
 
-const same = (a: unknown, b: unknown) => JSON.stringify(a) === JSON.stringify(b);
+/** Canonical form: object keys sorted recursively, so equality never depends on key order. */
+export function canonical(v: unknown): string {
+  if (Array.isArray(v)) return `[${v.map(canonical).join(',')}]`;
+  if (isObj(v)) return `{${Object.keys(v).sort().map((k) => `${JSON.stringify(k)}:${canonical(v[k])}`).join(',')}}`;
+  return JSON.stringify(v);
+}
+const same = (a: unknown, b: unknown) => canonical(a) === canonical(b);
 
 /** Structural and arithmetic validation of the trace alone. */
 export function validateTrace(raw: unknown): CompletedTrace {
@@ -227,6 +233,10 @@ function checkReport(r: Record<string, unknown>, reserved: Map<string, { model_i
   int(r.realized_budget_excess, `${where}.realized_budget_excess`);
   if (typeof r.realized_budget_violated !== 'boolean') throw new TraceError(`${where}: realized_budget_violated must be boolean`);
   if (r.realized_budget_violated !== ((r.realized_budget_excess as number) > 0)) throw new TraceError(`${where}: violation flag disagrees with budget excess`);
+  // A valid plan never reserves more than its budget, so the excess can be at most realized − reserved.
+  if ((r.realized_budget_excess as number) > Math.max(realized - reservation, 0)) {
+    throw new TraceError(`${where}: budget excess ${String(r.realized_budget_excess)} is impossible: it implies a budget below the ${reservation} already reserved`);
+  }
 }
 
 const events = (t: CompletedTrace) => t.events;

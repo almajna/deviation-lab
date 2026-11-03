@@ -1,8 +1,9 @@
 import { useEffect, useId, useRef } from 'react';
 import type { ReplayState } from '../trace/replay';
 import type { TraceBundle } from '../trace/types';
-import type { InspectTarget } from './Stage';
-import { fmt } from '../trace/narrate';
+import { costUnitLabel, exact, fmt } from '../trace/narrate';
+
+export type InspectTarget = { kind: 'event'; seq: number } | { kind: 'account'; id: string } | { kind: 'trace' } | { kind: 'figures' };
 
 interface Props {
   bundle: TraceBundle;
@@ -11,6 +12,8 @@ interface Props {
   target: InspectTarget | null;
   onClose: () => void;
   onSeek: (k: number) => void;
+  /** Trace selection, provenance, download and load: shown at the top of the Data panel. */
+  traceControls?: React.ReactNode;
 }
 
 const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -19,7 +22,7 @@ const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), selec
  * Modal dialog: focus moves in on open, Tab is contained, Escape and the scrim close it, the page
  * behind is inert, and focus returns to the trigger synchronously on close.
  */
-export function Inspector({ bundle, state, target, onClose, onSeek }: Props) {
+export function Inspector({ bundle, state, target, onClose, onSeek, traceControls }: Props) {
   const open = target !== null;
   const titleId = useId();
   const dialogRef = useRef<HTMLDivElement>(null);
@@ -29,10 +32,29 @@ export function Inspector({ bundle, state, target, onClose, onSeek }: Props) {
   useEffect(() => {
     if (!open) return;
     returnFocus.current = document.activeElement;
-    closeRef.current?.focus({ preventScroll: true });
     const background = [...document.querySelectorAll<HTMLElement>('[data-page]')];
     background.forEach((el) => el.setAttribute('inert', ''));
+    // Focus after the dialog is visible and the background inert (also under reduced motion).
+    closeRef.current?.focus({ preventScroll: true });
+    requestAnimationFrame(() => {
+      if (!dialogRef.current?.contains(document.activeElement)) closeRef.current?.focus({ preventScroll: true });
+    });
     return () => background.forEach((el) => el.removeAttribute('inert'));
+  }, [open]);
+
+  // Escape closes the dialog wherever focus is (a document-level listener, not only inside the dialog).
+  const closeRefFn = useRef<() => void>(() => {});
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        e.stopPropagation();
+        closeRefFn.current();
+      }
+    };
+    document.addEventListener('keydown', onKey, true);
+    return () => document.removeEventListener('keydown', onKey, true);
   }, [open]);
 
   const close = () => {
@@ -43,12 +65,9 @@ export function Inspector({ bundle, state, target, onClose, onSeek }: Props) {
     onClose();
   };
 
+  closeRefFn.current = close;
+
   const onKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      e.stopPropagation();
-      close();
-      return;
-    }
     if (e.key !== 'Tab') return;
     const items = [...(dialogRef.current?.querySelectorAll<HTMLElement>(FOCUSABLE) ?? [])];
     if (!items.length) return;
@@ -69,11 +88,11 @@ export function Inspector({ bundle, state, target, onClose, onSeek }: Props) {
       >
         <header>
           <h2 id={titleId}>{title(target)}</h2>
-          <button ref={closeRef} type="button" className="tbtn" onClick={close} aria-label="Close inspector">
+          <button ref={closeRef} type="button" className="pbtn" onClick={close} aria-label="Close inspector">
             <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 3l8 8M11 3l-8 8" stroke="currentColor" strokeWidth="1.4" /></svg>
           </button>
         </header>
-        <div className="body">{target && <Body bundle={bundle} state={state} target={target} onSeek={(k) => { close(); onSeek(k); }} />}</div>
+        <div className="body">{target && <Body bundle={bundle} state={state} target={target} traceControls={traceControls} onSeek={(k) => { close(); onSeek(k); }} />}</div>
       </div>
     </>
   );
@@ -83,10 +102,11 @@ function title(t: InspectTarget | null) {
   if (!t) return '';
   if (t.kind === 'event') return `Event ${t.seq + 1}`;
   if (t.kind === 'account') return t.id;
+  if (t.kind === 'figures') return 'Data';
   return 'Trace provenance';
 }
 
-function Body({ bundle, state, target, onSeek }: { bundle: TraceBundle; state: ReplayState; target: InspectTarget; onSeek: (k: number) => void }) {
+function Body({ bundle, state, target, onSeek, traceControls }: { bundle: TraceBundle; state: ReplayState; target: InspectTarget; onSeek: (k: number) => void; traceControls?: React.ReactNode }) {
   const { trace } = bundle;
   if (target.kind === 'event') {
     // Only events at or before the current position can be shown.
@@ -109,7 +129,7 @@ function Body({ bundle, state, target, onSeek }: { bundle: TraceBundle; state: R
         </dl>
         <Json value={e} />
         <div className="actions">
-          <button type="button" className="tbtn primary" onClick={() => onSeek(e.seq)}>Seek here</button>
+          <button type="button" className="pbtn text bordered" onClick={() => onSeek(e.seq)}>Seek here</button>
           <CopyButton text={JSON.stringify(e, null, 2)} />
         </div>
         <Provenance bundle={bundle} />
@@ -137,7 +157,7 @@ function Body({ bundle, state, target, onSeek }: { bundle: TraceBundle; state: R
           ))}
           {account && <><dt>net so far</dt><dd className="num">{fmt(account.delta, true)} credits</dd></>}
           {u && (
-            <><dt>utility</dt><dd><span className="num">{fmt(u.utility, true)}</span> <span className="nowrap">= cash <span className="num">{fmt(u.cash_delta, true)}</span></span> <span className="nowrap">+ external <span className="num">{u.external_benefit}</span></span> <span className="nowrap">− effort <span className="num">{u.noncash_effort_cost}</span></span></dd></>
+            <><dt>utility</dt><dd><span className="num">{fmt(u.utility, true)}</span> <span className="nowrap">= cash <span className="num">{fmt(u.cash_delta, true)}</span></span> <span className="nowrap">+ modelled benefit <span className="num">{u.external_benefit}</span></span> <span className="nowrap">− effort <span className="num">{u.noncash_effort_cost}</span></span></dd></>
           )}
         </dl>
         {agent && !u && <p className="note">Utility is reported at the end of settlement.</p>}
@@ -149,7 +169,76 @@ function Body({ bundle, state, target, onSeek }: { bundle: TraceBundle; state: R
       </>
     );
   }
+  if (target.kind === 'figures') return <>{traceControls}<Figures bundle={bundle} state={state} onSeek={onSeek} /></>;
   return <Provenance bundle={bundle} />;
+}
+
+/** Every figure known at the current position, each with the event that establishes it. */
+function Figures({ bundle, state, onSeek }: { bundle: TraceBundle; state: ReplayState; onSeek: (k: number) => void }) {
+  const unit = costUnitLabel(bundle.trace.cost_unit);
+  const Src = ({ seq }: { seq: number }) => (
+    <button type="button" className="value-btn row-link num" onClick={() => onSeek(seq)} aria-label={`Seek to event ${seq + 1}`}>event {seq + 1}</button>
+  );
+  const r = state.report;
+  return (
+    <>
+      <p className="knew">Everything the diagram shows at this position, as recorded. Select an event to jump there.</p>
+      <section aria-label="Tasks">
+        <h3 className="dh">Tasks</h3>
+        {state.tasks.length === 0 && <p className="note">No task has appeared yet.</p>}
+        <dl>
+          {state.tasks.map((t) => (
+            <Row key={t.task_id} k={t.task_id}>
+              {t.prompt && <span className="muted">{t.prompt}</span>}
+              {t.forecast && <span className="fig">expected reward {Object.entries(t.forecast.values).map(([m, v]) => `${m} ${exact(v)}`).join(', ')} <Src seq={t.forecast.seq} /></span>}
+              {t.reservation && <span className="fig">reserved {t.reservation.model_id ? `${fmt(t.reservation.reserved_cost)} on ${t.reservation.model_id}` : 'none (abstained)'} <Src seq={t.reservation.seq} /></span>}
+              {t.realized && t.reservation && (
+                <span className="fig">realized {fmt(t.realized.realized_cost)} ({fmt(t.realized.realized_cost - t.reservation.reserved_cost, true)} vs reserved) <Src seq={t.realized.seq} /></span>
+              )}
+              {!t.forecast && !t.reservation && <span className="muted">nothing recorded yet</span>}
+            </Row>
+          ))}
+        </dl>
+      </section>
+      <section aria-label="Compute">
+        <h3 className="dh">Compute <span className="muted">({unit})</span></h3>
+        <dl>
+          {state.budget !== undefined && <Row k="budget">{fmt(state.budget)} <span className="muted">{state.budgetSource === 'annotation' ? 'fixture annotation, not a trace field' : 'run configuration'}</span></Row>}
+          <Row k="reserved">{fmt(state.reservationSpend)}</Row>
+          {r ? (
+            <>
+              <Row k="realized">{fmt(r.realized_spend)} <Src seq={r.seq} /></Row>
+              <Row k="vs reserved">{fmt(r.net_overrun, true)} (overruns {fmt(r.positive_task_overruns, true)}, unused {fmt(-r.unused_reservations, true)})</Row>
+              {state.budget !== undefined && <Row k="vs budget">{fmt(r.realized_budget_excess, true)}</Row>}
+            </>
+          ) : (
+            <Row k="realized"><span className="muted">sealed until settlement</span></Row>
+          )}
+        </dl>
+      </section>
+      <section aria-label="Credits">
+        <h3 className="dh">Credits <span className="muted">(virtual)</span></h3>
+        {state.transfers.length === 0 && <p className="note">No credits move until settlement.</p>}
+        <dl>
+          {state.transfers.map((t) => (
+            <Row key={t.transfer_id} k={t.transfer_id}>{t.payer} → {t.payee} {fmt(t.amount)} <span className="muted">{t.reason.replace(/_/g, ' ')}</span> <Src seq={t.seq} /></Row>
+          ))}
+          {Object.entries(state.utilities?.values ?? {}).map(([a, u]) => (
+            <Row key={a} k={`${a} utility`}>{fmt(u.utility, true)} = cash {fmt(u.cash_delta, true)} + modelled benefit {u.external_benefit} − effort {u.noncash_effort_cost} <Src seq={state.utilities!.seq} /></Row>
+          ))}
+        </dl>
+      </section>
+    </>
+  );
+}
+
+function Row({ k, children }: { k: string; children: React.ReactNode }) {
+  return (
+    <>
+      <dt className="num">{k}</dt>
+      <dd className="figs">{children}</dd>
+    </>
+  );
 }
 
 /** Roles from the trusted configuration, else from what the known events establish. */
@@ -237,7 +326,7 @@ function CopyButton({ text }: { text: string }) {
   return (
     <button
       type="button"
-      className="tbtn"
+      className="pbtn"
       onClick={async (e) => {
         const b = e.currentTarget;
         try {

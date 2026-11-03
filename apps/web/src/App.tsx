@@ -1,11 +1,11 @@
 import { Component, useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { BUNDLED } from './data/fixtures';
 import { format, InstantContext, useHashRoute, useMediaQuery, type Route } from './lib/hooks';
-import { Inspector } from './components/Inspector';
+import { Inspector, type InspectTarget } from './components/Inspector';
 import { Narration } from './components/Narration';
-import { Stage, type InspectTarget } from './components/Stage';
-import { SPEEDS, Timeline } from './components/Timeline';
+import { Player, SPEEDS } from './components/Player';
 import { TraceBar } from './components/TraceBar';
+import { Scene } from './scene/Scene';
 import { narrate, narrateEnd, narrateOpening } from './trace/narrate';
 import { endOf, replayAt } from './trace/replay';
 import type { TraceBundle } from './trace/types';
@@ -22,7 +22,7 @@ export function App() {
   const n = bundle.trace.events.length;
   const end = endOf(bundle);
   const cursor = Math.max(-1, Math.min(route.t ?? -1, end));
-  const compact = useMediaQuery('(max-width: 860px), (max-height: 719px)');
+  const wide = useMediaQuery('(min-width: 700px)');
 
   const [playing, setPlaying] = useState(false);
   const [speed, setSpeed] = useState(1);
@@ -33,6 +33,9 @@ export function App() {
     if (t) setPlaying(false); // a modal pauses the film
     setInspectRaw(t);
   }, []);
+
+  // A dialog never outlives the view it was opened on.
+  useEffect(() => setInspectRaw(null), [route.view]);
 
   const go = useCallback((r: Partial<Route>) => setRoute({ ...route, ...r }), [route, setRoute]);
   const seek = useCallback(
@@ -47,6 +50,8 @@ export function App() {
   const event = cursor >= 0 && cursor < n ? bundle.trace.events[cursor] : undefined;
   const frame = cursor < 0 ? 'open' : cursor >= end ? 'end' : 'event';
   const narration = event ? narrate(event, state) : frame === 'end' ? narrateEnd(bundle, state) : narrateOpening(bundle, state);
+  // The diagram foregrounds the part the current scene is about.
+  const focus = !event ? 'all' : event.type === 'ledger_transfer' || event.type === 'utility_summary' ? 'ledger' : 'compute';
 
   // Playback: advance one frame per dwell; stop on the closing frame.
   useEffect(() => {
@@ -99,12 +104,22 @@ export function App() {
 
   return (
     <>
-      <a className="skip-link" href="#main">Skip to content</a>
+      {/* Moves focus without touching the URL, so the view and replay position are preserved. */}
+      <a
+        className="skip-link"
+        href="#main"
+        onClick={(e) => {
+          e.preventDefault();
+          document.getElementById('main')?.focus();
+        }}
+      >
+        Skip to content
+      </a>
       <div className="shell" data-page>
         <header className="masthead">
-          <a className="wordmark" href={format({ view: 'arena' })}>DEVIATION</a>
+          <a className="wordmark" href={format({ view: 'arena' })}>LLM Prediction Markets</a>
           <nav className="nav" aria-label="Views">
-            <a href={format({ view: 'arena', trace: route.trace })} aria-current={route.view === 'arena' ? 'page' : undefined}><span className="full">Market Arena</span><span className="short">Arena</span></a>
+            <a href={format({ view: 'arena', trace: route.trace })} aria-current={route.view === 'arena' ? 'page' : undefined}><span className="full">Replay</span><span className="short">Replay</span></a>
             <a href={format({ view: 'theater', trace: route.trace })} aria-current={route.view === 'theater' ? 'page' : undefined}><span className="full">Exploit Theater</span><span className="short">Theater</span></a>
             <a href={format({ view: 'evolution', trace: route.trace })} aria-current={route.view === 'evolution' ? 'page' : undefined}><span className="full">Mechanism Evolution</span><span className="short">Evolution</span></a>
           </nav>
@@ -122,25 +137,25 @@ export function App() {
           <Recoverable key={bundle.id} onReset={resetToFixture}>
             <InstantContext.Provider value={instant}>
               <div className={`shell arena${instant ? ' instant' : ''}`} onPointerDown={() => setInstant(false)}>
-                <Narration narration={narration} event={event} total={n} frame={frame} onInspect={() => event && setInspect({ kind: 'event', seq: event.seq })} />
-                <Stage bundle={bundle} state={state} onInspect={setInspect} />
-                <TraceBar
-                  bundles={bundles}
-                  current={bundle}
-                  onSelect={(id) => { setPlaying(false); go({ trace: id, t: undefined }); }}
-                  onLoad={(b) => { setLoaded((l) => [...l.filter((x) => x.id !== b.id), b]); setPlaying(false); go({ trace: b.id, t: undefined }); }}
-                  onProvenance={() => setInspect({ kind: 'trace' })}
-                />
+                <div className="film" data-frame={frame}>
+                  <Narration narration={narration} event={event} frame={frame} onInspect={() => event && setInspect({ kind: 'event', seq: event.seq })} />
+                  <figure className="stage-figure">
+                    <Scene state={state} mode={wide ? 'wide' : 'tall'} focus={focus} onInspect={setInspect} />
+                    <figcaption className="hint">Select any part of the diagram to see the record behind it.</figcaption>
+                  </figure>
+                </div>
+
               </div>
-              <Timeline
+              <Player
                 events={bundle.trace.events}
                 cursor={cursor}
                 playing={playing}
                 speed={speed}
-                compact={compact}
                 onSeek={(k) => { setPlaying(false); seek(k); }}
                 onToggle={toggle}
                 onSpeed={(s) => setSpeed(SPEEDS.includes(s) ? s : 1)}
+                onInspect={() => event && setInspect({ kind: 'event', seq: event.seq })}
+                onData={() => setInspect({ kind: 'figures' })}
               />
             </InstantContext.Provider>
           </Recoverable>
@@ -149,7 +164,22 @@ export function App() {
         {route.view === 'evolution' && <Evolution />}
       </main>
 
-      <Inspector bundle={bundle} state={state} target={inspect} onClose={() => setInspectRaw(null)} onSeek={(k) => { setPlaying(false); seek(k); }} />
+      <Inspector
+        bundle={bundle}
+        state={state}
+        target={inspect}
+        onClose={() => setInspectRaw(null)}
+        onSeek={(k) => { setPlaying(false); seek(k); }}
+        traceControls={
+          <TraceBar
+            bundles={bundles}
+            current={bundle}
+            onSelect={(id) => { setPlaying(false); go({ trace: id, t: undefined }); }}
+            onLoad={(b) => { setLoaded((l) => [...l.filter((x) => x.id !== b.id), b]); setPlaying(false); go({ trace: b.id, t: undefined }); }}
+            onProvenance={() => setInspect({ kind: 'trace' })}
+          />
+        }
+      />
     </>
   );
 }
@@ -167,7 +197,7 @@ class Recoverable extends Component<{ children: ReactNode; onReset: () => void }
         <h1>This trace could not be displayed</h1>
         <p className="lede">{this.state.error.message}</p>
         <p style={{ marginTop: 32 }}>
-          <button type="button" className="tbtn primary" onClick={this.props.onReset}>Return to the bundled fixture</button>
+          <button type="button" className="pbtn text bordered" onClick={this.props.onReset}>Return to the bundled fixture</button>
         </p>
       </div>
     );

@@ -12,6 +12,8 @@ export interface TaskState {
   models: string[];
   /** Latest public forecast per model, with the seq that set it. */
   forecast?: { values: Record<string, number>; seq: number; actor: string };
+  /** Every known forecast for this task in order, so repeated forecasts can be drawn as a curve. */
+  forecasts: Array<{ values: Record<string, number>; seq: number; actor: string }>;
   reservation?: { model_id: string | null; reserved_cost: number; seq: number };
   realized?: { realized_cost: number; seq: number };
 }
@@ -63,7 +65,7 @@ export function replayAt(bundle: TraceBundle, cursor: number): ReplayState {
     let t = byId.get(id);
     if (!t) {
       const entry = catalog?.find((x) => x.task_id === id);
-      t = { task_id: id, prompt: entry?.prompt, models: entry ? [...entry.model_options].sort() : [] };
+      t = { task_id: id, prompt: entry?.prompt, models: entry ? [...entry.model_options].sort() : [], forecasts: [] };
       byId.set(id, t);
       tasks.push(t);
     }
@@ -99,6 +101,7 @@ export function replayAt(bundle: TraceBundle, cursor: number): ReplayState {
         const t = task(e.payload.task_id);
         Object.keys(e.payload.values).forEach((m) => addModel(t, m));
         t.forecast = { values: e.payload.values, seq: e.seq, actor: e.actor };
+        t.forecasts.push(t.forecast);
         break;
       }
       case 'reservation': {

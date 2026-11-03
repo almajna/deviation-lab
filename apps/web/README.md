@@ -1,6 +1,8 @@
-# DEVIATION visual laboratory (`apps/web`)
+# LLM Prediction Markets — visual laboratory (`apps/web`)
 
-A static Vite + React + TypeScript replay laboratory that consumes **contract v0.2 completed traces** (`docs/CONTRACTS.md`). Every figure on screen is recomputed from trace events; every figure links to its source event.
+*An interactive laboratory for the economics of AI compute.* Public title of the DEVIATION project's frontend (the repository and codebase keep the name DEVIATION).
+
+A static Vite + React + TypeScript replay that consumes **contract v0.2 completed traces** (`docs/CONTRACTS.md`) and tells them as an interactive film: one plain-language caption and one large diagram per scene, a compact player, and every technical detail one click away. Every number in the diagram is recorded in, or derived from, the trace's events; every element links to its source event.
 
 > **Data status.** The app bundles only `fixtures/gate-a.synthetic.json`: the public projection of the approved v0.2 conformance pack, pinned by `fixtures/manifest.json` (7 events, 1 synthetic agent, 2 tasks). It is hand-authored `SYNTHETIC` data, labelled in the masthead on every view, and is **not** simulator output, a mechanism result or a discovered exploit. The source pack also contains a private signal and is never imported by app code. The budget (600) and task prompts are not trace fields; they come from `fixtures/gate-a.annotations.json`, a labelled copy of public receipts whose source hash is pinned. Initial balances are not public, so the ledger shows net change only.
 
@@ -8,7 +10,7 @@ A static Vite + React + TypeScript replay laboratory that consumes **contract v0
 
 | View | State | Driven by |
 |---|---|---|
-| Market Arena | Working | Public forecasts, reservations, settlement report, ledger transfers, utility summary |
+| Replay | Working | Public forecasts, reservations, settlement report, ledger transfers, utility summary |
 | Exploit Theater | Honest "unavailable" | Needs approved attack/market event types (Phase 3/4); nothing is staged |
 | Mechanism Evolution | Empty axes only | Needs frozen held-out evaluation and policy-search traces (Gate D / Phase 7) |
 
@@ -19,10 +21,10 @@ Run from `apps/web/`. Node 22 LTS is recommended (Playwright's browser installer
 ```bash
 npm ci
 npm run typecheck          # tsc -b
-npm test                   # Vitest: provenance, validator, reconciliation, replay, narration, repo hygiene
+npm test                   # Vitest (44): provenance, validator, reconciliation, replay, narration, scene geometry, repo hygiene
 npm run build              # static production build → dist/
 npx playwright install chromium
-npm run e2e                # Playwright on desktop 1440×900 + Pixel 7. Builds first, then serves that
+npm run e2e                # Playwright (51 tests × desktop 1440×900 + Pixel 7). Builds first, then serves that
                            # build on 127.0.0.1:4317 (strictPort, never reuses another server)
 npm run preview            # http://127.0.0.1:4173/
 BASE=http://127.0.0.1:<port>/ node e2e/shots.mjs <dir>   # review screenshots from a running preview
@@ -38,16 +40,23 @@ src/trace/validate.ts   strict client validator: exact key sets, contiguous seq,
 src/trace/replay.ts     replayAt(bundle, k): a pure fold over events[0..k]; deterministic seek
 src/trace/narrate.ts    plain-language narration from payloads only; never infers motives
 src/data/fixtures.ts    bundled traces: public projection + labelled annotation (never the source pack)
-src/components/         Stage (tasks, budget, ledger), Timeline (event-pitched lanes + transport),
-                        Inspector (event JSON, visibility, provenance), Narration, TraceBar
+src/scene/layout.ts     sceneLayout(state, 'wide' | 'tall'): pure geometry from the known state only
+                        (positions, bars, arcs, labels, camera framings); unit-tested
+src/scene/Scene.tsx     the diagram: tasks → models links, compute-budget bar, credit arcs; every part
+                        with a source is a labelled button; meaningful motion only
+src/components/Player   compact video-player bar: play, previous/next scene, scrubber, speed, Data, Inspect
+src/components/Narration  caption: one headline, one plain sentence, "More detail" and "Source" on request
+src/components/Inspector  modal: event JSON and provenance, account history, and the Data panel
+                        (every known figure with its source event)
+src/components/TraceBar  the quiet trace line: select, seed, provenance, download, load
 src/views/Unavailable   Exploit Theater and Mechanism Evolution
 ```
 
 - **Deterministic replay.** State at cursor *k* depends only on `events[0..k]` plus pre-run companions (task catalog, run configuration). The URL carries the cursor (`#/arena?t=3`); `t = events.length` is the closing frame.
-- **Knowledge rule.** Every component, including the inspector, renders from that state alone, so nothing from a later event can reach the page: no figures, accounts, scale extents or tones. The timeline shows only that later events exist (actor and time step). "Download complete trace" is the one deliberate exception: it exports the whole audit record.
+- **Knowledge rule.** Every component, including the inspector, renders from that state alone, so nothing from a later event can reach the page: no figures, accounts, scale extents or tones. The player's scrubber shows only that later scenes exist, never their content. "Download complete trace" is the one deliberate exception: it exports the whole audit record.
 - **Closing frame.** After the last event, a conclusion computed from the final state: budget fit, per-task over/under, credit conservation and utilities, with the synthetic caveat.
 - **Swap-in real traces.** `Load trace file` accepts a bare v0.2 trace or a public bundle of `trace` plus optional `run_config`, `decision_tasks` and `ledger`. Any other key (for example a conformance pack's private information sets) is refused. Every companion is validated and bound to the trace: roles, fees, forecast actors, non-negative running balances, task coverage, and final balances, utilities and maker P&L reconciled against the events. Contradictory accounting is rejected, never displayed. A render failure is caught and offers a return to the bundled fixture.
-- **Scale.** Accounts beyond 8 are aggregated into role cohorts (`cohortAccounts`); a 3,000-event stress trace replays in well under 250 ms (unit test). The timeline draws one mark per event without per-event focus stops.
+- **Scale.** Accounts beyond 8 are aggregated into role cohorts (`cohortAccounts`); a 3,000-event stress trace replays in well under 250 ms (unit test). The scrubber draws one tick per scene without per-tick focus stops.
 
 ## Interaction
 
@@ -58,7 +67,9 @@ src/views/Unavailable   Exploit Theater and Mechanism Evolution
 | Home / End | Before first event / last event |
 | I | Inspect the current event |
 | Esc | Close inspector |
-| Drag or click the timeline | Seek; snaps to whole events |
+| Drag or click the scrubber | Seek; snaps to whole scenes |
+| Any part of the diagram | Opens its source event (Enter/Space when focused) |
+| Data (player) | Every known figure, each linked to its source event |
 | Any figure | Opens its source event JSON |
 
 ## What the tests prove
@@ -66,7 +77,7 @@ src/views/Unavailable   Exploit Theater and Mechanism Evolution
 See `docs/REVIEW.md` for each review finding, its fix and its named regression test.
 
 
-- Every playback control: play to end, pause, Replay, rewind, step bounds and disabled states, speed buttons (exclusive, measurably faster), timeline click and drag (snaps to whole events), slider arrow keys, keyboard shortcuts including rapid presses, nav links, provenance, trace selector, file load (valid and invalid), JSON export (byte-for-byte equal to the bundled trace), copy JSON, inspector seek and focus return.
+- Every playback control: play to end, pause, Replay, rewind, step bounds and disabled states, speed control (measurably faster), scrubber click and drag (snaps to whole scenes), Data and Inspect, slider arrow keys, keyboard shortcuts including rapid presses, nav links, provenance, trace selector, file load (valid and invalid), JSON export (byte-for-byte equal to the bundled trace), copy JSON, inspector seek and focus return.
 - Every clickable figure names its source event, and that event contains the figure; ledger deltas equal the sum of each account's transfers.
 - At event 2 the DOM contains no post-settlement figure.
 - The shipped HTML, JavaScript and CSS contain no private-signal keys or values, no training rows, and the page shows no balances.
@@ -74,7 +85,7 @@ See `docs/REVIEW.md` for each review finding, its fix and its named regression t
 
 ## Accessibility checklist
 
-- [x] Keyboard: every control reachable; timeline is a `role="slider"` with arrow keys and a text value.
+- [x] Keyboard: every control reachable; the scrubber is a `role="slider"` with arrow keys and a text value; every diagram element with a source is a labelled `role="button"`.
 - [x] Narration region is `aria-live="polite"`; figures have descriptive `aria-label`s naming the source event.
 - [x] Inspector is a modal dialog (`aria-modal`, labelled): focus contained, Esc and scrim close it, the page behind is `inert`, focus returns to the trigger.
 - [x] Skip link becomes visible on focus and moves focus to the main content.
