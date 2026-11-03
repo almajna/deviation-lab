@@ -1,0 +1,6 @@
+{
+  "episodes_reproduced": 6,
+  "new_inference_calls": 0,
+  "source_pilot_sha256": "1c11adc7b687fc608562456938c115a9878bc5394fc16a9c25a254956aae4a0b",
+  "version": "llm-pilot-replay-1"
+}

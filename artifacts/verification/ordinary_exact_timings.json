@@ -1,0 +1,326 @@
+[
+  {
+    "case": "base-101-lmsr",
+    "seconds": 0.008826749981380999
+  },
+  {
+    "case": "base-101-interactive-pool",
+    "seconds": 0.010637041996233165
+  },
+  {
+    "case": "base-101-pool",
+    "seconds": 0.010024416988017038
+  },
+  {
+    "case": "base-211-lmsr",
+    "seconds": 0.008447542000794783
+  },
+  {
+    "case": "base-211-interactive-pool",
+    "seconds": 0.01074974998482503
+  },
+  {
+    "case": "base-211-pool",
+    "seconds": 0.009975958004361019
+  },
+  {
+    "case": "base-307-lmsr",
+    "seconds": 0.008402709005167708
+  },
+  {
+    "case": "base-307-interactive-pool",
+    "seconds": 0.010687415982829407
+  },
+  {
+    "case": "base-307-pool",
+    "seconds": 0.00992733400198631
+  },
+  {
+    "case": "cash_only-101-lmsr",
+    "seconds": 0.06396383300307207
+  },
+  {
+    "case": "cash_only-101-interactive-pool",
+    "seconds": 0.09258779100491665
+  },
+  {
+    "case": "cash_only-101-pool",
+    "seconds": 0.009901083976728842
+  },
+  {
+    "case": "cash_only-211-lmsr",
+    "seconds": 0.06376983298105188
+  },
+  {
+    "case": "cash_only-211-interactive-pool",
+    "seconds": 0.09520104099647142
+  },
+  {
+    "case": "cash_only-211-pool",
+    "seconds": 0.01099929100018926
+  },
+  {
+    "case": "cash_only-307-lmsr",
+    "seconds": 0.06501308298902586
+  },
+  {
+    "case": "cash_only-307-interactive-pool",
+    "seconds": 0.0939338750031311
+  },
+  {
+    "case": "cash_only-307-pool",
+    "seconds": 0.01046300001326017
+  },
+  {
+    "case": "no_capital-101-lmsr",
+    "seconds": 0.005054250010289252
+  },
+  {
+    "case": "no_capital-101-interactive-pool",
+    "seconds": 0.09404370799893513
+  },
+  {
+    "case": "no_capital-101-pool",
+    "seconds": 0.010349167016102001
+  },
+  {
+    "case": "no_capital-211-lmsr",
+    "seconds": 0.0043359580158721656
+  },
+  {
+    "case": "no_capital-211-interactive-pool",
+    "seconds": 0.09486229199683294
+  },
+  {
+    "case": "no_capital-211-pool",
+    "seconds": 0.010104582994244993
+  },
+  {
+    "case": "no_capital-307-lmsr",
+    "seconds": 0.00427166698500514
+  },
+  {
+    "case": "no_capital-307-interactive-pool",
+    "seconds": 0.09437012500711717
+  },
+  {
+    "case": "no_capital-307-pool",
+    "seconds": 0.010082374996272847
+  },
+  {
+    "case": "fee_friction-101-lmsr",
+    "seconds": 0.01603954200982116
+  },
+  {
+    "case": "fee_friction-101-interactive-pool",
+    "seconds": 0.09562833298696205
+  },
+  {
+    "case": "fee_friction-101-pool",
+    "seconds": 0.010195292008575052
+  },
+  {
+    "case": "fee_friction-211-lmsr",
+    "seconds": 0.01613062497926876
+  },
+  {
+    "case": "fee_friction-211-interactive-pool",
+    "seconds": 0.0986822499835398
+  },
+  {
+    "case": "fee_friction-211-pool",
+    "seconds": 0.010620584012940526
+  },
+  {
+    "case": "fee_friction-307-lmsr",
+    "seconds": 0.016470542002934963
+  },
+  {
+    "case": "fee_friction-307-interactive-pool",
+    "seconds": 0.09497991699026898
+  },
+  {
+    "case": "fee_friction-307-pool",
+    "seconds": 0.0104622500075493
+  },
+  {
+    "case": "uninformed-101-lmsr",
+    "seconds": 0.05739941602223553
+  },
+  {
+    "case": "uninformed-101-interactive-pool",
+    "seconds": 0.09421158299664967
+  },
+  {
+    "case": "uninformed-101-pool",
+    "seconds": 0.010485832986887544
+  },
+  {
+    "case": "uninformed-211-lmsr",
+    "seconds": 0.05769070898531936
+  },
+  {
+    "case": "uninformed-211-interactive-pool",
+    "seconds": 0.0935998750210274
+  },
+  {
+    "case": "uninformed-211-pool",
+    "seconds": 0.010210915992502123
+  },
+  {
+    "case": "uninformed-307-lmsr",
+    "seconds": 0.058753124991199
+  },
+  {
+    "case": "uninformed-307-interactive-pool",
+    "seconds": 0.09508137500961311
+  },
+  {
+    "case": "uninformed-307-pool",
+    "seconds": 0.011491499986732379
+  },
+  {
+    "case": "conflicting-101-lmsr",
+    "seconds": 0.06575766700552776
+  },
+  {
+    "case": "conflicting-101-interactive-pool",
+    "seconds": 0.09453441700316034
+  },
+  {
+    "case": "conflicting-101-pool",
+    "seconds": 0.010873749997699633
+  },
+  {
+    "case": "conflicting-211-lmsr",
+    "seconds": 0.06546962499851361
+  },
+  {
+    "case": "conflicting-211-interactive-pool",
+    "seconds": 0.09405208399402909
+  },
+  {
+    "case": "conflicting-211-pool",
+    "seconds": 0.010335334023693576
+  },
+  {
+    "case": "conflicting-307-lmsr",
+    "seconds": 0.06446449999930337
+  },
+  {
+    "case": "conflicting-307-interactive-pool",
+    "seconds": 0.09403079201001674
+  },
+  {
+    "case": "conflicting-307-pool",
+    "seconds": 0.010212916997261345
+  },
+  {
+    "case": "coalition-101-lmsr",
+    "seconds": 0.17171129200141877
+  },
+  {
+    "case": "coalition-101-interactive-pool",
+    "seconds": 11.309214874985628
+  },
+  {
+    "case": "coalition-101-pool",
+    "seconds": 0.010733917006291449
+  },
+  {
+    "case": "coalition-211-lmsr",
+    "seconds": 0.17456241699983366
+  },
+  {
+    "case": "coalition-211-interactive-pool",
+    "seconds": 11.350362083001528
+  },
+  {
+    "case": "coalition-211-pool",
+    "seconds": 0.010402042011264712
+  },
+  {
+    "case": "coalition-307-lmsr",
+    "seconds": 0.17350183401140384
+  },
+  {
+    "case": "coalition-307-interactive-pool",
+    "seconds": 11.438098125014221
+  },
+  {
+    "case": "coalition-307-pool",
+    "seconds": 0.010445833002449945
+  },
+  {
+    "case": "deep-101-lmsr",
+    "seconds": 11.450286915991455
+  },
+  {
+    "case": "deep-101-interactive-pool",
+    "seconds": 14.676674083020771
+  },
+  {
+    "case": "deep-101-pool",
+    "seconds": 0.011068166000768542
+  },
+  {
+    "case": "deep-211-lmsr",
+    "seconds": 11.525960583996493
+  },
+  {
+    "case": "deep-211-interactive-pool",
+    "seconds": 14.984999499982223
+  },
+  {
+    "case": "deep-211-pool",
+    "seconds": 0.010944791982183233
+  },
+  {
+    "case": "deep-307-lmsr",
+    "seconds": 11.391150416980963
+  },
+  {
+    "case": "deep-307-interactive-pool",
+    "seconds": 14.736095125001157
+  },
+  {
+    "case": "deep-307-pool",
+    "seconds": 0.011040542012779042
+  },
+  {
+    "case": "large_order-101-lmsr",
+    "seconds": 0.7589260840031784
+  },
+  {
+    "case": "large_order-101-interactive-pool",
+    "seconds": 0.09783787501510233
+  },
+  {
+    "case": "large_order-101-pool",
+    "seconds": 0.01061833300627768
+  },
+  {
+    "case": "large_order-211-lmsr",
+    "seconds": 0.8281080000160728
+  },
+  {
+    "case": "large_order-211-interactive-pool",
+    "seconds": 0.09869679101393558
+  },
+  {
+    "case": "large_order-211-pool",
+    "seconds": 0.010678416991140693
+  },
+  {
+    "case": "large_order-307-lmsr",
+    "seconds": 0.7545004999847151
+  },
+  {
+    "case": "large_order-307-interactive-pool",
+    "seconds": 0.09890691601322033
+  },
+  {
+    "case": "large_order-307-pool",
+    "seconds": 0.010721291997469962
+  }
+]

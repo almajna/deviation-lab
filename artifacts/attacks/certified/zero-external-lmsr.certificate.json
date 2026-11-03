@@ -1,0 +1,49 @@
+{
+  "action_space": "engine-l1-orders-or-simplex-reports-1",
+  "claim": "EXACT_FINITE_SUBGAME",
+  "controller": "strategic",
+  "gap": [
+    0,
+    1
+  ],
+  "incumbent_commands": [
+    {
+      "actor": "z0",
+      "expected_state_seq": 0,
+      "kind": "no_op",
+      "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+      "order_id": "z0/order-7",
+      "schema_version": "0.3",
+      "stage": "TRADE_OR_UPDATE"
+    }
+  ],
+  "lower": [
+    64,
+    1
+  ],
+  "nodes": [
+    {
+      "kind": "bound",
+      "upper": [
+        64,
+        1
+      ]
+    }
+  ],
+  "objective": "SUBJECTIVE_EXPECTED_CONTROLLER_UTILITY",
+  "observation_sha256": "0066c97f57f9991e5c24c497e237673e32d4782f9c6c1406a7fee84b048a7b6f",
+  "scope": "terminal",
+  "search": {
+    "expansions": 0,
+    "generated": 1,
+    "max_expansions": 100
+  },
+  "sha256": "8ca52ab9389d18f141c28571790246646a7af1de640395bcc9c140f31a5ce651",
+  "source_sha256": "b016e0178a67cc9834c0c6f6c409568de6df31e4b95baa5e95a61655152aef75",
+  "upper": [
+    64,
+    1
+  ],
+  "vector_limit": 5000,
+  "version": "attack-certificate-1"
+}

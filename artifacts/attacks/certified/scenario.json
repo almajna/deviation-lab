@@ -1,0 +1,228 @@
+{
+  "agents": {
+    "h0": {
+      "controller": "honest",
+      "decline_report": false,
+      "signals": {
+        "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": [
+          0,
+          0,
+          3
+        ],
+        "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": [
+          2,
+          0,
+          1
+        ],
+        "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": [
+          2,
+          0,
+          1
+        ],
+        "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": [
+          3,
+          0,
+          0
+        ]
+      },
+      "wallet": 16
+    },
+    "z0": {
+      "controller": "strategic",
+      "decline_report": false,
+      "signals": {
+        "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": [
+          0,
+          0,
+          3
+        ],
+        "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": [
+          2,
+          0,
+          1
+        ],
+        "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": [
+          2,
+          0,
+          1
+        ],
+        "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": [
+          3,
+          0,
+          0
+        ]
+      },
+      "wallet": 8
+    }
+  },
+  "code_revision": "SYNTHETIC_FIXTURE",
+  "controllers": {
+    "honest": {
+      "action_cap": 4,
+      "cash_cap": 16,
+      "effort_per_attempt": 0,
+      "external_weights": {},
+      "position_cap": 100,
+      "token_cap": 4
+    },
+    "strategic": {
+      "action_cap": 4,
+      "cash_cap": 8,
+      "effort_per_attempt": 0,
+      "external_weights": {
+        "task-0": {
+          "m1": 6
+        },
+        "task-1": {
+          "m1": 6
+        }
+      },
+      "position_cap": 100,
+      "token_cap": 4
+    }
+  },
+  "cost_unit": "nano_synthetic_units",
+  "data_kind": "SYNTHETIC",
+  "decision_tasks": [
+    {
+      "model_options": [
+        "m0",
+        "m1"
+      ],
+      "prompt": "Synthetic decision prompt 0",
+      "task_id": "task-0"
+    },
+    {
+      "model_options": [
+        "m0",
+        "m1"
+      ],
+      "prompt": "Synthetic decision prompt 1",
+      "task_id": "task-1"
+    }
+  ],
+  "economics": {
+    "action_limit": 100,
+    "agent_position_limit": 100,
+    "b": 3,
+    "candidate_limit": 10000,
+    "cell_position_limit": 1000,
+    "fee": 2,
+    "order_limit": 2,
+    "price_denominator": 3000000,
+    "report_denominator": 3,
+    "rounds": 1,
+    "score_scale": 1,
+    "sponsor_cap": 100000
+  },
+  "execution_version": "markets-1",
+  "experiment_id": "SYNTHETIC-discovery-7",
+  "reservation_budget": 4,
+  "sealed_outcomes": [
+    {
+      "cost_decimal": "1E-9",
+      "model_id": "m0",
+      "quality": 0,
+      "task_id": "task-0"
+    },
+    {
+      "cost_decimal": "2E-9",
+      "model_id": "m1",
+      "quality": 0,
+      "task_id": "task-0"
+    },
+    {
+      "cost_decimal": "1E-9",
+      "model_id": "m0",
+      "quality": 1,
+      "task_id": "task-1"
+    },
+    {
+      "cost_decimal": "2E-9",
+      "model_id": "m1",
+      "quality": 1,
+      "task_id": "task-1"
+    }
+  ],
+  "seed": 7,
+  "source_manifest_sha256": "edd3de82f683534ac9f9fd3a23c99a65d6eb6874dd0a4fcb5be04f412fc2f2ba",
+  "split_groups": {
+    "4a68135745a725d06c438a8b41348d1a99a0ab21534d3272b20a1b24b0734dfc": "validation",
+    "57f48fe7ed15c2104457a4d29b256e440cf09e13fd4a206af3618edd21bc4f8d": "train",
+    "7d8b35b9e50a7b4495709aede2b5dfceb468ff74b04544ec43c2272760c219ac": "train",
+    "cc8f2b6bfe3c03fddd3e1b7315f8b4c6825460d4802ade23a7a6c40b91c3f85d": "validation"
+  },
+  "split_manifest_sha256": "98a826deb841e34d4405c7cd901a18f9eef09d9f787a1e30fbfa3af81aa3212f",
+  "training_calibration_rows": [
+    {
+      "category": 1,
+      "counts": [
+        1,
+        1,
+        1
+      ],
+      "model_id": "m0",
+      "task_id": "train-0"
+    },
+    {
+      "category": 2,
+      "counts": [
+        1,
+        1,
+        1
+      ],
+      "model_id": "m1",
+      "task_id": "train-0"
+    },
+    {
+      "category": 1,
+      "counts": [
+        1,
+        1,
+        1
+      ],
+      "model_id": "m0",
+      "task_id": "train-1"
+    },
+    {
+      "category": 2,
+      "counts": [
+        1,
+        1,
+        1
+      ],
+      "model_id": "m1",
+      "task_id": "train-1"
+    }
+  ],
+  "training_rows": [
+    {
+      "cost_decimal": "1E-9",
+      "cost_unit": "synthetic_units",
+      "model_id": "m0",
+      "prompt": "Synthetic training prompt 0",
+      "task_id": "train-0"
+    },
+    {
+      "cost_decimal": "2E-9",
+      "cost_unit": "synthetic_units",
+      "model_id": "m1",
+      "prompt": "Synthetic training prompt 0",
+      "task_id": "train-0"
+    },
+    {
+      "cost_decimal": "1E-9",
+      "cost_unit": "synthetic_units",
+      "model_id": "m0",
+      "prompt": "Synthetic training prompt 1",
+      "task_id": "train-1"
+    },
+    {
+      "cost_decimal": "2E-9",
+      "cost_unit": "synthetic_units",
+      "model_id": "m1",
+      "prompt": "Synthetic training prompt 1",
+      "task_id": "train-1"
+    }
+  ]
+}

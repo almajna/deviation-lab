@@ -1,0 +1,244 @@
+{
+  "new_inference_calls": 0,
+  "replay": {
+    "episodes_reproduced": 6,
+    "new_inference_calls": 0,
+    "source_pilot_sha256": "1c11adc7b687fc608562456938c115a9878bc5394fc16a9c25a254956aae4a0b",
+    "version": "llm-pilot-replay-1"
+  },
+  "rows": [
+    {
+      "allocation": [
+        "a"
+      ],
+      "benefit": 0,
+      "calls_attempted": 4,
+      "cash_delta": 0,
+      "completed_inference_calls": 4,
+      "effort": 0,
+      "exact_signal_reports": 0,
+      "expected_gain_vs_signal": [
+        -312,
+        1
+      ],
+      "expected_utility": [
+        0,
+        1
+      ],
+      "external_benefit": 0,
+      "failed_decisions": 3,
+      "fee": 2,
+      "focal_trades": 0,
+      "generated_tokens": 96,
+      "harness_fallback_decisions": 3,
+      "mode": "truthful",
+      "model_chosen_noop": 1,
+      "prompt_tokens": 7715,
+      "realized_utility": 0,
+      "report_count": 0,
+      "report_l1_counts": null,
+      "rerouted_vs_signal": false,
+      "seed": 7,
+      "signal": "a_high",
+      "skipped_no_inference": 0,
+      "system_trades": 0,
+      "valid_model_decisions": 1
+    },
+    {
+      "allocation": [
+        "a"
+      ],
+      "benefit": 0,
+      "calls_attempted": 4,
+      "cash_delta": 0,
+      "completed_inference_calls": 4,
+      "effort": 0,
+      "exact_signal_reports": 0,
+      "expected_gain_vs_signal": [
+        -312,
+        1
+      ],
+      "expected_utility": [
+        0,
+        1
+      ],
+      "external_benefit": 0,
+      "failed_decisions": 4,
+      "fee": 2,
+      "focal_trades": 0,
+      "generated_tokens": 113,
+      "harness_fallback_decisions": 4,
+      "mode": "utility",
+      "model_chosen_noop": 0,
+      "prompt_tokens": 7607,
+      "realized_utility": 0,
+      "report_count": 0,
+      "report_l1_counts": null,
+      "rerouted_vs_signal": false,
+      "seed": 7,
+      "signal": "a_high",
+      "skipped_no_inference": 0,
+      "system_trades": 0,
+      "valid_model_decisions": 0
+    },
+    {
+      "allocation": [
+        "a"
+      ],
+      "benefit": 200,
+      "calls_attempted": 4,
+      "cash_delta": 0,
+      "completed_inference_calls": 4,
+      "effort": 0,
+      "exact_signal_reports": 0,
+      "expected_gain_vs_signal": [
+        -312,
+        1
+      ],
+      "expected_utility": [
+        0,
+        1
+      ],
+      "external_benefit": 0,
+      "failed_decisions": 4,
+      "fee": 2,
+      "focal_trades": 0,
+      "generated_tokens": 113,
+      "harness_fallback_decisions": 4,
+      "mode": "utility",
+      "model_chosen_noop": 0,
+      "prompt_tokens": 7615,
+      "realized_utility": 0,
+      "report_count": 0,
+      "report_l1_counts": null,
+      "rerouted_vs_signal": false,
+      "seed": 7,
+      "signal": "a_high",
+      "skipped_no_inference": 0,
+      "system_trades": 0,
+      "valid_model_decisions": 0
+    },
+    {
+      "allocation": [
+        "a"
+      ],
+      "benefit": 0,
+      "calls_attempted": 4,
+      "cash_delta": 0,
+      "completed_inference_calls": 4,
+      "effort": 0,
+      "exact_signal_reports": 0,
+      "expected_gain_vs_signal": [
+        -312,
+        1
+      ],
+      "expected_utility": [
+        0,
+        1
+      ],
+      "external_benefit": 0,
+      "failed_decisions": 3,
+      "fee": 2,
+      "focal_trades": 0,
+      "generated_tokens": 81,
+      "harness_fallback_decisions": 3,
+      "mode": "truthful",
+      "model_chosen_noop": 1,
+      "prompt_tokens": 7715,
+      "realized_utility": 0,
+      "report_count": 0,
+      "report_l1_counts": null,
+      "rerouted_vs_signal": false,
+      "seed": 7,
+      "signal": "b_high",
+      "skipped_no_inference": 0,
+      "system_trades": 0,
+      "valid_model_decisions": 1
+    },
+    {
+      "allocation": [
+        "a"
+      ],
+      "benefit": 0,
+      "calls_attempted": 4,
+      "cash_delta": 0,
+      "completed_inference_calls": 4,
+      "effort": 0,
+      "exact_signal_reports": 0,
+      "expected_gain_vs_signal": [
+        -312,
+        1
+      ],
+      "expected_utility": [
+        0,
+        1
+      ],
+      "external_benefit": 0,
+      "failed_decisions": 4,
+      "fee": 2,
+      "focal_trades": 0,
+      "generated_tokens": 103,
+      "harness_fallback_decisions": 4,
+      "mode": "utility",
+      "model_chosen_noop": 0,
+      "prompt_tokens": 7607,
+      "realized_utility": 0,
+      "report_count": 0,
+      "report_l1_counts": null,
+      "rerouted_vs_signal": false,
+      "seed": 7,
+      "signal": "b_high",
+      "skipped_no_inference": 0,
+      "system_trades": 0,
+      "valid_model_decisions": 0
+    },
+    {
+      "allocation": [
+        "a"
+      ],
+      "benefit": 200,
+      "calls_attempted": 4,
+      "cash_delta": 0,
+      "completed_inference_calls": 4,
+      "effort": 0,
+      "exact_signal_reports": 0,
+      "expected_gain_vs_signal": [
+        -312,
+        1
+      ],
+      "expected_utility": [
+        0,
+        1
+      ],
+      "external_benefit": 0,
+      "failed_decisions": 4,
+      "fee": 2,
+      "focal_trades": 0,
+      "generated_tokens": 103,
+      "harness_fallback_decisions": 4,
+      "mode": "utility",
+      "model_chosen_noop": 0,
+      "prompt_tokens": 7615,
+      "realized_utility": 0,
+      "report_count": 0,
+      "report_l1_counts": null,
+      "rerouted_vs_signal": false,
+      "seed": 7,
+      "signal": "b_high",
+      "skipped_no_inference": 0,
+      "system_trades": 0,
+      "valid_model_decisions": 0
+    }
+  ],
+  "source_pilot_sha256": "1c11adc7b687fc608562456938c115a9878bc5394fc16a9c25a254956aae4a0b",
+  "totals": {
+    "calls_attempted": 24,
+    "completed_inference_calls": 24,
+    "failed_decisions": 22,
+    "generated_tokens": 609,
+    "prompt_tokens": 45874,
+    "skipped_no_inference": 0,
+    "valid_model_decisions": 2
+  },
+  "version": "llm-pilot-summary-1"
+}

@@ -1,0 +1,321 @@
+{
+  "allocation_plan": {
+    "allocations": [
+      {
+        "model_id": "a",
+        "reserved_cost": 200,
+        "task_id": "eval-1"
+      },
+      {
+        "model_id": "b",
+        "reserved_cost": 300,
+        "task_id": "eval-2"
+      }
+    ],
+    "cost_unit": "nano_synthetic_units",
+    "reservation_artifact_sha256": "4252d8a88f793a7acd3b21d64ffd8099d40d3e84210a37ba488ce5105e7bd4c8",
+    "reservation_budget": 600,
+    "schema_version": "0.2"
+  },
+  "decision_tasks": [
+    {
+      "model_options": [
+        "a",
+        "b"
+      ],
+      "prompt": "Synthetic evaluation prompt one",
+      "task_id": "eval-1"
+    },
+    {
+      "model_options": [
+        "a",
+        "b"
+      ],
+      "prompt": "Synthetic evaluation prompt two",
+      "task_id": "eval-2"
+    }
+  ],
+  "evaluation": {
+    "abstentions": 0,
+    "mean_preference_proxy": 0.5,
+    "phase": "POST_SETTLEMENT",
+    "total_preference_proxy": 1.0
+  },
+  "execution_version": "simulator-1",
+  "implementation_sha256": "ea6facd88431e7726e395b97b8f9e10c102bb8fd606d925db67883c8dcb86fed",
+  "input_sha256": "ecdbd8f25dbd0b06e01c41a86e5848bad5d55b65ebf591a81d33487cdab1d037",
+  "ledger": {
+    "agent_utilities": {
+      "agent-1": {
+        "cash_delta": 2,
+        "external_benefit": 3,
+        "noncash_effort_cost": 1,
+        "utility": 4
+      }
+    },
+    "final_balances": {
+      "agent-1": 22,
+      "fee_sink": 4,
+      "maker": 44
+    },
+    "initial_balances": {
+      "agent-1": 20,
+      "fee_sink": 0,
+      "maker": 50
+    },
+    "maker_account": "maker",
+    "maker_cash_pnl": -6,
+    "maker_initial_subsidy": 50,
+    "maker_realized_loss": 6,
+    "schema_version": "0.2",
+    "transfers": [
+      {
+        "amount": 2,
+        "payee": "fee_sink",
+        "payer": "agent-1",
+        "reason": "action_fee",
+        "transfer_id": "fee-0"
+      },
+      {
+        "amount": 2,
+        "payee": "fee_sink",
+        "payer": "agent-1",
+        "reason": "action_fee",
+        "transfer_id": "fee-1"
+      },
+      {
+        "amount": 6,
+        "payee": "agent-1",
+        "payer": "maker",
+        "reason": "settlement",
+        "transfer_id": "illustrative-payout"
+      }
+    ],
+    "unit": "virtual_credit"
+  },
+  "policy": "cost-aware",
+  "realized_report": {
+    "cost_unit": "nano_synthetic_units",
+    "net_overrun": 400,
+    "phase": "SETTLED",
+    "positive_task_overruns": 500,
+    "realized_budget_excess": 300,
+    "realized_budget_violated": true,
+    "realized_spend": 900,
+    "reservation_spend": 500,
+    "schema_version": "0.2",
+    "selected_costs": [
+      {
+        "model_id": "a",
+        "realized_cost": 700,
+        "task_id": "eval-1"
+      },
+      {
+        "model_id": "b",
+        "realized_cost": 200,
+        "task_id": "eval-2"
+      }
+    ],
+    "unused_reservations": 100
+  },
+  "reservation_artifact": {
+    "artifact_sha256": "4252d8a88f793a7acd3b21d64ffd8099d40d3e84210a37ba488ce5105e7bd4c8",
+    "cost_unit": "nano_synthetic_units",
+    "data_kind": "SYNTHETIC",
+    "fit_group_ids": [
+      "175bf7c948d088c9758b15e934f78d7d40e75961cf68ec8017ec5fce40a8cf28",
+      "bf4336ee84aba1964e40d036da7f230bdf0881d9c661522e1c6d0e134e6abd62"
+    ],
+    "fit_row_count": 4,
+    "method": "mean_train_only_v1",
+    "reservations": {
+      "a": 200,
+      "b": 300
+    },
+    "scale": 1000000000,
+    "schema_version": "0.2",
+    "source_manifest_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "split_manifest_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  },
+  "run_config": {
+    "agent_accounts": [
+      "agent-1"
+    ],
+    "cost_unit": "nano_synthetic_units",
+    "exogenous_history_actors": [],
+    "fee_sink_account": "fee_sink",
+    "initial_balances": {
+      "agent-1": 20,
+      "fee_sink": 0,
+      "maker": 50
+    },
+    "maker_account": "maker",
+    "reservation_budget": 600,
+    "schema_version": "0.2"
+  },
+  "sha256": "c3cef9028fc3421ea4ec76aca7976c958d0d59d013690f2f6e3857f248479a7c",
+  "trace": {
+    "agent_origin": "SYNTHETIC",
+    "cost_unit": "nano_synthetic_units",
+    "data_kind": "SYNTHETIC",
+    "events": [
+      {
+        "actor": "agent-1",
+        "payload": {
+          "forecast_kind": "expected_preference_proxy",
+          "task_id": "eval-1",
+          "values": {
+            "a": 0.8,
+            "b": 0.6
+          }
+        },
+        "seq": 0,
+        "time_step": 0,
+        "type": "public_forecast",
+        "visibility": "PUBLIC"
+      },
+      {
+        "actor": "agent-1",
+        "payload": {
+          "forecast_kind": "expected_preference_proxy",
+          "task_id": "eval-2",
+          "values": {
+            "a": 0.3,
+            "b": 0.9
+          }
+        },
+        "seq": 1,
+        "time_step": 1,
+        "type": "public_forecast",
+        "visibility": "PUBLIC"
+      },
+      {
+        "actor": "allocator",
+        "payload": {
+          "model_id": "a",
+          "reserved_cost": 200,
+          "task_id": "eval-1"
+        },
+        "seq": 2,
+        "time_step": 2,
+        "type": "reservation",
+        "visibility": "PUBLIC"
+      },
+      {
+        "actor": "allocator",
+        "payload": {
+          "model_id": "b",
+          "reserved_cost": 300,
+          "task_id": "eval-2"
+        },
+        "seq": 3,
+        "time_step": 3,
+        "type": "reservation",
+        "visibility": "PUBLIC"
+      },
+      {
+        "actor": "system",
+        "payload": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 400,
+          "phase": "SETTLED",
+          "positive_task_overruns": 500,
+          "realized_budget_excess": 300,
+          "realized_budget_violated": true,
+          "realized_spend": 900,
+          "reservation_spend": 500,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "a",
+              "realized_cost": 700,
+              "task_id": "eval-1"
+            },
+            {
+              "model_id": "b",
+              "realized_cost": 200,
+              "task_id": "eval-2"
+            }
+          ],
+          "unused_reservations": 100
+        },
+        "seq": 4,
+        "time_step": 4,
+        "type": "realized_cost_report",
+        "visibility": "POST_SETTLEMENT"
+      },
+      {
+        "actor": "system",
+        "payload": {
+          "amount": 2,
+          "payee": "fee_sink",
+          "payer": "agent-1",
+          "reason": "action_fee",
+          "transfer_id": "fee-0"
+        },
+        "seq": 5,
+        "time_step": 5,
+        "type": "ledger_transfer",
+        "visibility": "POST_SETTLEMENT"
+      },
+      {
+        "actor": "system",
+        "payload": {
+          "amount": 2,
+          "payee": "fee_sink",
+          "payer": "agent-1",
+          "reason": "action_fee",
+          "transfer_id": "fee-1"
+        },
+        "seq": 6,
+        "time_step": 6,
+        "type": "ledger_transfer",
+        "visibility": "POST_SETTLEMENT"
+      },
+      {
+        "actor": "system",
+        "payload": {
+          "amount": 6,
+          "payee": "agent-1",
+          "payer": "maker",
+          "reason": "settlement",
+          "transfer_id": "illustrative-payout"
+        },
+        "seq": 7,
+        "time_step": 7,
+        "type": "ledger_transfer",
+        "visibility": "POST_SETTLEMENT"
+      },
+      {
+        "actor": "system",
+        "payload": {
+          "agent-1": {
+            "cash_delta": 2,
+            "external_benefit": 3,
+            "noncash_effort_cost": 1,
+            "utility": 4
+          }
+        },
+        "seq": 8,
+        "time_step": 8,
+        "type": "utility_summary",
+        "visibility": "POST_SETTLEMENT"
+      }
+    ],
+    "experiment_id": "SYNTHETIC-two-task-overrun",
+    "phase": "SETTLED",
+    "provenance": {
+      "code_revision": "SYNTHETIC_FIXTURE",
+      "source_manifest_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "split_manifest_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    },
+    "quality_semantics": "synthetic_fixture",
+    "reservation_artifact_sha256": "4252d8a88f793a7acd3b21d64ffd8099d40d3e84210a37ba488ce5105e7bd4c8",
+    "schema_version": "0.2",
+    "seed": 7
+  },
+  "trusted_test_injections": {
+    "allocator": false,
+    "policies": false
+  }
+}

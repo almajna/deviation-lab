@@ -1,0 +1,264 @@
+{
+  "action_space": "engine-l1-orders-or-simplex-reports-1",
+  "claim": "EXACT_FINITE_SUBGAME",
+  "controller": "strategic",
+  "gap": [
+    0,
+    1
+  ],
+  "incumbent_commands": [
+    {
+      "actor": "z1",
+      "counts": [
+        1,
+        1,
+        1
+      ],
+      "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+      "stage": "REPORT_COMMIT"
+    }
+  ],
+  "lower": [
+    116,
+    1
+  ],
+  "nodes": [
+    {
+      "children": [
+        {
+          "command": {
+            "actor": "z1",
+            "counts": null,
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "stage": "REPORT_COMMIT"
+          },
+          "node": 1
+        },
+        {
+          "command": {
+            "actor": "z1",
+            "counts": [
+              0,
+              0,
+              3
+            ],
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "stage": "REPORT_COMMIT"
+          },
+          "node": 2
+        },
+        {
+          "command": {
+            "actor": "z1",
+            "counts": [
+              0,
+              1,
+              2
+            ],
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "stage": "REPORT_COMMIT"
+          },
+          "node": 3
+        },
+        {
+          "command": {
+            "actor": "z1",
+            "counts": [
+              0,
+              2,
+              1
+            ],
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "stage": "REPORT_COMMIT"
+          },
+          "node": 4
+        },
+        {
+          "command": {
+            "actor": "z1",
+            "counts": [
+              0,
+              3,
+              0
+            ],
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "stage": "REPORT_COMMIT"
+          },
+          "node": 5
+        },
+        {
+          "command": {
+            "actor": "z1",
+            "counts": [
+              1,
+              0,
+              2
+            ],
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "stage": "REPORT_COMMIT"
+          },
+          "node": 6
+        },
+        {
+          "command": {
+            "actor": "z1",
+            "counts": [
+              1,
+              1,
+              1
+            ],
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "stage": "REPORT_COMMIT"
+          },
+          "node": 7
+        },
+        {
+          "command": {
+            "actor": "z1",
+            "counts": [
+              1,
+              2,
+              0
+            ],
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "stage": "REPORT_COMMIT"
+          },
+          "node": 8
+        },
+        {
+          "command": {
+            "actor": "z1",
+            "counts": [
+              2,
+              0,
+              1
+            ],
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "stage": "REPORT_COMMIT"
+          },
+          "node": 9
+        },
+        {
+          "command": {
+            "actor": "z1",
+            "counts": [
+              2,
+              1,
+              0
+            ],
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "stage": "REPORT_COMMIT"
+          },
+          "node": 10
+        },
+        {
+          "command": {
+            "actor": "z1",
+            "counts": [
+              3,
+              0,
+              0
+            ],
+            "market_id": "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227",
+            "stage": "REPORT_COMMIT"
+          },
+          "node": 11
+        }
+      ],
+      "kind": "split"
+    },
+    {
+      "kind": "terminal",
+      "upper": [
+        104,
+        1
+      ]
+    },
+    {
+      "kind": "terminal",
+      "upper": [
+        110,
+        1
+      ]
+    },
+    {
+      "kind": "terminal",
+      "upper": [
+        114,
+        1
+      ]
+    },
+    {
+      "kind": "terminal",
+      "upper": [
+        114,
+        1
+      ]
+    },
+    {
+      "kind": "terminal",
+      "upper": [
+        110,
+        1
+      ]
+    },
+    {
+      "kind": "terminal",
+      "upper": [
+        114,
+        1
+      ]
+    },
+    {
+      "kind": "terminal",
+      "upper": [
+        116,
+        1
+      ]
+    },
+    {
+      "kind": "terminal",
+      "upper": [
+        114,
+        1
+      ]
+    },
+    {
+      "kind": "terminal",
+      "upper": [
+        114,
+        1
+      ]
+    },
+    {
+      "kind": "terminal",
+      "upper": [
+        114,
+        1
+      ]
+    },
+    {
+      "kind": "terminal",
+      "upper": [
+        110,
+        1
+      ]
+    }
+  ],
+  "objective": "SUBJECTIVE_EXPECTED_CONTROLLER_UTILITY",
+  "observation_sha256": "e42b1957ff2fe8ef6909251962e6b46a43e2a9f52165b0397201d615c9678b74",
+  "scope": "reports",
+  "search": {
+    "expansions": 1,
+    "generated": 12,
+    "max_expansions": 2000
+  },
+  "sha256": "5ed2f6c025127956459094d099c15fae841b09f5f49aac1edb9faae9ecda9cc0",
+  "source_sha256": "7d88cd5dfa1d0bd72f0d7c9796a06206ceb1451228171ad67b1041b8a6049b78",
+  "upper": [
+    116,
+    1
+  ],
+  "vector_limit": 5000,
+  "version": "attack-certificate-1"
+}

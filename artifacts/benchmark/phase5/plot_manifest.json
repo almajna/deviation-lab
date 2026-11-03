@@ -1,0 +1,11 @@
+{
+  "figures": {
+    "recorded_calibration.svg": "c7af33ad524322cc726a18080cbb39e5b0ab0245c96c2e57749471f9b1a860f8",
+    "recorded_quality.svg": "b0ea4e3e34f2e0edf514d015be0a959fe826350a01d9096fd31b015c0da540aa",
+    "synthetic_generalization.svg": "503e6ce7872dfd471de5acc2dcd0cf316b9cc60b4878613618a0c82af6e70b76"
+  },
+  "input_plot_data_sha256": "1fbbd22687b627c8dce28820d3a140252cb4c7cfbbbd9c835bd10cbf1163eab6",
+  "matplotlib": "3.10.7",
+  "plot_script_sha256": "9a7db6b6350b25e1a45dcca4c47eca21019a890bf027314f751aae0b1266df2d",
+  "version": "benchmark-plots-1"
+}

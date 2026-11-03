@@ -1,0 +1,201 @@
+{
+  "execution": {
+    "final_holdout_accessed": false,
+    "new_inference_calls": 0,
+    "steps": [
+      {
+        "exit_code": 0,
+        "seconds": 0.06106483099998172,
+        "source": "390e1b7a63cf31306d78815e381f81ec7245f8d6",
+        "step": "phase2-simulator"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 0.06320494300001656,
+        "source": "1afe571d84831d9d0868dbdef5ae46df1c4c0b2d",
+        "step": "phase3-simulator"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 0.07656730400000811,
+        "source": "1afe571d84831d9d0868dbdef5ae46df1c4c0b2d",
+        "step": "phase3-markets"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 0.07000163000000725,
+        "source": "8cf8bd318c1a28533aeb88c52c6ad4092aec119e",
+        "step": "phase4-simulator"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 0.07507401700001992,
+        "source": "8cf8bd318c1a28533aeb88c52c6ad4092aec119e",
+        "step": "phase4-markets"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 0.0801806610000142,
+        "source": "fd0b412039639cbf53d32960bc18d60cafcbb9d9",
+        "step": "benchmark-simulator"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 0.07564340799999059,
+        "source": "fd0b412039639cbf53d32960bc18d60cafcbb9d9",
+        "step": "benchmark-markets"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 0.1755300620000071,
+        "source": "8cf8bd318c1a28533aeb88c52c6ad4092aec119e",
+        "step": "phase4-attack"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 34.88446066700001,
+        "source": "8cf8bd318c1a28533aeb88c52c6ad4092aec119e",
+        "step": "phase4-campaign"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 2.1775563459999603,
+        "source": "8cf8bd318c1a28533aeb88c52c6ad4092aec119e",
+        "step": "phase4-sensitivity"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 1.5994947579999916,
+        "source": "3151edb463484498a5b686bf607dff4f062d66a4",
+        "step": "producer-examples"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 0.061387351000007584,
+        "source": "3151edb463484498a5b686bf607dff4f062d66a4",
+        "step": "producer-standalone"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 511.209863931,
+        "source": "f199007eca28097f70115c5f9a20276b046fe95c",
+        "step": "verification-81"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 53.36041886800001,
+        "source": "f199007eca28097f70115c5f9a20276b046fe95c",
+        "step": "verification-archive"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 253.35710137799992,
+        "source": "f199007eca28097f70115c5f9a20276b046fe95c",
+        "step": "verification-ordinary-exact"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 60.042027626999925,
+        "source": "fd0b412039639cbf53d32960bc18d60cafcbb9d9",
+        "step": "benchmark-full"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 1.826155469000014,
+        "source": "cb9347fe5580bf4e3a83bc81cc99fe620098da3d",
+        "step": "agent-controls"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 0.07438906800007317,
+        "source": "cb9347fe5580bf4e3a83bc81cc99fe620098da3d",
+        "step": "agent-transport"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 0.4008027840000068,
+        "source": "cb9347fe5580bf4e3a83bc81cc99fe620098da3d",
+        "step": "agent-real-pilot"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 0.39837291499998173,
+        "source": "cb9347fe5580bf4e3a83bc81cc99fe620098da3d",
+        "step": "agent-summary"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 0.4008667589998822,
+        "source": "cb9347fe5580bf4e3a83bc81cc99fe620098da3d",
+        "step": "agent-publication-audit"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 0.0417770340000061,
+        "source": "CURRENT_INSTALLED_PACKAGE",
+        "step": "current-simulator"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 0.06953230899989649,
+        "source": "CURRENT_INSTALLED_PACKAGE",
+        "step": "current-markets"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 1.5422154139998838,
+        "source": "CURRENT_INSTALLED_PACKAGE",
+        "step": "current-producer"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 506.64508606799996,
+        "source": "CURRENT_INSTALLED_PACKAGE",
+        "step": "current-verification-81"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 255.07610458099998,
+        "source": "CURRENT_INSTALLED_PACKAGE",
+        "step": "current-ordinary-exact"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 60.20285508400002,
+        "source": "CURRENT_INSTALLED_PACKAGE",
+        "step": "current-benchmark-full"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 2.125010676999864,
+        "source": "CURRENT_INSTALLED_PACKAGE",
+        "step": "current-agent-controls"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 36.10902231299997,
+        "source": "CURRENT_INSTALLED_PACKAGE",
+        "step": "current-attack-campaign"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 2.595464831000072,
+        "source": "fd0b412039639cbf53d32960bc18d60cafcbb9d9",
+        "step": "benchmark-plots"
+      },
+      {
+        "exit_code": 0,
+        "seconds": 0.8762980100000277,
+        "source": "f199007eca28097f70115c5f9a20276b046fe95c",
+        "step": "certificate-plots"
+      }
+    ],
+    "version": "integration-execution-1"
+  },
+  "final_check": "EXPECTED_FileNotFoundError_BECAUSE_GOLDEN_MANIFEST_NOT_YET_COMMITTED",
+  "generation_manifest_sha256": "4bf8339ebb6de533ea737fde1434eec04d6dc3460ee5d86281d5338cff987c8e",
+  "head_sha": "e74728209badb9f8ee1dfc2c8131ea84f18ebb9a",
+  "job_id": 126157686313,
+  "run_id": 41704955385,
+  "source": "GITHUB_ACTIONS_COMPLETED_GENERATION_BEFORE_EXPECTED_MANIFEST_EXISTED"
+}

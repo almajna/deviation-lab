@@ -1,0 +1,130 @@
+{
+  "version": "producer-dependency-byte-audit-1",
+  "producer_commit": "3151edb463484498a5b686bf607dff4f062d66a4",
+  "files": [
+    {
+      "path": "artifacts/attacks/certified/honest.receipt.json",
+      "local_sha": "65098c0cc690cb4d37e538fae42a480fd16cd83b",
+      "remote_sha": "65098c0cc690cb4d37e538fae42a480fd16cd83b",
+      "match": true
+    },
+    {
+      "path": "artifacts/attacks/certified/independent-payoffs.json",
+      "local_sha": "2f15874e56553a2b113e06538b9b8da6861006b9",
+      "remote_sha": "2f15874e56553a2b113e06538b9b8da6861006b9",
+      "match": true
+    },
+    {
+      "path": "artifacts/attacks/certified/larger-lmsr.certificate.json",
+      "local_sha": "09a5429f04d28d2f7a7ae63ecc4401551a1d217b",
+      "remote_sha": "09a5429f04d28d2f7a7ae63ecc4401551a1d217b",
+      "match": true
+    },
+    {
+      "path": "artifacts/attacks/certified/scenario.json",
+      "local_sha": "2117409b44bcdaa3ee098dd32f764558a71fa6bd",
+      "remote_sha": "2117409b44bcdaa3ee098dd32f764558a71fa6bd",
+      "match": true
+    },
+    {
+      "path": "artifacts/attacks/certified/selected.receipt.json",
+      "local_sha": "45fb2ed1b689fdc88c4e9f6d101204fa4d567d9a",
+      "remote_sha": "45fb2ed1b689fdc88c4e9f6d101204fa4d567d9a",
+      "match": true
+    },
+    {
+      "path": "artifacts/attacks/certified/small-interactive-pool.certificate.json",
+      "local_sha": "09574ee33320ad3062298d560cf0893ae31a47fd",
+      "remote_sha": "09574ee33320ad3062298d560cf0893ae31a47fd",
+      "match": true
+    },
+    {
+      "path": "artifacts/attacks/certified/small-lmsr.certificate.json",
+      "local_sha": "178f0f45c2e54ddb1b60371b3a52475ff6921ae8",
+      "remote_sha": "178f0f45c2e54ddb1b60371b3a52475ff6921ae8",
+      "match": true
+    },
+    {
+      "path": "artifacts/attacks/certified/small-pool.certificate.json",
+      "local_sha": "a89b39a7d1b58e612b0c0aa64b7d9f78c163ffc1",
+      "remote_sha": "a89b39a7d1b58e612b0c0aa64b7d9f78c163ffc1",
+      "match": true
+    },
+    {
+      "path": "artifacts/attacks/certified/summary.json",
+      "local_sha": "3462c6a4674e3a2c60a43589b5b73897325b1e5c",
+      "remote_sha": "3462c6a4674e3a2c60a43589b5b73897325b1e5c",
+      "match": true
+    },
+    {
+      "path": "artifacts/attacks/certified/two-slot-lmsr.certificate.json",
+      "local_sha": "5b80bc5f9aa68a1b530150bcb6c2bc2ae527ca9b",
+      "remote_sha": "5b80bc5f9aa68a1b530150bcb6c2bc2ae527ca9b",
+      "match": true
+    },
+    {
+      "path": "artifacts/attacks/certified/zero-external-lmsr.certificate.json",
+      "local_sha": "59c5bb8d635c53f18c28a357f01c876fd74ead44",
+      "remote_sha": "59c5bb8d635c53f18c28a357f01c876fd74ead44",
+      "match": true
+    },
+    {
+      "path": "docs/CERTIFIED_ATTACKS.md",
+      "local_sha": "4b381eed5c7672ba646791f6579e626804823ec3",
+      "remote_sha": "4b381eed5c7672ba646791f6579e626804823ec3",
+      "match": true
+    },
+    {
+      "path": "docs/CERTIFIED_ATTACKS_REVIEW.md",
+      "local_sha": "7c85fc15cd77605d1860dc1a8a14d44937b87428",
+      "remote_sha": "7c85fc15cd77605d1860dc1a8a14d44937b87428",
+      "match": true
+    },
+    {
+      "path": "src/deviation/attacks/certified/__init__.py",
+      "local_sha": "8597b47b2850488abdb42008db7fae4ae309dd20",
+      "remote_sha": "8597b47b2850488abdb42008db7fae4ae309dd20",
+      "match": true
+    },
+    {
+      "path": "src/deviation/attacks/certified/__main__.py",
+      "local_sha": "de8d0d208c727e2789ee27b4703e126aa84565fb",
+      "remote_sha": "de8d0d208c727e2789ee27b4703e126aa84565fb",
+      "match": true
+    },
+    {
+      "path": "src/deviation/attacks/certified/checker.py",
+      "local_sha": "95f06e182a8a67823174ffcbc63d42a4d4f829de",
+      "remote_sha": "95f06e182a8a67823174ffcbc63d42a4d4f829de",
+      "match": true
+    },
+    {
+      "path": "src/deviation/attacks/certified/examples.py",
+      "local_sha": "e397d9552e0e995ed03ec35dc90aeac299eb08e1",
+      "remote_sha": "e397d9552e0e995ed03ec35dc90aeac299eb08e1",
+      "match": true
+    },
+    {
+      "path": "src/deviation/attacks/certified/model.py",
+      "local_sha": "989cd13e05a8be4795314a36c5957c32a954dc33",
+      "remote_sha": "989cd13e05a8be4795314a36c5957c32a954dc33",
+      "match": true
+    },
+    {
+      "path": "src/deviation/attacks/certified/solver.py",
+      "local_sha": "ef4e995fde0495c5050eaaacc30f706e976674f9",
+      "remote_sha": "ef4e995fde0495c5050eaaacc30f706e976674f9",
+      "match": true
+    },
+    {
+      "path": "tests/test_certified_attacks.py",
+      "local_sha": "89f41b68f50ded05f3e564adbd15a7b747d08a69",
+      "remote_sha": "89f41b68f50ded05f3e564adbd15a7b747d08a69",
+      "match": true
+    }
+  ],
+  "separately_modified": [
+    ".github/workflows/ci.yml",
+    "docs/DECISIONS.md"
+  ]
+}

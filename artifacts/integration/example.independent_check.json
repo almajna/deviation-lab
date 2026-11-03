@@ -1,0 +1,54 @@
+{
+  "certificate_file_sha256": "bce25dc0edbbcec60ca8c7f242c99c401495b5842594e64a82c9e3b4a7094d22",
+  "certificate_package_source_sha256": "dd8f77768b7cbcf926e6d1426549d5828d18438975e94759626739354b9da968",
+  "data_kind": "SYNTHETIC",
+  "engine_package_sha256": "c231f96f7b5bda18e107e8036dcaef0fee4e63c5e2cf1083b464d73100b10dd3",
+  "independent_check": {
+    "allocation": [
+      {
+        "model_id": "m0",
+        "reserved_cost": 1,
+        "task_id": "task-0"
+      },
+      {
+        "model_id": "m1",
+        "reserved_cost": 2,
+        "task_id": "task-1"
+      }
+    ],
+    "checked_nodes": 11,
+    "engine_transitions": 11,
+    "gap": [
+      0,
+      1
+    ],
+    "lower": [
+      203,
+      3
+    ],
+    "payoff": {
+      "cash": [
+        185,
+        3
+      ],
+      "effort": [
+        0,
+        1
+      ],
+      "external": [
+        6,
+        1
+      ],
+      "utility": [
+        203,
+        3
+      ]
+    },
+    "upper": [
+      203,
+      3
+    ],
+    "version": "independent-certificate-check-1"
+  },
+  "scope": "KNOWN_IMPLEMENTATION_FIXTURE_NOT_NOVEL_DISCOVERY"
+}

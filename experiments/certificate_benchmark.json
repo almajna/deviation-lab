@@ -1,0 +1,24 @@
+{
+  "version": "certificate-benchmark-1",
+  "data_kind": "SYNTHETIC",
+  "scope": "DEVELOPMENT_ONLY_NO_FINAL_HOLDOUT",
+  "seeds": [101, 211, 307],
+  "mechanisms": ["lmsr", "interactive-pool", "pool"],
+  "max_nodes": 2000,
+  "independent_max_nodes": 20000,
+  "beam_width": 8,
+  "timing_repeats": 3,
+  "bootstrap_draws": 2000,
+  "bootstrap_seed": 991,
+  "profiles": [
+    {"id": "base", "group": "base", "horizon": 1, "capital": 8, "external": 8, "fee": 0, "b": 3, "quantity": 2, "information": "mixed", "aliases": 1},
+    {"id": "cash_only", "group": "base", "horizon": 2, "capital": 8, "external": 0, "fee": 0, "b": 3, "quantity": 2, "information": "mixed", "aliases": 1},
+    {"id": "no_capital", "group": "base", "horizon": 2, "capital": 0, "external": 8, "fee": 0, "b": 3, "quantity": 2, "information": "mixed", "aliases": 1},
+    {"id": "fee_friction", "group": "base", "horizon": 2, "capital": 4, "external": 8, "fee": 2, "b": 3, "quantity": 2, "information": "mixed", "aliases": 1},
+    {"id": "uninformed", "group": "stress", "horizon": 2, "capital": 8, "external": 12, "fee": 0, "b": 1, "quantity": 2, "information": "uniform", "aliases": 1},
+    {"id": "conflicting", "group": "stress", "horizon": 2, "capital": 12, "external": 12, "fee": 0, "b": 8, "quantity": 2, "information": "conflicting", "aliases": 1},
+    {"id": "coalition", "group": "stress", "horizon": 4, "capital": 8, "external": 8, "fee": 0, "b": 3, "quantity": 1, "information": "mixed", "aliases": 2},
+    {"id": "deep", "group": "stress", "horizon": 8, "capital": 12, "external": 12, "fee": 0, "b": 3, "quantity": 1, "information": "mixed", "aliases": 1},
+    {"id": "large_order", "group": "stress", "horizon": 2, "capital": 12, "external": 8, "fee": 0, "b": 3, "quantity": 4, "information": "mixed", "aliases": 1}
+  ]
+}

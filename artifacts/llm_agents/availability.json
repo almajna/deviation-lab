@@ -1,0 +1,21 @@
+{
+  "architecture": "arm64",
+  "cache_blobs_over_50MB": 0,
+  "cache_named_weight_bytes": 0,
+  "conclusion": "INVENTORY_ONLY_NOT_SERVER_OR_INFERENCE_VERIFICATION",
+  "inspected_cache": "Qwen/Qwen3-0.6B metadata cache only; not a full disk model inventory",
+  "model_inference_calls": 0,
+  "network_requests": 0,
+  "python": "3.12.15",
+  "runtime_commands": {
+    "llama-cli": false,
+    "ollama": false
+  },
+  "runtime_packages": {
+    "llama_cpp": false,
+    "mlx_lm": false,
+    "torch": false,
+    "transformers": false
+  },
+  "version": "llm-availability-1"
+}
