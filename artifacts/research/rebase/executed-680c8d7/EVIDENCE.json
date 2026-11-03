@@ -1,0 +1,125 @@
+{
+  "version": "pr27-executed-rebase-archive-1",
+  "code_head": "680c8d7c8a5e9103c34ecb332282935d181fc625",
+  "code_tree": "1d040e8cdb13dcf8ece96bedb85395516b41dc8e",
+  "main": "8521252fceb8eb9cb3877badc9fbbd29bf995e1a",
+  "historical": "b67bf93b7a23c5c5d62e9d7f04ddfb614cfb0d81",
+  "ci": [
+    {
+      "run_id": 41729424783,
+      "name": "Python and shared contract CI",
+      "head": "680c8d7c8a5e9103c34ecb332282935d181fc625",
+      "conclusion": "success",
+      "url": "https://github.com/almajna/deviation-lab/actions/runs/41729424783"
+    },
+    {
+      "run_id": 41729424266,
+      "name": "Committed real LLM pilot replay (zero inference)",
+      "head": "680c8d7c8a5e9103c34ecb332282935d181fc625",
+      "conclusion": "success",
+      "url": "https://github.com/almajna/deviation-lab/actions/runs/41729424266"
+    },
+    {
+      "run_id": 41729424326,
+      "name": "Local LLM agent instrument evidence",
+      "head": "680c8d7c8a5e9103c34ecb332282935d181fc625",
+      "conclusion": "success",
+      "url": "https://github.com/almajna/deviation-lab/actions/runs/41729424326"
+    },
+    {
+      "run_id": 41729424265,
+      "name": "Bounded research harness",
+      "head": "680c8d7c8a5e9103c34ecb332282935d181fc625",
+      "conclusion": "success",
+      "url": "https://github.com/almajna/deviation-lab/actions/runs/41729424265"
+    },
+    {
+      "run_id": 41729424249,
+      "name": "Independent certificate reproduction",
+      "head": "680c8d7c8a5e9103c34ecb332282935d181fc625",
+      "conclusion": "success",
+      "url": "https://github.com/almajna/deviation-lab/actions/runs/41729424249"
+    }
+  ],
+  "research_ci": {
+    "run_id": 41729424265,
+    "job_id": 126242579307,
+    "files": 99,
+    "uncompressed_bytes": 2477365,
+    "archive_bytes": 206491,
+    "archive_sha256": "8e0b0b99e01c9c8373ef3bb19401cc77893ac03d23e4b542415bf10569235a6a",
+    "archive_git_blob_sha": "285e80c0f9da08d3f12010b4604b5aa6d2cdb95b",
+    "memory_sqlite_included": false
+  },
+  "native_initial": {
+    "strict_status": "FAIL",
+    "reason": "INTEGRATED_STRICT_MANIFEST_MISMATCH",
+    "completed_steps": 29,
+    "scientific_files_equal": 194,
+    "only_differences": [
+      "integration_source/bridge.py",
+      "integration_source/provenance.py",
+      "integration_source/reproduce.py"
+    ],
+    "local_installed_driver": "STALE"
+  },
+  "native_clean": {
+    "strict_status": "PASS",
+    "actual_manifest_sha256": "4bf8339ebb6de533ea737fde1434eec04d6dc3460ee5d86281d5338cff987c8e",
+    "all_step_exit_codes_zero": true,
+    "completed_steps": 29,
+    "failure_present": false,
+    "golden_manifest_sha256": "4bf8339ebb6de533ea737fde1434eec04d6dc3460ee5d86281d5338cff987c8e",
+    "holdout_accessed": false,
+    "new_inference_calls": 0,
+    "recorded_step_wall_seconds": 939.6112222061201,
+    "scientific_files": 194,
+    "strict_manifest_equal": true,
+    "success_marker": true,
+    "whole_process_group_wall_limit_seconds": 1800,
+    "plots": false
+  },
+  "files": {
+    "native-initial/manifest.json": {
+      "bytes": 25170,
+      "sha256": "5f769083167994f55451dd1f5b101c3f8ad9fdd43b4952b6185f87e0543d0724"
+    },
+    "native-initial/execution.json": {
+      "bytes": 4836,
+      "sha256": "37d3af76be748f0368d35f0c4954361fdf13fa77b29ffe4df1b9aa8a40280fe5"
+    },
+    "native-initial/FAILURE.json": {
+      "bytes": 84,
+      "sha256": "ef58f159a46026172700929eb411144b67d2d3845095c0ba9c7beab979d32c55"
+    },
+    "native-clean/manifest.json": {
+      "bytes": 25170,
+      "sha256": "4bf8339ebb6de533ea737fde1434eec04d6dc3460ee5d86281d5338cff987c8e"
+    },
+    "native-clean/execution.json": {
+      "bytes": 4838,
+      "sha256": "75b4d7dac98d2b62a00bd1eaec1b14e590923345ea41d1248d98d9f937dcfec2"
+    },
+    "native-clean/SUCCESS.json": {
+      "bytes": 131,
+      "sha256": "0b4e28bfedce6e96099490b68f8f57a5e09644ac00cadf9d3aed60e967ce2205"
+    },
+    "independent-review.md": {
+      "bytes": 9637,
+      "sha256": "28fd7855211fe956a68a0d3d0f691059fe9932088a8a9d416aafca664c27d3cd"
+    },
+    "independent-probe.py": {
+      "bytes": 4422,
+      "sha256": "6dfd2faec6ace4ff274443a1ab4e672397d5a038760e1c7834f0a2a1740ce4de"
+    },
+    "REPRODUCE.md": {
+      "bytes": 2483,
+      "sha256": "9a2e5e88d5ed6f7858b8dff9ceaf9b457ec26e322f513d45d9c4eade8e61323d"
+    }
+  },
+  "paid_services_used": [],
+  "new_inference_calls": 0,
+  "final_holdout_accessed": false,
+  "source_changes_in_this_archive": false,
+  "merge_performed": false
+}

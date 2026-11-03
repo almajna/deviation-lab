@@ -1,0 +1,11 @@
+# Executed PR #27 rebase evidence
+
+This evidence-only archive is parented at tested code commit `680c8d7c8a5e9103c34ecb332282935d181fc625`. It does not advance PR #27's source branch or main. All five exact-head workflows / seven jobs passed; the independent final report is included verbatim. No findings, source runtime, expected manifest or checks are changed by this archive.
+
+`research-ci.tar.gz` is the exact 206,491-byte archive emitted by research CI run41729424265/job126242579307: SHA-256 `8e0b0b99e01c9c8373ef3bb19401cc77893ac03d23e4b542415bf10569235a6a`, Git blob `285e80c0f9da08d3f12010b4604b5aa6d2cdb95b`. Its 99 files retain actual frozen inputs, online scout receipts, historical/current results and reviews, 54-event chains, measured resources and phase logs. The CI logger intentionally omitted memory.sqlite files. Follow REPRODUCE.md for bounded/safe extraction and the unchanged independent probe. Committed source pins and strict 56-file Golden remain on the tested code branch.
+
+Native-initial is deliberately retained as FAIL: all 29 stages completed and 194 scientific hashes matched, but strict source checking rejected three stale installed integration-driver hashes. It is never upgraded after reinstall. Native-clean is a separate no-plots replay after a network-free reinstall; all 29 stages passed with SUCCESS, and its entire manifest is byte-identical to the unchanged194-file reference, SHA-256 `4bf8339ebb6de533ea737fde1434eec04d6dc3460ee5d86281d5338cff987c8e`. It ran under a1,800-second process-group wall cap. Actual execution receipts and both manifests are retained verbatim.
+
+Native records validate the bound integration/engine runtime. That local checkout remained at rebased checkpoint f5333fa with two later hardening edits; it was not a separate Git checkout of the entire680c8d7 commit. Acceptance of the full exact PR commit is established by GitHub's clean Python3.11/3.12 CI, including all31backend stages with plots, and independent review. The successful native replay is supplementary evidence.
+
+EVIDENCE.json records source identities, run URLs, raw file hashes and the failed/successful distinction. No final holdout, paid service, new inference, changed scientific assumption or merge is involved. This is independent agent integrity review, not external peer review or a human GitHub approval.

@@ -1,0 +1,181 @@
+{
+  "final_holdout_accessed": false,
+  "new_inference_calls": 0,
+  "steps": [
+    {
+      "exit_code": 0,
+      "seconds": 7.579404333024286,
+      "source": "390e1b7a63cf31306d78815e381f81ec7245f8d6",
+      "step": "phase2-simulator"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 3.667757958988659,
+      "source": "1afe571d84831d9d0868dbdef5ae46df1c4c0b2d",
+      "step": "phase3-simulator"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 0.056989415985299274,
+      "source": "1afe571d84831d9d0868dbdef5ae46df1c4c0b2d",
+      "step": "phase3-markets"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 3.320312374999048,
+      "source": "8cf8bd318c1a28533aeb88c52c6ad4092aec119e",
+      "step": "phase4-simulator"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 0.05767720899893902,
+      "source": "8cf8bd318c1a28533aeb88c52c6ad4092aec119e",
+      "step": "phase4-markets"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 3.312669959006598,
+      "source": "fd0b412039639cbf53d32960bc18d60cafcbb9d9",
+      "step": "benchmark-simulator"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 0.058427541982382536,
+      "source": "fd0b412039639cbf53d32960bc18d60cafcbb9d9",
+      "step": "benchmark-markets"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 0.12294258299516514,
+      "source": "8cf8bd318c1a28533aeb88c52c6ad4092aec119e",
+      "step": "phase4-attack"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 19.205013208003948,
+      "source": "8cf8bd318c1a28533aeb88c52c6ad4092aec119e",
+      "step": "phase4-campaign"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 1.3446948750060983,
+      "source": "8cf8bd318c1a28533aeb88c52c6ad4092aec119e",
+      "step": "phase4-sensitivity"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 4.842955041996902,
+      "source": "3151edb463484498a5b686bf607dff4f062d66a4",
+      "step": "producer-examples"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 0.047570374998031184,
+      "source": "3151edb463484498a5b686bf607dff4f062d66a4",
+      "step": "producer-standalone"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 275.4624512080045,
+      "source": "f199007eca28097f70115c5f9a20276b046fe95c",
+      "step": "verification-81"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 26.75765445799334,
+      "source": "f199007eca28097f70115c5f9a20276b046fe95c",
+      "step": "verification-archive"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 120.15648141599377,
+      "source": "f199007eca28097f70115c5f9a20276b046fe95c",
+      "step": "verification-ordinary-exact"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 37.805112208996434,
+      "source": "fd0b412039639cbf53d32960bc18d60cafcbb9d9",
+      "step": "benchmark-full"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 1.6356456660141703,
+      "source": "cb9347fe5580bf4e3a83bc81cc99fe620098da3d",
+      "step": "agent-controls"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 0.05651383299846202,
+      "source": "cb9347fe5580bf4e3a83bc81cc99fe620098da3d",
+      "step": "agent-transport"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 0.3224706249893643,
+      "source": "cb9347fe5580bf4e3a83bc81cc99fe620098da3d",
+      "step": "agent-real-pilot"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 0.32353070797398686,
+      "source": "cb9347fe5580bf4e3a83bc81cc99fe620098da3d",
+      "step": "agent-summary"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 0.3210348749998957,
+      "source": "cb9347fe5580bf4e3a83bc81cc99fe620098da3d",
+      "step": "agent-publication-audit"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 0.04687433398794383,
+      "source": "CURRENT_INSTALLED_PACKAGE",
+      "step": "current-simulator"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 0.05336962500587106,
+      "source": "CURRENT_INSTALLED_PACKAGE",
+      "step": "current-markets"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 0.861762832995737,
+      "source": "CURRENT_INSTALLED_PACKAGE",
+      "step": "current-producer"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 271.0799003340071,
+      "source": "CURRENT_INSTALLED_PACKAGE",
+      "step": "current-verification-81"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 122.42168699999456,
+      "source": "CURRENT_INSTALLED_PACKAGE",
+      "step": "current-ordinary-exact"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 39.165573457983555,
+      "source": "CURRENT_INSTALLED_PACKAGE",
+      "step": "current-benchmark-full"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 2.196730750001734,
+      "source": "CURRENT_INSTALLED_PACKAGE",
+      "step": "current-agent-controls"
+    },
+    {
+      "exit_code": 0,
+      "seconds": 22.15657566700247,
+      "source": "CURRENT_INSTALLED_PACKAGE",
+      "step": "current-attack-campaign"
+    }
+  ],
+  "version": "integration-execution-1"
+}
