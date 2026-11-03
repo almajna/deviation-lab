@@ -1,0 +1,1597 @@
+{
+  "agent_origin": "SYNTHETIC",
+  "code_sha256": "368485d0af592ea1c0359ffba5c9f6de0710e6342142208d91d778983a7c3e30",
+  "config_sha256": "1bcb3c1e3d60259d1fe79f0e8ff491f612fae33921502442ef2cb61c6036bfad",
+  "data_kind": "SYNTHETIC",
+  "events": [
+    {
+      "actor": "system",
+      "payload": {
+        "b": 10,
+        "funding": 11,
+        "maker_account": "maker/0445e2b3961c0bce99215a3cedf9a3aea89b6527b18f1b6bec437c86c1fd3e1e",
+        "market_id": "0445e2b3961c0bce99215a3cedf9a3aea89b6527b18f1b6bec437c86c1fd3e1e",
+        "model_id": "a",
+        "price_counts": [
+          1000000,
+          1000000,
+          1000000
+        ],
+        "price_denominator": 3000000,
+        "q": [
+          0,
+          0,
+          0
+        ],
+        "task_id": "eval-1"
+      },
+      "seq": 0,
+      "stage": "PREPARED",
+      "time_step": 0,
+      "type": "market_opened",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "b": 10,
+        "funding": 11,
+        "maker_account": "maker/0a06b5a0198a41d315a3b1a4454fd33edd7030c27bb585fc9bce0bb9df60461f",
+        "market_id": "0a06b5a0198a41d315a3b1a4454fd33edd7030c27bb585fc9bce0bb9df60461f",
+        "model_id": "b",
+        "price_counts": [
+          1000000,
+          1000000,
+          1000000
+        ],
+        "price_denominator": 3000000,
+        "q": [
+          0,
+          0,
+          0
+        ],
+        "task_id": "eval-2"
+      },
+      "seq": 1,
+      "stage": "PREPARED",
+      "time_step": 1,
+      "type": "market_opened",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "b": 10,
+        "funding": 11,
+        "maker_account": "maker/78144a7c263fc536bf761624dd13666a4d96d9d1fa024196eec663f626232056",
+        "market_id": "78144a7c263fc536bf761624dd13666a4d96d9d1fa024196eec663f626232056",
+        "model_id": "b",
+        "price_counts": [
+          1000000,
+          1000000,
+          1000000
+        ],
+        "price_denominator": 3000000,
+        "q": [
+          0,
+          0,
+          0
+        ],
+        "task_id": "eval-1"
+      },
+      "seq": 2,
+      "stage": "PREPARED",
+      "time_step": 2,
+      "type": "market_opened",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "b": 10,
+        "funding": 11,
+        "maker_account": "maker/87de21d4eaf667971af934e5e2b571d86337b61c47ecb637b339933bc5e0a474",
+        "market_id": "87de21d4eaf667971af934e5e2b571d86337b61c47ecb637b339933bc5e0a474",
+        "model_id": "a",
+        "price_counts": [
+          1000000,
+          1000000,
+          1000000
+        ],
+        "price_denominator": 3000000,
+        "q": [
+          0,
+          0,
+          0
+        ],
+        "task_id": "eval-2"
+      },
+      "seq": 3,
+      "stage": "PREPARED",
+      "time_step": 3,
+      "type": "market_opened",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "current": "REPORT_COMMIT",
+        "previous": "PREPARED"
+      },
+      "seq": 4,
+      "stage": "REPORT_COMMIT",
+      "time_step": 4,
+      "type": "stage_changed",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "current": "REPORT_REVEAL",
+        "previous": "REPORT_COMMIT"
+      },
+      "seq": 5,
+      "stage": "REPORT_REVEAL",
+      "time_step": 5,
+      "type": "stage_changed",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "agent-1",
+      "payload": {
+        "actor": "agent-1",
+        "counts": [
+          1,
+          1,
+          8
+        ],
+        "denominator": 10,
+        "market_id": "0445e2b3961c0bce99215a3cedf9a3aea89b6527b18f1b6bec437c86c1fd3e1e",
+        "order_id": "agent-1/report-829e4cf1e5f4138820ff9cd573bc792a88f053d473c87629fc9a9b3912368213",
+        "report_token": "829e4cf1e5f4138820ff9cd573bc792a88f053d473c87629fc9a9b3912368213"
+      },
+      "seq": 6,
+      "stage": "REPORT_REVEAL",
+      "time_step": 6,
+      "type": "report_revealed",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "agent-1",
+      "payload": {
+        "actor": "agent-1",
+        "counts": [
+          1,
+          1,
+          8
+        ],
+        "denominator": 10,
+        "market_id": "0a06b5a0198a41d315a3b1a4454fd33edd7030c27bb585fc9bce0bb9df60461f",
+        "order_id": "agent-1/report-285d1d3d7ae2dbcc822f4b86859dc85cc0bd471b602909da6303a23380869529",
+        "report_token": "285d1d3d7ae2dbcc822f4b86859dc85cc0bd471b602909da6303a23380869529"
+      },
+      "seq": 7,
+      "stage": "REPORT_REVEAL",
+      "time_step": 7,
+      "type": "report_revealed",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "agent-1",
+      "payload": {
+        "actor": "agent-1",
+        "counts": [
+          6,
+          3,
+          1
+        ],
+        "denominator": 10,
+        "market_id": "78144a7c263fc536bf761624dd13666a4d96d9d1fa024196eec663f626232056",
+        "order_id": "agent-1/report-79f54dce8d9ff65454b20b5c8f2e63966646bf17a60089f9583e4fd906ddc52f",
+        "report_token": "79f54dce8d9ff65454b20b5c8f2e63966646bf17a60089f9583e4fd906ddc52f"
+      },
+      "seq": 8,
+      "stage": "REPORT_REVEAL",
+      "time_step": 8,
+      "type": "report_revealed",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "agent-1",
+      "payload": {
+        "actor": "agent-1",
+        "counts": [
+          6,
+          3,
+          1
+        ],
+        "denominator": 10,
+        "market_id": "87de21d4eaf667971af934e5e2b571d86337b61c47ecb637b339933bc5e0a474",
+        "order_id": "agent-1/report-b192d2e8fce052202cc397eca88632deb6a923cbddfdb44819315c22810cff2d",
+        "report_token": "b192d2e8fce052202cc397eca88632deb6a923cbddfdb44819315c22810cff2d"
+      },
+      "seq": 9,
+      "stage": "REPORT_REVEAL",
+      "time_step": 9,
+      "type": "report_revealed",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "agent-2",
+      "payload": {
+        "actor": "agent-2",
+        "counts": [
+          1,
+          1,
+          8
+        ],
+        "denominator": 10,
+        "market_id": "0445e2b3961c0bce99215a3cedf9a3aea89b6527b18f1b6bec437c86c1fd3e1e",
+        "order_id": "agent-2/report-13187a5cabfa2f0d2c93e48a111fd93b69f024f04c7644ba1f3698afad812bd4",
+        "report_token": "13187a5cabfa2f0d2c93e48a111fd93b69f024f04c7644ba1f3698afad812bd4"
+      },
+      "seq": 10,
+      "stage": "REPORT_REVEAL",
+      "time_step": 10,
+      "type": "report_revealed",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "agent-2",
+      "payload": {
+        "actor": "agent-2",
+        "counts": [
+          1,
+          1,
+          8
+        ],
+        "denominator": 10,
+        "market_id": "0a06b5a0198a41d315a3b1a4454fd33edd7030c27bb585fc9bce0bb9df60461f",
+        "order_id": "agent-2/report-3f086ffe229fba62e536b9fba6213f2b7b03325d40d29e32fbc06145175fa20c",
+        "report_token": "3f086ffe229fba62e536b9fba6213f2b7b03325d40d29e32fbc06145175fa20c"
+      },
+      "seq": 11,
+      "stage": "REPORT_REVEAL",
+      "time_step": 11,
+      "type": "report_revealed",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "agent-2",
+      "payload": {
+        "actor": "agent-2",
+        "counts": [
+          6,
+          3,
+          1
+        ],
+        "denominator": 10,
+        "market_id": "78144a7c263fc536bf761624dd13666a4d96d9d1fa024196eec663f626232056",
+        "order_id": "agent-2/report-62c761157a7c5ac938fd6b2a37bdffb4549c84176984bb161cf27823b9f26d1b",
+        "report_token": "62c761157a7c5ac938fd6b2a37bdffb4549c84176984bb161cf27823b9f26d1b"
+      },
+      "seq": 12,
+      "stage": "REPORT_REVEAL",
+      "time_step": 12,
+      "type": "report_revealed",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "agent-2",
+      "payload": {
+        "actor": "agent-2",
+        "counts": [
+          6,
+          3,
+          1
+        ],
+        "denominator": 10,
+        "market_id": "87de21d4eaf667971af934e5e2b571d86337b61c47ecb637b339933bc5e0a474",
+        "order_id": "agent-2/report-eef58920fcfbd7eeaf0fe044e9b83d3b1cecaf3a03fbe84f0aff3f01fd29ec07",
+        "report_token": "eef58920fcfbd7eeaf0fe044e9b83d3b1cecaf3a03fbe84f0aff3f01fd29ec07"
+      },
+      "seq": 13,
+      "stage": "REPORT_REVEAL",
+      "time_step": 13,
+      "type": "report_revealed",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "current": "TRADE_OR_UPDATE",
+        "previous": "REPORT_REVEAL"
+      },
+      "seq": 14,
+      "stage": "TRADE_OR_UPDATE",
+      "time_step": 14,
+      "type": "stage_changed",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "agent-2",
+      "payload": {
+        "actor": "agent-2",
+        "fee": 0,
+        "fee_sink_after": 0,
+        "fee_sink_before": 0,
+        "maker_cash_after": 12,
+        "maker_cash_before": 11,
+        "market_id": "78144a7c263fc536bf761624dd13666a4d96d9d1fa024196eec663f626232056",
+        "max_net_debit": 1,
+        "order_id": "agent-2/order-0",
+        "position_after": [
+          2,
+          0,
+          0
+        ],
+        "position_before": [
+          0,
+          0,
+          0
+        ],
+        "price_counts_after": [
+          1137458,
+          931271,
+          931271
+        ],
+        "price_counts_before": [
+          1000000,
+          1000000,
+          1000000
+        ],
+        "price_denominator": 3000000,
+        "q_after": [
+          2,
+          0,
+          0
+        ],
+        "q_before": [
+          0,
+          0,
+          0
+        ],
+        "quote_bits": 64,
+        "quote_interval": [
+          "0.7120461520518630742834081948089419711322989314794540405273437500",
+          "0.7120461520518631360829320264826947095571085810661315917968750000"
+        ],
+        "quote_policy_sha256": "921173910c3a96230c93cee7f299af98f3530649cc21f35b58784932e914b9e2",
+        "share_delta": [
+          2,
+          0,
+          0
+        ],
+        "signed_maker_charge": 1,
+        "state_seq_after": 1,
+        "state_seq_before": 0,
+        "trader_cash_after": 39,
+        "trader_cash_before": 40,
+        "transfer_ids": [
+          "transfer-0"
+        ]
+      },
+      "seq": 15,
+      "stage": "TRADE_OR_UPDATE",
+      "time_step": 15,
+      "type": "trade_accepted",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "amount": 1,
+        "payee": "maker/78144a7c263fc536bf761624dd13666a4d96d9d1fa024196eec663f626232056",
+        "payer": "agent/agent-2",
+        "reason": "trade_charge",
+        "scope": "78144a7c263fc536bf761624dd13666a4d96d9d1fa024196eec663f626232056",
+        "transfer_id": "transfer-0"
+      },
+      "seq": 16,
+      "stage": "TRADE_OR_UPDATE",
+      "time_step": 16,
+      "type": "ledger_transfer",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "agent-2",
+      "payload": {
+        "actor": "agent-2",
+        "fee": 0,
+        "fee_sink_after": 0,
+        "fee_sink_before": 0,
+        "maker_cash_after": 12,
+        "maker_cash_before": 11,
+        "market_id": "87de21d4eaf667971af934e5e2b571d86337b61c47ecb637b339933bc5e0a474",
+        "max_net_debit": 1,
+        "order_id": "agent-2/order-1",
+        "position_after": [
+          2,
+          0,
+          0
+        ],
+        "position_before": [
+          0,
+          0,
+          0
+        ],
+        "price_counts_after": [
+          1137458,
+          931271,
+          931271
+        ],
+        "price_counts_before": [
+          1000000,
+          1000000,
+          1000000
+        ],
+        "price_denominator": 3000000,
+        "q_after": [
+          2,
+          0,
+          0
+        ],
+        "q_before": [
+          0,
+          0,
+          0
+        ],
+        "quote_bits": 64,
+        "quote_interval": [
+          "0.7120461520518630742834081948089419711322989314794540405273437500",
+          "0.7120461520518631360829320264826947095571085810661315917968750000"
+        ],
+        "quote_policy_sha256": "921173910c3a96230c93cee7f299af98f3530649cc21f35b58784932e914b9e2",
+        "share_delta": [
+          2,
+          0,
+          0
+        ],
+        "signed_maker_charge": 1,
+        "state_seq_after": 1,
+        "state_seq_before": 0,
+        "trader_cash_after": 38,
+        "trader_cash_before": 39,
+        "transfer_ids": [
+          "transfer-1"
+        ]
+      },
+      "seq": 17,
+      "stage": "TRADE_OR_UPDATE",
+      "time_step": 17,
+      "type": "trade_accepted",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "amount": 1,
+        "payee": "maker/87de21d4eaf667971af934e5e2b571d86337b61c47ecb637b339933bc5e0a474",
+        "payer": "agent/agent-2",
+        "reason": "trade_charge",
+        "scope": "87de21d4eaf667971af934e5e2b571d86337b61c47ecb637b339933bc5e0a474",
+        "transfer_id": "transfer-1"
+      },
+      "seq": 18,
+      "stage": "TRADE_OR_UPDATE",
+      "time_step": 18,
+      "type": "ledger_transfer",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "agent-1",
+      "payload": {
+        "actor": "agent-1",
+        "fee": 0,
+        "fee_sink_after": 0,
+        "fee_sink_before": 0,
+        "maker_cash_after": 13,
+        "maker_cash_before": 12,
+        "market_id": "78144a7c263fc536bf761624dd13666a4d96d9d1fa024196eec663f626232056",
+        "max_net_debit": 1,
+        "order_id": "agent-1/order-2",
+        "position_after": [
+          2,
+          0,
+          0
+        ],
+        "position_before": [
+          0,
+          0,
+          0
+        ],
+        "price_counts_after": [
+          1281701,
+          859150,
+          859149
+        ],
+        "price_counts_before": [
+          1137458,
+          931271,
+          931271
+        ],
+        "price_denominator": 3000000,
+        "q_after": [
+          4,
+          0,
+          0
+        ],
+        "q_before": [
+          2,
+          0,
+          0
+        ],
+        "quote_bits": 64,
+        "quote_interval": [
+          "0.8060753171028384445311737449557654144882690161466598510742187500",
+          "0.8060753171028385030780910591730048508907202631235122680664062500"
+        ],
+        "quote_policy_sha256": "921173910c3a96230c93cee7f299af98f3530649cc21f35b58784932e914b9e2",
+        "share_delta": [
+          2,
+          0,
+          0
+        ],
+        "signed_maker_charge": 1,
+        "state_seq_after": 2,
+        "state_seq_before": 1,
+        "trader_cash_after": 39,
+        "trader_cash_before": 40,
+        "transfer_ids": [
+          "transfer-2"
+        ]
+      },
+      "seq": 19,
+      "stage": "TRADE_OR_UPDATE",
+      "time_step": 19,
+      "type": "trade_accepted",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "amount": 1,
+        "payee": "maker/78144a7c263fc536bf761624dd13666a4d96d9d1fa024196eec663f626232056",
+        "payer": "agent/agent-1",
+        "reason": "trade_charge",
+        "scope": "78144a7c263fc536bf761624dd13666a4d96d9d1fa024196eec663f626232056",
+        "transfer_id": "transfer-2"
+      },
+      "seq": 20,
+      "stage": "TRADE_OR_UPDATE",
+      "time_step": 20,
+      "type": "ledger_transfer",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "agent-2",
+      "payload": {
+        "actor": "agent-2",
+        "fee": 0,
+        "fee_sink_after": 0,
+        "fee_sink_before": 0,
+        "maker_cash_after": 12,
+        "maker_cash_before": 11,
+        "market_id": "0445e2b3961c0bce99215a3cedf9a3aea89b6527b18f1b6bec437c86c1fd3e1e",
+        "max_net_debit": 1,
+        "order_id": "agent-2/order-3",
+        "position_after": [
+          0,
+          0,
+          2
+        ],
+        "position_before": [
+          0,
+          0,
+          0
+        ],
+        "price_counts_after": [
+          931271,
+          931271,
+          1137458
+        ],
+        "price_counts_before": [
+          1000000,
+          1000000,
+          1000000
+        ],
+        "price_denominator": 3000000,
+        "q_after": [
+          0,
+          0,
+          2
+        ],
+        "q_before": [
+          0,
+          0,
+          0
+        ],
+        "quote_bits": 64,
+        "quote_interval": [
+          "0.7120461520518630742834081948089419711322989314794540405273437500",
+          "0.7120461520518631360829320264826947095571085810661315917968750000"
+        ],
+        "quote_policy_sha256": "921173910c3a96230c93cee7f299af98f3530649cc21f35b58784932e914b9e2",
+        "share_delta": [
+          0,
+          0,
+          2
+        ],
+        "signed_maker_charge": 1,
+        "state_seq_after": 1,
+        "state_seq_before": 0,
+        "trader_cash_after": 37,
+        "trader_cash_before": 38,
+        "transfer_ids": [
+          "transfer-3"
+        ]
+      },
+      "seq": 21,
+      "stage": "TRADE_OR_UPDATE",
+      "time_step": 21,
+      "type": "trade_accepted",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "amount": 1,
+        "payee": "maker/0445e2b3961c0bce99215a3cedf9a3aea89b6527b18f1b6bec437c86c1fd3e1e",
+        "payer": "agent/agent-2",
+        "reason": "trade_charge",
+        "scope": "0445e2b3961c0bce99215a3cedf9a3aea89b6527b18f1b6bec437c86c1fd3e1e",
+        "transfer_id": "transfer-3"
+      },
+      "seq": 22,
+      "stage": "TRADE_OR_UPDATE",
+      "time_step": 22,
+      "type": "ledger_transfer",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "agent-1",
+      "payload": {
+        "actor": "agent-1",
+        "fee": 0,
+        "fee_sink_after": 0,
+        "fee_sink_before": 0,
+        "maker_cash_after": 13,
+        "maker_cash_before": 12,
+        "market_id": "0445e2b3961c0bce99215a3cedf9a3aea89b6527b18f1b6bec437c86c1fd3e1e",
+        "max_net_debit": 1,
+        "order_id": "agent-1/order-4",
+        "position_after": [
+          0,
+          0,
+          2
+        ],
+        "position_before": [
+          0,
+          0,
+          0
+        ],
+        "price_counts_after": [
+          859150,
+          859149,
+          1281701
+        ],
+        "price_counts_before": [
+          931271,
+          931271,
+          1137458
+        ],
+        "price_denominator": 3000000,
+        "q_after": [
+          0,
+          0,
+          4
+        ],
+        "q_before": [
+          0,
+          0,
+          2
+        ],
+        "quote_bits": 64,
+        "quote_interval": [
+          "0.8060753171028384445311737449557654144882690161466598510742187500",
+          "0.8060753171028385030780910591730048508907202631235122680664062500"
+        ],
+        "quote_policy_sha256": "921173910c3a96230c93cee7f299af98f3530649cc21f35b58784932e914b9e2",
+        "share_delta": [
+          0,
+          0,
+          2
+        ],
+        "signed_maker_charge": 1,
+        "state_seq_after": 2,
+        "state_seq_before": 1,
+        "trader_cash_after": 38,
+        "trader_cash_before": 39,
+        "transfer_ids": [
+          "transfer-4"
+        ]
+      },
+      "seq": 23,
+      "stage": "TRADE_OR_UPDATE",
+      "time_step": 23,
+      "type": "trade_accepted",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "amount": 1,
+        "payee": "maker/0445e2b3961c0bce99215a3cedf9a3aea89b6527b18f1b6bec437c86c1fd3e1e",
+        "payer": "agent/agent-1",
+        "reason": "trade_charge",
+        "scope": "0445e2b3961c0bce99215a3cedf9a3aea89b6527b18f1b6bec437c86c1fd3e1e",
+        "transfer_id": "transfer-4"
+      },
+      "seq": 24,
+      "stage": "TRADE_OR_UPDATE",
+      "time_step": 24,
+      "type": "ledger_transfer",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "agent-1",
+      "payload": {
+        "actor": "agent-1",
+        "fee": 0,
+        "fee_sink_after": 0,
+        "fee_sink_before": 0,
+        "maker_cash_after": 13,
+        "maker_cash_before": 12,
+        "market_id": "87de21d4eaf667971af934e5e2b571d86337b61c47ecb637b339933bc5e0a474",
+        "max_net_debit": 1,
+        "order_id": "agent-1/order-5",
+        "position_after": [
+          2,
+          0,
+          0
+        ],
+        "position_before": [
+          0,
+          0,
+          0
+        ],
+        "price_counts_after": [
+          1281701,
+          859150,
+          859149
+        ],
+        "price_counts_before": [
+          1137458,
+          931271,
+          931271
+        ],
+        "price_denominator": 3000000,
+        "q_after": [
+          4,
+          0,
+          0
+        ],
+        "q_before": [
+          2,
+          0,
+          0
+        ],
+        "quote_bits": 64,
+        "quote_interval": [
+          "0.8060753171028384445311737449557654144882690161466598510742187500",
+          "0.8060753171028385030780910591730048508907202631235122680664062500"
+        ],
+        "quote_policy_sha256": "921173910c3a96230c93cee7f299af98f3530649cc21f35b58784932e914b9e2",
+        "share_delta": [
+          2,
+          0,
+          0
+        ],
+        "signed_maker_charge": 1,
+        "state_seq_after": 2,
+        "state_seq_before": 1,
+        "trader_cash_after": 37,
+        "trader_cash_before": 38,
+        "transfer_ids": [
+          "transfer-5"
+        ]
+      },
+      "seq": 25,
+      "stage": "TRADE_OR_UPDATE",
+      "time_step": 25,
+      "type": "trade_accepted",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "amount": 1,
+        "payee": "maker/87de21d4eaf667971af934e5e2b571d86337b61c47ecb637b339933bc5e0a474",
+        "payer": "agent/agent-1",
+        "reason": "trade_charge",
+        "scope": "87de21d4eaf667971af934e5e2b571d86337b61c47ecb637b339933bc5e0a474",
+        "transfer_id": "transfer-5"
+      },
+      "seq": 26,
+      "stage": "TRADE_OR_UPDATE",
+      "time_step": 26,
+      "type": "ledger_transfer",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "agent-1",
+      "payload": {
+        "actor": "agent-1",
+        "fee": 0,
+        "fee_sink_after": 0,
+        "fee_sink_before": 0,
+        "maker_cash_after": 12,
+        "maker_cash_before": 11,
+        "market_id": "0a06b5a0198a41d315a3b1a4454fd33edd7030c27bb585fc9bce0bb9df60461f",
+        "max_net_debit": 1,
+        "order_id": "agent-1/order-6",
+        "position_after": [
+          0,
+          0,
+          2
+        ],
+        "position_before": [
+          0,
+          0,
+          0
+        ],
+        "price_counts_after": [
+          931271,
+          931271,
+          1137458
+        ],
+        "price_counts_before": [
+          1000000,
+          1000000,
+          1000000
+        ],
+        "price_denominator": 3000000,
+        "q_after": [
+          0,
+          0,
+          2
+        ],
+        "q_before": [
+          0,
+          0,
+          0
+        ],
+        "quote_bits": 64,
+        "quote_interval": [
+          "0.7120461520518630742834081948089419711322989314794540405273437500",
+          "0.7120461520518631360829320264826947095571085810661315917968750000"
+        ],
+        "quote_policy_sha256": "921173910c3a96230c93cee7f299af98f3530649cc21f35b58784932e914b9e2",
+        "share_delta": [
+          0,
+          0,
+          2
+        ],
+        "signed_maker_charge": 1,
+        "state_seq_after": 1,
+        "state_seq_before": 0,
+        "trader_cash_after": 36,
+        "trader_cash_before": 37,
+        "transfer_ids": [
+          "transfer-6"
+        ]
+      },
+      "seq": 27,
+      "stage": "TRADE_OR_UPDATE",
+      "time_step": 27,
+      "type": "trade_accepted",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "amount": 1,
+        "payee": "maker/0a06b5a0198a41d315a3b1a4454fd33edd7030c27bb585fc9bce0bb9df60461f",
+        "payer": "agent/agent-1",
+        "reason": "trade_charge",
+        "scope": "0a06b5a0198a41d315a3b1a4454fd33edd7030c27bb585fc9bce0bb9df60461f",
+        "transfer_id": "transfer-6"
+      },
+      "seq": 28,
+      "stage": "TRADE_OR_UPDATE",
+      "time_step": 28,
+      "type": "ledger_transfer",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "agent-2",
+      "payload": {
+        "actor": "agent-2",
+        "fee": 0,
+        "fee_sink_after": 0,
+        "fee_sink_before": 0,
+        "maker_cash_after": 13,
+        "maker_cash_before": 12,
+        "market_id": "0a06b5a0198a41d315a3b1a4454fd33edd7030c27bb585fc9bce0bb9df60461f",
+        "max_net_debit": 1,
+        "order_id": "agent-2/order-7",
+        "position_after": [
+          0,
+          0,
+          2
+        ],
+        "position_before": [
+          0,
+          0,
+          0
+        ],
+        "price_counts_after": [
+          859150,
+          859149,
+          1281701
+        ],
+        "price_counts_before": [
+          931271,
+          931271,
+          1137458
+        ],
+        "price_denominator": 3000000,
+        "q_after": [
+          0,
+          0,
+          4
+        ],
+        "q_before": [
+          0,
+          0,
+          2
+        ],
+        "quote_bits": 64,
+        "quote_interval": [
+          "0.8060753171028384445311737449557654144882690161466598510742187500",
+          "0.8060753171028385030780910591730048508907202631235122680664062500"
+        ],
+        "quote_policy_sha256": "921173910c3a96230c93cee7f299af98f3530649cc21f35b58784932e914b9e2",
+        "share_delta": [
+          0,
+          0,
+          2
+        ],
+        "signed_maker_charge": 1,
+        "state_seq_after": 2,
+        "state_seq_before": 1,
+        "trader_cash_after": 36,
+        "trader_cash_before": 37,
+        "transfer_ids": [
+          "transfer-7"
+        ]
+      },
+      "seq": 29,
+      "stage": "TRADE_OR_UPDATE",
+      "time_step": 29,
+      "type": "trade_accepted",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "amount": 1,
+        "payee": "maker/0a06b5a0198a41d315a3b1a4454fd33edd7030c27bb585fc9bce0bb9df60461f",
+        "payer": "agent/agent-2",
+        "reason": "trade_charge",
+        "scope": "0a06b5a0198a41d315a3b1a4454fd33edd7030c27bb585fc9bce0bb9df60461f",
+        "transfer_id": "transfer-7"
+      },
+      "seq": 30,
+      "stage": "TRADE_OR_UPDATE",
+      "time_step": 30,
+      "type": "ledger_transfer",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "current": "ALLOCATION_LOCKED",
+        "previous": "TRADE_OR_UPDATE"
+      },
+      "seq": 31,
+      "stage": "ALLOCATION_LOCKED",
+      "time_step": 31,
+      "type": "stage_changed",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "expected_values": {
+          "eval-1": {
+            "a": {
+              "denominator": 6000000,
+              "numerator": 3422551
+            },
+            "b": {
+              "denominator": 750000,
+              "numerator": 322181
+            }
+          },
+          "eval-2": {
+            "a": {
+              "denominator": 750000,
+              "numerator": 322181
+            },
+            "b": {
+              "denominator": 6000000,
+              "numerator": 3422551
+            }
+          }
+        },
+        "plan": {
+          "allocations": [
+            {
+              "model_id": "a",
+              "reserved_cost": 200,
+              "task_id": "eval-1"
+            },
+            {
+              "model_id": "b",
+              "reserved_cost": 300,
+              "task_id": "eval-2"
+            }
+          ],
+          "cost_unit": "nano_synthetic_units",
+          "reservation_artifact_sha256": "4252d8a88f793a7acd3b21d64ffd8099d40d3e84210a37ba488ce5105e7bd4c8",
+          "reservation_budget": 600,
+          "schema_version": "0.2"
+        },
+        "reservation_artifact_sha256": "4252d8a88f793a7acd3b21d64ffd8099d40d3e84210a37ba488ce5105e7bd4c8"
+      },
+      "seq": 32,
+      "stage": "ALLOCATION_LOCKED",
+      "time_step": 32,
+      "type": "allocation_locked",
+      "visibility": "PUBLIC"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "current": "SETTLED",
+        "previous": "ALLOCATION_LOCKED"
+      },
+      "seq": 33,
+      "stage": "SETTLED",
+      "time_step": 33,
+      "type": "stage_changed",
+      "visibility": "POST_SETTLEMENT"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "category": 1,
+        "claims": {
+          "agent-1": 0,
+          "agent-2": 0
+        },
+        "final_cash": 13,
+        "funding": 11,
+        "loss": 0,
+        "market_id": "0445e2b3961c0bce99215a3cedf9a3aea89b6527b18f1b6bec437c86c1fd3e1e",
+        "payout": 0,
+        "pnl": 2,
+        "q_before": [
+          0,
+          0,
+          4
+        ],
+        "revenue": 2
+      },
+      "seq": 34,
+      "stage": "SETTLED",
+      "time_step": 34,
+      "type": "market_settled",
+      "visibility": "POST_SETTLEMENT"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "category": 1,
+        "claims": {
+          "agent-1": 0,
+          "agent-2": 0
+        },
+        "final_cash": 13,
+        "funding": 11,
+        "loss": 0,
+        "market_id": "0a06b5a0198a41d315a3b1a4454fd33edd7030c27bb585fc9bce0bb9df60461f",
+        "payout": 0,
+        "pnl": 2,
+        "q_before": [
+          0,
+          0,
+          4
+        ],
+        "revenue": 2
+      },
+      "seq": 35,
+      "stage": "SETTLED",
+      "time_step": 35,
+      "type": "market_settled",
+      "visibility": "POST_SETTLEMENT"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "category": 2,
+        "claims": {
+          "agent-1": 0,
+          "agent-2": 0
+        },
+        "final_cash": 13,
+        "funding": 11,
+        "loss": 0,
+        "market_id": "78144a7c263fc536bf761624dd13666a4d96d9d1fa024196eec663f626232056",
+        "payout": 0,
+        "pnl": 2,
+        "q_before": [
+          4,
+          0,
+          0
+        ],
+        "revenue": 2
+      },
+      "seq": 36,
+      "stage": "SETTLED",
+      "time_step": 36,
+      "type": "market_settled",
+      "visibility": "POST_SETTLEMENT"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "category": 2,
+        "claims": {
+          "agent-1": 0,
+          "agent-2": 0
+        },
+        "final_cash": 13,
+        "funding": 11,
+        "loss": 0,
+        "market_id": "87de21d4eaf667971af934e5e2b571d86337b61c47ecb637b339933bc5e0a474",
+        "payout": 0,
+        "pnl": 2,
+        "q_before": [
+          4,
+          0,
+          0
+        ],
+        "revenue": 2
+      },
+      "seq": 37,
+      "stage": "SETTLED",
+      "time_step": 37,
+      "type": "market_settled",
+      "visibility": "POST_SETTLEMENT"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "actor": "agent-1",
+        "category": 1,
+        "counts": [
+          1,
+          1,
+          8
+        ],
+        "denominator": 10,
+        "market_id": "0445e2b3961c0bce99215a3cedf9a3aea89b6527b18f1b6bec437c86c1fd3e1e",
+        "remaining_pool": 1546,
+        "report_token": "829e4cf1e5f4138820ff9cd573bc792a88f053d473c87629fc9a9b3912368213",
+        "score": 54,
+        "transfer_ids": [
+          "transfer-8"
+        ]
+      },
+      "seq": 38,
+      "stage": "SETTLED",
+      "time_step": 38,
+      "type": "score_settled",
+      "visibility": "POST_SETTLEMENT"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "amount": 54,
+        "payee": "agent/agent-1",
+        "payer": "scoring_pool",
+        "reason": "score_reward",
+        "scope": "0445e2b3961c0bce99215a3cedf9a3aea89b6527b18f1b6bec437c86c1fd3e1e",
+        "transfer_id": "transfer-8"
+      },
+      "seq": 39,
+      "stage": "SETTLED",
+      "time_step": 39,
+      "type": "ledger_transfer",
+      "visibility": "POST_SETTLEMENT"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "actor": "agent-1",
+        "category": 1,
+        "counts": [
+          1,
+          1,
+          8
+        ],
+        "denominator": 10,
+        "market_id": "0a06b5a0198a41d315a3b1a4454fd33edd7030c27bb585fc9bce0bb9df60461f",
+        "remaining_pool": 1492,
+        "report_token": "285d1d3d7ae2dbcc822f4b86859dc85cc0bd471b602909da6303a23380869529",
+        "score": 54,
+        "transfer_ids": [
+          "transfer-9"
+        ]
+      },
+      "seq": 40,
+      "stage": "SETTLED",
+      "time_step": 40,
+      "type": "score_settled",
+      "visibility": "POST_SETTLEMENT"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "amount": 54,
+        "payee": "agent/agent-1",
+        "payer": "scoring_pool",
+        "reason": "score_reward",
+        "scope": "0a06b5a0198a41d315a3b1a4454fd33edd7030c27bb585fc9bce0bb9df60461f",
+        "transfer_id": "transfer-9"
+      },
+      "seq": 41,
+      "stage": "SETTLED",
+      "time_step": 41,
+      "type": "ledger_transfer",
+      "visibility": "POST_SETTLEMENT"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "actor": "agent-1",
+        "category": 2,
+        "counts": [
+          6,
+          3,
+          1
+        ],
+        "denominator": 10,
+        "market_id": "78144a7c263fc536bf761624dd13666a4d96d9d1fa024196eec663f626232056",
+        "remaining_pool": 1418,
+        "report_token": "79f54dce8d9ff65454b20b5c8f2e63966646bf17a60089f9583e4fd906ddc52f",
+        "score": 74,
+        "transfer_ids": [
+          "transfer-10"
+        ]
+      },
+      "seq": 42,
+      "stage": "SETTLED",
+      "time_step": 42,
+      "type": "score_settled",
+      "visibility": "POST_SETTLEMENT"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "amount": 74,
+        "payee": "agent/agent-1",
+        "payer": "scoring_pool",
+        "reason": "score_reward",
+        "scope": "78144a7c263fc536bf761624dd13666a4d96d9d1fa024196eec663f626232056",
+        "transfer_id": "transfer-10"
+      },
+      "seq": 43,
+      "stage": "SETTLED",
+      "time_step": 43,
+      "type": "ledger_transfer",
+      "visibility": "POST_SETTLEMENT"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "actor": "agent-1",
+        "category": 2,
+        "counts": [
+          6,
+          3,
+          1
+        ],
+        "denominator": 10,
+        "market_id": "87de21d4eaf667971af934e5e2b571d86337b61c47ecb637b339933bc5e0a474",
+        "remaining_pool": 1344,
+        "report_token": "b192d2e8fce052202cc397eca88632deb6a923cbddfdb44819315c22810cff2d",
+        "score": 74,
+        "transfer_ids": [
+          "transfer-11"
+        ]
+      },
+      "seq": 44,
+      "stage": "SETTLED",
+      "time_step": 44,
+      "type": "score_settled",
+      "visibility": "POST_SETTLEMENT"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "amount": 74,
+        "payee": "agent/agent-1",
+        "payer": "scoring_pool",
+        "reason": "score_reward",
+        "scope": "87de21d4eaf667971af934e5e2b571d86337b61c47ecb637b339933bc5e0a474",
+        "transfer_id": "transfer-11"
+      },
+      "seq": 45,
+      "stage": "SETTLED",
+      "time_step": 45,
+      "type": "ledger_transfer",
+      "visibility": "POST_SETTLEMENT"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "actor": "agent-2",
+        "category": 1,
+        "counts": [
+          1,
+          1,
+          8
+        ],
+        "denominator": 10,
+        "market_id": "0445e2b3961c0bce99215a3cedf9a3aea89b6527b18f1b6bec437c86c1fd3e1e",
+        "remaining_pool": 1290,
+        "report_token": "13187a5cabfa2f0d2c93e48a111fd93b69f024f04c7644ba1f3698afad812bd4",
+        "score": 54,
+        "transfer_ids": [
+          "transfer-12"
+        ]
+      },
+      "seq": 46,
+      "stage": "SETTLED",
+      "time_step": 46,
+      "type": "score_settled",
+      "visibility": "POST_SETTLEMENT"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "amount": 54,
+        "payee": "agent/agent-2",
+        "payer": "scoring_pool",
+        "reason": "score_reward",
+        "scope": "0445e2b3961c0bce99215a3cedf9a3aea89b6527b18f1b6bec437c86c1fd3e1e",
+        "transfer_id": "transfer-12"
+      },
+      "seq": 47,
+      "stage": "SETTLED",
+      "time_step": 47,
+      "type": "ledger_transfer",
+      "visibility": "POST_SETTLEMENT"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "actor": "agent-2",
+        "category": 1,
+        "counts": [
+          1,
+          1,
+          8
+        ],
+        "denominator": 10,
+        "market_id": "0a06b5a0198a41d315a3b1a4454fd33edd7030c27bb585fc9bce0bb9df60461f",
+        "remaining_pool": 1236,
+        "report_token": "3f086ffe229fba62e536b9fba6213f2b7b03325d40d29e32fbc06145175fa20c",
+        "score": 54,
+        "transfer_ids": [
+          "transfer-13"
+        ]
+      },
+      "seq": 48,
+      "stage": "SETTLED",
+      "time_step": 48,
+      "type": "score_settled",
+      "visibility": "POST_SETTLEMENT"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "amount": 54,
+        "payee": "agent/agent-2",
+        "payer": "scoring_pool",
+        "reason": "score_reward",
+        "scope": "0a06b5a0198a41d315a3b1a4454fd33edd7030c27bb585fc9bce0bb9df60461f",
+        "transfer_id": "transfer-13"
+      },
+      "seq": 49,
+      "stage": "SETTLED",
+      "time_step": 49,
+      "type": "ledger_transfer",
+      "visibility": "POST_SETTLEMENT"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "actor": "agent-2",
+        "category": 2,
+        "counts": [
+          6,
+          3,
+          1
+        ],
+        "denominator": 10,
+        "market_id": "78144a7c263fc536bf761624dd13666a4d96d9d1fa024196eec663f626232056",
+        "remaining_pool": 1162,
+        "report_token": "62c761157a7c5ac938fd6b2a37bdffb4549c84176984bb161cf27823b9f26d1b",
+        "score": 74,
+        "transfer_ids": [
+          "transfer-14"
+        ]
+      },
+      "seq": 50,
+      "stage": "SETTLED",
+      "time_step": 50,
+      "type": "score_settled",
+      "visibility": "POST_SETTLEMENT"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "amount": 74,
+        "payee": "agent/agent-2",
+        "payer": "scoring_pool",
+        "reason": "score_reward",
+        "scope": "78144a7c263fc536bf761624dd13666a4d96d9d1fa024196eec663f626232056",
+        "transfer_id": "transfer-14"
+      },
+      "seq": 51,
+      "stage": "SETTLED",
+      "time_step": 51,
+      "type": "ledger_transfer",
+      "visibility": "POST_SETTLEMENT"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "actor": "agent-2",
+        "category": 2,
+        "counts": [
+          6,
+          3,
+          1
+        ],
+        "denominator": 10,
+        "market_id": "87de21d4eaf667971af934e5e2b571d86337b61c47ecb637b339933bc5e0a474",
+        "remaining_pool": 1088,
+        "report_token": "eef58920fcfbd7eeaf0fe044e9b83d3b1cecaf3a03fbe84f0aff3f01fd29ec07",
+        "score": 74,
+        "transfer_ids": [
+          "transfer-15"
+        ]
+      },
+      "seq": 52,
+      "stage": "SETTLED",
+      "time_step": 52,
+      "type": "score_settled",
+      "visibility": "POST_SETTLEMENT"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "amount": 74,
+        "payee": "agent/agent-2",
+        "payer": "scoring_pool",
+        "reason": "score_reward",
+        "scope": "87de21d4eaf667971af934e5e2b571d86337b61c47ecb637b339933bc5e0a474",
+        "transfer_id": "transfer-15"
+      },
+      "seq": 53,
+      "stage": "SETTLED",
+      "time_step": 53,
+      "type": "ledger_transfer",
+      "visibility": "POST_SETTLEMENT"
+    },
+    {
+      "actor": "system",
+      "payload": {
+        "accepted": 8,
+        "controllers": {
+          "c1": {
+            "cash_delta": 252,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 252
+          },
+          "c2": {
+            "cash_delta": 252,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 252
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.5,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 1.0
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/agent-1": 292,
+          "agent/agent-2": 292,
+          "fee_sink": 0,
+          "maker/0445e2b3961c0bce99215a3cedf9a3aea89b6527b18f1b6bec437c86c1fd3e1e": 13,
+          "maker/0a06b5a0198a41d315a3b1a4454fd33edd7030c27bb585fc9bce0bb9df60461f": 13,
+          "maker/78144a7c263fc536bf761624dd13666a4d96d9d1fa024196eec663f626232056": 13,
+          "maker/87de21d4eaf667971af934e5e2b571d86337b61c47ecb637b339933bc5e0a474": 13,
+          "scoring_pool": 1088
+        },
+        "initial_balances": {
+          "agent/agent-1": 40,
+          "agent/agent-2": 40,
+          "fee_sink": 0,
+          "maker/0445e2b3961c0bce99215a3cedf9a3aea89b6527b18f1b6bec437c86c1fd3e1e": 11,
+          "maker/0a06b5a0198a41d315a3b1a4454fd33edd7030c27bb585fc9bce0bb9df60461f": 11,
+          "maker/78144a7c263fc536bf761624dd13666a4d96d9d1fa024196eec663f626232056": 11,
+          "maker/87de21d4eaf667971af934e5e2b571d86337b61c47ecb637b339933bc5e0a474": 11,
+          "scoring_pool": 1600
+        },
+        "maker_losses": {
+          "0445e2b3961c0bce99215a3cedf9a3aea89b6527b18f1b6bec437c86c1fd3e1e": 0,
+          "0a06b5a0198a41d315a3b1a4454fd33edd7030c27bb585fc9bce0bb9df60461f": 0,
+          "78144a7c263fc536bf761624dd13666a4d96d9d1fa024196eec663f626232056": 0,
+          "87de21d4eaf667971af934e5e2b571d86337b61c47ecb637b339933bc5e0a474": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 400,
+          "phase": "SETTLED",
+          "positive_task_overruns": 500,
+          "realized_budget_excess": 300,
+          "realized_budget_violated": true,
+          "realized_spend": 900,
+          "reservation_spend": 500,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "a",
+              "realized_cost": 700,
+              "task_id": "eval-1"
+            },
+            {
+              "model_id": "b",
+              "realized_cost": 200,
+              "task_id": "eval-2"
+            }
+          ],
+          "unused_reservations": 100
+        },
+        "rejected": 0,
+        "score_paid": 512,
+        "score_reserve": 1600
+      },
+      "seq": 54,
+      "stage": "SETTLED",
+      "time_step": 54,
+      "type": "economic_summary",
+      "visibility": "POST_SETTLEMENT"
+    }
+  ],
+  "experiment_id": "SYNTHETIC-categorical-market",
+  "mechanism": "lmsr",
+  "numeric_policy_sha256": "921173910c3a96230c93cee7f299af98f3530649cc21f35b58784932e914b9e2",
+  "quality_semantics": "synthetic_fixture",
+  "schema_version": "0.3",
+  "seed": 7,
+  "source_manifest_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "split_manifest_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "stage": "SETTLED"
+}

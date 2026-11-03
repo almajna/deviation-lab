@@ -1,0 +1,108 @@
+{
+  "artifact_selection": "FIRST_LEXICOGRAPHIC_EXACT_CALIBRATED_HARMFUL_LMSR_COUNTEREXAMPLE_ELSE_FIRST_HARMFUL_VERIFIED_CASE",
+  "base_profile": {
+    "D": 3,
+    "aliases": 1,
+    "b": 3,
+    "belief_quality": 100,
+    "capital": 8,
+    "correlated": true,
+    "external": 6,
+    "fee": 0,
+    "quantity": 2,
+    "tasks": 2
+  },
+  "evaluator_seed": 61220957201459240652680596904405010122,
+  "known_pilot_seeds": [
+    7,
+    17,
+    31
+  ],
+  "mechanisms": [
+    "lmsr",
+    "interactive-pool",
+    "pool"
+  ],
+  "notes": [
+    "Every case is reported, including unsupported horizons, nulls and search budget limits.",
+    "Across-registry alias profiles are stress conditions, not normalized identity-splitting causal estimates. Within every case the alias registry, money, tokens, slots, caps and controller utility are identical across attack/reference.",
+    "Beliefs are exogenous and outcomes independently sampled; error correlation is not a claimed private informative signal model.",
+    "First unreviewed campaign invalidated after correlation-generator bug. Generator2 uses shared or independent latent error streams with fixed independent favorites/outcomes. Post-review seeds were added before corrected campaign execution; all evidence remains exploratory, not confirmatory.",
+    "Generator3 separates evaluator-only realization seed from public schedule seed. This reproducibility seed is post-run synthetic research audit data, not an actor observation or authentication credential. Generic generator defaults to fresh randomness unless an evaluator seed is supplied."
+  ],
+  "post_review_replication_seeds": [
+    811,
+    907
+  ],
+  "profiles": [
+    {
+      "id": "base",
+      "overrides": {}
+    },
+    {
+      "id": "zero_external",
+      "overrides": {
+        "external": 0
+      }
+    },
+    {
+      "id": "costly",
+      "overrides": {
+        "fee": 2
+      }
+    },
+    {
+      "id": "no_capital",
+      "overrides": {
+        "capital": 0
+      }
+    },
+    {
+      "id": "deep_liquidity",
+      "overrides": {
+        "b": 20
+      }
+    },
+    {
+      "id": "two_registered_aliases",
+      "overrides": {
+        "aliases": 2
+      }
+    },
+    {
+      "id": "shared_belief_errors",
+      "overrides": {
+        "belief_quality": 50,
+        "correlated": true
+      }
+    },
+    {
+      "id": "independent_belief_errors",
+      "overrides": {
+        "belief_quality": 50,
+        "correlated": false
+      }
+    },
+    {
+      "id": "larger_game",
+      "method": "beam",
+      "overrides": {
+        "aliases": 3,
+        "quantity": 3,
+        "tasks": 4
+      }
+    }
+  ],
+  "replication_seeds": [
+    401,
+    503,
+    607
+  ],
+  "search": {
+    "beam_width": 4,
+    "exact_node_cap": 500,
+    "heuristic_node_cap": 160
+  },
+  "status": "EXPLORATORY_SYNTHETIC_NOT_EMPIRICAL_HOLDOUT",
+  "version": "synthetic-adversarial-protocol-1"
+}

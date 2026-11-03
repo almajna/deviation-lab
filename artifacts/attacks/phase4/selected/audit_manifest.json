@@ -1,0 +1,31 @@
+{
+  "files": {
+    "attack/events.jsonl": "8f874d53d512ded1cde50e8a79f430d6b3caeadd5c9edb1f7fa58e348dfee686",
+    "attack/manifest.json": "5e250a6f6b8c52d0ecd66a56ba578057dbb6b466c6f4f601f13baa9f2478ce1c",
+    "attack/receipts.json": "f95190ac14ee939cc97fff16de3be94aced959adafda74db38ada4b2a7c4f6e0",
+    "attack/replay.json": "479d1d5067e818bb5268a64ea2f42b32b9660c90e907160c9b7630a9fc95d8e0",
+    "evidence.json": "7a9a080a710ecf1145c5f95eaf622e465cb82c57f790c919bcb523f7246d625e",
+    "experiment.json": "acb1866d2536f19221860d6f675d4889e9fdc1ec73f39d526b6de35f2777a817",
+    "no_action/events.jsonl": "6d892d3148ca1d645b3ff55fa01c2bb25f25129df0aabc09e144b6bc5a66b48d",
+    "no_action/manifest.json": "d98ea312a5af67dc00b7dac064de8543b5adc06f3a4e0231001cbc43c6357932",
+    "no_action/receipts.json": "d68cb2fe25fab81eef7d89e2f062f00c5e08d72c7258fab9245bcc554a884714",
+    "no_action/replay.json": "e8ca6021457b0e159badf5b83a524a422ac10b1a1a5b3ae9169f6482347bdc66",
+    "signal_following/events.jsonl": "6d892d3148ca1d645b3ff55fa01c2bb25f25129df0aabc09e144b6bc5a66b48d",
+    "signal_following/manifest.json": "d98ea312a5af67dc00b7dac064de8543b5adc06f3a4e0231001cbc43c6357932",
+    "signal_following/receipts.json": "d68cb2fe25fab81eef7d89e2f062f00c5e08d72c7258fab9245bcc554a884714",
+    "signal_following/replay.json": "e8ca6021457b0e159badf5b83a524a422ac10b1a1a5b3ae9169f6482347bdc66",
+    "zero_external_attack/events.jsonl": "6d892d3148ca1d645b3ff55fa01c2bb25f25129df0aabc09e144b6bc5a66b48d",
+    "zero_external_attack/manifest.json": "8165a34283ff9df6afc3638ba2d7d8ae829c6a544e44288f43a049b565020b9d",
+    "zero_external_attack/receipts.json": "fda77ebb5fdb98e4d24377cf389ca4ec6052f24e3cbfb0c340bf41d388a204b0",
+    "zero_external_attack/replay.json": "312bcf154fec3f90ef8aa16c82c7441c5f6741d78877adf6f59b6e141eabca73",
+    "zero_external_no_action/events.jsonl": "6d892d3148ca1d645b3ff55fa01c2bb25f25129df0aabc09e144b6bc5a66b48d",
+    "zero_external_no_action/manifest.json": "8165a34283ff9df6afc3638ba2d7d8ae829c6a544e44288f43a049b565020b9d",
+    "zero_external_no_action/receipts.json": "fda77ebb5fdb98e4d24377cf389ca4ec6052f24e3cbfb0c340bf41d388a204b0",
+    "zero_external_no_action/replay.json": "312bcf154fec3f90ef8aa16c82c7441c5f6741d78877adf6f59b6e141eabca73",
+    "zero_external_signal_following/events.jsonl": "6d892d3148ca1d645b3ff55fa01c2bb25f25129df0aabc09e144b6bc5a66b48d",
+    "zero_external_signal_following/manifest.json": "8165a34283ff9df6afc3638ba2d7d8ae829c6a544e44288f43a049b565020b9d",
+    "zero_external_signal_following/receipts.json": "fda77ebb5fdb98e4d24377cf389ca4ec6052f24e3cbfb0c340bf41d388a204b0",
+    "zero_external_signal_following/replay.json": "312bcf154fec3f90ef8aa16c82c7441c5f6741d78877adf6f59b6e141eabca73"
+  },
+  "version": "attack-evidence-1"
+}
