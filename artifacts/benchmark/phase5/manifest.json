@@ -1,0 +1,11 @@
+{
+  "files": {
+    "REPORT.md": "57a1d4a93a8ecec083b28a1d159cfc78bf9596f9c4f9b28fdf6d5b6e7bffd005",
+    "plot_data.json": "1fbbd22687b627c8dce28820d3a140252cb4c7cfbbbd9c835bd10cbf1163eab6",
+    "recorded_table.csv": "cb0f0288edbbd6875fcf760f818b2c922fd80932580d69010aef62cda34736ff",
+    "results.json": "8c22497c1f28a49ef492eb0602a2e448117080760fbb19a23576d46f00185a57",
+    "synthetic_table.csv": "150996017bbf3c655192cf48a8b6219097cf380af1d4594986b9b010f957d1b7"
+  },
+  "result_sha256": "c7759e580cc29fd7e8697a358b2fbf46354572f7fda8190180e90f9bea7fbe8d",
+  "version": "benchmark-artifacts-1"
+}

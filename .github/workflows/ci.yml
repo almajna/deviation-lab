@@ -22,8 +22,8 @@ jobs:
       - name: Install package and reproduce v0.2 synthetic simulator artifact
         run: |
           python -m pip install --no-deps .
-          python -m deviation.simulator tests/fixtures/simulator/two_task.json --out "$RUNNER_TEMP/simulator" --verify artifacts/simulator/phase4_source/receipts.json
-          python -m deviation.markets tests/fixtures/markets/two_task.json --out "$RUNNER_TEMP/market" --verify artifacts/markets/phase4_source/receipts.json
+          python -m deviation.simulator tests/fixtures/simulator/two_task.json --out "$RUNNER_TEMP/simulator" --verify artifacts/simulator/phase5_source/receipts.json
+          python -m deviation.markets tests/fixtures/markets/two_task.json --out "$RUNNER_TEMP/market" --verify artifacts/markets/phase5_source/receipts.json
       - name: Verify immutable Phase 2 receipts at their pinned historical source
         run: |
           historical_source="$RUNNER_TEMP/deviation-historical-source"
@@ -37,14 +37,37 @@ jobs:
           git archive 1afe571d84831d9d0868dbdef5ae46df1c4c0b2d | tar -x -C "$phase3_source"
           PYTHONPATH="$phase3_source/src" python -m deviation.simulator tests/fixtures/simulator/two_task.json --out "$RUNNER_TEMP/phase3-simulator" --verify artifacts/simulator/v0_3_source/receipts.json
           PYTHONPATH="$phase3_source/src" python -m deviation.markets tests/fixtures/markets/two_task.json --out "$RUNNER_TEMP/phase3-market" --verify artifacts/markets/two_task/receipts.json
-      - name: Reproduce installed adversarial counterexample and all-case campaign
+      - name: Verify immutable Phase 4 receipts at their historical source
         run: |
-          python -I -m deviation.attacks replay artifacts/attacks/phase4/selected --out "$RUNNER_TEMP/attack-replay"
-          diff -r artifacts/attacks/phase4/selected "$RUNNER_TEMP/attack-replay"
-          python -I -m deviation.attacks campaign experiments/adversarial_protocol.json --out "$RUNNER_TEMP/attack-campaign"
-          cmp artifacts/attacks/phase4/campaign.json "$RUNNER_TEMP/attack-campaign/campaign.json"
-          python -I -m deviation.attacks sensitivity artifacts/attacks/phase4/selected --out "$RUNNER_TEMP/attack-sensitivity"
-          cmp artifacts/attacks/phase4/sensitivity.json "$RUNNER_TEMP/attack-sensitivity/sensitivity.json"
+          phase4_source="$RUNNER_TEMP/deviation-phase4-source"
+          mkdir -p "$phase4_source"
+          git archive 8153daf1fac2061a825d51dd26e6f024622d37fb | tar -x -C "$phase4_source"
+          export PYTHONPATH="$phase4_source/src"
+          python -m deviation.simulator tests/fixtures/simulator/two_task.json --out "$RUNNER_TEMP/phase4-simulator" --verify artifacts/simulator/phase4_source/receipts.json
+          python -m deviation.markets tests/fixtures/markets/two_task.json --out "$RUNNER_TEMP/phase4-market" --verify artifacts/markets/phase4_source/receipts.json
+          python -m deviation.attacks replay artifacts/attacks/phase4/selected --out "$RUNNER_TEMP/phase4-attack"
+          diff -r artifacts/attacks/phase4/selected "$RUNNER_TEMP/phase4-attack"
+          python -m deviation.attacks campaign experiments/adversarial_protocol.json --out "$RUNNER_TEMP/phase4-campaign"
+          cmp artifacts/attacks/phase4/campaign.json "$RUNNER_TEMP/phase4-campaign/campaign.json"
+          python -m deviation.attacks sensitivity artifacts/attacks/phase4/selected --out "$RUNNER_TEMP/phase4-sensitivity"
+          cmp artifacts/attacks/phase4/sensitivity.json "$RUNNER_TEMP/phase4-sensitivity/sensitivity.json"
+      - name: Reproduce independently reviewed exploratory benchmark
+        run: |
+          python -I -m deviation.evaluation --cache "$RUNNER_TEMP/audit-cache" --download --out "$RUNNER_TEMP/benchmark" --verify artifacts/benchmark/phase5/results.json
+          diff -r artifacts/benchmark/phase5 "$RUNNER_TEMP/benchmark" --exclude='*.svg' --exclude=manifest.json --exclude=plot_manifest.json
+          python -m pip install matplotlib==3.10.7
+          MPLCONFIGDIR="$RUNNER_TEMP/mpl" python scripts/plot_benchmark.py "$RUNNER_TEMP/benchmark"
+          python - <<'PY_CHECK'
+          import hashlib,json,pathlib,os
+          root=pathlib.Path(os.environ['RUNNER_TEMP'])/'benchmark'
+          manifest=json.loads((root/'plot_manifest.json').read_text())
+          assert manifest['matplotlib']=='3.10.7'
+          assert manifest['input_plot_data_sha256']==hashlib.sha256((root/'plot_data.json').read_bytes()).hexdigest()
+          assert manifest['plot_script_sha256']==hashlib.sha256(pathlib.Path('scripts/plot_benchmark.py').read_bytes()).hexdigest()
+          for name,sha in manifest['figures'].items():
+              assert hashlib.sha256((root/name).read_bytes()).hexdigest()==sha
+          print('Scientific figures bound to reproduced aggregate data and pinned plot script')
+          PY_CHECK
       - name: Generate synthetic replay
         run: PYTHONPATH=src python -m deviation demo --out /tmp/deviation_demo.json
       - name: Validate trace flags

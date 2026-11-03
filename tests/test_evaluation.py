@@ -197,6 +197,22 @@ class TestSearchAndStatistics(unittest.TestCase):
         from deviation.evaluation.statistics import synthetic_summary
         self.assertEqual(synthetic_summary(rs,p['statistics'])[0]['utility_gain']['estimate'],-5)
 
+    def test_synthetic_end_to_end_artifacts_are_reproducible(self):
+        from deviation.evaluation.benchmark import evaluate
+        p=deepcopy(PROTOCOL)
+        p['synthetic'].update(development_seeds=[99991],validation_seeds=[99999],mechanisms=['pool'],
+            bias_grid=[0],trade_weight_grid=[0],report_timing=['immediate'],validation_profiles=[{'id':'unit','overrides':{}}])
+        review={**REVIEW,'protocol_sha256':digest(p)}
+        result=evaluate(p,review,synthetic_only=True)
+        self.assertEqual(result,evaluate(p,review,synthetic_only=True))
+        with tempfile.TemporaryDirectory() as d:
+            save(result,d)
+            files={p.name for p in Path(d).iterdir()}
+            self.assertTrue({'results.json','REPORT.md','synthetic_table.csv','plot_data.json','manifest.json'}<=files)
+            manifest=json.loads((Path(d)/'manifest.json').read_text())
+            import hashlib
+            for path,sha in manifest['files'].items():self.assertEqual(hashlib.sha256((Path(d)/path).read_bytes()).hexdigest(),sha)
+
     def test_ratio_bootstrap_retains_unequal_cluster_sizes(self):
         r=interval([4,0],[4,1],replicates=100,seed=3)
         self.assertAlmostEqual(r['estimate'],.8)
