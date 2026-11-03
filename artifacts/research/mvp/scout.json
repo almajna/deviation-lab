@@ -1,0 +1,362 @@
+{
+  "budget": {
+    "paid_spend_usd": 0,
+    "per_response_bytes": 600000,
+    "request_cap": 12,
+    "wall_seconds": 65.0
+  },
+  "mode": "PUBLIC_METADATA_NO_INFERENCE",
+  "requests": [
+    {
+      "final_url": "https://export.arxiv.org/api/query?search_query=all%3Aprediction+market+strategic+manipulation&max_results=3",
+      "http_status": 200,
+      "provider": "arxiv",
+      "query": "prediction market strategic manipulation",
+      "request_url": "https://export.arxiv.org/api/query?search_query=all%3Aprediction+market+strategic+manipulation&max_results=3",
+      "response_bytes": 5916,
+      "response_sha256": "8d6efe98491003b5ef3d4bb2964915d7a8fb7cd660e736949dba496e46fea31e",
+      "results": [
+        {
+          "authors": [
+            "Johannes Rude Jensen",
+            "Mohsen Pourpouneh",
+            "Kurt Nielsen",
+            "Omri Ross"
+          ],
+          "title": "The Homogenous Properties of Automated Market Makers",
+          "url": "https://arxiv.org/abs/2105.02782v1",
+          "year": "2021"
+        },
+        {
+          "authors": [
+            "X. Brokmann",
+            "E. Serie",
+            "J. Kockelkoren",
+            "J. -P. Bouchaud"
+          ],
+          "title": "Slow decay of impact in equity markets",
+          "url": "https://arxiv.org/abs/1407.3390v1",
+          "year": "2014"
+        },
+        {
+          "authors": [
+            "David Dai",
+            "Ruizhe Jia",
+            "Shihao Yu"
+          ],
+          "title": "Settlement Manipulation in Prediction Markets",
+          "url": "https://arxiv.org/abs/2606.31675v1",
+          "year": "2026"
+        }
+      ],
+      "retrieved_at_utc": "2026-11-03T18:38:48.772453+00:00",
+      "status": "ok"
+    },
+    {
+      "error": "HTTPError: HTTP Error 429: ",
+      "http_status": 429,
+      "provider": "semantic_scholar",
+      "query": "prediction market strategic manipulation",
+      "request_url": "https://api.semanticscholar.org/graph/v1/paper/search?query=prediction+market+strategic+manipulation&limit=3&fields=title%2Cauthors%2Cyear%2Curl%2CexternalIds%2Cvenue",
+      "results": [],
+      "retrieved_at_utc": "2026-11-03T18:38:48.983077+00:00",
+      "status": "failed"
+    },
+    {
+      "final_url": "https://api.crossref.org/works?query=prediction+market+strategic+manipulation&filter=type%3Aproceedings-article&rows=3&select=DOI%2Ctitle%2Cauthor%2Cpublished%2CURL",
+      "http_status": 200,
+      "provider": "conference",
+      "query": "prediction market strategic manipulation",
+      "request_url": "https://api.crossref.org/works?query=prediction+market+strategic+manipulation&filter=type%3Aproceedings-article&rows=3&select=DOI%2Ctitle%2Cauthor%2Cpublished%2CURL",
+      "response_bytes": 1671,
+      "response_sha256": "99e78508ad53ebac5e62d03b51047772788a0a76ec1fc51ca9dc5e1c40674501",
+      "results": [
+        {
+          "authors": [
+            "Miloš Božović"
+          ],
+          "doi": "10.54318/czf.2026.mb.007",
+          "title": "MARKET MANIPULATION, MOMENTUM CRASHES, AND THE LIMITS OF PRICE-VOLUME SCREENING",
+          "url": "https://doi.org/10.54318/czf.2026.mb.007"
+        },
+        {
+          "authors": [
+            "Siyuan Liu"
+          ],
+          "doi": "10.5220/0014602700005059",
+          "title": "Monster Beverage: Strategic Development, Market Challenges and Responses",
+          "url": "https://doi.org/10.5220/0014602700005059"
+        },
+        {
+          "authors": [
+            " Jun Yan",
+            "Thobela Ngcengeni"
+          ],
+          "doi": "10.1109/eem.2008.4579037",
+          "title": "Strategic market behaviors in a simulated South African electricity market",
+          "url": "https://doi.org/10.1109/eem.2008.4579037"
+        }
+      ],
+      "retrieved_at_utc": "2026-11-03T18:38:49.116563+00:00",
+      "status": "ok"
+    },
+    {
+      "final_url": "https://api.github.com/search/repositories?q=prediction+market+strategic+manipulation&per_page=3",
+      "http_status": 200,
+      "provider": "github",
+      "query": "prediction market strategic manipulation",
+      "request_url": "https://api.github.com/search/repositories?q=prediction+market+strategic+manipulation&per_page=3",
+      "response_bytes": 55,
+      "response_sha256": "4af480b8ee5b87b369a76c49bd22c9a783908272ebffbe97898f8ab0f0772a5f",
+      "results": [],
+      "retrieved_at_utc": "2026-11-03T18:38:52.632724+00:00",
+      "status": "ok"
+    },
+    {
+      "final_url": "https://export.arxiv.org/api/query?search_query=all%3Abranch+and+bound+certificate+verification&max_results=3",
+      "http_status": 200,
+      "provider": "arxiv",
+      "query": "branch and bound certificate verification",
+      "request_url": "https://export.arxiv.org/api/query?search_query=all%3Abranch+and+bound+certificate+verification&max_results=3",
+      "response_bytes": 9398,
+      "response_sha256": "3a384ed7bbb6638a1e351e3cc7c30745b10745481096c8401f907a4d61246f52",
+      "results": [
+        {
+          "authors": [
+            "Lorenzo Sciandra",
+            "Roberto Esposito",
+            "Andrea Cesare Grosso",
+            "Laura Sacerdote",
+            "Cristina Zucca"
+          ],
+          "title": "Supplementary Materials to Graph Convolutional Branch and Bound",
+          "url": "https://arxiv.org/abs/2406.03099v4",
+          "year": "2024"
+        },
+        {
+          "authors": [
+            "Sourav Chakraborty",
+            "Anna Gál",
+            "Mika Göös",
+            "Sophie Laplante",
+            "Rajat Mittal",
+            "Anupa Sunny"
+          ],
+          "title": "Certificate Games and Consequences for the Classical Adversary Bound",
+          "url": "https://arxiv.org/abs/2211.03396v3",
+          "year": "2022"
+        },
+        {
+          "authors": [
+            "Michael T. M. Emmerich"
+          ],
+          "title": "Optimizing Explicit Unit-Distance Lower-Bound Certificates",
+          "url": "https://arxiv.org/abs/2606.03419v5",
+          "year": "2026"
+        }
+      ],
+      "retrieved_at_utc": "2026-11-03T18:38:52.879974+00:00",
+      "status": "ok"
+    },
+    {
+      "error": "HTTPError: HTTP Error 429: ",
+      "http_status": 429,
+      "provider": "semantic_scholar",
+      "query": "branch and bound certificate verification",
+      "request_url": "https://api.semanticscholar.org/graph/v1/paper/search?query=branch+and+bound+certificate+verification&limit=3&fields=title%2Cauthors%2Cyear%2Curl%2CexternalIds%2Cvenue",
+      "results": [],
+      "retrieved_at_utc": "2026-11-03T18:38:52.928123+00:00",
+      "status": "failed"
+    },
+    {
+      "final_url": "https://api.crossref.org/works?query=branch+and+bound+certificate+verification&filter=type%3Aproceedings-article&rows=3&select=DOI%2Ctitle%2Cauthor%2Cpublished%2CURL",
+      "http_status": 200,
+      "provider": "conference",
+      "query": "branch and bound certificate verification",
+      "request_url": "https://api.crossref.org/works?query=branch+and+bound+certificate+verification&filter=type%3Aproceedings-article&rows=3&select=DOI%2Ctitle%2Cauthor%2Cpublished%2CURL",
+      "response_bytes": 2757,
+      "response_sha256": "fa4eb34a1693dfd29b6412c4eb5b1030820419310e742e912f035d093c0b8800",
+      "results": [
+        {
+          "authors": [
+            "Xinyu Wang",
+            "Luzia Knoedler",
+            "Frederik Baymler Mathiesen",
+            "Javier Alonso-Mora"
+          ],
+          "doi": "10.23919/ecc64448.2024.10591251",
+          "title": "Simultaneous Synthesis and Verification of Neural Control Barrier Functions Through Branch-and-Bound Verification-in-the-Loop Training",
+          "url": "https://doi.org/10.23919/ecc64448.2024.10591251"
+        },
+        {
+          "authors": [
+            "Duo Zhou",
+            "Christopher Brix",
+            "Grani Hanasusanto",
+            "Huan Zhang"
+          ],
+          "doi": "10.52202/079017-0923",
+          "title": "Scalable Neural Network Verification with Branch-and-bound Inferred Cutting Planes",
+          "url": "https://doi.org/10.52202/079017-0923"
+        },
+        {
+          "authors": [
+            "H. Lutfiyya",
+            "A. Sun",
+            "B. McMillin"
+          ],
+          "doi": "10.1109/cmpsac.1992.217571",
+          "title": "Fault-tolerant concurrent branch and bound algorithms derived from program verification",
+          "url": "https://doi.org/10.1109/cmpsac.1992.217571"
+        }
+      ],
+      "retrieved_at_utc": "2026-11-03T18:38:53.090253+00:00",
+      "status": "ok"
+    },
+    {
+      "final_url": "https://api.github.com/search/repositories?q=branch+and+bound+certificate+verification&per_page=3",
+      "http_status": 200,
+      "provider": "github",
+      "query": "branch and bound certificate verification",
+      "request_url": "https://api.github.com/search/repositories?q=branch+and+bound+certificate+verification&per_page=3",
+      "response_bytes": 18696,
+      "response_sha256": "6f46eab27eea0904a2a7131cda2474a5dcd48286753acedb2f72c99a49dab1e6",
+      "results": [
+        {
+          "code_execution": "NEVER",
+          "license": "MIT",
+          "revision": null,
+          "title": "wand125/n17-bb-verifier",
+          "url": "https://github.com/wand125/n17-bb-verifier"
+        },
+        {
+          "code_execution": "NEVER",
+          "license": "MIT",
+          "revision": null,
+          "title": "sehajr-singhs/transformer-residual-stream-verification",
+          "url": "https://github.com/sehajr-singhs/transformer-residual-stream-verification"
+        },
+        {
+          "code_execution": "NEVER",
+          "license": null,
+          "revision": null,
+          "title": "sophie-nguyenthuthuy/retraining-dynamics",
+          "url": "https://github.com/sophie-nguyenthuthuy/retraining-dynamics"
+        }
+      ],
+      "retrieved_at_utc": "2026-11-03T18:38:55.173186+00:00",
+      "status": "ok"
+    },
+    {
+      "final_url": "https://export.arxiv.org/api/query?search_query=all%3Aforecast+aggregation+resource+allocation&max_results=3",
+      "http_status": 200,
+      "provider": "arxiv",
+      "query": "forecast aggregation resource allocation",
+      "request_url": "https://export.arxiv.org/api/query?search_query=all%3Aforecast+aggregation+resource+allocation&max_results=3",
+      "response_bytes": 7570,
+      "response_sha256": "cfce95fad4166c75ec27c699d54aa4d2d59e5ae08f703ed65daf97bb5b90f06a",
+      "results": [
+        {
+          "authors": [
+            "Arun Verma",
+            "Manjesh K. Hanawal",
+            "Arun Rajkumar",
+            "Raman Sankaran"
+          ],
+          "title": "Censored Semi-Bandits for Resource Allocation",
+          "url": "https://arxiv.org/abs/2104.05781v1",
+          "year": "2021"
+        },
+        {
+          "authors": [
+            "S. M. Riazul Islam",
+            "Ming Zeng",
+            "Octavia A. Dobre",
+            "Kyung-Sup Kwak"
+          ],
+          "title": "Resource Allocation for Downlink NOMA Systems: Key Techniques and Open Issues",
+          "url": "https://arxiv.org/abs/1801.00121v1",
+          "year": "2017"
+        },
+        {
+          "authors": [
+            "Shulun Chen",
+            "Wei Shao",
+            "Flora D. Salim",
+            "Hao Xue"
+          ],
+          "title": "ASTER: Adaptive Spatio-Temporal Early Decision Model for Dynamic Resource Allocation",
+          "url": "https://arxiv.org/abs/2506.17929v1",
+          "year": "2025"
+        }
+      ],
+      "retrieved_at_utc": "2026-11-03T18:38:55.543261+00:00",
+      "status": "ok"
+    },
+    {
+      "error": "HTTPError: HTTP Error 429: ",
+      "http_status": 429,
+      "provider": "semantic_scholar",
+      "query": "forecast aggregation resource allocation",
+      "request_url": "https://api.semanticscholar.org/graph/v1/paper/search?query=forecast+aggregation+resource+allocation&limit=3&fields=title%2Cauthors%2Cyear%2Curl%2CexternalIds%2Cvenue",
+      "results": [],
+      "retrieved_at_utc": "2026-11-03T18:38:55.606928+00:00",
+      "status": "failed"
+    },
+    {
+      "final_url": "https://api.crossref.org/works?query=forecast+aggregation+resource+allocation&filter=type%3Aproceedings-article&rows=3&select=DOI%2Ctitle%2Cauthor%2Cpublished%2CURL",
+      "http_status": 200,
+      "provider": "conference",
+      "query": "forecast aggregation resource allocation",
+      "request_url": "https://api.crossref.org/works?query=forecast+aggregation+resource+allocation&filter=type%3Aproceedings-article&rows=3&select=DOI%2Ctitle%2Cauthor%2Cpublished%2CURL",
+      "response_bytes": 1692,
+      "response_sha256": "625e7641665b0493261910f3cd2bec5bac8d841239e361e97c69149c63a00b9d",
+      "results": [
+        {
+          "authors": [
+            "Michael Cardosa",
+            "Abhishek Chandra"
+          ],
+          "doi": "10.1109/icdcs.2008.37",
+          "title": "Resource Bundles: Using Aggregation for Statistical Wide-Area Resource Discovery and Allocation",
+          "url": "https://doi.org/10.1109/icdcs.2008.37"
+        },
+        {
+          "authors": [
+            "Jingyi Dai",
+            "Shaowei Wang"
+          ],
+          "doi": "10.1109/iccs.2016.7833552",
+          "title": "Aggregation-aware resource allocation for cognitive radio networks",
+          "url": "https://doi.org/10.1109/iccs.2016.7833552"
+        },
+        {
+          "authors": [
+            "Yu Xiang",
+            "Cheng Tao"
+          ],
+          "doi": "10.1063/1.5039102",
+          "title": "Research on strategy and optimization method of PRT empty vehicles resource allocation based on traffic demand forecast",
+          "url": "https://doi.org/10.1063/1.5039102"
+        }
+      ],
+      "retrieved_at_utc": "2026-11-03T18:38:55.819109+00:00",
+      "status": "ok"
+    },
+    {
+      "final_url": "https://api.github.com/search/repositories?q=forecast+aggregation+resource+allocation&per_page=3",
+      "http_status": 200,
+      "provider": "github",
+      "query": "forecast aggregation resource allocation",
+      "request_url": "https://api.github.com/search/repositories?q=forecast+aggregation+resource+allocation&per_page=3",
+      "response_bytes": 55,
+      "response_sha256": "4af480b8ee5b87b369a76c49bd22c9a783908272ebffbe97898f8ab0f0772a5f",
+      "results": [],
+      "retrieved_at_utc": "2026-11-03T18:38:59.224398+00:00",
+      "status": "ok"
+    }
+  ],
+  "sha256": "9d59a484e3987e13967a8a583188361b25193f8512b4d6de5c8e724c68d05c6d",
+  "version": "research-scout-1",
+  "warning": "Discovery metadata is not proof of a paper's claims or novelty. Failed searches remain visible."
+}

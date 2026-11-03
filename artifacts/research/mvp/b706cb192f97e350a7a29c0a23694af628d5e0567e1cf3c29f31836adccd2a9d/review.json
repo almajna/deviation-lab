@@ -1,0 +1,17 @@
+{
+  "checks": [
+    "243 analytic charge, funding and sampled bounded-loss checks",
+    "Separately preregistered signed/multi-share diagnostic: 21 potential deltas, charges and certified intervals"
+  ],
+  "coverage_status": "COMPLETE_DECLARED_GRID",
+  "criterion": "all_analytic_checks",
+  "criterion_status": "SUPPORTED_ON_REGISTERED_GRID",
+  "independent_scientific_review": "PENDING",
+  "integrity": "PASS",
+  "limitation": "Automated numerical gate, separately implemented certificate checker, shared trusted engine. No external peer review.",
+  "narrative_claim_status": "SCIENTIFIC_REVIEW_REQUIRED",
+  "novelty": "NOT_ESTABLISHED",
+  "result_sha256": "b58073d744b6a9dd33f9105fb48a228ba95090aecdf2facfe3fc6f5ad08be1ff",
+  "signed_diagnostic_status": "PASS_ON_DECLARED_21_TRANSITIONS",
+  "version": "research-review-1"
+}

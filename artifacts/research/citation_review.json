@@ -1,0 +1,149 @@
+{
+  "limitations": [
+    "No exhaustive prior-art or semantic novelty claim",
+    "Source identity checks do not authenticate arbitrary future registry additions",
+    "Only scoped LMSR mathematics is reproduced; neural-verification and decision-market methods are prior-art references"
+  ],
+  "reviewed_sources": [
+    {
+      "authors": [
+        "Yutaro Yamada",
+        "Robert Tjarko Lange",
+        "Cong Lu",
+        "Shengran Hu",
+        "Chris Lu",
+        "Jakob Foerster",
+        "Jeff Clune",
+        "David Ha"
+      ],
+      "checked_on": "2026-11-03",
+      "claim_scope": "Hypothesis/experiment/review staging and bounded search are architectural references. No code imported or inference run.",
+      "id": "ai-scientist-v2",
+      "method": "Primary bibliographic identity and abstract/method metadata checked by assistant web retrieval; independent reviewer checked cited primary-source sample",
+      "primary_verification_url": "https://github.com/SakanaAI/AI-Scientist-v2",
+      "retrieval_note": "Primary source retrieved; citations are not claims of novelty or full-paper replication",
+      "title": "The AI Scientist-v2: Workshop-Level Automated Scientific Discovery via Agentic Tree Search",
+      "url": "https://arxiv.org/abs/2504.08066"
+    },
+    {
+      "authors": [
+        "Giulio Starace",
+        "Oliver Jaffe",
+        "Dane Sherburn",
+        "James Aung",
+        "Jun Shern Chan",
+        "Leon Maksin",
+        "Rachel Dias",
+        "Evan Mays",
+        "Benjamin Kinsella",
+        "Wyatt Thompson",
+        "Johannes Heidecke",
+        "Amelia Glaese",
+        "Tejal Patwardhan"
+      ],
+      "checked_on": "2026-11-03",
+      "claim_scope": "Adapt separate execution/reproduction/grading and explicit rubrics. Not a PaperBench score or full replication.",
+      "id": "paperbench",
+      "method": "Primary bibliographic identity and abstract/method metadata checked by assistant web retrieval; independent reviewer checked cited primary-source sample",
+      "primary_verification_url": "https://openai.com/index/paperbench/",
+      "retrieval_note": "Primary source retrieved; citations are not claims of novelty or full-paper replication",
+      "title": "PaperBench: Evaluating AI's Ability to Replicate AI Research",
+      "url": "https://arxiv.org/abs/2504.01848"
+    },
+    {
+      "authors": [
+        "Robin Hanson"
+      ],
+      "checked_on": "2026-11-03",
+      "claim_scope": "Author PDF is January 2002 draft; journal volume 1(1) is 2007; publisher web upload date says 2012. These are separate dates. Reproduce the equivalent cost-function representation with three outcomes.",
+      "id": "hanson-lmsr",
+      "method": "Primary bibliographic identity and abstract/method metadata checked by assistant web retrieval; independent reviewer checked cited primary-source sample",
+      "primary_verification_url": "https://www.ubplj.org/index.php/jpm/article/view/417",
+      "retrieval_note": "Primary source retrieved; citations are not claims of novelty or full-paper replication",
+      "title": "Logarithmic Market Scoring Rules for Modular Combinatorial Information Aggregation",
+      "url": "https://mason.gmu.edu/~rhanson/mktscore.pdf"
+    },
+    {
+      "authors": [
+        "Yiling Chen",
+        "Ian Kash",
+        "Mike Ruberry",
+        "Victor Shnayder"
+      ],
+      "checked_on": "2026-11-03",
+      "claim_scope": "WINE 2011, DOI 10.1007/978-3-642-25510-6_7. Known decision-dependent incentives. DEVIATION settles recorded counterfactuals and includes external benefits: different assumptions. Not reproducing this mechanism.",
+      "id": "chen-decision",
+      "method": "Primary bibliographic identity and abstract/method metadata checked by assistant web retrieval; independent reviewer checked cited primary-source sample",
+      "primary_verification_url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/DM_full_version.pdf",
+      "retrieval_note": "Primary source retrieved; citations are not claims of novelty or full-paper replication",
+      "title": "Decision Markets with Good Incentives",
+      "url": "https://dash.harvard.edu/entities/publication/73120378-a5f7-6bd4-e053-0100007fdf3b"
+    },
+    {
+      "authors": [
+        "Shiqi Wang",
+        "Huan Zhang",
+        "Kaidi Xu",
+        "Xue Lin",
+        "Suman Jana",
+        "Cho-Jui Hsieh",
+        "J. Zico Kolter"
+      ],
+      "checked_on": "2026-11-03",
+      "claim_scope": "NeurIPS 2021. Branch-and-bound with strong relaxations is established prior art. Neural-network domain; no faithful direct performance comparison or reproduction claimed.",
+      "id": "beta-crown",
+      "method": "Primary bibliographic identity and abstract/method metadata checked by assistant web retrieval; independent reviewer checked cited primary-source sample",
+      "primary_verification_url": "https://arxiv.org/abs/2103.06624",
+      "retrieval_note": "Primary source retrieved; citations are not claims of novelty or full-paper replication",
+      "title": "Beta-CROWN: Efficient Bound Propagation with Per-neuron Split Constraints for Complete and Incomplete Neural Network Robustness Verification",
+      "url": "https://arxiv.org/abs/2103.06624"
+    },
+    {
+      "authors": [
+        "Hong-Ming Chiu",
+        "Hao Chen",
+        "Huan Zhang",
+        "Richard Y. Zhang"
+      ],
+      "checked_on": "2026-11-03",
+      "claim_scope": "ICML 2025. Tightness versus computation is known; no neural verification code executed.",
+      "id": "sdp-crown",
+      "method": "Primary bibliographic identity and abstract/method metadata checked by assistant web retrieval; independent reviewer checked cited primary-source sample",
+      "primary_verification_url": "https://proceedings.mlr.press/v267/chiu25a.html",
+      "retrieval_note": "Primary source retrieved; citations are not claims of novelty or full-paper replication",
+      "title": "SDP-CROWN: Efficient Bound Propagation for Neural Network Verification with Tightness of Semidefinite Programming",
+      "url": "https://proceedings.mlr.press/v267/chiu25a.html"
+    },
+    {
+      "authors": [
+        "Rob J Hyndman",
+        "George Athanasopoulos"
+      ],
+      "checked_on": "2026-11-03",
+      "claim_scope": "Author textbook motivates simple averaging as a strong comparator, not a claim about economic equilibrium or agent incentives.",
+      "id": "forecast-combination",
+      "method": "Primary bibliographic identity and abstract/method metadata checked by assistant web retrieval; independent reviewer checked cited primary-source sample",
+      "primary_verification_url": "https://otexts.com/fpp3/practical.html",
+      "retrieval_note": "Primary source retrieved; citations are not claims of novelty or full-paper replication",
+      "title": "Forecasting: Principles and Practice, 3rd edition, section 13.4 Forecast combinations",
+      "url": "https://otexts.com/fpp3/practical.html"
+    },
+    {
+      "authors": [
+        "Pawel Struski",
+        "Jakub Swistak",
+        "Inez Okulska",
+        "Przemyslaw Biecek"
+      ],
+      "checked_on": "2026-11-03",
+      "claim_scope": "Metadata/abstract verified on arXiv. Double-auction setting differs from DEVIATION; synthetic actions cannot replicate live-agent findings.",
+      "id": "llm-market-behavior",
+      "method": "Primary bibliographic identity and abstract/method metadata checked by assistant web retrieval; independent reviewer checked cited primary-source sample",
+      "primary_verification_url": "https://arxiv.org/abs/2609.02580",
+      "retrieval_note": "Direct arXiv page retrieval transiently failed; resolved through primary arXiv indexed metadata search",
+      "title": "Competitive Market Behavior of LLMs",
+      "url": "https://arxiv.org/abs/2609.02580"
+    }
+  ],
+  "version": "citation-review-1"
+}

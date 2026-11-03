@@ -1,0 +1,38 @@
+{
+  "assumption_changes": [],
+  "baselines": [
+    "fallback vector_limit=0",
+    "independent exhaustive enumeration",
+    "memoized exact dynamic programming",
+    "width-2 beam"
+  ],
+  "evidence_kind": "SYNTHETIC",
+  "failure_rule": "Any unsound interval, weaker endpoint bound, no strict improvement or censored exact baseline rejects the hypothesis.",
+  "gap": "Run independently checked paired bound ablations on a different tiny development grid; no speed claim.",
+  "hypothesis": "Endpoint root bounds are never looser than the fallback and strictly tighter for at least one registered game; every full interval covers independent exact utility.",
+  "id": "bounds",
+  "information_boundary": "Only public tasks, prescribed private beliefs, training-only reservations and past permitted observations enter decisions. Realized synthetic outcomes/costs are accessed only after allocation freezes.",
+  "novelty_status": "UNESTABLISHED_PRIOR_ART_OVERLAP",
+  "overlap": "Branch-and-bound and stronger relaxations are well known. DEVIATION #23/#25 already implement and measure this. This run is a scoped reproduction/ablation.",
+  "owner_approval_required": false,
+  "runner": "certificate_ablation",
+  "scope": "APPROVED_SYNTHETIC_DEVELOPMENT_ONLY",
+  "scores": {
+    "baseline_strength": 5,
+    "feasibility": 5,
+    "importance": 3,
+    "novelty": 1,
+    "usefulness": 4
+  },
+  "seeds": [
+    13,
+    29,
+    47
+  ],
+  "sources": [
+    "beta-crown",
+    "sdp-crown"
+  ],
+  "success_rule": "endpoint_dominance_with_strict",
+  "title": "Does endpoint relaxation tighten finite-game certificates?"
+}
