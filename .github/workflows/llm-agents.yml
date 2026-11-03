@@ -1,0 +1,26 @@
+name: Local LLM agent instrument evidence
+on:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install instrument and run offline boundary tests
+        run: |
+          python -m pip install --no-deps .
+          PYTHONPATH=src python -m unittest discover -s tests -p test_llm_agents.py -v
+      - name: Reproduce every scripted control (no inference or dataset requests)
+        run: |
+          python -I -m deviation_llm_agents controls --out "$RUNNER_TEMP/controls.json"
+          cmp artifacts/llm_agents/controls.json "$RUNNER_TEMP/controls.json"
+      - name: Replay the explicitly scripted transport sample
+        run: |
+          python -I -m deviation_llm_agents replay artifacts/llm_agents/test_transport_episode.json --out "$RUNNER_TEMP/decision-replay.json"
+          cmp artifacts/llm_agents/test_transport_replay.json "$RUNNER_TEMP/decision-replay.json"

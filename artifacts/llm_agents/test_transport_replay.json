@@ -1,0 +1,7 @@
+{
+  "engine_receipt_sha256": "aa295aaeea9d0eb4d100b020f0d811471ed9272188491dc7ba0f9952a2ea3ced",
+  "execution_origin": "RECORDED_DECISION_REPLAY",
+  "new_inference_calls": 0,
+  "source_sidecar_sha256": "8c4cc2a8c4260900ff35ab585dda775d08e7e19edd0ea78dbfa3cdeb77597d44",
+  "version": "llm-replay-1"
+}

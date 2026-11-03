@@ -52,3 +52,15 @@ New package modules change the Phase 2 fingerprint by design. Keep original arti
 
 ## D-017 — 2026-11-02 — Information-safe finite adversarial discovery
 Verified PR #14 merged and 1afe571 ancestor of main 5306ded. Implement Phase 4 in isolated codex/adversarial-discovery using the unchanged approved market engine. Choose exact finite terminal-controlled suffix/final-global-report search plus bounded seeded beam; reject unknown future honest actions and require an explicit public opponent report model for static reports. Share fixed resources across registered aliases, with no causal across-registry Sybil claim. Independent event-level payoff recomputation, actual transition replay, reoptimized zero-external controls and source-bound sidecars preserve v0.3 contracts. Synthetic exogenous belief errors are prescribed subjective models, not Bayesian signals; hidden draws use an evaluator-only seed. An invalid correlation campaign was discarded and regenerated after review. These reversible restrictions narrow the search scope without expanding Gate B assumptions. Owner integrator; evidence in Phase 4 docs/tests/artifacts; $0. Human review/merge remains required; no final empirical holdout or scientific superiority claim.
+
+## D-A3-001 — 2026-11-02 — Isolate real-agent instrument and retain zero-inference blocker
+Owner's Agent 3 request authorizes a local inference harness with honest fallback.
+Use sibling package `deviation_llm_agents` and actor-provenance sidecars over
+unchanged approved synthetic engine transitions. This preserves shared contracts
+and historical source fingerprints. No installed inference runtime/weights were
+found in the bounded inventory; temporary dependency retrieval failed DNS.
+Do not count scripted controls or task answers as actual agent decisions. Local
+loopback transport is opt-in, pinned, no-pull/no-cloud/no-tools, with explicit
+trusted-server limitations. Routine reversible engineering choice, independently
+reviewed; protocol/report/evidence in Agent 3-owned paths; $0. No holdout,
+new scientific assumption approval, merge or public research claim is implied.
