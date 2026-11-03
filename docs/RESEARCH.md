@@ -22,6 +22,12 @@ Historical Phase 1 NO-GO artifacts remain the original audit record. The owner h
 - After protocol, claims, metrics, attacker regimes and code are finalized, obtain a separately sealed untouched evaluation cohort with provenance/group/split hashes and a designated outcome custodian. Do not relabel inspected pilot rows as untouched. Freeze protocol/config/code before access. Require explicit human authorization for one final evaluation; post-freeze changes need review and exploratory labeling or a new holdout.
 - This PR contains synthetic conformance checks only: no real-data reservation fit, mechanism comparison or final evaluation.
 
+## Gate B mechanism proposal — not approved or executed
+
+`GATE_B.md` proposes marginal three-state recorded-proxy markets per task/model, preserving ambiguous zero labels. Probabilities map to expected proxy for the existing reservation objective; they do not imply calibrated truth, correctness or a causal effect of compute. Full paired arms settle only after all allocations freeze. Grid-exact scoring propriety and a funded LMSR cash-loss bound have explicitly limited mathematical assumptions; neither proves full-game incentive compatibility or superiority. Economic actors, preferences and attacks remain synthetic.
+
+Matched raw/interactive/calibrated nonmarket pooling and existing references must share underlying information, compute reservations and frozen opportunities. Report maker/scoring subsidies, credit friction and unused resources separately. Controller-level Sybil budgets include noncash benefits; adversarial action selection cannot inspect realized hidden labels. No mechanism, attack, empirical comparison, final evaluation or frontend extension is activated before exact-head Gate B review/approval and human merge.
+
 ## Questions
 RQ1. Under budget constraints, can market-aggregated forecasts allocate historical LLM inference choices better than calibrated non-market aggregation and ordinary routing baselines?
 RQ2. How does allocation welfare degrade when a subset of forecasters can strategically misreport or trade?

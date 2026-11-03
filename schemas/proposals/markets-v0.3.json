@@ -1,0 +1,160 @@
+{
+  "approval": "docs/GATE_B.md",
+  "category_order": [
+    "zero",
+    "half",
+    "one"
+  ],
+  "components": {
+    "agent_packet": {
+      "fields": [
+        "agent_id",
+        "config_sha256",
+        "own_cash",
+        "own_categorical_signal",
+        "own_limits",
+        "own_positions",
+        "own_utility_view",
+        "permitted_history",
+        "public_markets",
+        "public_task",
+        "reservation_budget",
+        "reservations",
+        "schema_version",
+        "seq",
+        "stage",
+        "turn"
+      ]
+    },
+    "event": {
+      "fields": [
+        "actor",
+        "payload",
+        "seq",
+        "stage",
+        "time_step",
+        "type",
+        "visibility"
+      ]
+    },
+    "market_definition": {
+      "fields": [
+        "b",
+        "categories",
+        "initial_funding",
+        "maker_account",
+        "market_id",
+        "model_id",
+        "numeric_policy_sha256",
+        "position_limit",
+        "price_denominator",
+        "quantity_limit",
+        "task_id"
+      ]
+    },
+    "report_action": {
+      "fields": [
+        "actor",
+        "counts",
+        "denominator",
+        "expected_state_seq",
+        "kind",
+        "model_id",
+        "report_token",
+        "schema_version",
+        "stage",
+        "task_id"
+      ],
+      "kind": "report_distribution",
+      "stage": "REPORT_COMMIT"
+    },
+    "trade_accepted_payload": {
+      "fields": [
+        "fee",
+        "fee_sink_after",
+        "fee_sink_before",
+        "maker_cash_after",
+        "maker_cash_before",
+        "market_id",
+        "max_net_debit",
+        "order_id",
+        "position_after",
+        "position_before",
+        "price_counts_after",
+        "price_counts_before",
+        "price_denominator",
+        "q_after",
+        "q_before",
+        "quote_interval",
+        "quote_policy_sha256",
+        "quote_precision",
+        "share_delta",
+        "signed_maker_charge",
+        "state_seq_after",
+        "state_seq_before",
+        "trader_cash_after",
+        "trader_cash_before",
+        "transfer_ids"
+      ]
+    },
+    "trade_action": {
+      "fields": [
+        "actor",
+        "expected_state_seq",
+        "kind",
+        "market_id",
+        "max_net_debit",
+        "order_id",
+        "schema_version",
+        "share_delta",
+        "stage"
+      ],
+      "kind": "trade_shares",
+      "stage": "TRADE_OR_UPDATE"
+    },
+    "update_action": {
+      "fields": [
+        "actor",
+        "counts",
+        "denominator",
+        "expected_state_seq",
+        "kind",
+        "model_id",
+        "schema_version",
+        "stage",
+        "task_id"
+      ],
+      "kind": "update_distribution",
+      "stage": "TRADE_OR_UPDATE"
+    }
+  },
+  "format": "DEVIATION_PROPOSED_COMPONENT_INDEX_NOT_JSON_SCHEMA",
+  "implementation_obligations": [
+    "closed validators for every enabled event and nesting",
+    "full stage machine and privacy filter",
+    "certified pricing enclosure",
+    "typed atomic ledger and duplicate suppression",
+    "source-bound replay",
+    "no silent v0.2 migration"
+  ],
+  "rejection_reasons": [
+    "WRONG_STAGE",
+    "WRONG_ACTOR",
+    "DUPLICATE_ID",
+    "STALE_STATE",
+    "INVALID_TYPE",
+    "INVALID_DISTRIBUTION",
+    "INVALID_TOKEN",
+    "ZERO_ORDER",
+    "UNOWNED_SALE",
+    "QUANTITY_LIMIT",
+    "POSITION_LIMIT",
+    "ACTION_LIMIT",
+    "INSUFFICIENT_CASH",
+    "ORDER_LIMIT",
+    "MAKER_INSOLVENT",
+    "NUMERIC_AMBIGUITY"
+  ],
+  "schema_version": "0.3",
+  "status": "PROPOSED_NOT_ACTIVE"
+}
