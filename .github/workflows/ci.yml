@@ -19,11 +19,15 @@ jobs:
           python-version: '3.11'
       - name: Run unit and shared contract conformance tests
         run: PYTHONPATH=src python -m unittest discover -s tests -v
-      - name: Install package and reproduce v0.2 synthetic simulator artifact
+      - name: Stage immutable Phase 4 source for existing source-bound artifacts
+        run: |
+          mkdir -p "$RUNNER_TEMP/phase4-source"
+          git archive 8cf8bd318c1a28533aeb88c52c6ad4092aec119e | tar -x -C "$RUNNER_TEMP/phase4-source"
+      - name: Install current package and check pinned Phase 4 simulator artifacts
         run: |
           python -m pip install --no-deps .
-          python -m deviation.simulator tests/fixtures/simulator/two_task.json --out "$RUNNER_TEMP/simulator" --verify artifacts/simulator/phase4_source/receipts.json
-          python -m deviation.markets tests/fixtures/markets/two_task.json --out "$RUNNER_TEMP/market" --verify artifacts/markets/phase4_source/receipts.json
+          PYTHONPATH="$RUNNER_TEMP/phase4-source/src" python -m deviation.simulator tests/fixtures/simulator/two_task.json --out "$RUNNER_TEMP/simulator" --verify artifacts/simulator/phase4_source/receipts.json
+          PYTHONPATH="$RUNNER_TEMP/phase4-source/src" python -m deviation.markets tests/fixtures/markets/two_task.json --out "$RUNNER_TEMP/market" --verify artifacts/markets/phase4_source/receipts.json
       - name: Verify immutable Phase 2 receipts at their pinned historical source
         run: |
           historical_source="$RUNNER_TEMP/deviation-historical-source"
@@ -37,14 +41,18 @@ jobs:
           git archive 1afe571d84831d9d0868dbdef5ae46df1c4c0b2d | tar -x -C "$phase3_source"
           PYTHONPATH="$phase3_source/src" python -m deviation.simulator tests/fixtures/simulator/two_task.json --out "$RUNNER_TEMP/phase3-simulator" --verify artifacts/simulator/v0_3_source/receipts.json
           PYTHONPATH="$phase3_source/src" python -m deviation.markets tests/fixtures/markets/two_task.json --out "$RUNNER_TEMP/phase3-market" --verify artifacts/markets/two_task/receipts.json
-      - name: Reproduce installed adversarial counterexample and all-case campaign
+      - name: Reproduce immutable Phase 4 counterexample and campaign at pinned source
         run: |
-          python -I -m deviation.attacks replay artifacts/attacks/phase4/selected --out "$RUNNER_TEMP/attack-replay"
+          PYTHONPATH="$RUNNER_TEMP/phase4-source/src" python -m deviation.attacks replay artifacts/attacks/phase4/selected --out "$RUNNER_TEMP/attack-replay"
           diff -r artifacts/attacks/phase4/selected "$RUNNER_TEMP/attack-replay"
-          python -I -m deviation.attacks campaign experiments/adversarial_protocol.json --out "$RUNNER_TEMP/attack-campaign"
+          PYTHONPATH="$RUNNER_TEMP/phase4-source/src" python -m deviation.attacks campaign experiments/adversarial_protocol.json --out "$RUNNER_TEMP/attack-campaign"
           cmp artifacts/attacks/phase4/campaign.json "$RUNNER_TEMP/attack-campaign/campaign.json"
-          python -I -m deviation.attacks sensitivity artifacts/attacks/phase4/selected --out "$RUNNER_TEMP/attack-sensitivity"
+          PYTHONPATH="$RUNNER_TEMP/phase4-source/src" python -m deviation.attacks sensitivity artifacts/attacks/phase4/selected --out "$RUNNER_TEMP/attack-sensitivity"
           cmp artifacts/attacks/phase4/sensitivity.json "$RUNNER_TEMP/attack-sensitivity/sensitivity.json"
+      - name: Independently check and reproduce installed certified attack examples
+        run: |
+          python -I -m deviation.attacks.certified examples --out "$RUNNER_TEMP/certified" --verify artifacts/attacks/certified
+          python -I -m deviation.attacks.certified verify artifacts/attacks/certified/scenario.json artifacts/attacks/certified/small-lmsr.certificate.json
       - name: Generate synthetic replay
         run: PYTHONPATH=src python -m deviation demo --out /tmp/deviation_demo.json
       - name: Validate trace flags

@@ -1,0 +1,369 @@
+{
+  "cases": [
+    {
+      "case": "small-lmsr",
+      "certificate_sha256": "831a7d1ddea16577a18c54f781907761492221f083685d9b1783a7043a8e9bab",
+      "certified": {
+        "claim": "EXACT_FINITE_SUBGAME",
+        "gap": [
+          0,
+          1
+        ],
+        "lower": [
+          203,
+          3
+        ],
+        "search": {
+          "expansions": 1,
+          "generated": 11,
+          "max_expansions": 100
+        },
+        "upper": [
+          203,
+          3
+        ]
+      },
+      "checker_nodes": 11,
+      "data_kind": "SYNTHETIC",
+      "gain_vs_honest": [
+        11,
+        3
+      ],
+      "gain_vs_noop": [
+        11,
+        3
+      ],
+      "ordinary_beam": {
+        "beam_width": 2,
+        "lower": [
+          203,
+          3
+        ],
+        "transition_cap": 10,
+        "upper": null,
+        "visited_nodes": 10
+      },
+      "ordinary_exact": {
+        "lower": [
+          203,
+          3
+        ],
+        "visited_nodes": 11
+      },
+      "remaining_slots": 1,
+      "root_endpoint_upper": [
+        76,
+        1
+      ],
+      "root_lipschitz_upper": [
+        78,
+        1
+      ],
+      "scope": "terminal"
+    },
+    {
+      "case": "small-interactive-pool",
+      "certificate_sha256": "be17f0c6a7cf7cecf8f42ba1eae38bcc12dc31ee16df7007bc2d0fb9636e025f",
+      "certified": {
+        "claim": "EXACT_FINITE_SUBGAME",
+        "gap": [
+          0,
+          1
+        ],
+        "lower": [
+          64,
+          1
+        ],
+        "search": {
+          "expansions": 1,
+          "generated": 12,
+          "max_expansions": 100
+        },
+        "upper": [
+          64,
+          1
+        ]
+      },
+      "checker_nodes": 12,
+      "data_kind": "SYNTHETIC",
+      "gain_vs_honest": [
+        0,
+        1
+      ],
+      "gain_vs_noop": [
+        0,
+        1
+      ],
+      "ordinary_beam": {
+        "beam_width": 2,
+        "lower": [
+          64,
+          1
+        ],
+        "transition_cap": 11,
+        "upper": null,
+        "visited_nodes": 11
+      },
+      "ordinary_exact": {
+        "lower": [
+          64,
+          1
+        ],
+        "visited_nodes": 12
+      },
+      "remaining_slots": 1,
+      "root_endpoint_upper": [
+        76,
+        1
+      ],
+      "root_lipschitz_upper": [
+        76,
+        1
+      ],
+      "scope": "terminal"
+    },
+    {
+      "case": "small-pool",
+      "certificate_sha256": "81c62103502236201388e309974a9fdf9520ea30f23da4e4346204cd8ad6e927",
+      "certified": {
+        "claim": "EXACT_FINITE_SUBGAME",
+        "gap": [
+          0,
+          1
+        ],
+        "lower": [
+          64,
+          1
+        ],
+        "search": {
+          "expansions": 1,
+          "generated": 12,
+          "max_expansions": 100
+        },
+        "upper": [
+          64,
+          1
+        ]
+      },
+      "checker_nodes": 12,
+      "data_kind": "SYNTHETIC",
+      "gain_vs_honest": [
+        0,
+        1
+      ],
+      "gain_vs_noop": [
+        18,
+        1
+      ],
+      "ordinary_beam": {
+        "beam_width": 2,
+        "lower": [
+          64,
+          1
+        ],
+        "transition_cap": 11,
+        "upper": null,
+        "visited_nodes": 11
+      },
+      "ordinary_exact": {
+        "lower": [
+          64,
+          1
+        ],
+        "visited_nodes": 12
+      },
+      "remaining_slots": 1,
+      "root_endpoint_upper": [
+        76,
+        1
+      ],
+      "root_lipschitz_upper": [
+        76,
+        1
+      ],
+      "scope": "reports"
+    },
+    {
+      "case": "two-slot-lmsr",
+      "certificate_sha256": "ce871f7b3fc14d809f32a53aa595458589e30312eacecc89d1fed7c073f8577f",
+      "certified": {
+        "claim": "EXACT_FINITE_SUBGAME",
+        "gap": [
+          0,
+          1
+        ],
+        "lower": [
+          65,
+          1
+        ],
+        "search": {
+          "expansions": 11,
+          "generated": 111,
+          "max_expansions": 100
+        },
+        "upper": [
+          65,
+          1
+        ]
+      },
+      "checker_nodes": 111,
+      "data_kind": "SYNTHETIC",
+      "gain_vs_honest": [
+        5,
+        1
+      ],
+      "gain_vs_noop": [
+        5,
+        1
+      ],
+      "ordinary_beam": {
+        "beam_width": 2,
+        "lower": [
+          190,
+          3
+        ],
+        "transition_cap": 110,
+        "upper": null,
+        "visited_nodes": 30
+      },
+      "ordinary_exact": {
+        "lower": [
+          65,
+          1
+        ],
+        "visited_nodes": 111
+      },
+      "remaining_slots": 2,
+      "root_endpoint_upper": [
+        72,
+        1
+      ],
+      "root_lipschitz_upper": [
+        76,
+        1
+      ],
+      "scope": "terminal"
+    },
+    {
+      "case": "zero-external-lmsr",
+      "certificate_sha256": "8ca52ab9389d18f141c28571790246646a7af1de640395bcc9c140f31a5ce651",
+      "certified": {
+        "claim": "EXACT_FINITE_SUBGAME",
+        "gap": [
+          0,
+          1
+        ],
+        "lower": [
+          64,
+          1
+        ],
+        "search": {
+          "expansions": 0,
+          "generated": 1,
+          "max_expansions": 100
+        },
+        "upper": [
+          64,
+          1
+        ]
+      },
+      "checker_nodes": 1,
+      "data_kind": "SYNTHETIC",
+      "gain_vs_honest": [
+        0,
+        1
+      ],
+      "gain_vs_noop": [
+        0,
+        1
+      ],
+      "ordinary_beam": {
+        "beam_width": 2,
+        "lower": [
+          64,
+          1
+        ],
+        "transition_cap": 1,
+        "upper": null,
+        "visited_nodes": 1
+      },
+      "ordinary_exact": {
+        "lower": [
+          64,
+          1
+        ],
+        "visited_nodes": 11
+      },
+      "remaining_slots": 1,
+      "root_endpoint_upper": [
+        64,
+        1
+      ],
+      "root_lipschitz_upper": [
+        66,
+        1
+      ],
+      "scope": "terminal"
+    },
+    {
+      "case": "larger-lmsr",
+      "certificate_sha256": "3a6f21f2626ff74e44d0789adefce27915c0dd36cb056ff2ca970330163f9492",
+      "certified": {
+        "claim": "BOUNDED_FINITE_SUBGAME",
+        "gap": [
+          20,
+          3
+        ],
+        "lower": [
+          562,
+          3
+        ],
+        "search": {
+          "expansions": 2,
+          "generated": 50,
+          "max_expansions": 2
+        },
+        "upper": [
+          194,
+          1
+        ]
+      },
+      "checker_nodes": 50,
+      "data_kind": "SYNTHETIC",
+      "gain_vs_honest": [
+        0,
+        1
+      ],
+      "gain_vs_noop": [
+        0,
+        1
+      ],
+      "ordinary_beam": {
+        "beam_width": 2,
+        "lower": [
+          562,
+          3
+        ],
+        "transition_cap": 49,
+        "upper": null,
+        "visited_nodes": 49
+      },
+      "ordinary_exact": null,
+      "remaining_slots": 9,
+      "root_endpoint_upper": [
+        194,
+        1
+      ],
+      "root_lipschitz_upper": [
+        661,
+        3
+      ],
+      "scope": "terminal"
+    }
+  ],
+  "comparison": "State expansions, transitions and wall time differ; no general speedup claim.",
+  "data_kind": "SYNTHETIC",
+  "interpretation": "Implementation fixtures; known economic failure, no empirical or novelty claim.",
+  "sha256": "267bc0f74059ed404f21d6ddd1e023d28d6caba75d7eb22dbf4e53812ddc86f4",
+  "version": "certified-examples-1"
+}

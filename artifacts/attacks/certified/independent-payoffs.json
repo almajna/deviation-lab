@@ -1,0 +1,58 @@
+{
+  "honest": {
+    "cash_conserved": true,
+    "effort": 0,
+    "expected_cash": [
+      64,
+      1
+    ],
+    "expected_claims": [
+      0,
+      1
+    ],
+    "expected_scores": [
+      64,
+      1
+    ],
+    "expected_utility": [
+      64,
+      1
+    ],
+    "external_benefit": 0,
+    "fees": 0,
+    "pre_settlement_cash": [
+      0,
+      1
+    ],
+    "realized_cash": 62,
+    "realized_utility": 62
+  },
+  "selected": {
+    "cash_conserved": true,
+    "effort": 0,
+    "expected_cash": [
+      185,
+      3
+    ],
+    "expected_claims": [
+      2,
+      3
+    ],
+    "expected_scores": [
+      64,
+      1
+    ],
+    "expected_utility": [
+      203,
+      3
+    ],
+    "external_benefit": 6,
+    "fees": 2,
+    "pre_settlement_cash": [
+      -3,
+      1
+    ],
+    "realized_cash": 61,
+    "realized_utility": 67
+  }
+}
