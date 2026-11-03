@@ -213,6 +213,20 @@ class TestSearchAndStatistics(unittest.TestCase):
             import hashlib
             for path,sha in manifest['files'].items():self.assertEqual(hashlib.sha256((Path(d)/path).read_bytes()).hexdigest(),sha)
 
+    def test_float_reductions_do_not_depend_on_builtin_sum_version(self):
+        # Python3.11 sum lost this unit; Python3.12 changed its float algorithm.
+        r=interval([1e16,1.,-1e16],[1,1,1],replicates=100,seed=3)
+        self.assertEqual(r['estimate'],1/3)
+        p,y,_=synthetic(PROTOCOL['synthetic']['base'],99991)
+        baseline=execute(p,lambda:y,'lmsr')
+        def legacy_sum(values,start=0):
+            total=start
+            for value in values:total+=value
+            return total
+        with patch('deviation.evaluation.runner.sum',legacy_sum,create=True):
+            actual=execute(p,lambda:y,'lmsr')
+        self.assertEqual(actual,baseline)
+
     def test_ratio_bootstrap_retains_unequal_cluster_sizes(self):
         r=interval([4,0],[4,1],replicates=100,seed=3)
         self.assertAlmostEqual(r['estimate'],.8)

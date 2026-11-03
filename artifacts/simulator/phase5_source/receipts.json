@@ -42,7 +42,7 @@
     "total_preference_proxy": 1.0
   },
   "execution_version": "simulator-1",
-  "implementation_sha256": "b2d0f9570884300801e31162721f0110f3602f52f049b831ff599816bc9d33ce",
+  "implementation_sha256": "ea6facd88431e7726e395b97b8f9e10c102bb8fd606d925db67883c8dcb86fed",
   "input_sha256": "ecdbd8f25dbd0b06e01c41a86e5848bad5d55b65ebf591a81d33487cdab1d037",
   "ledger": {
     "agent_utilities": {
@@ -153,7 +153,7 @@
     "reservation_budget": 600,
     "schema_version": "0.2"
   },
-  "sha256": "0edeca2a552986f9ac87114987d8ba618d7f4849e99d00fe8eb18cf13a6584de",
+  "sha256": "c3cef9028fc3421ea4ec76aca7976c958d0d59d013690f2f6e3857f248479a7c",
   "trace": {
     "agent_origin": "SYNTHETIC",
     "cost_unit": "nano_synthetic_units",

@@ -5,6 +5,7 @@ runner uses the same Engine, pricing, funded scores and budget validators.
 """
 from copy import deepcopy
 from fractions import Fraction
+from math import fsum
 from deviation.contracts import validate_allocation
 from deviation.data.pipeline import digest
 from deviation.markets.engine import Engine, market_id
@@ -101,7 +102,7 @@ def execute(public, outcomes, mechanism, *, strategy=None, full_predictions=None
             v=sum(Fraction(k,2)*n for k,n in enumerate(dist));b=bins[min(4,int(5*v))]
             b['count']+=1;b['prediction_sum']+=float(v);b['outcome_sum']+=categories[mid]/2
         metrics['calibration_bins']=bins
-        metrics['calibration_abs_error']=sum(abs(b['prediction_sum']-b['outcome_sum']) for b in bins)/len(distributions)
+        metrics['calibration_abs_error']=fsum(abs(b['prediction_sum']-b['outcome_sum']) for b in bins)/len(distributions)
         bypair={(r['task_id'],r['model_id']):r['quality'] for r in sealed}
         chosen=[bypair.get((c['task_id'],c['model_id']),0) for c in plan['allocations']]
         metrics.update(trades=sum(event['type']=='trade_accepted' for event in e.events),

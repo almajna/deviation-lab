@@ -3,7 +3,7 @@
 **Exploratory validation, not final evaluation or evidence of general superiority.**
 Recorded LLM judged outcomes are distinct from synthetic forecasting/trading behavior. Quality is a noisy preference proxy; historical costs are not bills or deployable savings.
 
-Protocol `8feebbfcdebc20f18463a068839bd7125b89a5caae5691c5bbd470e83cca5390`; source `b2d0f9570884300801e31162721f0110f3602f52f049b831ff599816bc9d33ce`; result `c7759e580cc29fd7e8697a358b2fbf46354572f7fda8190180e90f9bea7fbe8d`.
+Protocol `8feebbfcdebc20f18463a068839bd7125b89a5caae5691c5bbd470e83cca5390`; source `ea6facd88431e7726e395b97b8f9e10c102bb8fd606d925db67883c8dcb86fed`; result `05bd899641a761f14823de984e14f04ae892f6b40b86f9238a042156744c283d`.
 Independent protocol review preceded evaluation; frozen selection uses separate development worlds. No final cohort was provisioned or accessed; existing exploratory test split was excluded.
 
 ## Recorded-outcome validation

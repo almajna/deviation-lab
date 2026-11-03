@@ -2,7 +2,7 @@
 
 The prereviewed exploratory benchmark found **no demonstrated market advantage** in the tested configuration. It also did not establish a generalized profitable harmful market manipulation. These are results of the specified weak forecasting/policy classes and small samples, not proofs of market inferiority or robustness.
 
-Full reproducible tables/report/figures are in `artifacts/benchmark/phase5/`. Result hash `c7759e580cc29fd7e8697a358b2fbf46354572f7fda8190180e90f9bea7fbe8d`; evaluated package fingerprint `b2d0f9570884300801e31162721f0110f3602f52f049b831ff599816bc9d33ce`. Protocol `8feebbfcdebc20f18463a068839bd7125b89a5caae5691c5bbd470e83cca5390` was independently reviewed and committed before evaluation. The old protocol checkpoint and both pre-evaluation amendments remain in Git history.
+Full reproducible tables/report/figures are in `artifacts/benchmark/phase5/`. Result hash `05bd899641a761f14823de984e14f04ae892f6b40b86f9238a042156744c283d`; evaluated package fingerprint `ea6facd88431e7726e395b97b8f9e10c102bb8fd606d925db67883c8dcb86fed`. Protocol `8feebbfcdebc20f18463a068839bd7125b89a5caae5691c5bbd470e83cca5390` was independently reviewed and committed before evaluation. The old protocol checkpoint and both pre-evaluation amendments remain in Git history.
 
 ## Recorded outcomes with synthetic forecasts
 

@@ -1,6 +1,7 @@
 """Paired cluster resampling; never treats correlated trades/seeds as tasks."""
 from collections import defaultdict
 import random
+from math import fsum
 
 
 def interval(sums, sizes, *, replicates=2000, seed=7307):
@@ -8,9 +9,9 @@ def interval(sums, sizes, *, replicates=2000, seed=7307):
     rng=random.Random(seed);N=len(sums);draws=[]
     for _ in range(replicates):
         idx=[rng.randrange(N) for _ in range(N)]
-        draws.append(sum(sums[i] for i in idx)/sum(sizes[i] for i in idx))
+        draws.append(fsum(sums[i] for i in idx)/sum(sizes[i] for i in idx))
     draws.sort()
-    return {'estimate':sum(sums)/sum(sizes),'lower':draws[int(.025*(replicates-1))],
+    return {'estimate':fsum(sums)/sum(sizes),'lower':draws[int(.025*(replicates-1))],
         'upper':draws[int(.975*(replicates-1))],'clusters':N,
         'method':'paired_cluster_percentile_ratio_95','replicates':replicates}
 
@@ -27,18 +28,18 @@ def recorded_summary(rows, mechanisms, cfg):
             sums=[];sizes=[];deltas=[]
             for batch,rs in sorted(grouped.items()):
                 n=rs[0]['task_count'];sizes.append(n)
-                sums.append(sum(r['quality'] for r in rs)*n/len(rs))
-                deltas.append(sum(r['quality']-ref[batch,r['seed']]['quality'] for r in rs)*n/len(rs))
+                sums.append(fsum(r['quality'] for r in rs)*n/len(rs))
+                deltas.append(fsum(r['quality']-ref[batch,r['seed']]['quality'] for r in rs)*n/len(rs))
             result={'mechanism':m,'budget_fraction':budget,'tasks':sum(sizes),
                 'quality':interval(sums,sizes,replicates=cfg['bootstrap_replicates'],seed=cfg['bootstrap_seed']),
                 'difference_vs_calibrated_pool':interval(deltas,sizes,replicates=cfg['bootstrap_replicates'],seed=cfg['bootstrap_seed']),
                 'uncertainty_scope':'conditional_fixed_budget_batches_seed_averaged_not_population'}
             for key in ['regret','brier','proxy_squared_error','tie_zero_quality','tie_one_quality','zero_as_one_quality','reservation_utilization','calibration_abs_error','rerouted_fraction']:
-                result[key]=sum(r[key]*r['task_count'] for r in own)/sum(r['task_count'] for r in own)
+                result[key]=fsum(r[key]*r['task_count'] for r in own)/sum(r['task_count'] for r in own)
             for key in ['reservation_spend','realized_spend','positive_task_overruns','unused_reservations','net_overrun','realized_budget_excess','fees','maker_initial_funding','maker_cash_pnl','score_reserve','score_paid','accepted','rejected','trades','updates','noops','optional_slots']:
-                result[key]=sum(r[key] for r in own)/len({r['seed'] for r in own})
-            result['reliability_bins']=[{k:sum(r['calibration_bins'][i][k] for r in own)/len({r['seed'] for r in own}) for k in ['count','prediction_sum','outcome_sum']} for i in range(5)]
-            result['brier_interval']=interval([sum(r['brier']*r['task_count'] for r in rs)/len(rs) for _,rs in sorted(grouped.items())],sizes,replicates=cfg['bootstrap_replicates'],seed=cfg['bootstrap_seed'])
+                result[key]=fsum(r[key] for r in own)/len({r['seed'] for r in own})
+            result['reliability_bins']=[{k:fsum(r['calibration_bins'][i][k] for r in own)/len({r['seed'] for r in own}) for k in ['count','prediction_sum','outcome_sum']} for i in range(5)]
+            result['brier_interval']=interval([fsum(r['brier']*r['task_count'] for r in rs)/len(rs) for _,rs in sorted(grouped.items())],sizes,replicates=cfg['bootstrap_replicates'],seed=cfg['bootstrap_seed'])
             result['batch_budget_violation_fraction']=sum(r['realized_budget_violated'] for r in own)/len(own)
             output.append(result)
     return output

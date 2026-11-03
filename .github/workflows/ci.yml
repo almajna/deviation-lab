@@ -8,6 +8,9 @@ on:
 jobs:
   unit-smoke:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.11', '3.12']
     permissions:
       contents: read
     steps:
@@ -16,7 +19,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: ${{ matrix.python-version }}
       - name: Run unit and shared contract conformance tests
         run: PYTHONPATH=src python -m unittest discover -s tests -v
       - name: Install package and reproduce v0.2 synthetic simulator artifact

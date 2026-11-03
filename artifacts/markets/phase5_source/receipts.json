@@ -18,7 +18,7 @@
     "schema_version": "0.2"
   },
   "execution_version": "markets-1",
-  "implementation_sha256": "b2d0f9570884300801e31162721f0110f3602f52f049b831ff599816bc9d33ce",
+  "implementation_sha256": "ea6facd88431e7726e395b97b8f9e10c102bb8fd606d925db67883c8dcb86fed",
   "injected_policies": false,
   "input_sha256": "7352dde22377655715629c9491ac1d86f516ce3ed9527ed414f571e9ce719555",
   "mechanism": "lmsr",
@@ -143,10 +143,10 @@
     "source_manifest_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     "split_manifest_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
   },
-  "sha256": "720bf936c20360b33044df93231941865f032d89bc34a8e9d6c83ccfcefbff52",
+  "sha256": "e413909f2d0f8e7a82183302eaea6a98447d8cdc1d0989e6c0d4ffa8066305ce",
   "trace": {
     "agent_origin": "SYNTHETIC",
-    "code_sha256": "b2d0f9570884300801e31162721f0110f3602f52f049b831ff599816bc9d33ce",
+    "code_sha256": "ea6facd88431e7726e395b97b8f9e10c102bb8fd606d925db67883c8dcb86fed",
     "config_sha256": "1bcb3c1e3d60259d1fe79f0e8ff491f612fae33921502442ef2cb61c6036bfad",
     "data_kind": "SYNTHETIC",
     "events": [
