@@ -14,6 +14,8 @@ python -m venv /tmp/deviation-integration-env
 python -m pip install --no-deps .
 python -m pip install matplotlib==3.10.7
 python -m unittest discover -s tests -v
+python -I -m deviation.attacks.certified verify artifacts/attacks/certified/scenario.json artifacts/integration/example.certificate.json
+python scripts/audit_integration_statistics.py --out /tmp/deviation-statistics.json --verify artifacts/integration/independent_statistics.json
 python -I -m deviation_integration \
   --cache /tmp/deviation-audit-cache --download \
   --out /tmp/deviation-combined-reproduction --plots \

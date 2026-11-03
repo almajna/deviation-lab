@@ -27,6 +27,10 @@ jobs:
           python -m pip install matplotlib==3.10.7
       - name: Complete combined unit, boundary and mathematical suite
         run: python -m unittest discover -s tests -v
+      - name: Verify current-source certificate example
+        run: python -I -m deviation.attacks.certified verify artifacts/attacks/certified/scenario.json artifacts/integration/example.certificate.json
+      - name: Independent recomputation of all published confidence intervals and timing summaries
+        run: python scripts/audit_integration_statistics.py --out "$RUNNER_TEMP/statistics.json" --verify artifacts/integration/independent_statistics.json
       - name: Strict original-source and installed integration reproduction
         env:
           MPLCONFIGDIR: ${{ runner.temp }}/mpl

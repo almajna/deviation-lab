@@ -3,7 +3,7 @@
 **Stage:** Backend integration of PRs #19/#23/#25/#24 on codex/final-backend-integration, issue #28. Original evidence and scientific limitations preserved; full cloud reproduction and exact-head CI/review in progress. No final evaluation or release.
 **Release status:** NOT READY.
 **Real-world result claims:** NONE.
-**Last verified:** 2026-11-03 Pacific: recovered source history and immutable original bytes; 245 tests pass on native Python 3.11/3.12 in the cloud and an independent clean Python 3.12 wheel. Full historical/current replay and exact-head hosted CI are in progress. See BACKEND_INTEGRATION.md and integration PR for final evidence.
+**Last verified:** 2026-11-03 Pacific: recovered source history and immutable original bytes; 245 tests pass on native Python 3.11/3.12 in the cloud and an independent clean Python 3.12 wheel. A completed hosted Python 3.11 generation produced all 194 manifest-bound files; strict final-head CI and independent full-manifest agreement are in progress. See BACKEND_INTEGRATION.md and integration PR for final evidence.
 
 ## Milestone tracker
 | ID | Milestone | Status | Owner | Required proof |

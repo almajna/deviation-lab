@@ -1,0 +1,35 @@
+{
+  "audit_script_sha256": "101d983da781120612bcb66918f796859bd984f2cc30c535027da0695b859c35",
+  "bootstrap_scalars_checked": 1314,
+  "certificate_timing_eligible": 72,
+  "initial_negative_run": {
+    "eligible": 72,
+    "median_ratio": 2.165409717760024,
+    "prespecified_speed_criterion_met": false,
+    "seed_block_95_interval": [
+      1.1770688113436356,
+      2.3513029127084852
+    ]
+  },
+  "maximum_abs_error": 0,
+  "median_ratio": 2.1907801380731162,
+  "prespecified_speed_criterion_met": false,
+  "raw_row_counts": {
+    "certificates": 81,
+    "recorded": 648,
+    "synthetic": 168
+  },
+  "seed_block_95_interval": [
+    1.158893535310708,
+    2.3821130206129135
+  ],
+  "source_artifacts": {
+    "artifacts/benchmark/phase5/results.json": "6d12091211aee29cd4717d9a104f4ef2035b1b2653eae3c589d451fbc5109307",
+    "artifacts/verification/initial_run/results.json": "38f97871a8b1b02407a880c4122abbcb179fa27d8996ae729a356ef5ca75d6fc",
+    "artifacts/verification/initial_run/timings.json": "c8db7e93962f56a13c3f54ded938f78adfce50525405450ce39c3a5787e7b0a9",
+    "artifacts/verification/results.json": "5516ddcdf74b0de761c261bb913e92ec916019b18e5b0682882dacab2895f5ff",
+    "artifacts/verification/timings.json": "bd14879d194e92caff0807bd502252960dbae0149f26b5f5b4d2b719cf87136e",
+    "experiments/benchmark_protocol.json": "8287a0e7755400eba3967829cbf88f320567a987b8d476bc2b641bd58a9b34d4",
+    "experiments/certificate_benchmark.json": "4aa76b8417cbd4f94cee42e3ddf28684c434d97dd9d26377d122b9d1744a2b2d"
+  }
+}
