@@ -107,6 +107,20 @@ export interface PublicTask {
   model_options: string[];
 }
 
+/** Ledger receipt (validate_ledger). Optional companion; requires run_config. */
+export interface LedgerReceipt {
+  schema_version: '0.2';
+  unit: 'virtual_credit';
+  initial_balances: Record<string, number>;
+  final_balances: Record<string, number>;
+  transfers: LedgerTransferPayload[];
+  agent_utilities: Record<string, UtilityComponents>;
+  maker_account: string;
+  maker_initial_subsidy: number;
+  maker_cash_pnl: number;
+  maker_realized_loss: number;
+}
+
 /**
  * Display context that is not part of the public replay (e.g. the budget from the allocation receipt).
  * Always labelled in the UI as an annotation, never merged into events.
@@ -129,6 +143,7 @@ export interface TraceBundle {
   trace: CompletedTrace;
   runConfig?: RunConfig;
   tasks?: PublicTask[];
+  ledger?: LedgerReceipt;
   annotation?: FixtureAnnotation;
   /** The bundled public file and its pinned hash, when the trace ships with the app. */
   file?: { path: string; sha256: string; source: string };

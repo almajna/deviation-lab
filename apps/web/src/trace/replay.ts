@@ -1,5 +1,8 @@
 // Deterministic replay: the state at cursor k is a pure fold over events[0..k].
-// No timers, randomness or rendering state participate, so seeking is exact.
+//
+// Knowledge rule: nothing in ReplayState depends on events after the cursor. Layout comes only from
+// the known prefix plus trusted, pre-run companions (the public task catalog and run configuration).
+// The UI renders exclusively from this state, so no future figure can reach the DOM.
 
 import type { LedgerTransferPayload, RealizedCostReportPayload, TraceBundle, TraceEvent, UtilityComponents } from './types';
 
@@ -15,14 +18,16 @@ export interface TaskState {
 
 export interface AccountState {
   id: string;
-  /** Balance after declared initial funding, if a run configuration supplies it. */
+  /** Balance after declared initial funding, only when a trusted run configuration supplies it. */
   initial?: number;
   delta: number;
 }
 
 export interface ReplayState {
-  /** -1 = before the first event. */
+  /** -1 = before the first event; events.length = the closing summary frame. */
   cursor: number;
+  /** Index of the last applied event (cursor clamped to the trace). */
+  applied: number;
   settled: boolean;
   tasks: TaskState[];
   reservationSpend: number;
@@ -41,58 +46,48 @@ export function settlementIndex(events: TraceEvent[]): number {
   return i === -1 ? events.length : i;
 }
 
-/** Stable task and account ordering derived from the whole trace (layout never reflows on seek). */
-export function layoutOf(bundle: TraceBundle) {
-  const taskIds: string[] = [];
-  const models = new Map<string, Set<string>>();
-  const accounts: string[] = [];
-  const addTask = (id: string) => {
-    if (!models.has(id)) {
-      taskIds.push(id);
-      models.set(id, new Set());
-    }
-    return models.get(id)!;
-  };
-  for (const t of bundle.tasks ?? bundle.annotation?.tasks ?? []) t.model_options.forEach((m) => addTask(t.task_id).add(m));
-  const addAccount = (a: string) => !accounts.includes(a) && accounts.push(a);
-  for (const a of Object.keys(bundle.runConfig?.initial_balances ?? {})) addAccount(a);
-  for (const e of bundle.trace.events) {
-    if (e.type === 'public_forecast') Object.keys(e.payload.values).forEach((m) => addTask(e.payload.task_id).add(m));
-    if (e.type === 'reservation') {
-      const s = addTask(e.payload.task_id);
-      if (e.payload.model_id) s.add(e.payload.model_id);
-    }
-    if (e.type === 'ledger_transfer') {
-      addAccount(e.payload.payer);
-      addAccount(e.payload.payee);
-    }
-  }
-  return {
-    tasks: taskIds.map((id) => ({
-      task_id: id,
-      prompt: (bundle.tasks ?? bundle.annotation?.tasks)?.find((t) => t.task_id === id)?.prompt,
-      models: [...models.get(id)!].sort(),
-    })),
-    accounts,
-  };
-}
+/** The last cursor position: one frame past the final event, where the replay concludes. */
+export const endOf = (bundle: TraceBundle) => bundle.trace.events.length;
 
 export function replayAt(bundle: TraceBundle, cursor: number): ReplayState {
   const { events } = bundle.trace;
-  const k = Math.max(-1, Math.min(cursor, events.length - 1));
-  const layout = layoutOf(bundle);
-  const tasks: TaskState[] = layout.tasks.map((t) => ({ ...t }));
-  const byId = new Map(tasks.map((t) => [t.task_id, t]));
-  const init = bundle.runConfig?.initial_balances ?? {};
-  const accounts: AccountState[] = layout.accounts.map((id) => ({ id, initial: init[id], delta: 0 }));
-  const accountById = new Map(accounts.map((a) => [a.id, a]));
+  const end = events.length;
+  const c = Math.max(-1, Math.min(cursor, end));
+  const k = Math.min(c, end - 1);
+  const catalog = bundle.tasks ?? bundle.annotation?.tasks;
+  const config = bundle.runConfig;
+
+  const tasks: TaskState[] = [];
+  const byId = new Map<string, TaskState>();
+  const task = (id: string) => {
+    let t = byId.get(id);
+    if (!t) {
+      const entry = catalog?.find((x) => x.task_id === id);
+      t = { task_id: id, prompt: entry?.prompt, models: entry ? [...entry.model_options].sort() : [] };
+      byId.set(id, t);
+      tasks.push(t);
+    }
+    return t;
+  };
+  for (const entry of catalog ?? []) task(entry.task_id);
+  const addModel = (t: TaskState, m: string) => !t.models.includes(m) && (t.models.push(m), t.models.sort());
+
+  const accounts: AccountState[] = [];
+  const account = (id: string) => {
+    let a = accounts.find((x) => x.id === id);
+    if (!a) accounts.push((a = { id, initial: config?.initial_balances[id], delta: 0 }));
+    return a;
+  };
+  for (const id of Object.keys(config?.initial_balances ?? {})) account(id);
+
   const state: ReplayState = {
-    cursor: k,
+    cursor: c,
+    applied: k,
     settled: false,
     tasks,
     reservationSpend: 0,
-    budget: bundle.runConfig?.reservation_budget ?? bundle.annotation?.reservation_budget,
-    budgetSource: bundle.runConfig ? 'run_config' : bundle.annotation?.reservation_budget !== undefined ? 'annotation' : undefined,
+    budget: config?.reservation_budget ?? bundle.annotation?.reservation_budget,
+    budgetSource: config ? 'run_config' : bundle.annotation?.reservation_budget !== undefined ? 'annotation' : undefined,
     accounts,
     transfers: [],
   };
@@ -100,25 +95,28 @@ export function replayAt(bundle: TraceBundle, cursor: number): ReplayState {
   for (let i = 0; i <= k; i++) {
     const e = events[i];
     switch (e.type) {
-      case 'public_forecast':
-        byId.get(e.payload.task_id)!.forecast = { values: e.payload.values, seq: e.seq, actor: e.actor };
+      case 'public_forecast': {
+        const t = task(e.payload.task_id);
+        Object.keys(e.payload.values).forEach((m) => addModel(t, m));
+        t.forecast = { values: e.payload.values, seq: e.seq, actor: e.actor };
         break;
-      case 'reservation':
-        byId.get(e.payload.task_id)!.reservation = { ...e.payload, seq: e.seq };
+      }
+      case 'reservation': {
+        const t = task(e.payload.task_id);
+        if (e.payload.model_id) addModel(t, e.payload.model_id);
+        t.reservation = { ...e.payload, seq: e.seq };
         state.reservationSpend += e.payload.reserved_cost;
         break;
+      }
       case 'realized_cost_report':
         state.settled = true;
         state.report = { ...e.payload, seq: e.seq };
-        for (const c of e.payload.selected_costs) {
-          const t = byId.get(c.task_id);
-          if (t) t.realized = { realized_cost: c.realized_cost, seq: e.seq };
-        }
+        for (const sc of e.payload.selected_costs) task(sc.task_id).realized = { realized_cost: sc.realized_cost, seq: e.seq };
         break;
       case 'ledger_transfer':
         state.transfers.push({ ...e.payload, seq: e.seq });
-        accountById.get(e.payload.payer)!.delta -= e.payload.amount;
-        accountById.get(e.payload.payee)!.delta += e.payload.amount;
+        account(e.payload.payer).delta -= e.payload.amount;
+        account(e.payload.payee).delta += e.payload.amount;
         break;
       case 'utility_summary':
         state.utilities = { values: e.payload, seq: e.seq };

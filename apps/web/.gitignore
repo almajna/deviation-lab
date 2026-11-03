@@ -1,3 +1,8 @@
+# The repository root .gitignore (Python template) ignores every `lib/` directory.
+# Re-include this app's source library explicitly; nothing else under it is ignored.
+!src/lib/
+!src/lib/**
+
 node_modules/
 dist/
 test-results/

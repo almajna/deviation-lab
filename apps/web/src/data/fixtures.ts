@@ -7,14 +7,20 @@ import trace from '../../fixtures/gate-a.synthetic.json';
 import annotation from '../../fixtures/gate-a.annotations.json';
 import manifest from '../../fixtures/manifest.json';
 import type { FixtureAnnotation, TraceBundle } from '../trace/types';
-import { validateTrace } from '../trace/validate';
+import { checkBudget, validateTasks, validateTrace } from '../trace/validate';
+
+const validTrace = validateTrace(trace);
+const ann = annotation as FixtureAnnotation;
+// The annotation is held to the same rules as a trusted companion: it must reconcile with the trace.
+if (ann.reservation_budget !== undefined) checkBudget(ann.reservation_budget, validTrace, 'annotation');
+if (ann.tasks) validateTasks(ann.tasks, validTrace);
 
 export const CONFORMANCE_FIXTURE: TraceBundle = {
   id: 'fixture:gate-a',
   label: 'Gate A conformance fixture',
   origin: 'SYNTHETIC_FIXTURE',
-  trace: validateTrace(trace),
-  annotation: annotation as FixtureAnnotation,
+  trace: validTrace,
+  annotation: ann,
   file: { path: 'apps/web/fixtures/gate-a.synthetic.json', sha256: manifest.public_trace_sha256, source: manifest.source_projection },
 };
 

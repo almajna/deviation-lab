@@ -36,14 +36,11 @@ export function TraceBar({ bundles, current, onSelect, onLoad, onProvenance }: P
           ))}
         </select>
       </label>
-      <span className="num faint">
-        {current.trace.experiment_id} · seed {current.trace.seed}
-      </span>
-      <span className="faint">Market prices and trades: unavailable (no market events in v0.2 traces)</span>
+      <span className="num faint">seed {current.trace.seed}</span>
       <span className="spacer" />
       <button type="button" className="link" onClick={onProvenance}>Provenance</button>
-      <button type="button" className="link" onClick={download}>Download trace JSON</button>
-      <button type="button" className="link" onClick={() => file.current?.click()}>Load trace file</button>
+      <button type="button" className="link" onClick={download} title="The complete audit record, including post-settlement events">Download complete trace</button>
+      <button type="button" className="link" onClick={() => file.current?.click()}>Load trace</button>
       <input
         ref={file}
         type="file"

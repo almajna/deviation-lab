@@ -19,12 +19,13 @@ Run from `apps/web/`. Node 22 LTS is recommended (Playwright's browser installer
 ```bash
 npm ci
 npm run typecheck          # tsc -b
-npm test                   # vitest: fixture provenance, validator, replay, narration (22 tests)
+npm test                   # Vitest: provenance, validator, reconciliation, replay, narration, repo hygiene
 npm run build              # static production build → dist/
 npx playwright install chromium
-npm run e2e                # Playwright: 23 tests × desktop 1440×900 + Pixel 7 = 46
+npm run e2e                # Playwright on desktop 1440×900 + Pixel 7. Builds first, then serves that
+                           # build on 127.0.0.1:4317 (strictPort, never reuses another server)
 npm run preview            # http://127.0.0.1:4173/
-node e2e/shots.mjs <dir>   # review screenshots (needs a running preview)
+BASE=http://127.0.0.1:<port>/ node e2e/shots.mjs <dir>   # review screenshots from a running preview
 python3 scripts/verify_fixture.py   # from repo root: python3 apps/web/scripts/verify_fixture.py
 ```
 
@@ -42,9 +43,10 @@ src/components/         Stage (tasks, budget, ledger), Timeline (event-pitched l
 src/views/Unavailable   Exploit Theater and Mechanism Evolution
 ```
 
-- **Deterministic replay.** State at cursor *k* depends only on `events[0..k]`. The URL carries the cursor (`#/arena?t=3`), so any frame is a shareable deep link. No timers or randomness affect state.
-- **Knowledge boundary.** The timeline draws a settlement line at the first `POST_SETTLEMENT` event. Before it, realized costs render as "sealed" and payoffs as placeholders; the DOM holds no post-settlement text.
-- **Swap-in real traces.** `Load trace file` accepts a bare v0.2 trace or a pack (`trace` + optional `run_config` + `decision_tasks`); only those three keys are read, so other fields in a file are ignored. A budget appears only from a trusted `run_config` (cross-checked against the reported excess) or a labelled annotation.
+- **Deterministic replay.** State at cursor *k* depends only on `events[0..k]` plus pre-run companions (task catalog, run configuration). The URL carries the cursor (`#/arena?t=3`); `t = events.length` is the closing frame.
+- **Knowledge rule.** Every component, including the inspector, renders from that state alone, so nothing from a later event can reach the page: no figures, accounts, scale extents or tones. The timeline shows only that later events exist (actor and time step). "Download complete trace" is the one deliberate exception: it exports the whole audit record.
+- **Closing frame.** After the last event, a conclusion computed from the final state: budget fit, per-task over/under, credit conservation and utilities, with the synthetic caveat.
+- **Swap-in real traces.** `Load trace file` accepts a bare v0.2 trace or a public bundle of `trace` plus optional `run_config`, `decision_tasks` and `ledger`. Any other key (for example a conformance pack's private information sets) is refused. Every companion is validated and bound to the trace: roles, fees, forecast actors, non-negative running balances, task coverage, and final balances, utilities and maker P&L reconciled against the events. Contradictory accounting is rejected, never displayed. A render failure is caught and offers a return to the bundled fixture.
 - **Scale.** Accounts beyond 8 are aggregated into role cohorts (`cohortAccounts`); a 3,000-event stress trace replays in well under 250 ms (unit test). The timeline draws one mark per event without per-event focus stops.
 
 ## Interaction
@@ -61,6 +63,9 @@ src/views/Unavailable   Exploit Theater and Mechanism Evolution
 
 ## What the tests prove
 
+See `docs/REVIEW.md` for each review finding, its fix and its named regression test.
+
+
 - Every playback control: play to end, pause, Replay, rewind, step bounds and disabled states, speed buttons (exclusive, measurably faster), timeline click and drag (snaps to whole events), slider arrow keys, keyboard shortcuts including rapid presses, nav links, provenance, trace selector, file load (valid and invalid), JSON export (byte-for-byte equal to the bundled trace), copy JSON, inspector seek and focus return.
 - Every clickable figure names its source event, and that event contains the figure; ledger deltas equal the sum of each account's transfers.
 - At event 2 the DOM contains no post-settlement figure.
@@ -71,7 +76,9 @@ src/views/Unavailable   Exploit Theater and Mechanism Evolution
 
 - [x] Keyboard: every control reachable; timeline is a `role="slider"` with arrow keys and a text value.
 - [x] Narration region is `aria-live="polite"`; figures have descriptive `aria-label`s naming the source event.
-- [x] Inspector returns focus to its trigger, closes on Esc, and is `inert` while closed.
+- [x] Inspector is a modal dialog (`aria-modal`, labelled): focus contained, Esc and scrim close it, the page behind is `inert`, focus returns to the trigger.
+- [x] Skip link becomes visible on focus and moves focus to the main content.
+- [x] Phone touch targets for playback are 44 × 44 px; phone labels are at least 12 px.
 - [x] Colour never carries meaning alone: every red/green value is a signed number with a label.
 - [x] Contrast: primary `#ededed` and secondary `#a1a1a1` on `#050505` exceed 4.5:1; tertiary `#7c7c7c` is used for metadata at ≥4.5:1.
 - [x] `prefers-reduced-motion`: movement, blur and number tweens are removed; opacity fades remain (E2E checked).

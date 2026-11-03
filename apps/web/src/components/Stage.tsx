@@ -9,16 +9,15 @@ export type InspectTarget = { kind: 'event'; seq: number } | { kind: 'account'; 
 
 interface Props {
   bundle: TraceBundle;
+  /** Everything rendered here comes from this state: the known prefix of events only. */
   state: ReplayState;
-  /** State at the final event: fixes scales so nothing reflows while seeking. */
-  final: ReplayState;
   onInspect: (t: InspectTarget) => void;
 }
 
 type Row = 'tasks' | 'budget' | 'ledger';
 
-/** Which stage row the event at the cursor writes to. */
-function focusOf(bundle: TraceBundle, cursor: number): Row | undefined {
+/** Which stage row the event at the cursor writes to (none on the opening and closing frames). */
+export function focusOf(bundle: TraceBundle, cursor: number): Row | undefined {
   const e = bundle.trace.events[cursor];
   if (!e) return undefined;
   if (e.type === 'public_forecast') return 'tasks';
@@ -26,15 +25,15 @@ function focusOf(bundle: TraceBundle, cursor: number): Row | undefined {
   return 'ledger';
 }
 
-export function Stage({ bundle, state, final, onInspect }: Props) {
+export function Stage({ bundle, state, onInspect }: Props) {
   const focus = focusOf(bundle, state.cursor);
   const active = (r: Row) => (focus === undefined ? undefined : focus === r || (r === 'tasks' && focus === 'budget'));
   return (
     <section className="stage" aria-label="Replay stage" data-focus={focus}>
       <Tasks state={state} onInspect={onInspect} active={active('tasks')} />
       <div className="stage-pair">
-        <Budget bundle={bundle} state={state} final={final} onInspect={onInspect} active={active('budget')} />
-        <Ledger state={state} final={final} onInspect={onInspect} active={active('ledger')} />
+        <Budget bundle={bundle} state={state} onInspect={onInspect} active={active('budget')} />
+        <Ledger state={state} onInspect={onInspect} active={active('ledger')} />
       </div>
     </section>
   );
@@ -42,7 +41,7 @@ export function Stage({ bundle, state, final, onInspect }: Props) {
 
 function Seq({ seq, onInspect, children, label }: { seq: number; onInspect: Props['onInspect']; children: React.ReactNode; label: string }) {
   return (
-    <button type="button" className="value-btn" onClick={() => onInspect({ kind: 'event', seq })} aria-label={`${label}. Inspect event ${seq}`}>
+    <button type="button" className="value-btn" onClick={() => onInspect({ kind: 'event', seq })} aria-label={`${label}. Inspect event ${seq + 1}`}>
       {children}
     </button>
   );
@@ -59,11 +58,12 @@ function Caption({ title, note }: { title: string; note: string }) {
 
 function Tasks({ state, onInspect, active }: { state: ReplayState; onInspect: Props['onInspect']; active?: boolean }) {
   return (
-    <div className="stage-row" data-active={active}>
+    <div className="stage-row" data-row="tasks" data-active={active}>
       <Caption title="Tasks" note="forecasts are expected judged-preference reward" />
+      {state.tasks.length === 0 && <p className="empty">No task has appeared yet.</p>}
       <div className="tasks">
         {state.tasks.map((t) => (
-          <article className="task" key={t.task_id} aria-label={`Task ${t.task_id}${t.forecast ? '' : ', no public forecast in this trace'}`}>
+          <article className="task" key={t.task_id} aria-label={`Task ${t.task_id}${t.forecast ? '' : ', no public forecast yet'}`}>
             <header>
               <span className="num">{t.task_id}</span>
               {t.prompt && <span title={t.prompt}>{t.prompt}</span>}
@@ -72,12 +72,14 @@ function Tasks({ state, onInspect, active }: { state: ReplayState; onInspect: Pr
               <span>model</span>
               <span>{t.forecast ? '' : 'no public forecast'}</span>
               <span>reward</span>
-              <span>reserved Δ</span>
+              <span>reserved</span>
+              <span>realized<span className="qual"> · vs reserved</span></span>
             </div>
             {t.models.map((m) => {
               const v = t.forecast?.values[m];
               const chosen = t.reservation?.model_id === m;
-              const delta = chosen && t.realized ? t.realized.realized_cost - t.reservation!.reserved_cost : undefined;
+              const realized = chosen ? t.realized : undefined;
+              const delta = realized ? realized.realized_cost - t.reservation!.reserved_cost : undefined;
               return (
                 <div className="model" key={m} data-chosen={chosen}>
                   <span className="name">{m}</span>
@@ -94,25 +96,25 @@ function Tasks({ state, onInspect, active }: { state: ReplayState; onInspect: Pr
                     )}
                   </span>
                   <span className="cost">
-                    {chosen && t.reservation && (
-                      <>
-                        <Seq seq={t.reservation.seq} onInspect={onInspect} label={`Reserved ${t.reservation.reserved_cost}`}>
-                          <Num value={t.reservation.reserved_cost} />
+                    {chosen && t.reservation ? (
+                      <Seq seq={t.reservation.seq} onInspect={onInspect} label={`Reserved ${t.reservation.reserved_cost} for model ${m}`}>
+                        <Num value={t.reservation.reserved_cost} />
+                      </Seq>
+                    ) : null}
+                  </span>
+                  <span className="cost realized">
+                    {chosen && t.reservation ? (
+                      realized && delta !== undefined ? (
+                        <Seq seq={realized.seq} onInspect={onInspect} label={`Realized ${realized.realized_cost}, ${delta > 0 ? `${delta} over` : delta < 0 ? `${-delta} under` : 'equal to'} the reservation`}>
+                          <Num value={realized.realized_cost} />
+                          <small className={delta > 0 ? 'loss' : delta < 0 ? 'gain' : 'faint'}>
+                            {delta > 0 ? <><Num value={delta} signed /> over</> : delta < 0 ? <><Num value={-delta} /> under</> : 'exact'}
+                          </small>
                         </Seq>
-                        {delta !== undefined && t.realized && (
-                          <>
-                            {' '}
-                            <Seq
-                              seq={t.realized.seq}
-                              onInspect={onInspect}
-                              label={`Realized ${t.realized.realized_cost}, ${delta > 0 ? 'over' : 'under'} reservation by ${Math.abs(delta)}`}
-                            >
-                              <Num value={delta} signed tone={delta > 0 ? 'loss' : delta < 0 ? 'gain' : undefined} />
-                            </Seq>
-                          </>
-                        )}
-                      </>
-                    )}
+                      ) : (
+                        <span className="faint">sealed</span>
+                      )
+                    ) : null}
                   </span>
                 </div>
               );
@@ -134,35 +136,35 @@ function scaleOf(max: number) {
   return { top, ticks };
 }
 
-function Budget({ bundle, state, final, onInspect, active }: Props & { active?: boolean }) {
+function Budget({ bundle, state, onInspect, active }: Props & { active?: boolean }) {
   const unit = costUnitLabel(bundle.trace.cost_unit);
-  const finalRealized = final.report?.realized_spend ?? 0;
-  const { top, ticks } = scaleOf(Math.max(state.budget ?? 0, finalRealized, final.reservationSpend) * 1.05 || 1);
-  const pct = (n: number) => `${(n / top) * 100}%`;
-  const budget = state.budget;
   const r = state.report;
+  const budget = state.budget;
+  // The scale is sized from what is known now; it widens at settlement if realized costs require it.
+  const { top, ticks } = scaleOf(Math.max(budget ?? 0, state.reservationSpend, r?.realized_spend ?? 0) * 1.05 || 1);
+  const pct = (n: number) => `${(n / top) * 100}%`;
 
   let offset = 0;
-  const reservedSegs = final.tasks
+  const reservedSegs = state.tasks
     .filter((t) => t.reservation && t.reservation.reserved_cost > 0)
     .map((t) => {
-      const seg = { id: t.task_id, left: offset, w: t.reservation!.reserved_cost, on: !!state.tasks.find((x) => x.task_id === t.task_id)?.reservation };
+      const seg = { id: t.task_id, left: offset, w: t.reservation!.reserved_cost };
       offset += seg.w;
       return seg;
     });
   let rOffset = 0;
-  const realizedSegs = final.tasks
-    .filter((t) => t.realized)
-    .map((t) => {
-      const seg = { id: t.task_id, left: rOffset, w: t.realized!.realized_cost };
-      rOffset += seg.w;
-      return seg;
-    });
-  const over = budget !== undefined && finalRealized > budget;
+  const realizedSegs = r
+    ? state.tasks.filter((t) => t.realized).map((t) => {
+        const seg = { id: t.task_id, left: rOffset, w: t.realized!.realized_cost };
+        rOffset += seg.w;
+        return seg;
+      })
+    : [];
+  const over = r && budget !== undefined && r.realized_spend > budget ? r.realized_spend - budget : 0;
 
   return (
-    <div className="stage-row" data-active={active}>
-      <Caption title="Budget" note={state.budgetSource === 'annotation' ? `${unit} · budget from fixture annotation, not the trace` : unit} />
+    <div className="stage-row" data-row="budget" data-active={active}>
+      <Caption title="Budget" note={state.budgetSource === 'annotation' ? `${unit} · budget: fixture annotation` : unit} />
       <div className="budget" role="img" aria-label={budgetLabel(state, budget)}>
         {budget !== undefined && (
           <div className="budget-overlay" aria-hidden="true">
@@ -181,7 +183,7 @@ function Budget({ bundle, state, final, onInspect, active }: Props & { active?: 
           <span>Reserved</span>
           <span className="bar">
             {reservedSegs.map((s) => (
-              <i key={s.id} className="seg" style={{ left: pct(s.left), width: pct(s.w), transform: `scaleX(${s.on ? 1 : 0})` }} />
+              <i key={s.id} className="seg grow" style={{ left: pct(s.left), width: pct(s.w) }} />
             ))}
           </span>
           <span>
@@ -191,25 +193,23 @@ function Budget({ bundle, state, final, onInspect, active }: Props & { active?: 
         <div className="bar-row">
           <span>Realized</span>
           <span className="bar">
-            <i className="sealed" style={{ opacity: state.settled ? 0 : 1 }} />
+            {!r && <i className="sealed" />}
             {realizedSegs.map((s) => (
-              <i key={s.id} className="seg dim" style={{ left: pct(s.left), width: pct(s.w), transform: `scaleX(${state.settled ? 1 : 0})` }} />
+              <i key={s.id} className="seg dim grow" style={{ left: pct(s.left), width: pct(s.w) }} />
             ))}
-            {over && (
+            {over > 0 && (
               <>
-                <i className="seg over" style={{ left: pct(budget!), width: pct(finalRealized - budget!), transform: `scaleX(${state.settled ? 1 : 0})`, transitionDelay: state.settled ? '200ms' : '0ms' }} />
-                {state.settled && (
-                  <span className="bar-note num" aria-hidden="true" style={{ left: pct(budget!), width: pct(finalRealized - budget!) }}>
-                    {fmt(finalRealized - budget!, true)} over budget
-                  </span>
-                )}
+                <i className="seg over grow late" style={{ left: pct(budget!), width: pct(over) }} />
+                <span className="bar-note num" aria-hidden="true" style={{ left: pct(budget!), width: pct(over) }}>
+                  {fmt(over, true)} over budget
+                </span>
               </>
             )}
           </span>
           <span>
             {r ? (
               <Seq seq={r.seq} onInspect={onInspect} label={`Realized spend ${r.realized_spend}`}>
-                <Num value={r.realized_spend} tone={r.realized_budget_violated ? 'loss' : undefined} />
+                <Num value={r.realized_spend} tone={r.realized_budget_violated && budget !== undefined ? 'loss' : undefined} />
               </Seq>
             ) : (
               <span className="faint">sealed</span>
@@ -228,11 +228,11 @@ function Budget({ bundle, state, final, onInspect, active }: Props & { active?: 
           <span />
         </div>
       </div>
-      <p className="budget-report" data-hidden={!r}>
+      <p className="budget-report">
         {r ? (
           <>
             <span>
-              vs reserved <Num value={r.net_overrun} signed tone={r.net_overrun > 0 ? 'loss' : 'gain'} />
+              vs reserved <Num value={r.net_overrun} signed tone={r.net_overrun > 0 ? 'loss' : r.net_overrun < 0 ? 'gain' : undefined} />
               <span className="faint">
                 {' '}
                 (overruns <Num value={r.positive_task_overruns} signed /> · unused <Num value={-r.unused_reservations} signed />)
@@ -261,7 +261,7 @@ function budgetLabel(s: ReplayState, budget?: number) {
   return parts.join('. ');
 }
 
-function Ledger({ state, final, onInspect, active }: { state: ReplayState; final: ReplayState; onInspect: Props['onInspect']; active?: boolean }) {
+function Ledger({ state, onInspect, active }: { state: ReplayState; onInspect: Props['onInspect']; active?: boolean }) {
   const [ref, width] = useWidth<HTMLDivElement>();
   const groups = cohortAccounts(state.accounts);
   const n = groups.length;
@@ -269,88 +269,80 @@ function Ledger({ state, final, onInspect, active }: { state: ReplayState; final
   const gap = 24;
   const cw = n ? (width - gap * (n - 1)) / n : 0;
   const x = (i: number) => i * (cw + gap) + 8;
-  const hasTransfers = final.transfers.length > 0;
-  const utilityEvent = final.utilities?.seq;
+  const balances = n > 0 && groups.every((g) => g.members.every((m) => m.initial !== undefined));
 
   return (
-    <div className="stage-row" data-active={active}>
-      <Caption title="Ledger" note={groups.some((g) => g.members.some((m) => m.initial === undefined)) ? 'virtual credits · net change; balances are not in the public trace' : 'virtual credits'} />
+    <div className="stage-row" data-row="ledger" data-active={active}>
+      <Caption title="Ledger" note={balances ? 'virtual credits' : 'virtual credits · net change; balances are not in the public trace'} />
       <div className="ledger">
-        {!hasTransfers && <p className="faint">This trace records no ledger transfers.</p>}
-        <div ref={ref} className="accounts" style={{ '--n': n, paddingTop: hasTransfers ? 44 : 0 } as React.CSSProperties}>
-          {hasTransfers && width > 0 && (
-            <svg className="flows" width={width} height={44} style={{ height: 44 }} aria-hidden="true">
-              <defs>
-                {['live', 'past'].map((k) => (
-                  <marker key={k} id={`arrow-${k}`} viewBox="0 0 6 6" refX="5" refY="3" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-                    <path d="M0 0 L6 3 L0 6 z" fill={k === 'live' ? 'var(--fg)' : 'var(--fg-3)'} stroke="none" />
-                  </marker>
-                ))}
-              </defs>
-              {state.transfers.map((t, i) => {
-                const a = col(t.payer), b = col(t.payee);
-                if (a < 0 || b < 0 || a === b) return null;
-                const x1 = x(a), x2 = x(b);
-                const h = 12 + Math.abs(b - a) * 8 + (i % 2) * 5;
-                const y = 42;
-                const d = `M ${x1} ${y} C ${x1} ${y - h}, ${x2} ${y - h}, ${x2} ${y - 2}`;
-                const live = t.seq === state.cursor;
-                const len = Math.abs(x2 - x1) + h * 2;
-                return (
-                  <g key={`${t.transfer_id}:${live}`} className={live ? 'live' : 'past'}>
-                    <path d={d} style={{ '--len': len } as React.CSSProperties} markerEnd={`url(#arrow-${live ? 'live' : 'past'})`} />
-                    <text x={(x1 + x2) / 2} y={y - h * 0.75 - 4} textAnchor="middle">
-                      {t.amount}
-                    </text>
-                  </g>
-                );
-              })}
-            </svg>
-          )}
-          {groups.map((g) => {
-            const delta = g.members.reduce((s, m) => s + m.delta, 0);
-            const initial = g.members.every((m) => m.initial !== undefined) ? g.members.reduce((s, m) => s + (m.initial ?? 0), 0) : undefined;
-            const id = g.members.length === 1 ? g.members[0].id : g.key;
-            return (
-              <button type="button" key={g.key} className="account" onClick={() => onInspect({ kind: 'account', id })} aria-label={`Account ${g.label}: change ${fmt(delta, true)} credits. Inspect`}>
-                <span className="id">{g.label}</span>
-                {initial !== undefined ? (
-                  <>
-                    <Num value={initial + delta} className="bal" />
-                    <span className="delta" data-zero={delta === 0}>
-                      <Num value={delta} signed tone="auto" />
-                    </span>
-                  </>
-                ) : (
-                  <Num value={delta} signed tone="auto" className="bal" />
-                )}
-              </button>
-            );
-          })}
-        </div>
-        {final.utilities &&
-          Object.keys(final.utilities.values).map((agent) => {
-            const u = state.utilities?.values[agent];
-            if (!u || !state.utilities) {
+        {n === 0 ? (
+          <p className="empty">{state.settled ? 'No credits have moved yet.' : 'No credits move until settlement.'}</p>
+        ) : (
+          <div ref={ref} className="accounts" style={{ '--n': n, paddingTop: state.transfers.length ? 64 : 0 } as React.CSSProperties}>
+            {state.transfers.length > 0 && width > 0 && (
+              <svg className="flows" width={width} height={64} style={{ height: 64 }} aria-hidden="true">
+                <defs>
+                  {['live', 'past'].map((k) => (
+                    <marker key={k} id={`arrow-${k}`} viewBox="0 0 6 6" refX="5" refY="3" markerWidth="7" markerHeight="7" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+                      <path d="M0 0 L6 3 L0 6 z" fill={k === 'live' ? 'var(--fg)' : 'var(--fg-3)'} stroke="none" />
+                    </marker>
+                  ))}
+                </defs>
+                {state.transfers.map((t, i) => {
+                  const a = col(t.payer), b = col(t.payee);
+                  if (a < 0 || b < 0 || a === b) return null;
+                  // Each transfer gets its own lane: distinct endpoints and apex height, label above the apex.
+                  const x1 = x(a) + i * 14, x2 = x(b) + i * 14;
+                  const h = 18 + i * 28;
+                  const y = 62;
+                  const d = `M ${x1} ${y} C ${x1} ${y - h * 1.33}, ${x2} ${y - h * 1.33}, ${x2} ${y - 2}`;
+                  const live = t.seq === state.cursor;
+                  const len = Math.abs(x2 - x1) + h * 2;
+                  return (
+                    <g key={`${t.transfer_id}:${live}`} className={live ? 'live' : 'past'}>
+                      <path d={d} style={{ '--len': len } as React.CSSProperties} markerEnd={`url(#arrow-${live ? 'live' : 'past'})`} />
+                      <text x={(x1 + x2) / 2} y={y - h - 5} textAnchor="middle">
+                        {t.amount}
+                      </text>
+                    </g>
+                  );
+                })}
+              </svg>
+            )}
+            {groups.map((g) => {
+              const delta = g.members.reduce((s, m) => s + m.delta, 0);
+              const initial = balances ? g.members.reduce((s, m) => s + (m.initial ?? 0), 0) : undefined;
+              const id = g.members.length === 1 ? g.members[0].id : g.key;
               return (
-                <p className="utility" key={agent}>
-                  <span><span className="num">{agent}</span> utility</span>
-                  <span className="muted">revealed at event {utilityEvent}</span>
-                </p>
+                <button type="button" key={g.key} className="account" onClick={() => onInspect({ kind: 'account', id })} aria-label={`Account ${g.label}: change ${fmt(delta, true)} credits. Inspect`}>
+                  <span className="id">{g.label}</span>
+                  {initial !== undefined ? (
+                    <>
+                      <Num value={initial + delta} className="bal" />
+                      <span className="delta" data-zero={delta === 0}>
+                        <Num value={delta} signed tone="auto" />
+                      </span>
+                    </>
+                  ) : (
+                    <Num value={delta} signed tone="auto" className="bal" />
+                  )}
+                </button>
               );
-            }
-            return (
-              <p className="utility" key={agent}>
-                <span><span className="num">{agent}</span> utility</span>
-                <Seq seq={state.utilities.seq} onInspect={onInspect} label={`${agent} utility ${u.utility}`}>
-                  <Num value={u.utility} signed tone="auto" className="eq" />
-                </Seq>
-                <span>
-                  = cash <Num value={u.cash_delta} signed /> + external <Num value={u.external_benefit} /> − effort <Num value={u.noncash_effort_cost} />
-                </span>
-              </p>
-            );
-          })}
+            })}
+          </div>
+        )}
+        {state.utilities &&
+          Object.entries(state.utilities.values).map(([agent, u]) => (
+            <p className="utility" key={agent}>
+              <span><span className="num">{agent}</span> utility</span>
+              <Seq seq={state.utilities!.seq} onInspect={onInspect} label={`${agent} utility ${u.utility}`}>
+                <Num value={u.utility} signed tone="auto" className="eq" />
+              </Seq>
+              <span>
+                = cash <Num value={u.cash_delta} signed /> + external <Num value={u.external_benefit} /> − effort <Num value={u.noncash_effort_cost} />
+              </span>
+            </p>
+          ))}
       </div>
     </div>
   );

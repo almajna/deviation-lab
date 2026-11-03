@@ -8,6 +8,8 @@ export interface Narration {
   /** One sentence for the headline. Segments let the view colour signed figures. */
   headline: Segment[];
   detail: string;
+  /** Closing frame only: evidence-derived statements, each recomputed from the replay state. */
+  points?: Segment[][];
 }
 
 export type Segment = string | { n: number; tone?: 'gain' | 'loss'; signed?: boolean; unit?: string };
@@ -32,7 +34,7 @@ export function narrateOpening(bundle: TraceBundle, s: ReplayState): Narration {
   headline.push('Watch an allocator commit before it knows what anything costs.');
   return {
     headline,
-    detail: `${bundle.trace.events.length} recorded events. Everything to the left of the settlement line was public when decisions were made; everything to its right was revealed only afterwards.`,
+    detail: `${bundle.trace.events.length} recorded events. Left of the settlement line was public when decisions were made; right of it was revealed only afterwards. Market prices and trades are not part of v0.2 traces.`,
   };
 }
 
@@ -112,6 +114,66 @@ export function narrate(e: TraceEvent, s: ReplayState): Narration {
       };
     }
   }
+}
+
+/**
+ * The closing frame. Every statement is computed from the final replay state; nothing is authored
+ * per fixture. Claims are limited to accounting the events establish.
+ */
+export function narrateEnd(bundle: TraceBundle, s: ReplayState): Narration {
+  const r = s.report;
+  const b = s.budget;
+  const points: Segment[][] = [];
+  const headline: Segment[] = [];
+  if (r && b !== undefined) {
+    const fitted = r.reservation_spend <= b;
+    if (fitted && r.realized_budget_violated) {
+      headline.push('Within budget on paper. ', { n: r.realized_budget_excess, tone: 'loss', signed: true }, ' over once costs were known.');
+    } else if (fitted) {
+      headline.push('Committed within budget, and stayed there: ', { n: b - r.realized_spend }, ' to spare.');
+    } else {
+      headline.push('Reservations exceeded the budget before any cost was known.');
+    }
+    points.push(['Reserved ', { n: r.reservation_spend }, ' of a ', { n: b }, ' budget before any cost was revealed.']);
+  } else if (r) {
+    headline.push('Settled: realized ', { n: r.realized_spend }, ' against ', { n: r.reservation_spend }, ' reserved.');
+  } else {
+    headline.push('The replay ends without a settlement report.');
+  }
+  const deltas = s.tasks.filter((t) => t.reservation?.model_id && t.realized).map((t) => ({ id: t.task_id, d: t.realized!.realized_cost - t.reservation!.reserved_cost }));
+  if (deltas.length) {
+    const parts: Segment[] = [];
+    deltas.forEach(({ id, d }, i) => {
+      if (i) parts.push(i === deltas.length - 1 ? '; ' : ', ');
+      if (d > 0) parts.push(`${id} ran `, { n: d, tone: 'loss', signed: true }, ' over its reservation');
+      else if (d < 0) parts.push(`${id} came in `, { n: -d, tone: 'gain' }, ' under');
+      else parts.push(`${id} cost exactly its reservation`);
+    });
+    parts.push('.');
+    points.push(parts);
+  }
+  const moved = s.accounts.filter((a) => a.delta !== 0);
+  if (moved.length) {
+    const parts: Segment[] = ['Credits moved: '];
+    moved.forEach((a, i) => {
+      if (i) parts.push(', ');
+      parts.push(`${a.id} `, { n: a.delta, tone: a.delta > 0 ? 'gain' : 'loss', signed: true });
+    });
+    const net = moved.reduce((x, a) => x + a.delta, 0);
+    parts.push(net === 0 ? '. They sum to zero: nothing was created or burned.' : '.');
+    points.push(parts);
+  }
+  for (const [agent, u] of Object.entries(s.utilities?.values ?? {})) {
+    points.push([`${cap(agent)} ends with utility `, { n: u.utility, tone: u.utility >= 0 ? 'gain' : 'loss', signed: true }, ' from cash ', { n: u.cash_delta, signed: true }, '.']);
+  }
+  return {
+    headline,
+    detail:
+      bundle.origin === 'SYNTHETIC_FIXTURE'
+        ? 'A hand-authored synthetic fixture: this shows the replay’s accounting, not a mechanism result.'
+        : `Recomputed from ${bundle.trace.events.length} validated events.`,
+    points,
+  };
 }
 
 const WORDS = ['No', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'];

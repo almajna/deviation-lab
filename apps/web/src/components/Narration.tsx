@@ -8,14 +8,16 @@ interface Props {
   narration: N;
   event?: TraceEvent;
   total: number;
+  /** 'open' before the first event, 'event' during, 'end' on the closing frame. */
+  frame: 'open' | 'event' | 'end';
   onInspect: () => void;
 }
 
-export function Narration({ narration, event, total, onInspect }: Props) {
-  const key = event ? event.seq : 'open';
+export function Narration({ narration, event, total, frame, onInspect }: Props) {
+  const key = event ? event.seq : frame;
   const instant = useContext(InstantContext);
   return (
-    <section className={`narration${instant ? ' instant' : ''}`} aria-live="polite" aria-atomic="true">
+    <section className={`narration${instant ? ' instant' : ''}`} data-frame={frame} aria-live="polite" aria-atomic="true">
       <div className="meta">
         {event ? (
           <>
@@ -26,6 +28,8 @@ export function Narration({ narration, event, total, onInspect }: Props) {
             <span>{event.actor}</span>
             <span>{event.visibility === 'PUBLIC' ? 'public at the time' : 'revealed after settlement'}</span>
           </>
+        ) : frame === 'end' ? (
+          <span><b>What the record shows</b></span>
         ) : (
           <span>
             <b>00</b> / {String(total).padStart(2, '0')}
@@ -35,12 +39,19 @@ export function Narration({ narration, event, total, onInspect }: Props) {
       <h1 key={`h${key}`} className="line-enter">
         {narration.headline.map((s, i) => <Seg key={i} s={s} />)}
       </h1>
-      <p key={`p${key}`} className="line-enter" style={{ animationDelay: '60ms' }}>
+      {narration.points && (
+        <ul key={`l${key}`} className="findings line-enter" style={{ animationDelay: '60ms' }}>
+          {narration.points.map((p, i) => (
+            <li key={i}>{p.map((s, j) => <Seg key={j} s={s} />)}</li>
+          ))}
+        </ul>
+      )}
+      <p key={`p${key}`} className="line-enter" style={{ animationDelay: narration.points ? '120ms' : '60ms' }}>
         {narration.detail}
       </p>
       {event && (
         <button type="button" className="source" onClick={onInspect}>
-          View source event {event.seq}
+          View source event {event.seq + 1}
         </button>
       )}
     </section>

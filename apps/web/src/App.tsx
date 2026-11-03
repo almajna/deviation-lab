@@ -1,17 +1,17 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Component, useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { BUNDLED } from './data/fixtures';
-import { format, InstantContext, useHashRoute, type Route } from './lib/hooks';
+import { format, InstantContext, useHashRoute, useMediaQuery, type Route } from './lib/hooks';
 import { Inspector } from './components/Inspector';
 import { Narration } from './components/Narration';
 import { Stage, type InspectTarget } from './components/Stage';
 import { SPEEDS, Timeline } from './components/Timeline';
 import { TraceBar } from './components/TraceBar';
-import { narrate, narrateOpening } from './trace/narrate';
-import { replayAt } from './trace/replay';
+import { narrate, narrateEnd, narrateOpening } from './trace/narrate';
+import { endOf, replayAt } from './trace/replay';
 import type { TraceBundle } from './trace/types';
 import { Evolution, Theater } from './views/Unavailable';
 
-/** Base dwell per event at 1×. Settlement holds longer: it is the turn of the story. */
+/** Base dwell per frame at 1×. Settlement and the closing frame hold longer: they are the turns of the story. */
 const DWELL_MS = 2600;
 
 export function App() {
@@ -20,62 +20,68 @@ export function App() {
   const bundles = useMemo(() => [...BUNDLED, ...loaded], [loaded]);
   const bundle = bundles.find((b) => b.id === route.trace) ?? bundles[0];
   const n = bundle.trace.events.length;
-  const cursor = Math.max(-1, Math.min(route.t ?? -1, n - 1));
+  const end = endOf(bundle);
+  const cursor = Math.max(-1, Math.min(route.t ?? -1, end));
+  const compact = useMediaQuery('(max-width: 860px), (max-height: 719px)');
 
   const [playing, setPlaying] = useState(false);
   const [speed, setSpeed] = useState(1);
-  const [inspect, setInspect] = useState<InspectTarget | null>(null);
+  const [inspect, setInspectRaw] = useState<InspectTarget | null>(null);
   /** Keyboard navigation is repeated rapidly; its state changes land without animation. */
   const [instant, setInstant] = useState(false);
+  const setInspect = useCallback((t: InspectTarget | null) => {
+    if (t) setPlaying(false); // a modal pauses the film
+    setInspectRaw(t);
+  }, []);
 
   const go = useCallback((r: Partial<Route>) => setRoute({ ...route, ...r }), [route, setRoute]);
   const seek = useCallback(
     (k: number) => {
-      const t = Math.max(-1, Math.min(k, n - 1));
+      const t = Math.max(-1, Math.min(k, end));
       go({ t: t < 0 ? undefined : t });
     },
-    [go, n],
+    [go, end],
   );
 
   const state = useMemo(() => replayAt(bundle, cursor), [bundle, cursor]);
-  const final = useMemo(() => replayAt(bundle, n - 1), [bundle, n]);
-  const event = cursor >= 0 ? bundle.trace.events[cursor] : undefined;
-  const narration = event ? narrate(event, state) : narrateOpening(bundle, state);
+  const event = cursor >= 0 && cursor < n ? bundle.trace.events[cursor] : undefined;
+  const frame = cursor < 0 ? 'open' : cursor >= end ? 'end' : 'event';
+  const narration = event ? narrate(event, state) : frame === 'end' ? narrateEnd(bundle, state) : narrateOpening(bundle, state);
 
-  // Playback: advance one whole event per dwell; stop at the end.
+  // Playback: advance one frame per dwell; stop on the closing frame.
   useEffect(() => {
     if (!playing || route.view !== 'arena') return;
-    if (cursor >= n - 1) {
+    if (cursor >= end) {
       setPlaying(false);
       return;
     }
     const next = bundle.trace.events[cursor + 1];
-    const hold = next?.type === 'realized_cost_report' ? 1.5 : cursor < 0 ? 0.4 : 1;
+    const hold = next?.type === 'realized_cost_report' || cursor + 1 === end ? 1.5 : cursor < 0 ? 0.4 : 1;
     const id = setTimeout(() => seek(cursor + 1), (DWELL_MS * hold) / speed);
     return () => clearTimeout(id);
-  }, [playing, cursor, n, speed, seek, bundle, route.view]);
+  }, [playing, cursor, end, speed, seek, bundle, route.view]);
 
   const toggle = useCallback(() => {
-    if (!playing && cursor >= n - 1) seek(-1);
+    if (!playing && cursor >= end) seek(-1);
     setPlaying((p) => !p);
-  }, [playing, cursor, n, seek]);
+  }, [playing, cursor, end, seek]);
 
   // Keyboard: Space play/pause, ←/→ step, Home/End, I inspect. One listener reads the latest state
   // through a ref, so keys pressed in quick succession (e.g. right after Esc) are never dropped.
-  const keys = useRef({ inspect, toggle, seek, cursor, n, event, view: route.view });
-  keys.current = { inspect, toggle, seek, cursor, n, event, view: route.view };
+  const keys = useRef({ inspect, toggle, seek, cursor, end, event, view: route.view });
+  keys.current = { inspect, toggle, seek, cursor, end, event, view: route.view };
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      const { inspect, toggle, seek, cursor, n, event, view } = keys.current;
+      const { inspect, toggle, seek, cursor, end, event, view } = keys.current;
       const el = e.target as HTMLElement;
       if (view !== 'arena' || inspect || e.metaKey || e.ctrlKey || e.altKey || /^(INPUT|SELECT|TEXTAREA)$/.test(el.tagName)) return;
       const k = e.key;
-      if (/^(ArrowLeft|ArrowRight|Home|End)$/.test(k)) setInstant(true);
-      if (k === ' ' && el.tagName !== 'BUTTON') { e.preventDefault(); setInstant(false); toggle(); }
+      if (k === ' ' && el.tagName !== 'BUTTON' && el.tagName !== 'A') { e.preventDefault(); setInstant(false); toggle(); }
       else if (/^(ArrowRight|ArrowLeft|Home|End)$/.test(k)) {
         e.preventDefault();
+        setInstant(true);
         setPlaying(false);
-        const t = Math.max(-1, Math.min(n - 1, k === 'ArrowRight' ? cursor + 1 : k === 'ArrowLeft' ? cursor - 1 : k === 'Home' ? -1 : n - 1));
+        const t = Math.max(-1, Math.min(end, k === 'ArrowRight' ? cursor + 1 : k === 'ArrowLeft' ? cursor - 1 : k === 'Home' ? -1 : end));
         keys.current.cursor = t; // a second key before re-render continues from here
         seek(t);
       }
@@ -83,12 +89,18 @@ export function App() {
     };
     addEventListener('keydown', onKey);
     return () => removeEventListener('keydown', onKey);
-  }, []);
+  }, [setInspect]);
+
+  const resetToFixture = () => {
+    setLoaded([]);
+    setPlaying(false);
+    go({ view: 'arena', trace: undefined, t: undefined });
+  };
 
   return (
     <>
-      <a className="sr-only" href="#main">Skip to content</a>
-      <div className="shell">
+      <a className="skip-link" href="#main">Skip to content</a>
+      <div className="shell" data-page>
         <header className="masthead">
           <a className="wordmark" href={format({ view: 'arena' })}>DEVIATION</a>
           <nav className="nav" aria-label="Views">
@@ -105,44 +117,59 @@ export function App() {
         </header>
       </div>
 
-      <main id="main">
+      <main id="main" tabIndex={-1} data-page>
         {route.view === 'arena' && (
-          <InstantContext.Provider value={instant}>
-            <div className="shell arena" onPointerDown={() => setInstant(false)}>
-              <Narration narration={narration} event={event} total={n} onInspect={() => event && setInspect({ kind: 'event', seq: event.seq })} />
-              <Stage bundle={bundle} state={state} final={final} onInspect={setInspect} />
+          <Recoverable key={bundle.id} onReset={resetToFixture}>
+            <InstantContext.Provider value={instant}>
+              <div className={`shell arena${instant ? ' instant' : ''}`} onPointerDown={() => setInstant(false)}>
+                <Narration narration={narration} event={event} total={n} frame={frame} onInspect={() => event && setInspect({ kind: 'event', seq: event.seq })} />
+                <Stage bundle={bundle} state={state} onInspect={setInspect} />
+                <TraceBar
+                  bundles={bundles}
+                  current={bundle}
+                  onSelect={(id) => { setPlaying(false); go({ trace: id, t: undefined }); }}
+                  onLoad={(b) => { setLoaded((l) => [...l.filter((x) => x.id !== b.id), b]); setPlaying(false); go({ trace: b.id, t: undefined }); }}
+                  onProvenance={() => setInspect({ kind: 'trace' })}
+                />
+              </div>
               <Timeline
                 events={bundle.trace.events}
                 cursor={cursor}
                 playing={playing}
                 speed={speed}
+                compact={compact}
                 onSeek={(k) => { setPlaying(false); seek(k); }}
                 onToggle={toggle}
                 onSpeed={(s) => setSpeed(SPEEDS.includes(s) ? s : 1)}
               />
-              <TraceBar
-                bundles={bundles}
-                current={bundle}
-                onSelect={(id) => { setPlaying(false); go({ trace: id, t: undefined }); }}
-                onLoad={(b) => { setLoaded((l) => [...l.filter((x) => x.id !== b.id), b]); setPlaying(false); go({ trace: b.id, t: undefined }); }}
-                onProvenance={() => setInspect({ kind: 'trace' })}
-              />
-            </div>
-          </InstantContext.Provider>
+            </InstantContext.Provider>
+          </Recoverable>
         )}
         {route.view === 'theater' && <Theater />}
         {route.view === 'evolution' && <Evolution />}
       </main>
 
-      <div className="shell">
-        <footer className="footer">
-          <span>Contract v0.2 completed-trace consumer</span>
-          <span>Forecasts are expected judged-preference reward, not probability of correctness</span>
-          <span>Costs and credits are separate units and are never combined</span>
-        </footer>
-      </div>
-
-      <Inspector bundle={bundle} target={inspect} onClose={() => setInspect(null)} onSeek={(k) => { setInspect(null); setPlaying(false); seek(k); }} />
+      <Inspector bundle={bundle} state={state} target={inspect} onClose={() => setInspectRaw(null)} onSeek={(k) => { setPlaying(false); seek(k); }} />
     </>
   );
+}
+
+/** A render failure in a loaded trace leaves the app usable and explains how to recover. */
+class Recoverable extends Component<{ children: ReactNode; onReset: () => void }, { error: Error | null }> {
+  state = { error: null as Error | null };
+  static getDerivedStateFromError(error: Error) {
+    return { error };
+  }
+  render() {
+    if (!this.state.error) return this.props.children;
+    return (
+      <div className="shell essay" role="alert">
+        <h1>This trace could not be displayed</h1>
+        <p className="lede">{this.state.error.message}</p>
+        <p style={{ marginTop: 32 }}>
+          <button type="button" className="tbtn primary" onClick={this.props.onReset}>Return to the bundled fixture</button>
+        </p>
+      </div>
+    );
+  }
 }

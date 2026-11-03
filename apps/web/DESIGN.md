@@ -22,16 +22,19 @@ Red and green never appear without a signed number beside them.
 ## Type
 
 - **Geist** (variable, self-hosted, OFL) for language; **Geist Mono** for every number, ID, event type and hash.
-- Narration headline: `clamp(1.75rem, 1.15rem + 1.9vw, 2.75rem)`, weight 400, tracking −0.035em, measure 30ch, balanced. It reserves two lines so the stage never jumps while stepping.
+- Narration headline: `clamp(1.75rem, 1.15rem + 1.9vw, 2.75rem)`, weight 400, tracking −0.035em, measure 30ch, balanced. On desktop the narration block (not the headline) reserves 264 px so the stage never jumps while stepping.
 - Captions: 13px in `--fg-2` with a 12px `--fg-3` note on the same line. No eyebrows, no all-caps, one weight (400) plus 500 for the wordmark.
 
 ## Composition
 
-- **Arena (desktop):** masthead → narration → Tasks (full width) → Budget (7fr) | Ledger (5fr) → timeline docked to the bottom edge. Headline and evidence share one 900 px viewport.
-- **Arena (≤860 px):** narration → timeline (within thumb reach) → stage; budget and ledger stack.
-- **Timeline:** one lane per actor; one mark per event at fixed pitch; filled = seen, outlined = upcoming; a dashed settlement line marks the knowledge boundary; the playhead snaps to whole events.
+- **Arena (desktop):** masthead → narration (a fixed reserve keeps the picture still between frames) → Tasks → Budget (7fr) | Ledger (5fr). The player is fixed to the bottom edge; the page reserves its measured height.
+- **Arena (phones, ≤860 px):** narration → the row the current event writes to → the other rows. The player is a compact fixed strip with 44 px targets and a cycling speed control.
+- **Timeline:** one lane per actor on desktop, a single strip on phones; one mark per event plus a round closing frame; filled = seen, outlined = upcoming; a dashed settlement line marks the knowledge boundary; the playhead snaps to whole frames. Marks reveal that a later event exists, never its content.
+- **Closing frame:** headline plus ruled findings computed from the final state; the synthetic caveat in secondary grey.
+- **Tables:** separate *reserved* and *realized* columns; the change sits beside the realized figure as "+500 over" (loss red) or "100 under" (gain green).
+- **Provenance:** one quiet line under the stage (trace, seed, Provenance, Download, Load). No footer.
 - **Attention:** the row the current event writes to brightens its caption; other rows' graphics recede to 45% opacity (text never dims below contrast floors).
-- **Unavailable views:** a large title, one honest sentence, a status line, then a chapter list of what will populate the view and what it needs. Empty axes only; no marks.
+- **Unavailable views:** a large title, one honest sentence, then either the six story beats (Theater) or two empty axes (Evolution), and one waiting line. No grid, no marks.
 
 ## Motion
 
@@ -40,6 +43,8 @@ Red and green never appear without a signed number beside them.
 | Narration line on step | State indication | 380 ms opacity + 6 px rise, `--ease-out`; skipped for keyboard steps |
 | Figures changing | Elegant numerical update | rAF tween 420 ms, quartic ease-out; instant for keyboard and reduced motion |
 | Reserved / realized bars | Explanation | `scaleX` 420 ms `--ease-in-out`; the over-budget segment follows 200 ms later |
+| Scale widening at settlement | Explanation (the axis must grow to fit what was spent) | `left`/`width` 420 ms `--ease-in-out` on three bar segments, once |
+| Keyboard steps | — | Every entrance and tween is skipped; state lands instantly |
 | Ledger transfer | Spatial consistency (payer → payee) | Stroke draw 640 ms once, on the event's own frame |
 | Playhead | Spatial consistency | `translateX` 260 ms `--ease-out`, interruptible transition |
 | Inspector | Preventing a jarring change | 360 ms in, 240 ms out |

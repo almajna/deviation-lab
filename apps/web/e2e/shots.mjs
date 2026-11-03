@@ -2,7 +2,7 @@
 import { chromium } from '@playwright/test';
 const out = process.argv[2] ?? 'shots';
 const base = process.env.BASE ?? 'http://127.0.0.1:4173/';
-const arena = [['arena-open', ''], ['arena-t1', '#/arena?t=1'], ['arena-t3', '#/arena?t=3'], ['arena-t6', '#/arena?t=6']];
+const arena = [['arena-open', ''], ['arena-t1', '#/arena?t=1'], ['arena-t3', '#/arena?t=3'], ['arena-t6', '#/arena?t=6'], ['arena-end', '#/arena?t=7']];
 // First-viewport captures cover the Arena frames; full-page captures also cover the other views.
 const views = process.env.FULL === '0' ? arena : [...arena, ['theater', '#/theater'], ['evolution', '#/evolution']];
 const browser = await chromium.launch();
