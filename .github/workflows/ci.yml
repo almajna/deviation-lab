@@ -49,10 +49,12 @@ jobs:
           cmp artifacts/attacks/phase4/campaign.json "$RUNNER_TEMP/attack-campaign/campaign.json"
           PYTHONPATH="$RUNNER_TEMP/phase4-source/src" python -m deviation.attacks sensitivity artifacts/attacks/phase4/selected --out "$RUNNER_TEMP/attack-sensitivity"
           cmp artifacts/attacks/phase4/sensitivity.json "$RUNNER_TEMP/attack-sensitivity/sensitivity.json"
-      - name: Independently check and reproduce installed certified attack examples
+      - name: Reproduce immutable Agent 1 certificates at their pinned source
         run: |
-          python -I -m deviation.attacks.certified examples --out "$RUNNER_TEMP/certified" --verify artifacts/attacks/certified
-          python -I -m deviation.attacks.certified verify artifacts/attacks/certified/scenario.json artifacts/attacks/certified/small-lmsr.certificate.json
+          mkdir -p "$RUNNER_TEMP/certificate-producer-source"
+          git archive 3151edb463484498a5b686bf607dff4f062d66a4 | tar -x -C "$RUNNER_TEMP/certificate-producer-source"
+          PYTHONPATH="$RUNNER_TEMP/certificate-producer-source/src" python -m deviation.attacks.certified examples --out "$RUNNER_TEMP/certified" --verify artifacts/attacks/certified
+          PYTHONPATH="$RUNNER_TEMP/certificate-producer-source/src" python -m deviation.attacks.certified verify artifacts/attacks/certified/scenario.json artifacts/attacks/certified/small-lmsr.certificate.json
       - name: Generate synthetic replay
         run: PYTHONPATH=src python -m deviation demo --out /tmp/deviation_demo.json
       - name: Validate trace flags
