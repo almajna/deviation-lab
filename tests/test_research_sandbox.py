@@ -2,11 +2,25 @@ from pathlib import Path
 import os
 import tempfile
 import unittest
+from unittest.mock import patch
+import signal
 
 from deviation_research.safety import run, SandboxError
 
 
 class ResearchSandbox(unittest.TestCase):
+    def test_interruption_kills_and_reaps_detached_worker(self):
+        with patch("deviation_research.safety.backend", return_value="seatbelt"), \
+             patch("deviation_research.safety.subprocess.Popen") as spawn, \
+             patch("deviation_research.safety.os.killpg") as kill:
+            child = spawn.return_value
+            child.pid = 123456
+            child.poll.return_value = None
+            child.wait.side_effect = [KeyboardInterrupt, -9]
+            with self.assertRaises(KeyboardInterrupt): run("isolation_probe", {})
+            kill.assert_called_once_with(123456, signal.SIGKILL)
+            self.assertEqual(child.wait.call_count, 2)
+
     def test_arbitrary_entry_point_refused(self):
         with self.assertRaises(SandboxError): run("sh", {})
         with self.assertRaisesRegex(SandboxError, "wall budget"):
