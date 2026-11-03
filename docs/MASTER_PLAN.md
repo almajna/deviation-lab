@@ -75,4 +75,4 @@ Accelerated well-resourced coding-agent run: 4–8 calendar weeks for meaningful
 - Review final report, visual quality, and public release.
 
 ## Current implementation reality
-The repository contains a verified Phase 1 loader/audit, documentation, CI and a tiny synthetic reference. Shared v0.2 contracts are proposed for approval; Phase 2/Phase 6 implementation waits for approval and merge. The benchmark, market, attacks, evolution system and website are not complete. See `docs/STATUS.md`.
+The repository contains a verified Phase 1 loader/audit, documentation, CI and a tiny synthetic reference. Shared v0.2 contracts at a0449c9 are approved and merged. Phase 2 implementation is under review; a separate Phase 6 Claude Code handoff is prepared. The benchmark, market, attacks, evolution system and website are not complete. See `docs/STATUS.md`.

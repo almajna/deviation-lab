@@ -1,0 +1,162 @@
+{
+  "agent_specs": {
+    "agent-1": {
+      "action_fee": 2,
+      "agent_kind": "SYNTHETIC_FORECASTER",
+      "signals": {
+        "eval-1": {
+          "a": 0.8,
+          "b": 0.6
+        },
+        "eval-2": {
+          "a": 0.3,
+          "b": 0.9
+        }
+      }
+    }
+  },
+  "code_revision": "SYNTHETIC_FIXTURE",
+  "data_kind": "SYNTHETIC",
+  "decision_tasks": [
+    {
+      "model_options": [
+        "a",
+        "b"
+      ],
+      "prompt": "Synthetic evaluation prompt one",
+      "task_id": "eval-1"
+    },
+    {
+      "model_options": [
+        "a",
+        "b"
+      ],
+      "prompt": "Synthetic evaluation prompt two",
+      "task_id": "eval-2"
+    }
+  ],
+  "execution_version": "simulator-1",
+  "experiment_id": "SYNTHETIC-two-task-overrun",
+  "policy": "cost-aware",
+  "run_config": {
+    "agent_accounts": [
+      "agent-1"
+    ],
+    "cost_unit": "nano_synthetic_units",
+    "exogenous_history_actors": [],
+    "fee_sink_account": "fee_sink",
+    "initial_balances": {
+      "agent-1": 20,
+      "fee_sink": 0,
+      "maker": 50
+    },
+    "maker_account": "maker",
+    "reservation_budget": 600,
+    "schema_version": "0.2"
+  },
+  "sealed_outcomes": [
+    {
+      "cost_decimal": "0.0000007",
+      "model_id": "a",
+      "quality": 0.5,
+      "task_id": "eval-1"
+    },
+    {
+      "cost_decimal": "0.0000004",
+      "model_id": "b",
+      "quality": 1,
+      "task_id": "eval-1"
+    },
+    {
+      "cost_decimal": "0.0000001",
+      "model_id": "a",
+      "quality": 1,
+      "task_id": "eval-2"
+    },
+    {
+      "cost_decimal": "0.0000002",
+      "model_id": "b",
+      "quality": 0.5,
+      "task_id": "eval-2"
+    }
+  ],
+  "seed": 7,
+  "settlement": {
+    "external_benefits": {
+      "agent-1": 3
+    },
+    "maker_initial_subsidy": 50,
+    "noncash_effort_costs": {
+      "agent-1": 1
+    },
+    "transfers": [
+      {
+        "amount": 6,
+        "payee": "agent-1",
+        "payer": "maker",
+        "reason": "settlement",
+        "transfer_id": "illustrative-payout"
+      }
+    ]
+  },
+  "source_manifest_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "split_groups": {
+    "09d6ab18993809a6cb045fbd9b846be2125484e706c77f245d84531036e7a644": "test",
+    "0bc4caac970ccf66e811e96d79ebf92233917a58efa5ef85cd96c43fe27439ae": "validation",
+    "175bf7c948d088c9758b15e934f78d7d40e75961cf68ec8017ec5fce40a8cf28": "train",
+    "bf4336ee84aba1964e40d036da7f230bdf0881d9c661522e1c6d0e134e6abd62": "train"
+  },
+  "split_manifest_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "training_quality_rows": [
+    {
+      "model_id": "a",
+      "quality": 0.4,
+      "task_id": "train-1"
+    },
+    {
+      "model_id": "b",
+      "quality": 0.6,
+      "task_id": "train-1"
+    },
+    {
+      "model_id": "a",
+      "quality": 0.4,
+      "task_id": "train-2"
+    },
+    {
+      "model_id": "b",
+      "quality": 0.6,
+      "task_id": "train-2"
+    }
+  ],
+  "training_rows": [
+    {
+      "cost_decimal": "0.0000001",
+      "cost_unit": "synthetic_units",
+      "model_id": "a",
+      "prompt": "Synthetic training prompt one",
+      "task_id": "train-1"
+    },
+    {
+      "cost_decimal": "0.0000002",
+      "cost_unit": "synthetic_units",
+      "model_id": "b",
+      "prompt": "Synthetic training prompt one",
+      "task_id": "train-1"
+    },
+    {
+      "cost_decimal": "0.0000003",
+      "cost_unit": "synthetic_units",
+      "model_id": "a",
+      "prompt": "Synthetic training prompt two",
+      "task_id": "train-2"
+    },
+    {
+      "cost_decimal": "0.0000004",
+      "cost_unit": "synthetic_units",
+      "model_id": "b",
+      "prompt": "Synthetic training prompt two",
+      "task_id": "train-2"
+    }
+  ]
+}

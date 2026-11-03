@@ -1,10 +1,10 @@
 # After Gate A approval and human merge
 
-This is a blocked handoff plan, not evidence of active implementation. Complete `GATE_A.md` first: independent review, explicit owner approval of current contract head, green CI, human merge verified on synchronized main. Do not create/dispatch implementation worktrees before the gate. Agents never merge or bypass review.
+Activation receipt: the owner explicitly approved `a0449c9add2ee3aeb1741d48d41e725d5e8db261`; PR #6 is merged on synchronized main `cb4fb585171f4dde371e4dfa4319d21e9ca70bc1`, with approved-head and merged-main CI passing. Phase 2 is now active and the Phase 6 handoff is prepared. The instructions below describe the activation prerequisites; they are satisfied for this exact approval. Complete `GATE_A.md` first: independent review, explicit owner approval of current contract head, green CI, human merge verified on synchronized main. Do not create/dispatch implementation worktrees before the gate. Agents never merge or bypass review.
 
 ## Phase 2 — deterministic economic core
 
-Create a separate `codex/economic-core` worktree from approved main. Owner: core worker. Paths: `src/deviation/core/`, focused core tests and synthetic core fixtures; shared `contracts.py`/schemas are read-only without integrator review.
+Create a separate `codex/economic-core` worktree from approved main. Owner: core worker. Paths: `src/deviation/simulator/` (preserves legacy `core.py`), focused core tests and synthetic core fixtures; shared `contracts.py`/schemas are read-only without integrator review.
 
 Implement the approved interfaces, not new market mechanics: trusted data/split registry, train-only fixed-reservation fit/freeze service, isolated policy information projections, seeded event runner, explicit abstention and reservation counter, sealed settlement access, realized-cost diagnostics and conserved virtual-credit accounting. Keep synthetic private signals and modeled utilities visibly synthetic. Implement random/cheapest/best-fixed/cost-aware reference policies under the same reservations; offline oracle is evaluation-only. Preserve the v0.1 demo/CLI regression while adding a separate v0.2 execution path.
 
@@ -23,3 +23,5 @@ Evidence: production build, trace-driven controls, schema fixture checks, screen
 ## Integrator responsibilities
 
 Pin approved contract/source fixture hashes in both task briefs, keep workers in distinct worktrees, and verify CI/review per exact head. Integrate one human-approved PR at a time; update dependent branches after main changes. Shared-contract extensions require versioned fixtures, independent review and owner approval. Keep the entire 247-task pool exploratory. Final protocol, fresh untouched holdout, one-run authorization, mechanism settlement math and release remain future gates.
+
+Current task briefs: `docs/tasks/PHASE_2.md` (issue #7) and `apps/web/CLAUDE_HANDOFF.md` on `codex/visual-lab` (issue #8). Preparation does not claim an active Claude Code session. Shared contracts remain unchanged.
