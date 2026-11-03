@@ -81,6 +81,8 @@ class ResearchIntegrity(unittest.TestCase):
         modified.update(title="New title", overlap="New survey", hypothesis="Unsupported grand claim")
         modified["scores"]["novelty"] = 5
         self.assertEqual(execution_key(plan), execution_key(modified))
+        modified["seeds"].reverse()
+        self.assertEqual(execution_key(plan), execution_key(modified))
         modified["seeds"][0] += 1
         self.assertNotEqual(execution_key(plan), execution_key(modified))
 
