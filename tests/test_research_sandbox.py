@@ -9,6 +9,8 @@ from deviation_research.safety import run, SandboxError
 class ResearchSandbox(unittest.TestCase):
     def test_arbitrary_entry_point_refused(self):
         with self.assertRaises(SandboxError): run("sh", {})
+        with self.assertRaisesRegex(SandboxError, "wall budget"):
+            run("isolation_probe", {}, wall_seconds=0)
 
     @unittest.skipUnless(os.environ.get("DEVIATION_REQUIRE_SANDBOX") == "1", "OS isolation integration runs in required CI job")
     def test_real_os_isolation(self):

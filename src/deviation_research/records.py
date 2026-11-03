@@ -92,13 +92,41 @@ class Memory:
             raise
 
     def verify(self):
+        self.db.execute("BEGIN")
+        try:
+            self._verify()
+            self.db.execute("COMMIT")
+        except BaseException:
+            self.db.execute("ROLLBACK")
+            raise
+
+    def _verify(self):
         previous = None
+        expected_runs = {}
+        index = 0
         for seq, row in self.db.execute("SELECT seq,record FROM events ORDER BY seq"):
             v = json.loads(row)
             h = v.pop("sha256")
-            if v["seq"] != seq or v["previous_sha256"] != previous or sha(v) != h:
+            if seq != index or v["seq"] != seq or v["previous_sha256"] != previous or sha(v) != h:
                 raise ValueError("research memory hash chain mismatch")
+            if v["kind"] == "experiment_started":
+                if v["entity"] in expected_runs:
+                    raise ValueError("duplicate scientific reservation")
+                expected_runs[v["entity"]] = ("running", v["payload"])
+            if v["kind"] in {"experiment_completed", "experiment_failed", "experiment_rejected"}:
+                if expected_runs.get(v["entity"], (None,))[0] != "running":
+                    raise ValueError("terminal scientific record without reservation")
+                expected_runs[v["entity"]] = (v["kind"].removeprefix("experiment_"), v["payload"])
             previous = h
+            index += 1
+        actual = {k: (state, json.loads(record)) for k, state, record in self.db.execute("SELECT key,state,record FROM runs")}
+        if expected_runs != actual:
+            raise ValueError("run index differs from append-only evidence")
+
+    def inspect(self):
+        self.verify()
+        return [{"key": k, "state": state, "record": json.loads(record)}
+                for k, state, record in self.db.execute("SELECT key,state,record FROM runs ORDER BY key")]
 
     def export(self, destination):
         self.verify()

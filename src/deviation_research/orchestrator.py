@@ -11,10 +11,19 @@ ALLOWED_RULES = {"lmsr_baseline": "all_analytic_checks", "fee_sensitivity": "fee
                  "certificate_ablation": "endpoint_dominance_with_strict", "forecast_correlation": "pool_correlated_nonnegative_relative"}
 
 
+def execution_key(direction):
+    # Titles, ranks and literature notes do not change executed science. Fixed
+    # adapter version binds its hardcoded grid; seeds bind every stochastic input.
+    return sha({"adapter": direction["runner"], "adapter_version": 1, "seeds": direction["seeds"],
+                "scope": direction["scope"], "success_rule": direction["success_rule"]})
+
+
 def validate_plan(plan, source_ids):
     if plan.get("version") != "research-plan-1" or plan.get("max_experiments") != 4 or not 1 <= plan.get("cycle_wall_seconds", 0) <= 240:
         raise ValueError("invalid cycle plan/budget")
     directions = plan["directions"]
+    if plan["published_baseline"]["runner"] != "lmsr_baseline":
+        raise ValueError("published baseline adapter required")
     if len(directions) != 3 or {d["runner"] for d in directions} != set(ALLOWED_RULES)-{"lmsr_baseline"}:
         raise ValueError("three distinct registered adapters required")
     for d in [plan["published_baseline"]]+directions:
@@ -38,7 +47,7 @@ def validate_plan(plan, source_ids):
     return [plan["published_baseline"]]+sorted(directions, key=lambda d: (-sum(d["scores"].values()), d["id"]))
 
 
-def cycle(plan_path, sources_path, memory_path, destination):
+def cycle(plan_path, sources_path, memory_path, destination, *, scout_path=None, online=False):
     plan = json.loads(Path(plan_path).read_text())
     registry = json.loads(Path(sources_path).read_text())
     order = validate_plan(plan, validate_sources(registry))
@@ -56,7 +65,24 @@ def cycle(plan_path, sources_path, memory_path, destination):
     if path.exists() and json.loads(path.read_text()) != frozen:
         raise ValueError("preregistration changed")
     write(path, frozen)  # Frozen bytes written and event committed before any worker starts.
+    write(out/"inputs.plan.json", plan)
+    write(out/"inputs.sources.json", registry)
     try:
+        from .scout import scout
+        if online:
+            scouting = scout(out/"scout.json")
+        else:
+            candidate_path = Path(scout_path) if scout_path else Path(sources_path).with_name("scout.json")
+            scouting = json.loads(candidate_path.read_text())
+            write(out/"scout.json", scouting)
+        if scouting.get("sha256") != sha({k: v for k, v in scouting.items() if k != "sha256"}):
+            raise ValueError("scout provenance digest mismatch")
+        memory.event("literature_scouted", scouting["sha256"], scouting)
+        for request in scouting["requests"]:
+            for candidate in request["results"]:
+                memory.event("source_discovered", sha(candidate), {"candidate": candidate,
+                    "provider": request["provider"], "query": request["query"],
+                    "claim_eligibility": "PRIMARY_SOURCE_READING_REQUIRED"}, [scouting["sha256"]])
         for s in registry["sources"]:
             memory.event("source_verified", s["id"], s)
         memory.event("cycle_preregistered", frozen_sha, frozen)
@@ -66,7 +92,7 @@ def cycle(plan_path, sources_path, memory_path, destination):
             memory.event("hypothesis_ranked", dsha, d, d["sources"])
             # Identity intentionally ignores wall timings and software version; a new
             # session or cosmetic source refresh must not silently retry failed science.
-            key = sha(d)
+            key = execution_key(d)
             if not memory.reserve(key, {"plan_sha256": frozen_sha, "hypothesis_sha256": dsha,
                                        "harness_source_sha256": source, "engine_source_sha256": engine_source}):
                 records.append({"id": d["id"], "status": "duplicate_skipped"})
@@ -77,21 +103,28 @@ def cycle(plan_path, sources_path, memory_path, destination):
             try:
                 remaining = plan["cycle_wall_seconds"]-(time.monotonic()-started)
                 result, receipt = run(d["runner"], d, wall_seconds=remaining)
+                if receipt["harness_source_sha256"] != source or receipt["engine_source_sha256"] != engine_source:
+                    raise ValueError("executed source differs from frozen preregistration")
+                write(run_dir/"resources.json", {"execution": receipt})
                 write(run_dir/"result.json", result)
                 memory.event("result_recorded", key, {"sha256": sha(result), "artifact": key+"/result.json"}, [key])
                 remaining = plan["cycle_wall_seconds"]-(time.monotonic()-started)
                 review, review_receipt = run("review", {"plan": d, "result": result}, wall_seconds=remaining)
+                if review_receipt["harness_source_sha256"] != source or review_receipt["engine_source_sha256"] != engine_source:
+                    raise ValueError("review source differs from frozen preregistration")
                 write(run_dir/"review.json", review)
                 # Non-deterministic measurements are kept outside reproducible scientific evidence.
                 write(run_dir/"resources.json", {"execution": receipt, "review": review_receipt})
                 record = {"id": d["id"], "key": key, "status": "completed", "rows": len(result["rows"]),
                           "result_sha256": sha(result), "review": review}
                 memory.event("review_recorded", key, review, [sha(result)])
-                if review["hypothesis_status"].startswith("REJECTED"):
+                if review["criterion_status"].startswith("REJECTED"):
                     memory.event("hypothesis_rejected", dsha, review, [key])
                 memory.finish(key, "completed", record)
             except Exception as exc:
                 record = {"id": d["id"], "key": key, "status": "failed", "error": type(exc).__name__+": "+str(exc)[:3000]}
+                if getattr(exc, "receipt", None):
+                    write(run_dir/"failure-resources.json", exc.receipt)
                 write(run_dir/"failure.json", record)
                 memory.finish(key, "failed", record)
             records.append(record)

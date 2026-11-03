@@ -3,6 +3,8 @@ import hashlib
 import json
 from pathlib import Path
 import time
+import signal
+from datetime import datetime, timezone
 from urllib.parse import urlencode, urlsplit
 from urllib.request import build_opener, HTTPSHandler, HTTPRedirectHandler, ProxyHandler, Request
 import xml.etree.ElementTree as ET
@@ -30,7 +32,7 @@ def request(url, timeout):
         body = response.read(MAX_BYTES+1)
         if len(body) > MAX_BYTES:
             raise ValueError("response byte budget exceeded")
-        return body
+        return body, {"http_status": response.status, "final_url": response.url}
 
 
 def endpoints(query):
@@ -79,13 +81,33 @@ def scout(destination, *, queries=None, max_requests=12, wall_seconds=65, fetch=
             remaining = wall_seconds-(time.monotonic()-started)
             if len(records) >= max_requests or remaining <= 0:
                 break
-            receipt = {"provider": provider, "query": query, "request_url": url}
+            receipt = {"provider": provider, "query": query, "request_url": url,
+                       "retrieved_at_utc": datetime.now(timezone.utc).isoformat()}
             try:
-                body = fetch(url, min(5, remaining))
+                # A socket timeout does not bound DNS or slow streaming. A real
+                # process timer caps the complete request on supported POSIX hosts.
+                def timeout_handler(*_):
+                    raise TimeoutError("request wall budget exhausted")
+                previous = signal.signal(signal.SIGALRM, timeout_handler)
+                signal.setitimer(signal.ITIMER_REAL, min(5, remaining))
+                try:
+                    response = fetch(url, min(5, remaining))
+                    if isinstance(response, tuple):
+                        body, response_meta = response
+                        receipt.update(response_meta)
+                    else:
+                        body = response
+                    if len(body) > MAX_BYTES:
+                        raise ValueError("response byte budget exceeded")
+                finally:
+                    signal.setitimer(signal.ITIMER_REAL, 0)
+                    signal.signal(signal.SIGALRM, previous)
                 receipt.update(status="ok", response_bytes=len(body), response_sha256=hashlib.sha256(body).hexdigest(),
-                               results=normalize(provider, body))
+                               results=normalize(provider, body)[:3])
             except Exception as exc:
                 receipt.update(status="failed", error=type(exc).__name__+": "+str(exc)[:240], results=[])
+                if hasattr(exc, "code"):
+                    receipt["http_status"] = exc.code
             records.append(receipt)
     result = {"version": "research-scout-1", "mode": "PUBLIC_METADATA_NO_INFERENCE",
               "requests": records, "budget": {"request_cap": max_requests, "wall_seconds": wall_seconds,

@@ -13,12 +13,16 @@ def main():
     c.add_argument("--sources", default="research/sources.json")
     c.add_argument("--memory", required=True)
     c.add_argument("--out", required=True)
+    c.add_argument("--scout-receipt", default=None)
+    c.add_argument("--online", action="store_true", help="Run the bounded scout before the cycle; otherwise replay captured metadata")
     s = sub.add_parser("scout")
     s.add_argument("--out", required=True)
     s.add_argument("--max-requests", type=int, default=12)
     s.add_argument("--wall-seconds", type=float, default=65)
     e = sub.add_parser("export")
     e.add_argument("--memory", required=True); e.add_argument("--out", required=True)
+    i = sub.add_parser("inspect")
+    i.add_argument("--memory", required=True)
     r = sub.add_parser("reproduce")
     r.add_argument("--evidence", required=True); r.add_argument("--out", required=True)
     args = p.parse_args()
@@ -28,7 +32,7 @@ def main():
         print(json.dumps({"requests": len(result["requests"]), "ok": sum(r["status"] == "ok" for r in result["requests"])}))
     elif args.command == "cycle":
         from .orchestrator import cycle
-        result = cycle(args.plan, args.sources, args.memory, args.out)
+        result = cycle(args.plan, args.sources, args.memory, args.out, scout_path=args.scout_receipt, online=args.online)
         print(json.dumps({"records": [{"id": r["id"], "status": r["status"]} for r in result["records"]]}))
         if any(r["status"] == "failed" for r in result["records"]):
             raise SystemExit(1)
@@ -37,7 +41,8 @@ def main():
         out = Path(args.out)
         if out.exists():
             raise ValueError("reproduction destination must be fresh")
-        result = cycle("research/plan.json", "research/sources.json", out/"memory.sqlite", out)
+        evidence = Path(args.evidence)
+        result = cycle(evidence/"inputs.plan.json", evidence/"inputs.sources.json", out/"memory.sqlite", out, scout_path=evidence/"scout.json")
         expected = json.loads((Path(args.evidence)/"summary.json").read_text())
         if result != expected:
             raise ValueError("scientific evidence reproduction mismatch")
@@ -51,7 +56,10 @@ def main():
     else:
         memory = Memory(args.memory)
         try:
-            memory.export(args.out)
+            if args.command == "inspect":
+                print(json.dumps(memory.inspect(), sort_keys=True, indent=2))
+            else:
+                memory.export(args.out)
         finally:
             memory.close()
 

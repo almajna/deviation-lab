@@ -44,13 +44,16 @@ def _cert_case(g, expansions=20, vector_limit=5000):
     exhaustive = exact(g, max_nodes=4000)
     dp = exact(g, max_nodes=4000, memoize=True)
     beam = search(g, method="beam", max_nodes=100, beam_width=2, seed=g.seed)
-    honest, _ = reference(g, "signal_following")
+    honest, honest_commands = reference(g, "signal_following")
     noop, _ = reference(g, "no_action")
     selected = execute(g, certificate["incumbent_commands"])
     return dict(certificate=certificate, independent_check=checked,
-                exhaustive=exhaustive, dynamic_programming=dp, beam=beam["selected"]["utility"],
-                honest=encoded(payoff(honest)["utility"]), no_action=encoded(payoff(noop)["utility"]),
-                payoff={k: encoded(v) for k, v in payoff(selected).items()},
+                exhaustive=exhaustive, dynamic_programming=dp,
+                beam={"utility": beam["selected"]["utility"], "commands": beam["commands"]},
+                honest=encoded(payoff(honest)["utility"]), honest_commands=honest_commands,
+                no_action=encoded(payoff(noop)["utility"]),
+                payoff={k: encoded(payoff(selected)[k]) for k in ("cash", "external", "effort", "utility")},
+                allocation=payoff(selected)["allocation"],
                 root_endpoint_upper=encoded(upper(g, vector_limit=5000)),
                 root_fallback_upper=encoded(upper(g, vector_limit=0)))
 
@@ -137,6 +140,9 @@ def main():
         result = {"lmsr_baseline": lmsr_baseline, "fee_sensitivity": fee_sensitivity,
                   "certificate_ablation": certificate_ablation, "forecast_correlation": forecast_correlation,
                   "isolation_probe": isolation_probe}[runner](payload)
+    from .records import source_hash
+    from deviation.verification.checker import source_sha
+    result = {"value": result, "harness_source_sha256": source_hash(), "engine_source_sha256": source_sha()}
     Path(output_path).write_text(json.dumps(result, sort_keys=True, allow_nan=False))
 
 
