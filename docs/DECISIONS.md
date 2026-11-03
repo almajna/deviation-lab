@@ -64,3 +64,16 @@ loopback transport is opt-in, pinned, no-pull/no-cloud/no-tools, with explicit
 trusted-server limitations. Routine reversible engineering choice, independently
 reviewed; protocol/report/evidence in Agent 3-owned paths; $0. No holdout,
 new scientific assumption approval, merge or public research claim is implied.
+
+## D-A3-002 — 2026-11-03 — Correct actor attribution and attempt free CPU inference
+User requests Agent 4's verified PR #24 attribution fix and a real-model pilot
+if free inference is available. Filter accepted trades by focal event actor;
+label system totals and controller/system scope of other metrics. Two-actor
+regressions prevent control trades becoming focal behavior. Local inference is
+still blocked; verified public visibility and GitHub standard-runner pricing
+permit a bounded CPU job at $0 without artifact/cache storage or paid fallbacks.
+Freeze model/revision/weight hash/license, prompt and six matched conditions
+before execution. This user-authorized extension is synthetic-world,
+local-to-runner open-weight inference, not a new shared contract or holdout run.
+Retain failures/nulls and independent review. Reversible; owner Agent 3;
+human merge/release still required.

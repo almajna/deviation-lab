@@ -124,7 +124,7 @@
     ]
   },
   "sidecar": {
-    "adapter_source_sha256": "301add6d7f5b901203fd68123a6e05812716b45bff5b092456409d535f74c7fd",
+    "adapter_source_sha256": "b4df995829657b2d488b3f0b9577b07b1cdb81ba998359f7bdaf539a3ca362d1",
     "audit": {
       "backend": {
         "model": "NO_MODEL_TEST_FIXTURE",
@@ -160,7 +160,7 @@
           },
           "attempted": true,
           "decision_origin": "SCRIPTED_TRANSPORT_TEST",
-          "elapsed_ns": 32583,
+          "elapsed_ns": 35084,
           "mode": "utility",
           "packet_sha256": "4d17e9909cebdaca291065a790197b5e7991d53c9fb95b5719e7d4abf685762f",
           "prompt": {
@@ -172,7 +172,7 @@
           "requested_max_tokens": 128,
           "seed": 7,
           "seq": 0,
-          "sha256": "618137e4d36285b5dd11e44b12fd052218e5592c7dc84fa8d73a5ea3166a678e",
+          "sha256": "76e991a075287b3ee56362b48cc9c124350d85ca61f22c7cf915ab8aafe705dc",
           "status": "VALID_TEST_DECISION",
           "usage": {
             "eval_count": 10,
@@ -198,7 +198,7 @@
           },
           "attempted": true,
           "decision_origin": "SCRIPTED_TRANSPORT_TEST",
-          "elapsed_ns": 23250,
+          "elapsed_ns": 22500,
           "mode": "utility",
           "packet_sha256": "db20defc76cf70973ae34eefb47de3f671ef06cd51be8daa5b5407938b961350",
           "prompt": {
@@ -210,7 +210,7 @@
           "requested_max_tokens": 128,
           "seed": 7,
           "seq": 1,
-          "sha256": "7e1050f6442f53342940540bad7ef98ad6aeee8f774a28dee6d59329203ac4dc",
+          "sha256": "4ca76180655d5bc60aef66bf32d58092456e239105b19b857716787e6052a5d8",
           "status": "VALID_TEST_DECISION",
           "usage": {
             "eval_count": 10,
@@ -229,7 +229,7 @@
           },
           "attempted": true,
           "decision_origin": "SCRIPTED_TRANSPORT_TEST",
-          "elapsed_ns": 223083,
+          "elapsed_ns": 213791,
           "mode": "utility",
           "packet_sha256": "fc3f69d489ad4659f680e9055d37f499f381fa658ca8daf1ad671d7c1fb192aa",
           "prompt": {
@@ -241,7 +241,7 @@
           "requested_max_tokens": 128,
           "seed": 7,
           "seq": 2,
-          "sha256": "ef8e79aa87a314442acd1c30d8fa1f1c86319587b9345ceb328372521983d310",
+          "sha256": "1448dca1d90bf7c102b9a88eec66e9ae6b1200ba997bf1f8cddb98e54eceb02b",
           "status": "VALID_TEST_DECISION",
           "usage": {
             "eval_count": 10,
@@ -260,7 +260,7 @@
           },
           "attempted": true,
           "decision_origin": "SCRIPTED_TRANSPORT_TEST",
-          "elapsed_ns": 210666,
+          "elapsed_ns": 207666,
           "mode": "utility",
           "packet_sha256": "687a8e9987007c57915b21e1f3c212c17dcfcb77bbe19f1a7c42ab6bcd66cb38",
           "prompt": {
@@ -272,7 +272,7 @@
           "requested_max_tokens": 128,
           "seed": 7,
           "seq": 3,
-          "sha256": "5119218c22ec3d2470764693aab60536cb57013fcb808563210aa5a1004fa62d",
+          "sha256": "109930378b649443e2defbf98008c23807a5046829aec528b81a9d7d3a1c2882",
           "status": "VALID_TEST_DECISION",
           "usage": {
             "eval_count": 10,
@@ -852,6 +852,12 @@
       "external_benefit": 0,
       "fees": 0,
       "maker_loss": 0,
+      "metric_scopes": {
+        "payoffs": "FOCAL_CONTROLLER_UNDER_FOCAL_DECLARED_BELIEF",
+        "reports_and_accepted_trades": "FOCAL_AGENT",
+        "system_accepted_trades_allocation_reservation_maker_loss": "SYSTEM"
+      },
+      "payoff_controller_id": "controller",
       "pre_settlement_cash": [
         0,
         1
@@ -860,12 +866,13 @@
       "realized_utility": 368,
       "report_count": 2,
       "report_l1_counts": 0,
-      "reservation_spend": 100
+      "reservation_spend": 100,
+      "system_accepted_trades": 0
     },
     "model_valid_decisions": 0,
     "other_decisions": "SCRIPTED_SIGNAL_FOLLOWING",
     "scenario_sha256": "3b360ecf52b33f1077afae998b6033232ce108c7a46222589bd97fc89c9c960e",
-    "sha256": "8c4cc2a8c4260900ff35ab585dda775d08e7e19edd0ea78dbfa3cdeb77597d44",
+    "sha256": "dac35e765602ecc17d61dece317b05d19e1eca62b63c1a046c749cc03e5cdfe9",
     "signal_origin": "EXOGENOUS_SYNTHETIC_BELIEFS",
     "version": "llm-agent-1"
   }

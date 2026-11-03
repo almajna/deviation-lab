@@ -75,7 +75,7 @@ Protocol was committed locally before evaluation (`c72ef5d`, clarified before
 execution in `c8543e7`). It was independently challenged before the campaign.
 GitHub publication occurs after local evaluation; this is not an externally
 timestamped preregistration. Review fixes hardened audit behavior; all 324
-result rows remained identical. The final source hash is
+result rows remained identical. The original engineering-review source hash was
 `301add6d7f5b901203fd68123a6e05812716b45bff5b092456409d535f74c7fd`.
 
 There are 108 settings × 3 scripted policies = **324 runs**, on one authored

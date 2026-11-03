@@ -63,6 +63,11 @@ class LLMHarnessTests(unittest.TestCase):
         self.assertEqual(audit["unknown_usage_calls"], 1)
         self.assertEqual([r["status"] for r in audit["records"]], ["FAILED_DECISION", "BUDGET_EXHAUSTED_NO_INFERENCE"])
         self.assertFalse(audit["records"][1]["attempted"])
+        backend = TestBackend(error=RuntimeError("model execution failed"))
+        policy = LocalPolicy(backend, Budget(max_calls=1)); policy.act(p)
+        self.assertEqual(policy.records[0]["status"], "FAILED_DECISION")
+        self.assertEqual(policy.records[0]["error_type"], "RuntimeError")
+        self.assertEqual(policy.audit()["unknown_usage_calls"], 1)
 
     def test_prompt_and_response_budget_and_server_token_violation(self):
         p = initial_packet()
@@ -191,6 +196,35 @@ class LLMHarnessTests(unittest.TestCase):
                 self.assertEqual(m["realized_utility"], r["trace"]["events"][-1]["payload"]["controllers"]["controller"]["utility"])
             if mechanism == "cheapest":
                 self.assertEqual(len({digest(r["allocation_plan"]) for r in records.values()}), 1)
+
+    def test_only_control_trades_are_not_attributed_to_focal_actor(self):
+        s = scenario()
+        s["agents"]["other"] = {"controller": "other_controller", "wallet": 40, "decline_report": False,
+            "signals": {mid: [0, 0, 10] for mid in s["agents"]["focal"]["signals"]}}
+        s["controllers"]["other_controller"] = {"cash_cap": 40, "token_cap": 2, "action_cap": 2,
+            "position_cap": 100, "effort_per_attempt": 0, "external_weights": {}}
+        result = run_episode(s, "focal", LocalPolicy(TestBackend()))
+        m = result["metrics"]
+        self.assertEqual(m["accepted_trades"], 0)
+        self.assertEqual(m["system_accepted_trades"], 2)
+        self.assertEqual(m["payoff_controller_id"], "controller")
+        self.assertEqual(m["metric_scopes"]["reports_and_accepted_trades"], "FOCAL_AGENT")
+        self.assertEqual(m["report_count"], 2)
+        self.assertEqual(m["exact_signal_reports"], 2)
+        self.assertEqual(m["expected_claims"], [0, 1])
+        self.assertEqual(m["fees"], 0)
+        replay_episode(s, result)
+
+    def test_focal_trade_count_is_bound_to_selected_actor_not_literal_name(self):
+        s = scenario()
+        s["agents"]["other"] = {"controller": "other_controller", "wallet": 40, "decline_report": False,
+            "signals": {mid: [0, 0, 10] for mid in s["agents"]["focal"]["signals"]}}
+        s["controllers"]["other_controller"] = {"cash_cap": 40, "token_cap": 2, "action_cap": 2,
+            "position_cap": 100, "effort_per_attempt": 0, "external_weights": {}}
+        result = run_episode(s, "other", LocalPolicy(TestBackend()))
+        self.assertEqual(result["metrics"]["accepted_trades"], 0)
+        self.assertGreater(result["metrics"]["system_accepted_trades"], 0)
+        self.assertEqual(result["metrics"]["payoff_controller_id"], "other_controller")
 
     def test_cli_live_is_explicit_and_bad_manifest_does_not_call_network(self):
         with tempfile.TemporaryDirectory() as d:

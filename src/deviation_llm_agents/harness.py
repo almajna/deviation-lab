@@ -62,6 +62,8 @@ class LocalPolicy:
                 reply = self.backend.infer(messages, seed=self.seed, max_tokens=self.budget.max_tokens_per_call)
                 if not isinstance(reply, dict): raise ValueError("INVALID_BACKEND_ENVELOPE")
                 row["raw"], row["usage"] = reply.get("raw"), reply.get("usage")
+                if "generation_evidence" in reply:
+                    row["generation_evidence"] = deepcopy(reply["generation_evidence"])
                 if not isinstance(row["raw"], str): raise ValueError("INVALID_BACKEND_TEXT")
                 self.response_bytes += len(row["raw"].encode())
                 try: encode(row["usage"])
@@ -78,7 +80,7 @@ class LocalPolicy:
                     raise ValueError("SERVER_TOKEN_CAP_EXCEEDED")
                 row["action"] = decode(row["raw"], packet)
                 row["status"] = "VALID_MODEL_DECISION" if self.backend.origin == "LIVE_LOCAL_LLM" else "VALID_TEST_DECISION"
-            except (ValueError, TypeError, KeyError, OSError, AttributeError) as exc:
+            except (ValueError, TypeError, KeyError, OSError, AttributeError, RuntimeError) as exc:
                 row["status"] = "FAILED_DECISION"
                 # Do not dump arbitrary exception text (could contain private paths/tokens).
                 row["error_type"] = type(exc).__name__

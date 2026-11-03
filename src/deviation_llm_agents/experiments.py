@@ -70,7 +70,12 @@ def metrics(result, s, focal_agent="focal"):
     audit = recompute(result, s["agents"][focal_agent]["controller"], signal)
     return {"report_count": len(reports), "exact_signal_reports": sum(r["counts"] == signal[r["market_id"]] for r in reports),
         "report_l1_counts": sum(sum(abs(a-b) for a, b in zip(r["counts"], signal[r["market_id"]])) for r in reports),
-        "accepted_trades": sum(e["type"] == "trade_accepted" for e in events),
+        "accepted_trades": sum(e["type"] == "trade_accepted" and e["actor"] == focal_agent for e in events),
+        "system_accepted_trades": sum(e["type"] == "trade_accepted" for e in events),
+        "payoff_controller_id": s["agents"][focal_agent]["controller"],
+        "metric_scopes": {"reports_and_accepted_trades": "FOCAL_AGENT",
+            "payoffs": "FOCAL_CONTROLLER_UNDER_FOCAL_DECLARED_BELIEF",
+            "system_accepted_trades_allocation_reservation_maker_loss": "SYSTEM"},
         "allocation": [r["model_id"] for r in result["allocation_plan"]["allocations"]],
         "reservation_spend": events[-1]["payload"]["realized_report"]["reservation_spend"],
         "maker_loss": sum(events[-1]["payload"]["maker_losses"].values()), **audit}
