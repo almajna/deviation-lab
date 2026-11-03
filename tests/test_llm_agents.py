@@ -214,6 +214,19 @@ class LLMHarnessTests(unittest.TestCase):
         self.assertEqual(m["expected_claims"], [0, 1])
         self.assertEqual(m["fees"], 0)
         replay_episode(s, result)
+        # Also reproduce an explicit voluntary no-op policy, so input-cap fallback
+        # in a larger two-actor prompt cannot be what makes the regression pass.
+        from deviation.markets.policies import SignalFollowing, base_action
+        class VoluntaryNoop(SignalFollowing):
+            def act(self, p):
+                return super().act(p) if p["stage"] == "REPORT_COMMIT" else base_action(p, "no_op")
+        receipt = run(s, policies={"focal": VoluntaryNoop(), "other": SignalFollowing()})
+        direct = metrics(receipt, s)
+        self.assertEqual(direct["accepted_trades"], 0)
+        self.assertEqual(direct["system_accepted_trades"], 2)
+        focal_optional = [e for e in receipt["trace"]["events"]
+            if e["actor"] == "focal" and e["type"] == "action_noop"]
+        self.assertEqual(len(focal_optional), 2)
 
     def test_focal_trade_count_is_bound_to_selected_actor_not_literal_name(self):
         s = scenario()

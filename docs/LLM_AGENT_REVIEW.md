@@ -38,3 +38,37 @@ Disposition: **engineering APPROVE subject to final artifact reproduction and
 green hosted CI; scientific real-agent validation BLOCKED**. Zero actual local
 model decisions or live-local server integration were verified. Hosted CI and
 the final artifact comparison must be reported from observed runs, not assumed.
+
+## PR #24 resumption and actual pilot review
+
+Agent 4 independently found a missed attribution bug: the original trade count
+included other scripted actors. The correction filters the focal actor and
+adds a separately scoped system total/controller identity. Regressions cover
+both actor identities and a valid voluntary-no-op focal policy with two control
+trades. The reviewer independently reproduced 0 focal / 2 system trades.
+
+Before inference, the reviewer challenged and approved the six-episode CPU
+protocol, public/free runner guard, pinned model/runtime/weight/license, no
+repair/retry rule, token evidence and strict call cap. Review additionally found
+unrecorded RuntimeError paths and protocol validation after model construction;
+both were fixed before dispatch, with regression coverage. Model identity and
+token-count evidence checks were added to pilot verification before execution.
+Frozen source `b4df995829657b2d488b3f0b9577b07b1cdb81ba998359f7bdaf539a3ca362d1`
+and protocol were published at `fe90b89` before workflow-only `1bcd83f` executed.
+All 165 pre-pilot tests passed independently, and both hosted CI checks were green.
+
+After successful actual run 41666251738/job 126022255193, the reviewer separately
+retrieved its original log, decoded all 12 payload chunks, verified canonical
+SHA256 `b2da1da8f2217a02e888952bb376170306ea80dd40ab564bf13ee27553b2969a`
+and matched the payload to `real_pilot.json`. All six recorded episodes and 54
+scripted controls independently replayed; all six summary rows and individual
+raw responses/token records were checked. Observed totals: 24 completed real
+calls, 45,874 prompt/609 output tokens, 22 invalid action schemas, two valid
+chosen no-ops, zero accepted reports/trades/skips, all EOS rather than truncation.
+
+Review corrected an early interpretation that raw utility outputs were always
+identical between incentives: one b-high invalid response changes. The report
+therefore makes no raw-output identity or general zero-sensitivity claim. The
+intended economic question remains unresolved because report capability failed.
+The reviewer did not rerun real inference; replay/source/log/accounting checks
+are distinguished from independent cold inference or broad scientific validation.

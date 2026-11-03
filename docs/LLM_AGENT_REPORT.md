@@ -1,9 +1,13 @@
-# Agent 3: real LLM-agent instrument, scientific validation blocked
+# Agent 3: real CPU pilot completed; economic validation unresolved
 
-Issue #21. **Actual LLM inference calls: 0. Actual LLM decisions: 0. Spend: $0.**
-The scientific question—whether the economic vulnerabilities matter for real
-LLM-driven agents—remains unanswered. No simulated strategy, transport fixture,
-or recorded task answer is counted as a real LLM decision.
+Issue #21 / PR #24. **24 actual CPU inference calls; 2 valid no-op actions;
+22 schema-invalid responses; spend $0.** See the
+[prospective pilot results](LLM_AGENT_PILOT_REPORT.md) for complete evidence.
+Economic manipulation relevance remains unresolved because the small model
+failed every report opportunity. Scripted strategies, transport fixtures and
+recorded task answers are not counted as real model decisions. The sections
+below retain the original zero-inference fallback and Mac-host blocker as
+historical engineering evidence; the completed CPU pilot supersedes that count.
 
 ## What works
 
