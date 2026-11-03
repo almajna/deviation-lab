@@ -75,4 +75,4 @@ Accelerated well-resourced coding-agent run: 4–8 calendar weeks for meaningful
 - Review final report, visual quality, and public release.
 
 ## Current implementation reality
-The repository contains a verified Phase 1 loader/audit, documentation, CI and a tiny synthetic reference. Shared v0.2 contracts at a0449c9 are approved and merged. Phase 2 implementation and Phase 6 handoff PRs #9/#10 are merged. Gate B mechanism design is proposed for approval; runtime markets are not implemented. The benchmark, market, attacks, evolution system and website are not complete. See `docs/STATUS.md`.
+The repository contains a verified Phase 1 loader/audit, documentation, CI and a tiny synthetic reference. Shared v0.2 contracts at a0449c9 are approved and merged. Phase 2 implementation and Phase 6 handoff PRs #9/#10 are merged. Gate B is approved/merged; a working v0.3 economic engine is under implementation review. The benchmark, market, attacks, evolution system and website are not complete. See `docs/STATUS.md`.

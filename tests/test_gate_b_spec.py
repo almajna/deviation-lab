@@ -254,9 +254,13 @@ class TestGateBProposalBoundaries(unittest.TestCase):
                 validate_trace(trace, pack["reservation_artifact"], pack["allocation_plan"],
                     pack["realized_report"], pack["ledger"], pack["decision_tasks"], run_config=pack["run_config"])
 
-    def test_gate_b_does_not_change_simulator_source_fingerprint(self):
+    def test_versioned_market_extension_preserves_historical_behavior(self):
         receipt = json.loads((ROOT / "artifacts/simulator/two_task/receipts.json").read_text())
-        self.assertEqual(implementation_sha256(), receipt["implementation_sha256"])
+        from deviation.simulator import run
+        current = run(json.loads((ROOT / "tests/fixtures/simulator/two_task.json").read_text()))
+        self.assertNotEqual(implementation_sha256(), receipt["implementation_sha256"])
+        self.assertEqual({k:v for k,v in current.items() if k not in {"implementation_sha256","sha256"}},
+                         {k:v for k,v in receipt.items() if k not in {"implementation_sha256","sha256"}})
 
     def test_external_utility_is_counted_once_per_controller(self):
         ex = fixture()["external_utility_example"]
