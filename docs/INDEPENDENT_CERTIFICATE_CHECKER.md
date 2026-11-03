@@ -83,6 +83,12 @@ suite compares this state merging against the full unmerged tree, including
 repeated markets and owned sales. A state cap produces a censored status, never
 an optimality claim. This is standard finite-horizon DP, not a new algorithm.
 
+Work counters count finite-game child transitions. A report commitment plus its
+forced completion is one child, even though it executes several Engine methods;
+the check receipt's legacy `engine_transitions` field uses that child unit. It
+must not be interpreted as a count of raw Engine.apply calls or a matched unit
+across different protocols. Timed measurements include the complete work.
+
 ## Source-bound artifacts and review limits
 
 Adding an independent package changes the producer's whole-package source hash.
@@ -95,6 +101,7 @@ pinned producer source b016e0178a67cc9834c0c6f6c409568de6df31e4b95baa5e95a616551
 
 The frozen development protocol specifies the scientific criteria and exact grid.
 State caps are not wall-time or memory caps. Failure checkpoints and stderr are
-evidence, not permission to omit cases. Timing variation is retained separately
+evidence, not permission to omit cases. current_case.json identifies work before
+it begins; failure.json records the exception before aborting. Timing variation is retained separately
 from deterministic mathematical values/proofs. Neither passing tests nor the
 agent review is external peer review or a human release approval.

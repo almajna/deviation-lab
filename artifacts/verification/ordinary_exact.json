@@ -1,0 +1,794 @@
+{
+  "protocol_sha256": "90d1e6a2baa30e5598b67d8774875febfc7f432145e160267852552c59afc622",
+  "rows": [
+    {
+      "case": "base-101-lmsr",
+      "leaves": 10,
+      "nodes": 11,
+      "status": "EXACT",
+      "utility": [
+        108,
+        1
+      ]
+    },
+    {
+      "case": "base-101-interactive-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        116,
+        1
+      ]
+    },
+    {
+      "case": "base-101-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        116,
+        1
+      ]
+    },
+    {
+      "case": "base-211-lmsr",
+      "leaves": 10,
+      "nodes": 11,
+      "status": "EXACT",
+      "utility": [
+        385,
+        3
+      ]
+    },
+    {
+      "case": "base-211-interactive-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        120,
+        1
+      ]
+    },
+    {
+      "case": "base-211-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        120,
+        1
+      ]
+    },
+    {
+      "case": "base-307-lmsr",
+      "leaves": 10,
+      "nodes": 11,
+      "status": "EXACT",
+      "utility": [
+        144,
+        1
+      ]
+    },
+    {
+      "case": "base-307-interactive-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        136,
+        1
+      ]
+    },
+    {
+      "case": "base-307-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        136,
+        1
+      ]
+    },
+    {
+      "case": "cash_only-101-lmsr",
+      "leaves": 100,
+      "nodes": 111,
+      "status": "EXACT",
+      "utility": [
+        108,
+        1
+      ]
+    },
+    {
+      "case": "cash_only-101-interactive-pool",
+      "leaves": 121,
+      "nodes": 133,
+      "status": "EXACT",
+      "utility": [
+        108,
+        1
+      ]
+    },
+    {
+      "case": "cash_only-101-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        108,
+        1
+      ]
+    },
+    {
+      "case": "cash_only-211-lmsr",
+      "leaves": 100,
+      "nodes": 111,
+      "status": "EXACT",
+      "utility": [
+        361,
+        3
+      ]
+    },
+    {
+      "case": "cash_only-211-interactive-pool",
+      "leaves": 121,
+      "nodes": 133,
+      "status": "EXACT",
+      "utility": [
+        120,
+        1
+      ]
+    },
+    {
+      "case": "cash_only-211-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        120,
+        1
+      ]
+    },
+    {
+      "case": "cash_only-307-lmsr",
+      "leaves": 100,
+      "nodes": 111,
+      "status": "EXACT",
+      "utility": [
+        128,
+        1
+      ]
+    },
+    {
+      "case": "cash_only-307-interactive-pool",
+      "leaves": 121,
+      "nodes": 133,
+      "status": "EXACT",
+      "utility": [
+        128,
+        1
+      ]
+    },
+    {
+      "case": "cash_only-307-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        128,
+        1
+      ]
+    },
+    {
+      "case": "no_capital-101-lmsr",
+      "leaves": 1,
+      "nodes": 3,
+      "status": "EXACT",
+      "utility": [
+        108,
+        1
+      ]
+    },
+    {
+      "case": "no_capital-101-interactive-pool",
+      "leaves": 121,
+      "nodes": 133,
+      "status": "EXACT",
+      "utility": [
+        124,
+        1
+      ]
+    },
+    {
+      "case": "no_capital-101-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        116,
+        1
+      ]
+    },
+    {
+      "case": "no_capital-211-lmsr",
+      "leaves": 1,
+      "nodes": 3,
+      "status": "EXACT",
+      "utility": [
+        128,
+        1
+      ]
+    },
+    {
+      "case": "no_capital-211-interactive-pool",
+      "leaves": 121,
+      "nodes": 133,
+      "status": "EXACT",
+      "utility": [
+        136,
+        1
+      ]
+    },
+    {
+      "case": "no_capital-211-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        120,
+        1
+      ]
+    },
+    {
+      "case": "no_capital-307-lmsr",
+      "leaves": 1,
+      "nodes": 3,
+      "status": "EXACT",
+      "utility": [
+        144,
+        1
+      ]
+    },
+    {
+      "case": "no_capital-307-interactive-pool",
+      "leaves": 121,
+      "nodes": 133,
+      "status": "EXACT",
+      "utility": [
+        136,
+        1
+      ]
+    },
+    {
+      "case": "no_capital-307-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        136,
+        1
+      ]
+    },
+    {
+      "case": "fee_friction-101-lmsr",
+      "leaves": 19,
+      "nodes": 30,
+      "status": "EXACT",
+      "utility": [
+        364,
+        3
+      ]
+    },
+    {
+      "case": "fee_friction-101-interactive-pool",
+      "leaves": 121,
+      "nodes": 133,
+      "status": "EXACT",
+      "utility": [
+        122,
+        1
+      ]
+    },
+    {
+      "case": "fee_friction-101-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        116,
+        1
+      ]
+    },
+    {
+      "case": "fee_friction-211-lmsr",
+      "leaves": 19,
+      "nodes": 30,
+      "status": "EXACT",
+      "utility": [
+        403,
+        3
+      ]
+    },
+    {
+      "case": "fee_friction-211-interactive-pool",
+      "leaves": 121,
+      "nodes": 133,
+      "status": "EXACT",
+      "utility": [
+        132,
+        1
+      ]
+    },
+    {
+      "case": "fee_friction-211-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        120,
+        1
+      ]
+    },
+    {
+      "case": "fee_friction-307-lmsr",
+      "leaves": 19,
+      "nodes": 30,
+      "status": "EXACT",
+      "utility": [
+        427,
+        3
+      ]
+    },
+    {
+      "case": "fee_friction-307-interactive-pool",
+      "leaves": 121,
+      "nodes": 133,
+      "status": "EXACT",
+      "utility": [
+        136,
+        1
+      ]
+    },
+    {
+      "case": "fee_friction-307-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        136,
+        1
+      ]
+    },
+    {
+      "case": "uninformed-101-lmsr",
+      "leaves": 100,
+      "nodes": 111,
+      "status": "EXACT",
+      "utility": [
+        359,
+        3
+      ]
+    },
+    {
+      "case": "uninformed-101-interactive-pool",
+      "leaves": 121,
+      "nodes": 133,
+      "status": "EXACT",
+      "utility": [
+        120,
+        1
+      ]
+    },
+    {
+      "case": "uninformed-101-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        114,
+        1
+      ]
+    },
+    {
+      "case": "uninformed-211-lmsr",
+      "leaves": 100,
+      "nodes": 111,
+      "status": "EXACT",
+      "utility": [
+        359,
+        3
+      ]
+    },
+    {
+      "case": "uninformed-211-interactive-pool",
+      "leaves": 121,
+      "nodes": 133,
+      "status": "EXACT",
+      "utility": [
+        120,
+        1
+      ]
+    },
+    {
+      "case": "uninformed-211-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        120,
+        1
+      ]
+    },
+    {
+      "case": "uninformed-307-lmsr",
+      "leaves": 100,
+      "nodes": 111,
+      "status": "EXACT",
+      "utility": [
+        359,
+        3
+      ]
+    },
+    {
+      "case": "uninformed-307-interactive-pool",
+      "leaves": 121,
+      "nodes": 133,
+      "status": "EXACT",
+      "utility": [
+        120,
+        1
+      ]
+    },
+    {
+      "case": "uninformed-307-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        114,
+        1
+      ]
+    },
+    {
+      "case": "conflicting-101-lmsr",
+      "leaves": 100,
+      "nodes": 111,
+      "status": "EXACT",
+      "utility": [
+        132,
+        1
+      ]
+    },
+    {
+      "case": "conflicting-101-interactive-pool",
+      "leaves": 121,
+      "nodes": 133,
+      "status": "EXACT",
+      "utility": [
+        132,
+        1
+      ]
+    },
+    {
+      "case": "conflicting-101-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        126,
+        1
+      ]
+    },
+    {
+      "case": "conflicting-211-lmsr",
+      "leaves": 100,
+      "nodes": 111,
+      "status": "EXACT",
+      "utility": [
+        436,
+        3
+      ]
+    },
+    {
+      "case": "conflicting-211-interactive-pool",
+      "leaves": 121,
+      "nodes": 133,
+      "status": "EXACT",
+      "utility": [
+        144,
+        1
+      ]
+    },
+    {
+      "case": "conflicting-211-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        144,
+        1
+      ]
+    },
+    {
+      "case": "conflicting-307-lmsr",
+      "leaves": 100,
+      "nodes": 111,
+      "status": "EXACT",
+      "utility": [
+        152,
+        1
+      ]
+    },
+    {
+      "case": "conflicting-307-interactive-pool",
+      "leaves": 121,
+      "nodes": 133,
+      "status": "EXACT",
+      "utility": [
+        152,
+        1
+      ]
+    },
+    {
+      "case": "conflicting-307-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        146,
+        1
+      ]
+    },
+    {
+      "case": "coalition-101-lmsr",
+      "leaves": 256,
+      "nodes": 341,
+      "status": "EXACT",
+      "utility": [
+        370,
+        3
+      ]
+    },
+    {
+      "case": "coalition-101-interactive-pool",
+      "leaves": 14641,
+      "nodes": 16105,
+      "status": "EXACT",
+      "utility": [
+        124,
+        1
+      ]
+    },
+    {
+      "case": "coalition-101-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        116,
+        1
+      ]
+    },
+    {
+      "case": "coalition-211-lmsr",
+      "leaves": 256,
+      "nodes": 341,
+      "status": "EXACT",
+      "utility": [
+        407,
+        3
+      ]
+    },
+    {
+      "case": "coalition-211-interactive-pool",
+      "leaves": 14641,
+      "nodes": 16105,
+      "status": "EXACT",
+      "utility": [
+        136,
+        1
+      ]
+    },
+    {
+      "case": "coalition-211-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        120,
+        1
+      ]
+    },
+    {
+      "case": "coalition-307-lmsr",
+      "leaves": 256,
+      "nodes": 341,
+      "status": "EXACT",
+      "utility": [
+        431,
+        3
+      ]
+    },
+    {
+      "case": "coalition-307-interactive-pool",
+      "leaves": 14641,
+      "nodes": 16105,
+      "status": "EXACT",
+      "utility": [
+        144,
+        1
+      ]
+    },
+    {
+      "case": "coalition-307-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        136,
+        1
+      ]
+    },
+    {
+      "case": "deep-101-lmsr",
+      "configured_node_cap": 20000,
+      "status": "CENSORED_STATE_LIMIT",
+      "utility": null
+    },
+    {
+      "case": "deep-101-interactive-pool",
+      "configured_node_cap": 20000,
+      "status": "CENSORED_STATE_LIMIT",
+      "utility": null
+    },
+    {
+      "case": "deep-101-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        120,
+        1
+      ]
+    },
+    {
+      "case": "deep-211-lmsr",
+      "configured_node_cap": 20000,
+      "status": "CENSORED_STATE_LIMIT",
+      "utility": null
+    },
+    {
+      "case": "deep-211-interactive-pool",
+      "configured_node_cap": 20000,
+      "status": "CENSORED_STATE_LIMIT",
+      "utility": null
+    },
+    {
+      "case": "deep-211-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        120,
+        1
+      ]
+    },
+    {
+      "case": "deep-307-lmsr",
+      "configured_node_cap": 20000,
+      "status": "CENSORED_STATE_LIMIT",
+      "utility": null
+    },
+    {
+      "case": "deep-307-interactive-pool",
+      "configured_node_cap": 20000,
+      "status": "CENSORED_STATE_LIMIT",
+      "utility": null
+    },
+    {
+      "case": "deep-307-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        140,
+        1
+      ]
+    },
+    {
+      "case": "large_order-101-lmsr",
+      "leaves": 1225,
+      "nodes": 1261,
+      "status": "EXACT",
+      "utility": [
+        373,
+        3
+      ]
+    },
+    {
+      "case": "large_order-101-interactive-pool",
+      "leaves": 121,
+      "nodes": 133,
+      "status": "EXACT",
+      "utility": [
+        124,
+        1
+      ]
+    },
+    {
+      "case": "large_order-101-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        116,
+        1
+      ]
+    },
+    {
+      "case": "large_order-211-lmsr",
+      "leaves": 1225,
+      "nodes": 1261,
+      "status": "EXACT",
+      "utility": [
+        409,
+        3
+      ]
+    },
+    {
+      "case": "large_order-211-interactive-pool",
+      "leaves": 121,
+      "nodes": 133,
+      "status": "EXACT",
+      "utility": [
+        136,
+        1
+      ]
+    },
+    {
+      "case": "large_order-211-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        120,
+        1
+      ]
+    },
+    {
+      "case": "large_order-307-lmsr",
+      "leaves": 1225,
+      "nodes": 1261,
+      "status": "EXACT",
+      "utility": [
+        144,
+        1
+      ]
+    },
+    {
+      "case": "large_order-307-interactive-pool",
+      "leaves": 121,
+      "nodes": 133,
+      "status": "EXACT",
+      "utility": [
+        136,
+        1
+      ]
+    },
+    {
+      "case": "large_order-307-pool",
+      "leaves": 11,
+      "nodes": 12,
+      "status": "EXACT",
+      "utility": [
+        136,
+        1
+      ]
+    }
+  ],
+  "sha256": "7aee3fd54403d0c62846843e3c3f2d0e509999cebb676ebb73ab8ee2b18c9957",
+  "source_sha256": "7d88cd5dfa1d0bd72f0d7c9796a06206ceb1451228171ad67b1041b8a6049b78",
+  "version": "secondary-ordinary-exact-1"
+}

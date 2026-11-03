@@ -37,6 +37,8 @@ def validate_game(g):
     Q = e.cfg["order_limit"]
     alphabet_bound = (4*Q**3+6*Q**2+8*Q+3)//3 if g.mechanism == "lmsr" else (D+1)*(D+2)//2+1
     require(alphabet_bound <= min(100000, e.cfg["candidate_limit"]), "oversized alphabet")
+    require(all(f"{a}/order-{turn}" not in e.used for turn, (a, mid) in
+                enumerate(e.schedule[e.turn:], start=e.turn)), "noncanonical future order-ID reservation")
 
 
 def check(game, certificate, *, expected_source_sha=None, max_nodes=1000000):

@@ -3,7 +3,9 @@ from copy import deepcopy
 from fractions import Fraction
 import json
 from pathlib import Path
+from itertools import product
 import unittest
+import tempfile
 from unittest.mock import patch
 
 from deviation.attacks.certified import solve
@@ -122,7 +124,9 @@ class IndependentCertificateTests(unittest.TestCase):
         g = self.game()
         c = solve(g, max_expansions=20)
         for key, value in [("source_sha256", "0"*64), ("observation_sha256", "0"*64),
-                           ("controller", "honest"), ("scope", "reports")]:
+                           ("controller", "honest"), ("scope", "reports"),
+                           ("objective", "REALIZED_UTILITY"), ("action_space", "narrower"),
+                           ("version", "attack-certificate-2")]:
             with self.subTest(key=key):
                 changed = deepcopy(c)
                 changed[key] = value
@@ -148,12 +152,13 @@ class IndependentCertificateTests(unittest.TestCase):
         g = self.game()
         c = solve(g, max_expansions=20)
         self.assertEqual(c["nodes"][0]["kind"], "split")
-        for mode in ["missing", "duplicate", "cycle", "unreachable"]:
+        for mode in ["missing", "duplicate", "cycle", "shared", "unreachable"]:
             changed = deepcopy(c)
             edges = changed["nodes"][0]["children"]
             if mode == "missing": edges.pop()
             elif mode == "duplicate": edges[0] = deepcopy(edges[-1])
             elif mode == "cycle": edges[0]["node"] = 0
+            elif mode == "shared": edges[0]["node"] = edges[1]["node"]
             else: changed["nodes"].append(deepcopy(changed["nodes"][-1]))
             with self.subTest(mode=mode), self.assertRaises(VerificationError):
                 check(g, rehash(changed))
@@ -225,6 +230,63 @@ class IndependentCertificateTests(unittest.TestCase):
             g = fixture(BASE | {"horizon": 2}, 101, mechanism)
             ordinary = search(g, max_nodes=20000)
             self.assertEqual(ordinary["selected"]["utility"], exact(g)["utility"])
+
+    def test_allocation_dp_and_external_bound_match_bruteforce_plans(self):
+        from deviation.markets.numeric import prices
+        from deviation.markets.engine import market_id
+        from deviation.verification.bounds import external_cap
+        g = self.game(horizon=1)
+        for child in [advance(g, req) for req in actions(g)]:
+            P = child.engine.cfg["price_denominator"]
+            values = {}
+            for t in child.tasks:
+                for m in t["model_options"]:
+                    p = prices(child.engine.books[market_id(t["task_id"], m)]["q"], child.engine.cfg["b"], P)
+                    values[t["task_id"], m] = Fraction(p[1]+2*p[2], 2*P)
+            candidates = []
+            externals = []
+            weights = child.engine.controllers[child.controller]["external_weights"]
+            for plan in product(*[[None]+t["model_options"] for t in child.tasks]):
+                spent = sum(child.artifact["reservations"][m] if m else 0 for m in plan)
+                if spent <= child.budget:
+                    value = sum(values[t["task_id"], m] if m else 0 for t, m in zip(child.tasks, plan))
+                    candidates.append((value, -spent))
+                    externals.append(sum(weights.get(t["task_id"], {}).get(m, 0) for t, m in zip(child.tasks, plan)))
+            plan = payoff(child)["allocation"]
+            selected_value = sum(values[r["task_id"], r["model_id"]] if r["model_id"] else 0 for r in plan)
+            self.assertEqual((selected_value, -sum(r["reserved_cost"] for r in plan)), max(candidates))
+            self.assertEqual(external_cap(child), max(externals))
+
+    def test_noncanonical_future_order_id_is_explicitly_unsupported(self):
+        g = self.game()
+        a, mid = g.engine.schedule[g.engine.turn]
+        g.engine.used.add(f"{a}/order-{g.engine.turn}")
+        with self.assertRaisesRegex(VerificationError, "noncanonical"):
+            check(g, {})
+
+    def test_failed_case_is_preserved_before_abort(self):
+        from deviation.verification.benchmark import run
+        protocol = json.loads((ROOT/"experiments/certificate_benchmark.json").read_text())
+        with tempfile.TemporaryDirectory() as tmp, \
+             patch("deviation.attacks.certified.solve", side_effect=VerificationError("injected failure")):
+            with self.assertRaisesRegex(VerificationError, "injected failure"):
+                run(protocol, tmp, measure=False, progress=lambda text: None)
+            failed = json.loads((Path(tmp)/"failure.json").read_text())
+            self.assertEqual(failed["current_case"]["case"], "base-101-lmsr")
+            self.assertEqual(failed["exception_type"], "VerificationError")
+            self.assertEqual(failed["message"], "injected failure")
+
+    def test_false_exact_claim_and_checker_node_cap_rejected(self):
+        g = self.game()
+        c = solve(g, max_expansions=0)
+        self.assertNotEqual(c["gap"], [0, 1])
+        changed = deepcopy(c)
+        changed["claim"] = "EXACT_FINITE_SUBGAME"
+        with self.assertRaises(VerificationError):
+            check(g, rehash(changed))
+        c = solve(g, max_expansions=20)
+        with self.assertRaises(VerificationError):
+            check(g, c, max_nodes=1)
 
 
 if __name__ == "__main__":

@@ -38,6 +38,27 @@ def main():
     lost = sum(rational(r["certificate"]["lower"]) < rational(r["beam"]["lower"]) for r in rows)
     root_improved = sum(rational(r["root_endpoint_upper"]) < rational(r["root_fallback_upper"]) for r in rows)
     max_bytes = max(r["proof_bytes"] for r in rows)
+    ratio_lookup = {r["case"]: r["ratio"] for r in summary["eligible"]}
+    cost_table = ["| Mechanism | Eligible cases | Median paired time ratio |",
+                  "|---|---:|---:|"]
+    for m, values in sorted(grouped.items()):
+        ratios = [ratio_lookup[r["case"]] for r in values if r["case"] in ratio_lookup]
+        cost_table.append(f"| {m} | {len(ratios)} | {median(ratios):.3f} |")
+    ordinary_path = folder/"ordinary_exact.json"
+    ordinary_note = "Secondary ordinary-exact diagnostic not supplied."
+    if ordinary_path.exists():
+        ordinary = json.loads(ordinary_path.read_text())
+        row_lookup = {r["case"]: r for r in rows}
+        for row in ordinary["rows"]:
+            if row["status"] == "EXACT":
+                ref = row_lookup[row["case"]]
+                assert rational(ref["certificate"]["lower"]) <= rational(row["utility"]) <= rational(ref["certificate"]["upper"])
+                if ref["exhaustive"]["status"] == "EXACT":
+                    assert ref["exhaustive"]["utility"] == row["utility"]
+        n = sum(r["status"] == "EXACT" for r in ordinary["rows"])
+        ordinary_note = (f"The separately labeled unchanged ordinary-exact diagnostic completed {n}/{len(rows)} "
+                         "cases; all completed values agreed with independent exact results and the certified intervals. "
+                         "It was added after the initial protocol at the supervisor's request and does not enter the primary timing criterion.")
     report = f"""# Independent attack-certificate evaluation
 
 All **{len(rows)} cases are synthetic development fixtures**, from the frozen
@@ -63,9 +84,20 @@ lost in {lost}, and tied in {len(rows)-improvement-lost}. These algorithms have
 different units of work: the configured cap is a state expansion cap for the
 producer and a candidate-transition cap for beam. The table is not an equal-time
 superiority estimate. Beam supplies no mathematical upper bound.
+Work counters use finite-game child transitions, with static-report completion
+counted as one child; they are not counts of raw Engine.apply invocations.
 The endpoint relaxation improved the root bound over its conservative fallback
 in {root_improved}/{len(rows)} cases. Largest proof: {max_bytes:,} serialized bytes.
 All rows, including censored baselines and nonzero gaps, appear in results.csv.
+
+The eight-slot LMSR stress cases closed their gaps even where both independent
+exact baselines hit their declared state cap. This is useful scoped evidence for
+the bound, not an equal-time speedup estimate: a completed exact comparator is
+unavailable there. The corresponding eight-slot interactive-pool cases retained
+gaps and lost incumbent utility to beam search. The external-reward relaxation
+and best-bound exploration do not by themselves guarantee strong feasible search.
+
+{ordinary_note}
 
 ## Prespecified practical-value criterion
 
@@ -80,6 +112,10 @@ This is a warm-cache measurement, with one warm run and three retained repeats
 per method/case; it does not describe first-run latency. There are only three
 seed blocks, related grid cells and repeated static-report settings. The interval
 is not a real-world population confidence statement.
+
+Descriptive breakdown (no additional success criteria):
+
+{chr(10).join(cost_table)}
 
 ## Scientific conclusion
 
@@ -114,6 +150,8 @@ python -m pip install --no-deps .
 python -m unittest discover -s tests -v
 python -I -m deviation.verification --out replay/certificates --no-timings --verify artifacts/verification/results.json
 python -I -m deviation.verification --out replay/measured
+python scripts/certificate_ordinary_exact.py replay/measured
+python scripts/check_certificate_archive.py artifacts/verification
 python -m pip install matplotlib==3.10.7
 MPLCONFIGDIR=replay/mpl python scripts/report_certificate_benchmark.py replay/measured
 ```
@@ -122,6 +160,14 @@ Economic values, proofs, work counts and source bindings reproduce exactly;
 wall times vary by hardware/load. The first declared base/seed101 case for each
 mechanism is retained as a complete example proof regardless of outcome. The
 driver emits all proof files. No fee/spending or holdout access occurred.
+All 81 complete proofs are also retained in a compressed archive directory with
+hashes of compressed and original JSON bytes; they can be independently checked
+without rerunning any optimizer.
+
+The first complete run, including its negative speed result, is preserved under
+artifacts/verification/initial_run/. The official run follows logging-only failed-case persistence and
+explicit rejection of unsupported noncanonical roots; settings and mathematical
+algorithms were not tuned. These are disclosed infrastructure corrections.
 """
     (folder/"REPORT.md").write_text(report)
     figures = folder/"figures"
@@ -170,6 +216,8 @@ driver emits all proof files. No fee/spending or holdout access occurred.
         data["work"].append({"case": row["case"], "proof_nodes": row["certificate"]["search"]["generated"],
                              "dp_nodes": row["dynamic_programming"]["nodes"], "dp_status": row["dynamic_programming"]["status"]})
     (folder/"plot_data.json").write_text(json.dumps(data, sort_keys=True, indent=2)+"\n")
+    for svg in figures.glob("*.svg"):
+        svg.write_text("\n".join(line.rstrip() for line in svg.read_text().splitlines())+"\n")
     files = [folder/"results.json", folder/"timings.json", folder/"plot_data.json", Path(__file__)]
     manifest = {str(p.name): sha256(p.read_bytes()).hexdigest() for p in files}
     manifest["figures"] = {p.name: sha256(p.read_bytes()).hexdigest() for p in sorted(figures.glob("*.svg"))}

@@ -1,5 +1,18 @@
 # Architecture / scientific decision log
 
+## Agent 2 — independent certificate evaluation (2026-11-02 Pacific)
+
+Own additive verification package and synthetic fixtures in #22 / PR #25, stacked
+on unmodified Agent 1 #23. Freeze criteria publicly before outcomes at d77e2cd;
+evaluate only synthetic development subgames. Preserve source-bound historical
+artifacts; new integrated proofs bind the new package. Use independent exhaustive
+and memoized exact DP baselines, disclose warmed timings and known prior art.
+After the first negative speed result, add only failure recording and explicit
+canonical-root rejection; retain the original result and regenerate evidence.
+Secondary ordinary exact search does not enter the frozen primary criterion.
+Routine reversible engineering/evaluation implementation under the user's scope;
+no final holdout, assumption change, spend, merge or release. Owner: Agent 2.
+
 Each entry: Date, ID, Decision, Alternatives, Why, Evidence, Reversible?, Owner, Human approval required?
 
 ## D-001 — 2026-11-02 — Local-first offline empirical benchmark

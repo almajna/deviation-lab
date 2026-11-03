@@ -74,7 +74,7 @@ def timing_summary(rows, timings, protocol):
             "interpretation": "Descriptive finite synthetic suite; only three seed blocks; no population inference."}
 
 
-def run(protocol, destination, *, measure=True, progress=print):
+def _run(protocol, destination, *, measure=True, progress=print):
     # Import producer only in driver, never checker/domain/bound implementation.
     from deviation.attacks.certified import solve
     from deviation.attacks.search import search
@@ -88,6 +88,8 @@ def run(protocol, destination, *, measure=True, progress=print):
         for seed in protocol["seeds"]:
             for mechanism in protocol["mechanisms"]:
                 case = f"{profile['id']}-{seed}-{mechanism}"
+                (out/"current_case.json").write_text(dumps({"case": case, "profile": profile,
+                    "seed": seed, "mechanism": mechanism, "previously_completed": len(rows)}))
                 g = fixture(profile, seed, mechanism)
                 c, solve_times = sample(lambda: solve(g, max_expansions=protocol["max_nodes"], vector_limit=5000), repeats)
                 checked, check_times = sample(lambda: check(g, c), repeats)
@@ -159,3 +161,22 @@ def run(protocol, destination, *, measure=True, progress=print):
     if failures:
         raise ValueError(f"{len(failures)} scientific correctness failures; see results.json")
     return result
+
+
+def run(protocol, destination, *, measure=True, progress=print):
+    """Preserve the active case and exception on any interrupted/failed run.
+
+    Logging-only hardening after the first all-case run; fixture generation,
+    mathematical algorithms, settings and statistical criteria are unchanged.
+    """
+    out = Path(destination)
+    out.mkdir(parents=True, exist_ok=True)
+    try:
+        return _run(protocol, out, measure=measure, progress=progress)
+    except BaseException as error:
+        current = out/"current_case.json"
+        failure = {"version": "certificate-benchmark-failure-1",
+            "exception_type": type(error).__name__, "message": str(error),
+            "current_case": json.loads(current.read_text()) if current.exists() else None}
+        (out/"failure.json").write_text(dumps(failure))
+        raise
