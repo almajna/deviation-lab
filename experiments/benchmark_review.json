@@ -1,0 +1,14 @@
+{
+  "document_sha256": "8c19f50baf75ea3e30d69e82028f911e054451e04216783cdb1d1bbdaf960b80",
+  "evaluation_performed_before_review": false,
+  "limitations": [
+    "same-model-family agent review, not external peer review or GitHub approval",
+    "no final holdout authorization",
+    "single-domain selected development cohort; conditional batch intervals",
+    "finite policy class and small simulation sample; no full-game optimum"
+  ],
+  "protocol_sha256": "b8fbf561bbc71d465c454247f2d707f195e4e498c6ec9aef89faaa77f3396f60",
+  "reviewer": "independent-read-only-phase5_protocol_review",
+  "verdict": "PASS_EXPLORATORY_VALIDATION_ONLY",
+  "version": "protocol-review-1"
+}
