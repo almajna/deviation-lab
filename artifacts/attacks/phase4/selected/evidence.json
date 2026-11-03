@@ -1,0 +1,740 @@
+{
+  "all_selected_nonnoop_commands_accepted": true,
+  "allocation_redirected": true,
+  "causal_sequence": [
+    {
+      "event_seq": 6,
+      "event_type": "report_revealed",
+      "payload_sha256": "a847d78da4170ea98a1288e1017ad33903f9a06d31c81b677b3f1edfea1763fc"
+    },
+    {
+      "event_seq": 7,
+      "event_type": "report_revealed",
+      "payload_sha256": "3f780fb885a10f69a0a242d6ec4055dfa268eb7b49852755a56f64d8f21318d8"
+    },
+    {
+      "event_seq": 8,
+      "event_type": "report_revealed",
+      "payload_sha256": "656d974b2d8bad56b3c74a7409ea6767c954f271da7f3d42d3473c71d7a23867"
+    },
+    {
+      "event_seq": 9,
+      "event_type": "report_revealed",
+      "payload_sha256": "26858de3b52da0c703232e7c6585ee98719a2ba34be5609f7e7f0cdfd629c5ef"
+    },
+    {
+      "event_seq": 10,
+      "event_type": "report_revealed",
+      "payload_sha256": "673d48a1ba10a38c3d1e4b206a645aa41b534cc2c06ffec8151e572cc7e9515b"
+    },
+    {
+      "event_seq": 11,
+      "event_type": "report_revealed",
+      "payload_sha256": "3773c25e535964ccbcba0146ce61984ac4c2fd1a5058b4083c10d7ae0315905c"
+    },
+    {
+      "event_seq": 12,
+      "event_type": "report_revealed",
+      "payload_sha256": "7bb8b7afc92ff747f9df3a9da99ec3e56bd9e68b9c1794821f70d59b948a830e"
+    },
+    {
+      "event_seq": 13,
+      "event_type": "report_revealed",
+      "payload_sha256": "9a1a14d38ccbfd872d764e41ccb92ba8e2e37231f7b7c600417550746f265846"
+    },
+    {
+      "event_seq": 22,
+      "event_type": "trade_accepted",
+      "payload_sha256": "4f16abb6d2192f942308444badf6927649ab95359aaf75ec754ebf9e98d8ace0"
+    },
+    {
+      "event_seq": 26,
+      "event_type": "allocation_locked",
+      "payload_sha256": "2a48a6bf01fc4eb1566dd255482604e0c412be412ee8732f2fc93d3ff6e783c0"
+    },
+    {
+      "event_seq": 49,
+      "event_type": "economic_summary",
+      "payload_sha256": "348f6bbec346625319cfffb27068f7ff85dd7211a8fcc03400ba14bf701174c2"
+    }
+  ],
+  "classification": "VERIFIED_STRATEGIC_ALLOCATION_DEVIATION",
+  "controller": "strategic",
+  "data_kind": "SYNTHETIC",
+  "environment_expected_welfare": {
+    "attack": [
+      2,
+      3
+    ],
+    "no_action": [
+      4,
+      3
+    ],
+    "signal_following": [
+      4,
+      3
+    ]
+  },
+  "environment_expected_welfare_loss": [
+    2,
+    3
+  ],
+  "environment_gain_vs_no_action": [
+    11,
+    3
+  ],
+  "environment_gain_vs_signal_following": [
+    11,
+    3
+  ],
+  "environment_payoff_checks": {
+    "attack": {
+      "cash_conserved": true,
+      "effort": 0,
+      "expected_cash": [
+        185,
+        3
+      ],
+      "expected_claims": [
+        2,
+        3
+      ],
+      "expected_scores": [
+        64,
+        1
+      ],
+      "expected_utility": [
+        203,
+        3
+      ],
+      "external_benefit": 6,
+      "fees": 2,
+      "pre_settlement_cash": [
+        -3,
+        1
+      ],
+      "realized_cash": 55,
+      "realized_utility": 61
+    },
+    "no_action": {
+      "cash_conserved": true,
+      "effort": 0,
+      "expected_cash": [
+        64,
+        1
+      ],
+      "expected_claims": [
+        0,
+        1
+      ],
+      "expected_scores": [
+        64,
+        1
+      ],
+      "expected_utility": [
+        64,
+        1
+      ],
+      "external_benefit": 0,
+      "fees": 0,
+      "pre_settlement_cash": [
+        0,
+        1
+      ],
+      "realized_cash": 56,
+      "realized_utility": 56
+    },
+    "signal_following": {
+      "cash_conserved": true,
+      "effort": 0,
+      "expected_cash": [
+        64,
+        1
+      ],
+      "expected_claims": [
+        0,
+        1
+      ],
+      "expected_scores": [
+        64,
+        1
+      ],
+      "expected_utility": [
+        64,
+        1
+      ],
+      "external_benefit": 0,
+      "fees": 0,
+      "pre_settlement_cash": [
+        0,
+        1
+      ],
+      "realized_cash": 56,
+      "realized_utility": 56
+    }
+  },
+  "gain_vs_no_action": [
+    11,
+    3
+  ],
+  "gain_vs_signal_following": [
+    11,
+    3
+  ],
+  "implementation_sha256": "368485d0af592ea1c0359ffba5c9f6de0710e6342142208d91d778983a7c3e30",
+  "incentive_attribution": "EXTERNAL_REWARD_REQUIRED_FOR_THIS_SELECTED_PLAN",
+  "incentive_decomposition": {
+    "cash_gain": [
+      -7,
+      3
+    ],
+    "effort_change": 0,
+    "external_gain": 6
+  },
+  "independent_payoff_checks": {
+    "attack": {
+      "cash_conserved": true,
+      "effort": 0,
+      "expected_cash": [
+        185,
+        3
+      ],
+      "expected_claims": [
+        2,
+        3
+      ],
+      "expected_scores": [
+        64,
+        1
+      ],
+      "expected_utility": [
+        203,
+        3
+      ],
+      "external_benefit": 6,
+      "fees": 2,
+      "pre_settlement_cash": [
+        -3,
+        1
+      ],
+      "realized_cash": 55,
+      "realized_utility": 61
+    },
+    "no_action": {
+      "cash_conserved": true,
+      "effort": 0,
+      "expected_cash": [
+        64,
+        1
+      ],
+      "expected_claims": [
+        0,
+        1
+      ],
+      "expected_scores": [
+        64,
+        1
+      ],
+      "expected_utility": [
+        64,
+        1
+      ],
+      "external_benefit": 0,
+      "fees": 0,
+      "pre_settlement_cash": [
+        0,
+        1
+      ],
+      "realized_cash": 56,
+      "realized_utility": 56
+    },
+    "signal_following": {
+      "cash_conserved": true,
+      "effort": 0,
+      "expected_cash": [
+        64,
+        1
+      ],
+      "expected_claims": [
+        0,
+        1
+      ],
+      "expected_scores": [
+        64,
+        1
+      ],
+      "expected_utility": [
+        64,
+        1
+      ],
+      "external_benefit": 0,
+      "fees": 0,
+      "pre_settlement_cash": [
+        0,
+        1
+      ],
+      "realized_cash": 56,
+      "realized_utility": 56
+    }
+  },
+  "input_sha256": "5ca0cb316c54ace5fd42e7a6751a26d38a1b9b7dc5cb101e6b11460dab1f0602",
+  "mechanism": "lmsr",
+  "model_matches_real_execution": true,
+  "observation_audit": {
+    "access": "POST_RUN_SYNTHETIC_RESEARCH_AUDIT_NOT_POLICY_PACKET",
+    "declared_belief_counts": {
+      "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": [
+        0,
+        0,
+        3
+      ],
+      "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": [
+        2,
+        0,
+        1
+      ],
+      "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": [
+        2,
+        0,
+        1
+      ],
+      "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": [
+        3,
+        0,
+        0
+      ]
+    },
+    "future_information": "NO_FUTURE_HONEST_ACTIONS_IN_TERMINAL_GAME; PUBLIC_ANNOUNCED_MODEL_IN_REPORT_GAME",
+    "observation_sha256": "36d8b9b0f718d65db3dfeeecb87ae9e9ce019f5be58eb61eba950c4608f622f3",
+    "public_report_model": null
+  },
+  "realized_proxy_loss": 0.0,
+  "receipt_sha256": {
+    "attack": "bf4404d8ffcc4370bb805867c97e90d7c58e2aa5f8f361249be312438e780abb",
+    "no_action": "cd6e566c597d4c24a0877e38c982b4dc48bcf2133fd05f39f95f40b7de03a724",
+    "signal_following": "cd6e566c597d4c24a0877e38c982b4dc48bcf2133fd05f39f95f40b7de03a724",
+    "zero_external_attack": "429b6317fd23213f160d9a437df3564014c5f548a567fc2f2448612f39b191d9",
+    "zero_external_no_action": "429b6317fd23213f160d9a437df3564014c5f548a567fc2f2448612f39b191d9",
+    "zero_external_signal_following": "429b6317fd23213f160d9a437df3564014c5f548a567fc2f2448612f39b191d9"
+  },
+  "resource_matching": {
+    "registered_actors": [
+      "h0",
+      "z0"
+    ],
+    "same_registry_config_caps_and_schedule": true,
+    "score_reserve": 144
+  },
+  "same_plan_gain_without_external": [
+    -7,
+    3
+  ],
+  "scope": "terminal",
+  "search": {
+    "beam_width": 4,
+    "budget_exhausted": false,
+    "claim": "EXACT_DECLARED_FINITE_SUBGAME",
+    "commands": [
+      {
+        "actor": "z0",
+        "expected_state_seq": 0,
+        "kind": "trade_shares",
+        "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+        "max_net_debit": 3,
+        "order_id": "z0/order-7",
+        "schema_version": "0.3",
+        "share_delta": [
+          0,
+          0,
+          2
+        ],
+        "stage": "TRADE_OR_UPDATE"
+      }
+    ],
+    "considered_actions": 10,
+    "evaluation_transcript_sha256": "f09ee2cdbb741fab38c49f96023a160acdb5e5ba879655890a2d7a73ec4f50fc",
+    "gain_vs_no_action": [
+      11,
+      3
+    ],
+    "gain_vs_signal_following": [
+      11,
+      3
+    ],
+    "improvements": [
+      {
+        "command_sha256": "ac50e66149648fcf2f8be8f333025d985418f383245e3a0cc4b1271eeb17e015",
+        "leaf": 2,
+        "utility": [
+          202,
+          3
+        ]
+      },
+      {
+        "command_sha256": "e471cbdd5647d31b2ef0d865950c6e5b0cf8988ecee4351b0eb33148d01ab2cb",
+        "leaf": 3,
+        "utility": [
+          203,
+          3
+        ]
+      }
+    ],
+    "max_nodes": 500,
+    "method": "exact",
+    "no_action": {
+      "allocation": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "bd61101eea3d5f499dcd2fb337f8de612c5401b5dc1a57a1531cb7855f4000b0",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "cash": [
+        64,
+        1
+      ],
+      "effort": [
+        0,
+        1
+      ],
+      "external": [
+        0,
+        1
+      ],
+      "utility": [
+        64,
+        1
+      ]
+    },
+    "observation_sha256": "36d8b9b0f718d65db3dfeeecb87ae9e9ce019f5be58eb61eba950c4608f622f3",
+    "scope": "terminal",
+    "seed": 7,
+    "selected": {
+      "allocation": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "bd61101eea3d5f499dcd2fb337f8de612c5401b5dc1a57a1531cb7855f4000b0",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "cash": [
+        185,
+        3
+      ],
+      "effort": [
+        0,
+        1
+      ],
+      "external": [
+        6,
+        1
+      ],
+      "utility": [
+        203,
+        3
+      ]
+    },
+    "sha256": "3fe1dc6a6f8d53c2900723abce9cdacf642f352db6ce7353dddb918b9b6c7ac4",
+    "signal_following": {
+      "allocation": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "bd61101eea3d5f499dcd2fb337f8de612c5401b5dc1a57a1531cb7855f4000b0",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "cash": [
+        64,
+        1
+      ],
+      "effort": [
+        0,
+        1
+      ],
+      "external": [
+        0,
+        1
+      ],
+      "utility": [
+        64,
+        1
+      ]
+    },
+    "terminal_evaluations": 10,
+    "version": "attack-search-1",
+    "visited_nodes": 11
+  },
+  "sha256": "73f2f744c933d7e6bacace603758ab3d06646ca551b9f20ff1f327829a77a34b",
+  "version": "attack-evidence-1",
+  "zero_external_control": {
+    "gain_vs_signal_following": [
+      0,
+      1
+    ],
+    "independent_payoff_checks": {
+      "zero_external_attack": {
+        "cash_conserved": true,
+        "effort": 0,
+        "expected_cash": [
+          64,
+          1
+        ],
+        "expected_claims": [
+          0,
+          1
+        ],
+        "expected_scores": [
+          64,
+          1
+        ],
+        "expected_utility": [
+          64,
+          1
+        ],
+        "external_benefit": 0,
+        "fees": 0,
+        "pre_settlement_cash": [
+          0,
+          1
+        ],
+        "realized_cash": 56,
+        "realized_utility": 56
+      },
+      "zero_external_no_action": {
+        "cash_conserved": true,
+        "effort": 0,
+        "expected_cash": [
+          64,
+          1
+        ],
+        "expected_claims": [
+          0,
+          1
+        ],
+        "expected_scores": [
+          64,
+          1
+        ],
+        "expected_utility": [
+          64,
+          1
+        ],
+        "external_benefit": 0,
+        "fees": 0,
+        "pre_settlement_cash": [
+          0,
+          1
+        ],
+        "realized_cash": 56,
+        "realized_utility": 56
+      },
+      "zero_external_signal_following": {
+        "cash_conserved": true,
+        "effort": 0,
+        "expected_cash": [
+          64,
+          1
+        ],
+        "expected_claims": [
+          0,
+          1
+        ],
+        "expected_scores": [
+          64,
+          1
+        ],
+        "expected_utility": [
+          64,
+          1
+        ],
+        "external_benefit": 0,
+        "fees": 0,
+        "pre_settlement_cash": [
+          0,
+          1
+        ],
+        "realized_cash": 56,
+        "realized_utility": 56
+      }
+    },
+    "intervention": "ZERO_CONTROLLER_ALLOCATION_REWARDS_ONLY_REOPTIMIZED",
+    "model_matches_real_execution": true,
+    "search": {
+      "beam_width": 4,
+      "budget_exhausted": false,
+      "claim": "EXACT_DECLARED_FINITE_SUBGAME",
+      "commands": [
+        {
+          "actor": "z0",
+          "expected_state_seq": 0,
+          "kind": "no_op",
+          "market_id": "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec",
+          "order_id": "z0/order-7",
+          "schema_version": "0.3",
+          "stage": "TRADE_OR_UPDATE"
+        }
+      ],
+      "considered_actions": 10,
+      "evaluation_transcript_sha256": "825f30066a114e7e1cf2504d08f2e8277a7fe9c918ce236ae6d38ba889ca04f4",
+      "gain_vs_no_action": [
+        0,
+        1
+      ],
+      "gain_vs_signal_following": [
+        0,
+        1
+      ],
+      "improvements": [],
+      "max_nodes": 500,
+      "method": "exact",
+      "no_action": {
+        "allocation": {
+          "allocations": [
+            {
+              "model_id": "m0",
+              "reserved_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "reserved_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "cost_unit": "nano_synthetic_units",
+          "reservation_artifact_sha256": "bd61101eea3d5f499dcd2fb337f8de612c5401b5dc1a57a1531cb7855f4000b0",
+          "reservation_budget": 4,
+          "schema_version": "0.2"
+        },
+        "cash": [
+          64,
+          1
+        ],
+        "effort": [
+          0,
+          1
+        ],
+        "external": [
+          0,
+          1
+        ],
+        "utility": [
+          64,
+          1
+        ]
+      },
+      "observation_sha256": "317865674cae08f8147c90d7bb741740841923eadeb9271c4150770f9ff429cc",
+      "scope": "terminal",
+      "seed": 7,
+      "selected": {
+        "allocation": {
+          "allocations": [
+            {
+              "model_id": "m0",
+              "reserved_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "reserved_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "cost_unit": "nano_synthetic_units",
+          "reservation_artifact_sha256": "bd61101eea3d5f499dcd2fb337f8de612c5401b5dc1a57a1531cb7855f4000b0",
+          "reservation_budget": 4,
+          "schema_version": "0.2"
+        },
+        "cash": [
+          64,
+          1
+        ],
+        "effort": [
+          0,
+          1
+        ],
+        "external": [
+          0,
+          1
+        ],
+        "utility": [
+          64,
+          1
+        ]
+      },
+      "sha256": "444f58ab393e362bfc3fcbe6fdccacd978221c13c4abf953c512a5f9aee78572",
+      "signal_following": {
+        "allocation": {
+          "allocations": [
+            {
+              "model_id": "m0",
+              "reserved_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "reserved_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "cost_unit": "nano_synthetic_units",
+          "reservation_artifact_sha256": "bd61101eea3d5f499dcd2fb337f8de612c5401b5dc1a57a1531cb7855f4000b0",
+          "reservation_budget": 4,
+          "schema_version": "0.2"
+        },
+        "cash": [
+          64,
+          1
+        ],
+        "effort": [
+          0,
+          1
+        ],
+        "external": [
+          0,
+          1
+        ],
+        "utility": [
+          64,
+          1
+        ]
+      },
+      "terminal_evaluations": 10,
+      "version": "attack-search-1",
+      "visited_nodes": 11
+    }
+  }
+}

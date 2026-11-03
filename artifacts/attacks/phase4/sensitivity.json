@@ -1,0 +1,384 @@
+{
+  "basis_case": "73f2f744c933d7e6bacace603758ab3d06646ca551b9f20ff1f327829a77a34b",
+  "cases": [
+    {
+      "all_selected_nonnoop_commands_accepted": true,
+      "classification": "NO_PROFITABLE_DEVIATION_FOUND",
+      "expected_welfare_loss": [
+        0,
+        1
+      ],
+      "gain": [
+        0,
+        1
+      ],
+      "input_sha256": "2a2e4055fbdf76a6d8061b3aa1b71e13609e53119a6591edb17035f796eb8698",
+      "intervention": "external",
+      "label": "POST_SELECTION_EXPLORATORY_NOT_REPLICATION",
+      "method": "exact",
+      "status": "EVALUATED",
+      "value": 0
+    },
+    {
+      "all_selected_nonnoop_commands_accepted": true,
+      "classification": "NO_PROFITABLE_DEVIATION_FOUND",
+      "expected_welfare_loss": [
+        0,
+        1
+      ],
+      "gain": [
+        0,
+        1
+      ],
+      "input_sha256": "1612923cf32ddb3e8cef1efa8fa24db8ad47ed27b87cab87b9c902ae002c7bf5",
+      "intervention": "external",
+      "label": "POST_SELECTION_EXPLORATORY_NOT_REPLICATION",
+      "method": "exact",
+      "status": "EVALUATED",
+      "value": 1
+    },
+    {
+      "all_selected_nonnoop_commands_accepted": true,
+      "classification": "NO_PROFITABLE_DEVIATION_FOUND",
+      "expected_welfare_loss": [
+        0,
+        1
+      ],
+      "gain": [
+        0,
+        1
+      ],
+      "input_sha256": "393b1ff3437936bff2498bfe5688a1ec1ce020eed0ca4121fc12e57bde8f76ce",
+      "intervention": "external",
+      "label": "POST_SELECTION_EXPLORATORY_NOT_REPLICATION",
+      "method": "exact",
+      "status": "EVALUATED",
+      "value": 2
+    },
+    {
+      "all_selected_nonnoop_commands_accepted": true,
+      "classification": "VERIFIED_STRATEGIC_ALLOCATION_DEVIATION",
+      "expected_welfare_loss": [
+        2,
+        3
+      ],
+      "gain": [
+        2,
+        3
+      ],
+      "input_sha256": "4e99524596ad5ec6a8eda232d5333e698df2f9622c4930f44a47e29ed9835c9c",
+      "intervention": "external",
+      "label": "POST_SELECTION_EXPLORATORY_NOT_REPLICATION",
+      "method": "exact",
+      "status": "EVALUATED",
+      "value": 3
+    },
+    {
+      "all_selected_nonnoop_commands_accepted": true,
+      "classification": "VERIFIED_STRATEGIC_ALLOCATION_DEVIATION",
+      "expected_welfare_loss": [
+        2,
+        3
+      ],
+      "gain": [
+        11,
+        3
+      ],
+      "input_sha256": "5ca0cb316c54ace5fd42e7a6751a26d38a1b9b7dc5cb101e6b11460dab1f0602",
+      "intervention": "external",
+      "label": "POST_SELECTION_EXPLORATORY_NOT_REPLICATION",
+      "method": "exact",
+      "status": "EVALUATED",
+      "value": 6
+    },
+    {
+      "all_selected_nonnoop_commands_accepted": true,
+      "classification": "VERIFIED_STRATEGIC_ALLOCATION_DEVIATION",
+      "expected_welfare_loss": [
+        2,
+        3
+      ],
+      "gain": [
+        29,
+        3
+      ],
+      "input_sha256": "6fabb6ae77a97bb7ea5a2f00d4f64712f86b2fa6f159f568e5a4eaf651618508",
+      "intervention": "external",
+      "label": "POST_SELECTION_EXPLORATORY_NOT_REPLICATION",
+      "method": "exact",
+      "status": "EVALUATED",
+      "value": 12
+    },
+    {
+      "all_selected_nonnoop_commands_accepted": true,
+      "classification": "NO_PROFITABLE_DEVIATION_FOUND",
+      "expected_welfare_loss": [
+        0,
+        1
+      ],
+      "gain": [
+        0,
+        1
+      ],
+      "input_sha256": "f3f05d3fcf19d5b29dc254f8d5162d9ac5a73571cfbb39dc2e16f0923ab909a2",
+      "intervention": "capital",
+      "label": "POST_SELECTION_EXPLORATORY_NOT_REPLICATION",
+      "method": "exact",
+      "status": "EVALUATED",
+      "value": 0
+    },
+    {
+      "all_selected_nonnoop_commands_accepted": true,
+      "classification": "NO_PROFITABLE_DEVIATION_FOUND",
+      "expected_welfare_loss": [
+        0,
+        1
+      ],
+      "gain": [
+        0,
+        1
+      ],
+      "input_sha256": "1e859601e7ccec008fc42db429bc051e962929f7bd8f91eb4a3095f82d8afc12",
+      "intervention": "capital",
+      "label": "POST_SELECTION_EXPLORATORY_NOT_REPLICATION",
+      "method": "exact",
+      "status": "EVALUATED",
+      "value": 1
+    },
+    {
+      "all_selected_nonnoop_commands_accepted": true,
+      "classification": "NO_PROFITABLE_DEVIATION_FOUND",
+      "expected_welfare_loss": [
+        0,
+        1
+      ],
+      "gain": [
+        0,
+        1
+      ],
+      "input_sha256": "134e77068fafeb67eeb1c3e9869a8cad9b83aa585ec07d19d485fc91dbe66668",
+      "intervention": "capital",
+      "label": "POST_SELECTION_EXPLORATORY_NOT_REPLICATION",
+      "method": "exact",
+      "status": "EVALUATED",
+      "value": 2
+    },
+    {
+      "all_selected_nonnoop_commands_accepted": true,
+      "classification": "VERIFIED_STRATEGIC_ALLOCATION_DEVIATION",
+      "expected_welfare_loss": [
+        2,
+        3
+      ],
+      "gain": [
+        11,
+        3
+      ],
+      "input_sha256": "85ce9ab1669fa006efbc372444288f8bef79e2203133d7d3cf7edeb8e6c90c03",
+      "intervention": "capital",
+      "label": "POST_SELECTION_EXPLORATORY_NOT_REPLICATION",
+      "method": "exact",
+      "status": "EVALUATED",
+      "value": 3
+    },
+    {
+      "all_selected_nonnoop_commands_accepted": true,
+      "classification": "VERIFIED_STRATEGIC_ALLOCATION_DEVIATION",
+      "expected_welfare_loss": [
+        2,
+        3
+      ],
+      "gain": [
+        11,
+        3
+      ],
+      "input_sha256": "5ca0cb316c54ace5fd42e7a6751a26d38a1b9b7dc5cb101e6b11460dab1f0602",
+      "intervention": "capital",
+      "label": "POST_SELECTION_EXPLORATORY_NOT_REPLICATION",
+      "method": "exact",
+      "status": "EVALUATED",
+      "value": 8
+    },
+    {
+      "all_selected_nonnoop_commands_accepted": true,
+      "classification": "NO_PROFITABLE_DEVIATION_FOUND",
+      "expected_welfare_loss": [
+        0,
+        1
+      ],
+      "gain": [
+        0,
+        1
+      ],
+      "input_sha256": "1df6447bc4715f875f1fd3a2d0ebe4bcd309303092379dec6fc5c7f304795ff7",
+      "intervention": "fee",
+      "label": "POST_SELECTION_EXPLORATORY_NOT_REPLICATION",
+      "method": "exact",
+      "status": "EVALUATED",
+      "value": 0
+    },
+    {
+      "all_selected_nonnoop_commands_accepted": true,
+      "classification": "VERIFIED_STRATEGIC_ALLOCATION_DEVIATION",
+      "expected_welfare_loss": [
+        2,
+        3
+      ],
+      "gain": [
+        14,
+        3
+      ],
+      "input_sha256": "2a2a63bb91ae11291369c6b855838e40b2d871226c3826b511ed632bfbef1bbe",
+      "intervention": "fee",
+      "label": "POST_SELECTION_EXPLORATORY_NOT_REPLICATION",
+      "method": "exact",
+      "status": "EVALUATED",
+      "value": 1
+    },
+    {
+      "all_selected_nonnoop_commands_accepted": true,
+      "classification": "VERIFIED_STRATEGIC_ALLOCATION_DEVIATION",
+      "expected_welfare_loss": [
+        2,
+        3
+      ],
+      "gain": [
+        11,
+        3
+      ],
+      "input_sha256": "5ca0cb316c54ace5fd42e7a6751a26d38a1b9b7dc5cb101e6b11460dab1f0602",
+      "intervention": "fee",
+      "label": "POST_SELECTION_EXPLORATORY_NOT_REPLICATION",
+      "method": "exact",
+      "status": "EVALUATED",
+      "value": 2
+    },
+    {
+      "all_selected_nonnoop_commands_accepted": true,
+      "classification": "VERIFIED_STRATEGIC_ALLOCATION_DEVIATION",
+      "expected_welfare_loss": [
+        2,
+        3
+      ],
+      "gain": [
+        8,
+        3
+      ],
+      "input_sha256": "7a61181bd15b3990478ed0a92829f277e8e7caf386f77c04d1e7012f71b922fb",
+      "intervention": "fee",
+      "label": "POST_SELECTION_EXPLORATORY_NOT_REPLICATION",
+      "method": "exact",
+      "status": "EVALUATED",
+      "value": 3
+    },
+    {
+      "all_selected_nonnoop_commands_accepted": true,
+      "classification": "VERIFIED_STRATEGIC_ALLOCATION_DEVIATION",
+      "expected_welfare_loss": [
+        2,
+        3
+      ],
+      "gain": [
+        10,
+        3
+      ],
+      "input_sha256": "dd20c939badfeaca0a61cf4b9b280e4f0d7224cccb6a3700c2426684ecefb726",
+      "intervention": "liquidity",
+      "label": "POST_SELECTION_EXPLORATORY_NOT_REPLICATION",
+      "method": "exact",
+      "status": "EVALUATED",
+      "value": 1
+    },
+    {
+      "all_selected_nonnoop_commands_accepted": true,
+      "classification": "VERIFIED_STRATEGIC_ALLOCATION_DEVIATION",
+      "expected_welfare_loss": [
+        2,
+        3
+      ],
+      "gain": [
+        11,
+        3
+      ],
+      "input_sha256": "5ca0cb316c54ace5fd42e7a6751a26d38a1b9b7dc5cb101e6b11460dab1f0602",
+      "intervention": "liquidity",
+      "label": "POST_SELECTION_EXPLORATORY_NOT_REPLICATION",
+      "method": "exact",
+      "status": "EVALUATED",
+      "value": 3
+    },
+    {
+      "all_selected_nonnoop_commands_accepted": true,
+      "classification": "VERIFIED_STRATEGIC_ALLOCATION_DEVIATION",
+      "expected_welfare_loss": [
+        2,
+        3
+      ],
+      "gain": [
+        11,
+        3
+      ],
+      "input_sha256": "09eab8727dba3f39ba995fc31afd4272bc9b03ab40b9dd7435274856b9c8b130",
+      "intervention": "liquidity",
+      "label": "POST_SELECTION_EXPLORATORY_NOT_REPLICATION",
+      "method": "exact",
+      "status": "EVALUATED",
+      "value": 20
+    },
+    {
+      "all_selected_nonnoop_commands_accepted": true,
+      "classification": "NO_PROFITABLE_DEVIATION_FOUND",
+      "expected_welfare_loss": [
+        0,
+        1
+      ],
+      "gain": [
+        0,
+        1
+      ],
+      "input_sha256": "6bc9009aa7a5d1731d166e6987085ad3f1e47dd47fa87c3b4b4e5b362affcdff",
+      "intervention": "action_limit",
+      "label": "POST_SELECTION_EXPLORATORY_NOT_REPLICATION",
+      "method": "exact",
+      "status": "EVALUATED",
+      "value": 0
+    },
+    {
+      "all_selected_nonnoop_commands_accepted": true,
+      "classification": "NO_PROFITABLE_DEVIATION_FOUND",
+      "expected_welfare_loss": [
+        0,
+        1
+      ],
+      "gain": [
+        0,
+        1
+      ],
+      "input_sha256": "5203cb7b2c24c50786297781ac9f2d8bbb81e7926419435b6e2da83e3cc73005",
+      "intervention": "action_limit",
+      "label": "POST_SELECTION_EXPLORATORY_NOT_REPLICATION",
+      "method": "exact",
+      "status": "EVALUATED",
+      "value": 1
+    },
+    {
+      "all_selected_nonnoop_commands_accepted": true,
+      "classification": "VERIFIED_STRATEGIC_ALLOCATION_DEVIATION",
+      "expected_welfare_loss": [
+        2,
+        3
+      ],
+      "gain": [
+        11,
+        3
+      ],
+      "input_sha256": "5ca0cb316c54ace5fd42e7a6751a26d38a1b9b7dc5cb101e6b11460dab1f0602",
+      "intervention": "action_limit",
+      "label": "POST_SELECTION_EXPLORATORY_NOT_REPLICATION",
+      "method": "exact",
+      "status": "EVALUATED",
+      "value": 100
+    }
+  ],
+  "version": "attack-sensitivity-1"
+}

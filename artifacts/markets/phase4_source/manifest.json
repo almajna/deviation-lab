@@ -1,0 +1,9 @@
+{
+  "execution_version": "markets-1",
+  "files": {
+    "events.jsonl": "f4bd5db5f7394da0494329f6249893778b4def14487966cf922f6997a7f20c0b",
+    "receipts.json": "c4fdf1f594b9ab76f3b23d4e0200effb5b7257ebbfcef59cfdfaa5fbbfbc9cab",
+    "replay.json": "34f891aa0b5e15fc93590ccff08020570c5f889882a23984d33701e3c6bcb767"
+  },
+  "receipt_sha256": "8580a7f6cfe16e894bc7d1ba0abe5306b1a37f25420406fefbe581e3a9228627"
+}
