@@ -1,0 +1,14 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+.impeccable/live/
+*.tsbuildinfo
+# Intermediate review rounds; r4 is the committed evidence set.
+.impeccable/review/r1/
+.impeccable/review/r2/
+.impeccable/review/r3/
+.impeccable/review/desktop.png
+.impeccable/review/mobile.png
+# Design-tool working files (surface brief, interim review rounds) stay local.
+.impeccable/

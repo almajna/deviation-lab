@@ -1,0 +1,32 @@
+{
+  "annotates_public_trace_sha256": "503b5449c7a870acd8a42a62c7aabacf410a642951281f73d9c981a2b9a8d761",
+  "kind": "FIXTURE_ANNOTATION",
+  "note": "Display context for the public gate-a.synthetic.json trace. These values are NOT fields of the public replay; they are copied from separate public receipts in the approved conformance pack. No private signal, information set, training row or ledger balance is included.",
+  "reservation_budget": 600,
+  "source": {
+    "fields": [
+      "allocation_plan.reservation_budget",
+      "decision_tasks"
+    ],
+    "path": "tests/fixtures/contracts_v0_2.json",
+    "sha256": "8aae9c65a592f1e3d0c80ca27accf78eefad5efd8f04705310dc50111ab03a5e"
+  },
+  "tasks": [
+    {
+      "model_options": [
+        "a",
+        "b"
+      ],
+      "prompt": "Synthetic evaluation prompt one",
+      "task_id": "eval-1"
+    },
+    {
+      "model_options": [
+        "a",
+        "b"
+      ],
+      "prompt": "Synthetic evaluation prompt two",
+      "task_id": "eval-2"
+    }
+  ]
+}
