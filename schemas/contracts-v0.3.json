@@ -1,0 +1,135 @@
+{
+  "action_validator": "deviation.markets.contracts.action",
+  "compatibility": "Active v0.2 contracts are unchanged. v0.3 requires categorical inputs; no mean-only migration.",
+  "documentation": "docs/MARKETS.md",
+  "event_payload_fields": {
+    "action_noop": [
+      "actor",
+      "market_id",
+      "order_id",
+      "slot"
+    ],
+    "action_rejected": [
+      "actor",
+      "reason",
+      "reserved_order_id",
+      "slot"
+    ],
+    "allocation_locked": [
+      "expected_values",
+      "plan",
+      "reservation_artifact_sha256"
+    ],
+    "distribution_updated": [
+      "actor",
+      "counts",
+      "denominator",
+      "fee",
+      "market_id",
+      "order_id",
+      "state_seq_after",
+      "state_seq_before",
+      "transfer_ids"
+    ],
+    "economic_summary": [
+      "accepted",
+      "controllers",
+      "evaluation",
+      "fees",
+      "final_balances",
+      "initial_balances",
+      "maker_losses",
+      "realized_report",
+      "rejected",
+      "score_paid",
+      "score_reserve"
+    ],
+    "ledger_transfer": [
+      "amount",
+      "payee",
+      "payer",
+      "reason",
+      "scope",
+      "transfer_id"
+    ],
+    "market_opened": [
+      "b",
+      "funding",
+      "maker_account",
+      "market_id",
+      "model_id",
+      "price_counts",
+      "price_denominator",
+      "q",
+      "task_id"
+    ],
+    "market_settled": [
+      "category",
+      "claims",
+      "final_cash",
+      "funding",
+      "loss",
+      "market_id",
+      "payout",
+      "pnl",
+      "q_before",
+      "revenue"
+    ],
+    "report_revealed": [
+      "actor",
+      "counts",
+      "denominator",
+      "market_id",
+      "order_id",
+      "report_token"
+    ],
+    "score_settled": [
+      "actor",
+      "category",
+      "counts",
+      "denominator",
+      "market_id",
+      "remaining_pool",
+      "report_token",
+      "score",
+      "transfer_ids"
+    ],
+    "stage_changed": [
+      "current",
+      "previous"
+    ],
+    "trade_accepted": [
+      "actor",
+      "fee",
+      "fee_sink_after",
+      "fee_sink_before",
+      "maker_cash_after",
+      "maker_cash_before",
+      "market_id",
+      "max_net_debit",
+      "order_id",
+      "position_after",
+      "position_before",
+      "price_counts_after",
+      "price_counts_before",
+      "price_denominator",
+      "q_after",
+      "q_before",
+      "quote_bits",
+      "quote_interval",
+      "quote_policy_sha256",
+      "share_delta",
+      "signed_maker_charge",
+      "state_seq_after",
+      "state_seq_before",
+      "trader_cash_after",
+      "trader_cash_before",
+      "transfer_ids"
+    ]
+  },
+  "format": "DEVIATION_COMPONENT_INDEX_NOT_JSON_SCHEMA",
+  "normative_validator": "deviation.markets.validation.validate_result",
+  "numeric_policy": "deviation.markets.numeric.POLICY",
+  "schema_version": "0.3",
+  "status": "IMPLEMENTED_PENDING_IMPLEMENTATION_REVIEW"
+}

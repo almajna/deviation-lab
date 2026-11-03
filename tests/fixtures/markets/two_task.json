@@ -1,0 +1,221 @@
+{
+  "agents": {
+    "agent-1": {
+      "controller": "c1",
+      "decline_report": false,
+      "signals": {
+        "0445e2b3961c0bce99215a3cedf9a3aea89b6527b18f1b6bec437c86c1fd3e1e": [
+          1,
+          1,
+          8
+        ],
+        "0a06b5a0198a41d315a3b1a4454fd33edd7030c27bb585fc9bce0bb9df60461f": [
+          1,
+          1,
+          8
+        ],
+        "78144a7c263fc536bf761624dd13666a4d96d9d1fa024196eec663f626232056": [
+          6,
+          3,
+          1
+        ],
+        "87de21d4eaf667971af934e5e2b571d86337b61c47ecb637b339933bc5e0a474": [
+          6,
+          3,
+          1
+        ]
+      },
+      "wallet": 40
+    },
+    "agent-2": {
+      "controller": "c2",
+      "decline_report": false,
+      "signals": {
+        "0445e2b3961c0bce99215a3cedf9a3aea89b6527b18f1b6bec437c86c1fd3e1e": [
+          1,
+          1,
+          8
+        ],
+        "0a06b5a0198a41d315a3b1a4454fd33edd7030c27bb585fc9bce0bb9df60461f": [
+          1,
+          1,
+          8
+        ],
+        "78144a7c263fc536bf761624dd13666a4d96d9d1fa024196eec663f626232056": [
+          6,
+          3,
+          1
+        ],
+        "87de21d4eaf667971af934e5e2b571d86337b61c47ecb637b339933bc5e0a474": [
+          6,
+          3,
+          1
+        ]
+      },
+      "wallet": 40
+    }
+  },
+  "code_revision": "SYNTHETIC_FIXTURE",
+  "controllers": {
+    "c1": {
+      "action_cap": 4,
+      "cash_cap": 100,
+      "effort_per_attempt": 0,
+      "external_weights": {},
+      "position_cap": 100,
+      "token_cap": 4
+    },
+    "c2": {
+      "action_cap": 4,
+      "cash_cap": 100,
+      "effort_per_attempt": 0,
+      "external_weights": {},
+      "position_cap": 100,
+      "token_cap": 4
+    }
+  },
+  "cost_unit": "nano_synthetic_units",
+  "data_kind": "SYNTHETIC",
+  "decision_tasks": [
+    {
+      "model_options": [
+        "a",
+        "b"
+      ],
+      "prompt": "Synthetic evaluation prompt one",
+      "task_id": "eval-1"
+    },
+    {
+      "model_options": [
+        "a",
+        "b"
+      ],
+      "prompt": "Synthetic evaluation prompt two",
+      "task_id": "eval-2"
+    }
+  ],
+  "economics": {
+    "action_limit": 20,
+    "agent_position_limit": 100,
+    "b": 10,
+    "candidate_limit": 1000,
+    "cell_position_limit": 1000,
+    "fee": 0,
+    "order_limit": 3,
+    "price_denominator": 3000000,
+    "report_denominator": 10,
+    "rounds": 1,
+    "score_scale": 1,
+    "sponsor_cap": 10000
+  },
+  "execution_version": "markets-1",
+  "experiment_id": "SYNTHETIC-categorical-market",
+  "reservation_budget": 600,
+  "sealed_outcomes": [
+    {
+      "cost_decimal": "0.0000007",
+      "model_id": "a",
+      "quality": 0.5,
+      "task_id": "eval-1"
+    },
+    {
+      "cost_decimal": "0.0000004",
+      "model_id": "b",
+      "quality": 1,
+      "task_id": "eval-1"
+    },
+    {
+      "cost_decimal": "0.0000001",
+      "model_id": "a",
+      "quality": 1,
+      "task_id": "eval-2"
+    },
+    {
+      "cost_decimal": "0.0000002",
+      "model_id": "b",
+      "quality": 0.5,
+      "task_id": "eval-2"
+    }
+  ],
+  "seed": 7,
+  "source_manifest_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "split_groups": {
+    "09d6ab18993809a6cb045fbd9b846be2125484e706c77f245d84531036e7a644": "test",
+    "0bc4caac970ccf66e811e96d79ebf92233917a58efa5ef85cd96c43fe27439ae": "validation",
+    "175bf7c948d088c9758b15e934f78d7d40e75961cf68ec8017ec5fce40a8cf28": "train",
+    "bf4336ee84aba1964e40d036da7f230bdf0881d9c661522e1c6d0e134e6abd62": "train"
+  },
+  "split_manifest_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "training_calibration_rows": [
+    {
+      "category": 1,
+      "counts": [
+        2,
+        3,
+        5
+      ],
+      "model_id": "a",
+      "task_id": "train-1"
+    },
+    {
+      "category": 2,
+      "counts": [
+        2,
+        3,
+        5
+      ],
+      "model_id": "b",
+      "task_id": "train-1"
+    },
+    {
+      "category": 1,
+      "counts": [
+        2,
+        3,
+        5
+      ],
+      "model_id": "a",
+      "task_id": "train-2"
+    },
+    {
+      "category": 2,
+      "counts": [
+        2,
+        3,
+        5
+      ],
+      "model_id": "b",
+      "task_id": "train-2"
+    }
+  ],
+  "training_rows": [
+    {
+      "cost_decimal": "0.0000001",
+      "cost_unit": "synthetic_units",
+      "model_id": "a",
+      "prompt": "Synthetic training prompt one",
+      "task_id": "train-1"
+    },
+    {
+      "cost_decimal": "0.0000002",
+      "cost_unit": "synthetic_units",
+      "model_id": "b",
+      "prompt": "Synthetic training prompt one",
+      "task_id": "train-1"
+    },
+    {
+      "cost_decimal": "0.0000003",
+      "cost_unit": "synthetic_units",
+      "model_id": "a",
+      "prompt": "Synthetic training prompt two",
+      "task_id": "train-2"
+    },
+    {
+      "cost_decimal": "0.0000004",
+      "cost_unit": "synthetic_units",
+      "model_id": "b",
+      "prompt": "Synthetic training prompt two",
+      "task_id": "train-2"
+    }
+  ]
+}
