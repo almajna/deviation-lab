@@ -24,6 +24,7 @@ def review(payload):
     checks = []
     signed_status = "NOT_REQUESTED"
     unresolved = False
+    decisive_counterexample = False
     if result["kind"] == "lmsr_baseline":
         require(len(rows) == 243, "baseline coverage")
         expected_cells = set()
@@ -163,6 +164,7 @@ def review(payload):
             strict = any(v[0] > v[4] for (s, e), v in groups.items() if e == 6)
             null = all(max(v.values()) <= 0 for (s, e), v in groups.items() if e == 0)
             supported = monotonic and strict and null and not unresolved
+            decisive_counterexample = not monotonic or not null
             checks.append({"monotonic": monotonic, "strict": strict, "zero_external_null": null,
                            "unsupported_cases": sum(r.get("status", "").startswith("UNSUPPORTED") for r in rows),
                            "paired_gains": {f"{s}/{e}": {str(k): str(x) for k, x in v.items()} for (s, e), v in groups.items()}})
@@ -197,8 +199,10 @@ def review(payload):
                        "uncertainty": "Three seed blocks, two tasks each; descriptive only, no generalization inference"})
     return dict(version="research-review-1", result_sha256=sha(result),
                 integrity="PASS", criterion=plan.get("success_rule", "all_analytic_checks"),
-                criterion_status="NOT_EVALUABLE_ON_REGISTERED_GRID" if unresolved else
+                criterion_status="REJECTED_ON_EVALUATED_CELLS" if unresolved and decisive_counterexample else
+                                 "NOT_EVALUABLE_ON_REGISTERED_GRID" if unresolved else
                                  "SUPPORTED_ON_REGISTERED_GRID" if supported else "REJECTED_ON_REGISTERED_GRID",
+                coverage_status="PARTIAL_UNSUPPORTED_CASES" if unresolved else "COMPLETE_DECLARED_GRID",
                 narrative_claim_status="SCIENTIFIC_REVIEW_REQUIRED",
                 checks=checks, signed_diagnostic_status=signed_status,
                 novelty="NOT_ESTABLISHED", independent_scientific_review="PENDING",
