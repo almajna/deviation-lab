@@ -28,7 +28,20 @@ def lmsr_baseline(plan):
                     rows.append(dict(b=b, before=list(q), after=after, analytic_charge=charge,
                         engine_charge=actual, loss_le_b_log_n=loss <= bound,
                         funding=funding(b), analytic_funding=int(bound.to_integral_value(rounding=ROUND_CEILING))))
-    return dict(kind="lmsr_baseline", rows=rows, data_kind="SYNTHETIC",
+    signed_rows = []
+    if plan.get("signed_diagnostic"):
+        spec = plan["signed_diagnostic"]
+        with localcontext() as context:
+            context.prec = 70
+            for b in spec["liquidities"]:
+                for before, after in spec["transitions"]:
+                    shifts = [a-z for a, z in zip(sorted(after), sorted(before))]
+                    analytic = Decimal(shifts[0]) if len(set(shifts)) == 1 else cost(sorted(after), b)-cost(sorted(before), b)
+                    actual = quote(before, after, b)
+                    signed_rows.append(dict(b=b, before=before, after=after, analytic_delta=str(analytic),
+                        analytic_charge=int(analytic.to_integral_value(rounding=ROUND_CEILING)),
+                        engine_charge=actual["charge"], engine_interval=actual["interval"]))
+    return dict(kind="lmsr_baseline", rows=rows, signed_rows=signed_rows, data_kind="SYNTHETIC",
                 reproduction="Hanson LMSR cost-function/finite-grid bounded-loss reproduction; not full paper replication")
 
 
@@ -62,19 +75,26 @@ def fee_sensitivity(plan):
     from deviation.attacks.environments import environment
     from deviation.attacks.game import prepare_game
     from deviation.data.pipeline import digest
+    from deviation.markets.contracts import Rejection
     rows = []
     for seed in plan["seeds"]:
         for external in (0, 6):
             for fee in (0, 2, 4):
                 profile = dict(fee=fee, external=external, quantity=2)
                 scenario, _, _ = environment(profile, seed, realization_seed=987654)
-                game = prepare_game(scenario, "strategic", "lmsr")
+                try:
+                    game = prepare_game(scenario, "strategic", "lmsr")
+                except Rejection as exc:
+                    if exc.code != "NO_CONTROLLED_TERMINAL_SUFFIX":
+                        raise
+                    rows.append(dict(seed=seed, profile=profile, status="UNSUPPORTED_NO_CONTROLLED_TERMINAL_SUFFIX"))
+                    continue
                 # Mutation control demonstrates no realized-outcome access in preparation/search.
                 mutated = deepcopy(scenario)
                 for row in mutated["sealed_outcomes"]:
                     row.update(quality=1-row["quality"], cost_decimal="999")
                 other = prepare_game(mutated, "strategic", "lmsr")
-                rows.append(dict(seed=seed, profile=profile, observation_sha256=digest(game.observation()),
+                rows.append(dict(seed=seed, profile=profile, status="EVALUATED", observation_sha256=digest(game.observation()),
                     outcome_mutation_invariant=game.observation() == other.observation(), **_cert_case(game)))
     return dict(kind="fee_sensitivity", rows=rows, data_kind="SYNTHETIC")
 

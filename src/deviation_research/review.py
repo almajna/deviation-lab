@@ -22,6 +22,8 @@ def review(payload):
     rows = result["rows"]
     require(bool(rows), "empty experiment")
     checks = []
+    signed_status = "NOT_REQUESTED"
+    unresolved = False
     if result["kind"] == "lmsr_baseline":
         require(len(rows) == 243, "baseline coverage")
         expected_cells = set()
@@ -45,6 +47,32 @@ def review(payload):
                 require(row["funding"] == row["analytic_funding"] == int(bound.to_integral_value(rounding=ROUND_CEILING)), "funding mismatch")
         supported = True
         checks.append("243 analytic charge, funding and sampled bounded-loss checks")
+        if plan.get("signed_diagnostic"):
+            spec = plan["signed_diagnostic"]
+            require(spec["version"] == "signed-lmsr-diagnostic-1" and spec["liquidities"] == [1, 3, 8] and
+                    spec["transitions"] == [
+                        [[0, 0, 0], [0, 0, 9]], [[0, 0, 9], [0, 0, 0]], [[2, 4, 7], [7, 4, 2]],
+                        [[2, 4, 7], [4, 6, 9]], [[3, 3, 3], [1, 1, 1]], [[2, 4, 7], [1, 8, 3]],
+                        [[0, 0, 0], [3, 3, 0]]], "signed diagnostic was not preregistered")
+            signed_rows = result["signed_rows"]
+            cells = [(r["b"], tuple(r["before"]), tuple(r["after"])) for r in signed_rows]
+            expected = {(b, tuple(before), tuple(after)) for b in spec["liquidities"] for before, after in spec["transitions"]}
+            require(set(cells) == expected and len(cells) == len(expected), "signed diagnostic exact grid")
+            with localcontext() as context:
+                context.prec = 80
+                for row in signed_rows:
+                    b = Decimal(row["b"])
+                    before, after = sorted(row["before"]), sorted(row["after"])
+                    offsets = [a-z for a, z in zip(after, before)]
+                    cost = lambda q: b*sum((Decimal(v)/b).exp() for v in q).ln()
+                    delta = Decimal(offsets[0]) if min(offsets) == max(offsets) else cost(after)-cost(before)
+                    require(abs(Decimal(row["analytic_delta"])-delta) < Decimal("1e-60"), "signed potential mismatch")
+                    require(row["engine_charge"] == row["analytic_charge"] == int(delta.to_integral_value(rounding=ROUND_CEILING)), "signed rounded charge mismatch")
+                    lo, hi = map(Decimal, row["engine_interval"])
+                    require(lo <= delta <= hi, "analytic delta outside certified interval")
+            require({-1 if r["engine_charge"] < 0 else int(r["engine_charge"] > 0) for r in signed_rows} == {-1, 0, 1}, "signed coverage missing charge signs")
+            signed_status = "PASS_ON_DECLARED_21_TRANSITIONS"
+            checks.append("Separately preregistered signed/multi-share diagnostic: 21 potential deltas, charges and certified intervals")
     elif result["kind"] in {"fee_sensitivity", "certificate_ablation"}:
         from deviation.verification.checker import check
         from deviation.verification.domain import encoded, execute, payoff
@@ -52,6 +80,7 @@ def review(payload):
         from deviation.verification.fixtures import fixture
         from deviation.attacks.environments import environment
         from deviation.attacks.game import prepare_game
+        from deviation.markets.contracts import Rejection
         groups = defaultdict(dict)
         expected = len(plan["seeds"])*(6 if result["kind"] == "fee_sensitivity" else 4)
         require(len(rows) == expected, "certificate experiment coverage")
@@ -73,10 +102,16 @@ def review(payload):
             identity = sha([profile, seed, row.get("vector_limit")])
             require(identity not in unique and identity in expected_cells, "duplicate or nonregistered case")
             unique.add(identity)
-            require(row["certificate"]["vector_limit"] == row.get("vector_limit", 5000), "certificate ablation identity")
             if result["kind"] == "fee_sensitivity":
                 scenario, _, _ = environment(profile, seed, realization_seed=987654)
-                g = prepare_game(scenario, "strategic", "lmsr")
+                try:
+                    g = prepare_game(scenario, "strategic", "lmsr")
+                except Rejection as exc:
+                    require(exc.code == "NO_CONTROLLED_TERMINAL_SUFFIX" and
+                            row.get("status") == "UNSUPPORTED_NO_CONTROLLED_TERMINAL_SUFFIX", "unexpected unsupported claim")
+                    unresolved = True
+                    continue
+                require(row.get("status") == "EVALUATED", "hidden supported case")
                 # Independently recheck information-boundary mutation, not a producer boolean.
                 from copy import deepcopy
                 mutation = deepcopy(scenario)
@@ -86,6 +121,7 @@ def review(payload):
                         and row["outcome_mutation_invariant"], "outcome leakage")
             else:
                 g = fixture(profile, seed, "lmsr")
+            require(row["certificate"]["vector_limit"] == row.get("vector_limit", 5000), "certificate ablation identity")
             require(check(g, row["certificate"]) == row["independent_check"], "independent check mismatch")
             selected = execute(g, row["certificate"]["incumbent_commands"])
             require({k: encoded(payoff(selected)[k]) for k in ("cash", "external", "effort", "utility")} == row["payoff"]
@@ -122,13 +158,13 @@ def review(payload):
                 groups[seed, profile["external"]][profile["fee"]] = Fraction(*row["certificate"]["lower"])-Fraction(*row["no_action"])
         require(unique == expected_cells, "registered exact grid missing cells")
         if result["kind"] == "fee_sensitivity":
-            require(set(groups) == {(s, e) for s in plan["seeds"] for e in (0, 6)} and
-                    all(set(v) == {0, 2, 4} for v in groups.values()), "fee grid coverage")
+            require(all(set(v) == {0, 2, 4} for v in groups.values()), "fee paired grid coverage")
             monotonic = all(v[0] >= v[2] >= v[4] for (s, e), v in groups.items() if e == 6)
             strict = any(v[0] > v[4] for (s, e), v in groups.items() if e == 6)
             null = all(max(v.values()) <= 0 for (s, e), v in groups.items() if e == 0)
-            supported = monotonic and strict and null
+            supported = monotonic and strict and null and not unresolved
             checks.append({"monotonic": monotonic, "strict": strict, "zero_external_null": null,
+                           "unsupported_cases": sum(r.get("status", "").startswith("UNSUPPORTED") for r in rows),
                            "paired_gains": {f"{s}/{e}": {str(k): str(x) for k, x in v.items()} for (s, e), v in groups.items()}})
         else:
             weak = all(Fraction(*r["root_endpoint_upper"]) <= Fraction(*r["root_fallback_upper"]) for r in rows)
@@ -161,7 +197,9 @@ def review(payload):
                        "uncertainty": "Three seed blocks, two tasks each; descriptive only, no generalization inference"})
     return dict(version="research-review-1", result_sha256=sha(result),
                 integrity="PASS", criterion=plan.get("success_rule", "all_analytic_checks"),
-                criterion_status="SUPPORTED_ON_REGISTERED_GRID" if supported else "REJECTED_ON_REGISTERED_GRID",
+                criterion_status="NOT_EVALUABLE_ON_REGISTERED_GRID" if unresolved else
+                                 "SUPPORTED_ON_REGISTERED_GRID" if supported else "REJECTED_ON_REGISTERED_GRID",
                 narrative_claim_status="SCIENTIFIC_REVIEW_REQUIRED",
-                checks=checks, novelty="NOT_ESTABLISHED", independent_scientific_review="PENDING",
+                checks=checks, signed_diagnostic_status=signed_status,
+                novelty="NOT_ESTABLISHED", independent_scientific_review="PENDING",
                 limitation="Automated numerical gate, separately implemented certificate checker, shared trusted engine. No external peer review.")

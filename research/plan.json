@@ -123,6 +123,21 @@
     }
   ],
   "published_baseline": {
+    "signed_diagnostic": {
+      "version": "signed-lmsr-diagnostic-1",
+      "status": "SUPPLEMENTAL_PREDECLARED_AFTER_ORIGINAL_UNIT_BUY_REPRODUCTION",
+      "criterion": "All declared signed potential deltas, signed-ceiling charges and certified dyadic intervals agree; positive, zero and negative charges are represented.",
+      "liquidities": [1, 3, 8],
+      "transitions": [
+        [[0, 0, 0], [0, 0, 9]],
+        [[0, 0, 9], [0, 0, 0]],
+        [[2, 4, 7], [7, 4, 2]],
+        [[2, 4, 7], [4, 6, 9]],
+        [[3, 3, 3], [1, 1, 1]],
+        [[2, 4, 7], [1, 8, 3]],
+        [[0, 0, 0], [3, 3, 0]]
+      ]
+    },
     "id": "lmsr",
     "runner": "lmsr_baseline",
     "sources": [

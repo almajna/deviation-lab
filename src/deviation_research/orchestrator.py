@@ -14,8 +14,11 @@ ALLOWED_RULES = {"lmsr_baseline": "all_analytic_checks", "fee_sensitivity": "fee
 def execution_key(direction):
     # Titles, ranks and literature notes do not change executed science. Fixed
     # adapter version binds its hardcoded grid; seeds bind every stochastic input.
+    diagnostic = direction.get("signed_diagnostic")
+    diagnostic = {k: diagnostic[k] for k in ("version", "liquidities", "transitions")} if diagnostic else None
     return sha({"adapter": direction["runner"], "adapter_version": 1, "seeds": direction["seeds"],
-                "scope": direction["scope"], "success_rule": direction["success_rule"]})
+                "scope": direction["scope"], "success_rule": direction["success_rule"],
+                "signed_diagnostic": diagnostic})
 
 
 def validate_plan(plan, source_ids):
@@ -24,6 +27,10 @@ def validate_plan(plan, source_ids):
     directions = plan["directions"]
     if plan["published_baseline"]["runner"] != "lmsr_baseline":
         raise ValueError("published baseline adapter required")
+    spec = plan["published_baseline"].get("signed_diagnostic")
+    if spec and (spec["version"] != "signed-lmsr-diagnostic-1" or spec["liquidities"] != [1, 3, 8]
+                 or len(spec["transitions"]) != 7):
+        raise ValueError("unsupported signed diagnostic")
     if len(directions) != 3 or {d["runner"] for d in directions} != set(ALLOWED_RULES)-{"lmsr_baseline"}:
         raise ValueError("three distinct registered adapters required")
     for d in [plan["published_baseline"]]+directions:
@@ -52,6 +59,8 @@ def cycle(plan_path, sources_path, memory_path, destination, *, scout_path=None,
     registry = json.loads(Path(sources_path).read_text())
     order = validate_plan(plan, validate_sources(registry))
     out = Path(destination)
+    if out.exists() and any(out.iterdir()):
+        raise ValueError("cycle destination must be empty to preserve earlier evidence")
     out.mkdir(parents=True, exist_ok=True)
     memory = Memory(memory_path)
     started = time.monotonic()
@@ -103,18 +112,18 @@ def cycle(plan_path, sources_path, memory_path, destination, *, scout_path=None,
             try:
                 remaining = plan["cycle_wall_seconds"]-(time.monotonic()-started)
                 result, receipt = run(d["runner"], d, wall_seconds=remaining)
+                write(run_dir/"resources.json", {"execution": receipt})
                 if receipt["harness_source_sha256"] != source or receipt["engine_source_sha256"] != engine_source:
                     raise ValueError("executed source differs from frozen preregistration")
-                write(run_dir/"resources.json", {"execution": receipt})
                 write(run_dir/"result.json", result)
                 memory.event("result_recorded", key, {"sha256": sha(result), "artifact": key+"/result.json"}, [key])
                 remaining = plan["cycle_wall_seconds"]-(time.monotonic()-started)
                 review, review_receipt = run("review", {"plan": d, "result": result}, wall_seconds=remaining)
+                write(run_dir/"resources.json", {"execution": receipt, "review": review_receipt})
                 if review_receipt["harness_source_sha256"] != source or review_receipt["engine_source_sha256"] != engine_source:
                     raise ValueError("review source differs from frozen preregistration")
                 write(run_dir/"review.json", review)
                 # Non-deterministic measurements are kept outside reproducible scientific evidence.
-                write(run_dir/"resources.json", {"execution": receipt, "review": review_receipt})
                 record = {"id": d["id"], "key": key, "status": "completed", "rows": len(result["rows"]),
                           "result_sha256": sha(result), "review": review}
                 memory.event("review_recorded", key, review, [sha(result)])
