@@ -37,6 +37,7 @@
       "oracle-analysis-only"
     ],
     "neighbors": 5,
+    "order_limit": 3,
     "seeds": [
       1201,
       1213,
@@ -75,6 +76,7 @@
       ],
       "external": 4,
       "fee": 0,
+      "order_limit": 3,
       "tasks": 2
     },
     "bias_grid": [
@@ -98,6 +100,10 @@
       "lmsr",
       "interactive-pool",
       "calibrated-pool"
+    ],
+    "report_timing": [
+      "immediate",
+      "delayed"
     ],
     "trade_weight_grid": [
       0,
@@ -151,6 +157,12 @@
           ],
           "capital": 6,
           "fee": 1
+        }
+      },
+      {
+        "id": "integer-friction-control",
+        "overrides": {
+          "order_limit": 1
         }
       }
     ],
