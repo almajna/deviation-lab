@@ -16,7 +16,10 @@ def execution_key(direction):
     # adapter version binds its hardcoded grid; seeds bind every stochastic input.
     diagnostic = direction.get("signed_diagnostic")
     diagnostic = {k: diagnostic[k] for k in ("version", "liquidities", "transitions")} if diagnostic else None
-    return sha({"adapter": direction["runner"], "adapter_version": 1, "seeds": direction["seeds"],
+    if diagnostic:
+        diagnostic["liquidities"] = sorted(diagnostic["liquidities"])
+        diagnostic["transitions"] = sorted(diagnostic["transitions"], key=sha)
+    return sha({"adapter": direction["runner"], "adapter_version": 1, "seeds": sorted(direction["seeds"]),
                 "scope": direction["scope"], "success_rule": direction["success_rule"],
                 "signed_diagnostic": diagnostic})
 
