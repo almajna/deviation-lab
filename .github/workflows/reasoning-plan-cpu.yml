@@ -1,0 +1,78 @@
+name: Frozen reasoning protocol CPU inference
+on:
+  pull_request:
+    branches: [main]
+    types: [opened]
+permissions:
+  contents: read
+jobs:
+  frozen-reasoning:
+    if: ${{ github.event.repository.visibility == 'public' && github.repository == 'almajna/deviation-lab' && github.event.pull_request.head.repo.full_name == github.repository && github.head_ref == 'codex/reasoning-plan-v1' && github.run_attempt == '1' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      OLLAMA_HOST: 127.0.0.1:11434
+      OLLAMA_NO_CLOUD: '1'
+      PYTHONPATH: src
+      REASONING_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+    steps:
+      - name: Reserve time for preserving receipts
+        run: echo "REASONING_DEADLINE=$(($(date +%s) + 1620))" >> "$GITHUB_ENV"
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /src/
+            /scripts/run_autonomous_economy.py
+            /scripts/run_reasoning_plan.py
+            /scripts/check_reasoning_plan.py
+            /docs/DEVIATION_reasoning_plan_v1.md
+            /.github/workflows/reasoning-plan-cpu.yml
+      - name: Collect one pass of the frozen model calls
+        timeout-minutes: 27
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir "$RUNNER_TEMP/reasoning-evidence"
+          evidence="$RUNNER_TEMP/reasoning-evidence"
+          curl --fail --silent --show-error --location \
+            "https://github.com/ollama/ollama/releases/download/v0.40.14/ollama-linux-amd64.tar.zst" \
+            -o "$RUNNER_TEMP/ollama.tar.zst"
+          echo "993e83d08c3d13d17c55009a3e2664c8a25445e644aec3a68bef5abb6abce67d  $RUNNER_TEMP/ollama.tar.zst" | sha256sum -c -
+          mkdir "$RUNNER_TEMP/ollama"
+          tar --zstd -xf "$RUNNER_TEMP/ollama.tar.zst" -C "$RUNNER_TEMP/ollama"
+          ollama="$RUNNER_TEMP/ollama/bin/ollama"
+          export OLLAMA_MODELS="$RUNNER_TEMP/models"
+          "$ollama" serve > "$RUNNER_TEMP/ollama.log" 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          curl --fail --silent --show-error --retry 20 --retry-connrefused --retry-delay 1 http://127.0.0.1:11434/api/version
+          "$ollama" pull qwen2.5:7b
+          python3 scripts/run_reasoning_plan.py collect "$evidence/raw.json"
+      - name: Replay ledgers and check every optimum independently
+        if: ${{ always() && !cancelled() }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          evidence="$RUNNER_TEMP/reasoning-evidence"
+          python3 scripts/run_reasoning_plan.py score "$evidence/raw.json" "$evidence/scored.json"
+          python3 scripts/run_reasoning_plan.py verify "$evidence/raw.json" "$evidence/scored.json"
+          python3 scripts/check_reasoning_plan.py "$evidence/raw.json" "$evidence/scored.json" "$evidence/verdict.json"
+      - name: Archive records even if evaluation fails
+        if: ${{ always() && !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: frozen-reasoning-plan-v1
+          path: |
+            ${{ runner.temp }}/reasoning-evidence/*.json
+            ${{ runner.temp }}/ollama.log
+          if-no-files-found: error
+      - name: Print portable compressed evidence
+        if: ${{ always() && !cancelled() }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP/reasoning-evidence"
+          sha256sum ./*.json
+          tar -czf - ./*.json | base64 -w 5000 | sed 's/^/REASONING_RECEIPT /'
