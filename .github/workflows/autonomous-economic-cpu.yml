@@ -13,15 +13,15 @@ jobs:
     env:
       OLLAMA_HOST: 127.0.0.1:11434
       OLLAMA_NO_CLOUD: '1'
-      OLLAMA_VERSION: '0.12.11'
     steps:
       - name: Check free local structured inference
         shell: bash
         run: |
           set -euo pipefail
           curl --fail --silent --show-error --location --retry 2 \
-            "https://github.com/ollama/ollama/releases/download/v${OLLAMA_VERSION}/ollama-linux-amd64.tar.zst" \
+            "https://ollama.com/download/ollama-linux-amd64.tar.zst" \
             -o "$RUNNER_TEMP/ollama.tar.zst"
+          sha256sum "$RUNNER_TEMP/ollama.tar.zst"
           mkdir "$RUNNER_TEMP/ollama"
           tar --zstd -xf "$RUNNER_TEMP/ollama.tar.zst" -C "$RUNNER_TEMP/ollama"
           ollama="$RUNNER_TEMP/ollama/bin/ollama"
