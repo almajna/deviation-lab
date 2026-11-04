@@ -114,3 +114,7 @@ declared digest rebinding instead of weakening source checks or changing scienti
 values. Recorded LLM actions replay with exact original contexts and zero inference;
 remove automatic inference from integration CI. Routine reversible engineering;
 no final cohort, changed success criterion, spend, main push, merge or release.
+
+## D-AE-001 — 2026-11-03 — Bounded autonomous report test
+
+For issue #33, use the merged static pool and its last-report certificate. Only the two B forecasts come from inference. Freeze the authored beliefs, three conditions, full simplex menu, runtime and model digest before experimental calls. Pair treatments by replaying the rival's recorded report and report the optimum conditional on that rival action. Preserve malformed and unprofitable decisions.
