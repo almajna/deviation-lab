@@ -1,0 +1,28 @@
+{
+  "allocation_checks": 960,
+  "budget": 5,
+  "capacity": [
+    3,
+    1
+  ],
+  "data_kind": "SYNTHETIC_FIXTURE",
+  "nominal": {
+    "assignment": [
+      0,
+      1,
+      0
+    ],
+    "cost": 5,
+    "score_sum": 20000
+  },
+  "robust": {
+    "assignment": [
+      1,
+      0,
+      0
+    ],
+    "cost": 5,
+    "score_sum": 17300
+  },
+  "score_scale": 10000
+}
