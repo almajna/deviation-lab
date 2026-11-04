@@ -1,0 +1,4803 @@
+{
+  "data_kind": "SYNTHETIC",
+  "kind": "lmsr_baseline",
+  "reproduction": "Hanson LMSR cost-function/finite-grid bounded-loss reproduction; not full paper replication",
+  "rows": [
+    {
+      "after": [
+        1,
+        0,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        1,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        0,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        0,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        0,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        0,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        1,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        0,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        2,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        2,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        1,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        2,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        1,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        4,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        5,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        4,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        4,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        5,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        4,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        4,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        5,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        4,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        0,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        0,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        0,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        0,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        0,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        0,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        0,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        1,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        2,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        2,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        1,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        2,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        4,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        5,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        4,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        4,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        5,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        4,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        4,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        5,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        4,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        1,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        0,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        1,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        0,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        0,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        0,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        0,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        1,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        0,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        1,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        2,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        2,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        1,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        1,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        2,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        1,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        4,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        5,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        4,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        4,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        5,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        4,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        4,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        5,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        4,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 2,
+      "b": 1,
+      "before": [
+        4,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 2,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        0,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        1,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        0,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        0,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        0,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        0,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        1,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        0,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        2,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        2,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        1,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        2,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        1,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        4,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        5,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        4,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        4,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        5,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        4,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        4,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        5,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        4,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        0,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        0,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        0,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        0,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        0,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        0,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        0,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        1,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        2,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        2,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        1,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        2,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        4,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        5,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        4,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        4,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        5,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        4,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        4,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        5,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        4,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        1,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        0,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        1,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        0,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        0,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        0,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        0,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        1,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        0,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        1,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        2,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        2,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        1,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        1,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        2,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        1,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        4,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        5,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        4,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        4,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        5,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        4,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        4,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        5,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        4,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 4,
+      "b": 3,
+      "before": [
+        4,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 4,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        0,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        1,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        0,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        0,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        0,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        0,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        1,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        0,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        2,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        2,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        1,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        2,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        1,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        4,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        5,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        4,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        4,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        5,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        4,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        4,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        5,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        0,
+        4,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        0,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        0,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        0,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        0,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        0,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        0,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        0,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        1,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        2,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        2,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        1,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        2,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        4,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        5,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        4,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        4,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        5,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        4,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        2,
+        4,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        5,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        1,
+        4,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        1,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        0,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        1,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        0,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        0,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        0,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        0,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        0,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        0,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        1,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        0,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        0,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        1,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        2,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        1,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        1,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        2,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        1,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        1,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        1,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        2,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        1,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        1,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        4,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        5,
+        0
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        4,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        4,
+        0
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        4,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        5,
+        1
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        4,
+        2
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        4,
+        1
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        5,
+        4,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        5,
+        4
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    },
+    {
+      "after": [
+        4,
+        4,
+        5
+      ],
+      "analytic_charge": 1,
+      "analytic_funding": 9,
+      "b": 8,
+      "before": [
+        4,
+        4,
+        4
+      ],
+      "engine_charge": 1,
+      "funding": 9,
+      "loss_le_b_log_n": true
+    }
+  ],
+  "signed_rows": [
+    {
+      "after": [
+        0,
+        0,
+        9
+      ],
+      "analytic_charge": 8,
+      "analytic_delta": "7.901634500485115327496628804631137347382973529989464512931165427922195",
+      "b": 1,
+      "before": [
+        0,
+        0,
+        0
+      ],
+      "engine_charge": 8,
+      "engine_interval": [
+        "7.9016345004851153255949133824564967198966769501566886901855468750",
+        "7.9016345004851153291185704430343861304208985529839992523193359375"
+      ]
+    },
+    {
+      "after": [
+        0,
+        0,
+        0
+      ],
+      "analytic_charge": -7,
+      "analytic_delta": "-7.901634500485115327496628804631137347382973529989464512931165427922195",
+      "b": 1,
+      "before": [
+        0,
+        0,
+        9
+      ],
+      "engine_charge": -7,
+      "engine_interval": [
+        "-7.9016345004851153291185704430343861304208985529839992523193359375",
+        "-7.9016345004851153255949133824564967198966769501566886901855468750"
+      ]
+    },
+    {
+      "after": [
+        7,
+        4,
+        2
+      ],
+      "analytic_charge": 0,
+      "analytic_delta": "0",
+      "b": 1,
+      "before": [
+        2,
+        4,
+        7
+      ],
+      "engine_charge": 0,
+      "engine_interval": [
+        "0",
+        "0"
+      ]
+    },
+    {
+      "after": [
+        4,
+        6,
+        9
+      ],
+      "analytic_charge": 2,
+      "analytic_delta": "2",
+      "b": 1,
+      "before": [
+        2,
+        4,
+        7
+      ],
+      "engine_charge": 2,
+      "engine_interval": [
+        "2",
+        "2"
+      ]
+    },
+    {
+      "after": [
+        1,
+        1,
+        1
+      ],
+      "analytic_charge": -2,
+      "analytic_delta": "-2",
+      "b": 1,
+      "before": [
+        3,
+        3,
+        3
+      ],
+      "engine_charge": -2,
+      "engine_interval": [
+        "-2",
+        "-2"
+      ]
+    },
+    {
+      "after": [
+        1,
+        8,
+        3
+      ],
+      "analytic_charge": 1,
+      "analytic_delta": "0.952635482017326363900821889494710055028721032514464650524598422349401",
+      "b": 1,
+      "before": [
+        2,
+        4,
+        7
+      ],
+      "engine_charge": 1,
+      "engine_interval": [
+        "0.9526354820173263630704064974796807518941932357847690582275390625",
+        "0.9526354820173263646967097562079374029053724370896816253662109375"
+      ]
+    },
+    {
+      "after": [
+        3,
+        3,
+        0
+      ],
+      "analytic_charge": 3,
+      "analytic_delta": "2.619123629998592883399788536543506986798310431150238921755094021182768",
+      "b": 1,
+      "before": [
+        0,
+        0,
+        0
+      ],
+      "engine_charge": 3,
+      "engine_interval": [
+        "2.6191236299985928806695334447596223981236107647418975830078125000",
+        "2.6191236299985928861447544158114197898612474091351032257080078125"
+      ]
+    },
+    {
+      "after": [
+        0,
+        0,
+        9
+      ],
+      "analytic_charge": 6,
+      "analytic_delta": "5.988932003258553599750634332079549731590337769397538918053227985050210",
+      "b": 3,
+      "before": [
+        0,
+        0,
+        0
+      ],
+      "engine_charge": 6,
+      "engine_interval": [
+        "5.9889320032585535927152978197263166748598450794816017150878906250",
+        "5.9889320032585536052378329119338928876459249295294284820556640625"
+      ]
+    },
+    {
+      "after": [
+        0,
+        0,
+        0
+      ],
+      "analytic_charge": -5,
+      "analytic_delta": "-5.988932003258553599750634332079549731590337769397538918053227985050210",
+      "b": 3,
+      "before": [
+        0,
+        0,
+        9
+      ],
+      "engine_charge": -5,
+      "engine_interval": [
+        "-5.9889320032585536052378329119338928876459249295294284820556640625",
+        "-5.9889320032585535927152978197263166748598450794816017150878906250"
+      ]
+    },
+    {
+      "after": [
+        7,
+        4,
+        2
+      ],
+      "analytic_charge": 0,
+      "analytic_delta": "0",
+      "b": 3,
+      "before": [
+        2,
+        4,
+        7
+      ],
+      "engine_charge": 0,
+      "engine_interval": [
+        "0",
+        "0"
+      ]
+    },
+    {
+      "after": [
+        4,
+        6,
+        9
+      ],
+      "analytic_charge": 2,
+      "analytic_delta": "2",
+      "b": 3,
+      "before": [
+        2,
+        4,
+        7
+      ],
+      "engine_charge": 2,
+      "engine_interval": [
+        "2",
+        "2"
+      ]
+    },
+    {
+      "after": [
+        1,
+        1,
+        1
+      ],
+      "analytic_charge": -2,
+      "analytic_delta": "-2",
+      "b": 3,
+      "before": [
+        3,
+        3,
+        3
+      ],
+      "engine_charge": -2,
+      "engine_interval": [
+        "-2",
+        "-2"
+      ]
+    },
+    {
+      "after": [
+        1,
+        8,
+        3
+      ],
+      "analytic_charge": 1,
+      "analytic_delta": "0.426443602465031307876076571765047074207477485387937709400909824549833",
+      "b": 3,
+      "before": [
+        2,
+        4,
+        7
+      ],
+      "engine_charge": 1,
+      "engine_interval": [
+        "0.4264436024650313035617987811320972468820400536060333251953125000",
+        "0.4264436024650313128317273558831601576457615010440349578857421875"
+      ]
+    },
+    {
+      "after": [
+        3,
+        3,
+        0
+      ],
+      "analytic_charge": 3,
+      "analytic_delta": "2.290147546170424170719186488100725510300181169705605444101657732442028",
+      "b": 3,
+      "before": [
+        0,
+        0,
+        0
+      ],
+      "engine_charge": 3,
+      "engine_interval": [
+        "2.2901475461704241618626776144651557842735201120376586914062500000",
+        "2.2901475461704241792641224828575019500931375660002231597900390625"
+      ]
+    },
+    {
+      "after": [
+        0,
+        0,
+        9
+      ],
+      "analytic_charge": 5,
+      "analytic_delta": "4.213933270448908563952812132553596271183107843748308644397215388080918",
+      "b": 8,
+      "before": [
+        0,
+        0,
+        0
+      ],
+      "engine_charge": 5,
+      "engine_interval": [
+        "4.2139332704489085423132932461953714664559811353683471679687500000",
+        "4.2139332704489085835129758006445399587391875684261322021484375000"
+      ]
+    },
+    {
+      "after": [
+        0,
+        0,
+        0
+      ],
+      "analytic_charge": -4,
+      "analytic_delta": "-4.213933270448908563952812132553596271183107843748308644397215388080918",
+      "b": 8,
+      "before": [
+        0,
+        0,
+        9
+      ],
+      "engine_charge": -4,
+      "engine_interval": [
+        "-4.2139332704489085835129758006445399587391875684261322021484375000",
+        "-4.2139332704489085423132932461953714664559811353683471679687500000"
+      ]
+    },
+    {
+      "after": [
+        7,
+        4,
+        2
+      ],
+      "analytic_charge": 0,
+      "analytic_delta": "0",
+      "b": 8,
+      "before": [
+        2,
+        4,
+        7
+      ],
+      "engine_charge": 0,
+      "engine_interval": [
+        "0",
+        "0"
+      ]
+    },
+    {
+      "after": [
+        4,
+        6,
+        9
+      ],
+      "analytic_charge": 2,
+      "analytic_delta": "2",
+      "b": 8,
+      "before": [
+        2,
+        4,
+        7
+      ],
+      "engine_charge": 2,
+      "engine_interval": [
+        "2",
+        "2"
+      ]
+    },
+    {
+      "after": [
+        1,
+        1,
+        1
+      ],
+      "analytic_charge": -2,
+      "analytic_delta": "-2",
+      "b": 8,
+      "before": [
+        3,
+        3,
+        3
+      ],
+      "engine_charge": -2,
+      "engine_interval": [
+        "-2",
+        "-2"
+      ]
+    },
+    {
+      "after": [
+        1,
+        8,
+        3
+      ],
+      "analytic_charge": 0,
+      "analytic_delta": "-0.03790220550028618334009422593637499314829968629773933803913617594105",
+      "b": 8,
+      "before": [
+        2,
+        4,
+        7
+      ],
+      "engine_charge": 0,
+      "engine_interval": [
+        "-0.0379022055002862013652065176216865438618697226047515869140625000",
+        "-0.0379022055002861640686517841203340140054933726787567138671875000"
+      ]
+    },
+    {
+      "after": [
+        3,
+        3,
+        0
+      ],
+      "analytic_charge": 3,
+      "analytic_delta": "2.119365550559046308115310097431741177285674561342468447657133817083348",
+      "b": 8,
+      "before": [
+        0,
+        0,
+        0
+      ],
+      "engine_charge": 3,
+      "engine_interval": [
+        "2.1193655505590462823084507704152201768010854721069335937500000000",
+        "2.1193655505590463304470272287716170467319898307323455810546875000"
+      ]
+    }
+  ]
+}

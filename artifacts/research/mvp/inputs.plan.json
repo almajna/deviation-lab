@@ -1,0 +1,241 @@
+{
+  "cycle_wall_seconds": 240,
+  "directions": [
+    {
+      "assumption_changes": [],
+      "baselines": [
+        "independent exhaustive enumeration",
+        "memoized exact dynamic programming",
+        "width-2 beam",
+        "signal following",
+        "no action",
+        "zero external incentive"
+      ],
+      "evidence_kind": "SYNTHETIC",
+      "failure_rule": "Any increasing paired gain, no strict decrease, positive zero-external control, censored exact baseline or failed certificate rejects the hypothesis.",
+      "gap": "Map paired fee response and negative controls under the existing terminal-suffix model.",
+      "hypothesis": "For the registered seeds, raising fee from 0 to 2 to 4 weakly reduces exact gain over no-action with external reward 6, strictly for at least one seed; zero-external controls have no positive gain.",
+      "id": "fees",
+      "information_boundary": "Only public tasks, prescribed private beliefs, training-only reservations and past permitted observations enter decisions. Realized synthetic outcomes/costs are accessed only after allocation freezes.",
+      "novelty_status": "UNESTABLISHED_PRIOR_ART_OVERLAP",
+      "overlap": "External incentives and decision-market manipulation are established. Fee effects already occur in DEVIATION #25. This is a small new grid diagnostic, not novelty.",
+      "owner_approval_required": false,
+      "runner": "fee_sensitivity",
+      "scope": "APPROVED_SYNTHETIC_DEVELOPMENT_ONLY",
+      "scores": {
+        "baseline_strength": 5,
+        "feasibility": 5,
+        "importance": 4,
+        "novelty": 1,
+        "usefulness": 4
+      },
+      "seeds": [
+        13,
+        29,
+        47
+      ],
+      "sources": [
+        "hanson-lmsr",
+        "chen-decision",
+        "llm-market-behavior"
+      ],
+      "success_rule": "fee_monotonic_with_strict_and_null_controls",
+      "title": "Do transaction fees suppress finite outside-incentive attack gains?"
+    },
+    {
+      "assumption_changes": [],
+      "baselines": [
+        "fallback vector_limit=0",
+        "independent exhaustive enumeration",
+        "memoized exact dynamic programming",
+        "width-2 beam"
+      ],
+      "evidence_kind": "SYNTHETIC",
+      "failure_rule": "Any unsound interval, weaker endpoint bound, no strict improvement or censored exact baseline rejects the hypothesis.",
+      "gap": "Run independently checked paired bound ablations on a different tiny development grid; no speed claim.",
+      "hypothesis": "Endpoint root bounds are never looser than the fallback and strictly tighter for at least one registered game; every full interval covers independent exact utility.",
+      "id": "bounds",
+      "information_boundary": "Only public tasks, prescribed private beliefs, training-only reservations and past permitted observations enter decisions. Realized synthetic outcomes/costs are accessed only after allocation freezes.",
+      "novelty_status": "UNESTABLISHED_PRIOR_ART_OVERLAP",
+      "overlap": "Branch-and-bound and stronger relaxations are well known. DEVIATION #23/#25 already implement and measure this. This run is a scoped reproduction/ablation.",
+      "owner_approval_required": false,
+      "runner": "certificate_ablation",
+      "scope": "APPROVED_SYNTHETIC_DEVELOPMENT_ONLY",
+      "scores": {
+        "baseline_strength": 5,
+        "feasibility": 5,
+        "importance": 3,
+        "novelty": 1,
+        "usefulness": 4
+      },
+      "seeds": [
+        13,
+        29,
+        47
+      ],
+      "sources": [
+        "beta-crown",
+        "sdp-crown"
+      ],
+      "success_rule": "endpoint_dominance_with_strict",
+      "title": "Does endpoint relaxation tighten finite-game certificates?"
+    },
+    {
+      "assumption_changes": [],
+      "baselines": [
+        "simple pool",
+        "uniform",
+        "cheapest",
+        "budget-feasible random",
+        "best fixed from training"
+      ],
+      "evidence_kind": "SYNTHETIC",
+      "failure_rule": "Negative shared-perturbation mean or a smaller difference than independent perturbations rejects the hypothesis; any budget violation invalidates the run.",
+      "gap": "Probe whether an existing hypothesis survives matched budget and signal controls, including participation/subsidy accounting.",
+      "hypothesis": "Mean paired pool-minus-LMSR realized proxy is nonnegative under shared perturbations and at least its independent-perturbation value on the registered synthetic tasks.",
+      "id": "correlation",
+      "information_boundary": "Only public tasks, prescribed private beliefs, training-only reservations and past permitted observations enter decisions. Realized synthetic outcomes/costs are accessed only after allocation freezes.",
+      "novelty_status": "UNESTABLISHED_PRIOR_ART_OVERLAP",
+      "overlap": "Simple averaging and forecast correlation effects are established. DEVIATION RESEARCH H2 already anticipates this. No new mechanism or empirical-market superiority claim.",
+      "owner_approval_required": false,
+      "runner": "forecast_correlation",
+      "scope": "APPROVED_SYNTHETIC_DEVELOPMENT_ONLY",
+      "scores": {
+        "baseline_strength": 4,
+        "feasibility": 4,
+        "importance": 4,
+        "novelty": 1,
+        "usefulness": 4
+      },
+      "seeds": [
+        13,
+        29,
+        47
+      ],
+      "sources": [
+        "forecast-combination",
+        "chen-decision"
+      ],
+      "success_rule": "pool_correlated_nonnegative_relative",
+      "title": "Does simple pooling match the market under correlated forecast errors?"
+    }
+  ],
+  "max_experiments": 4,
+  "published_baseline": {
+    "assumption_changes": [],
+    "baselines": [
+      "analytic log-sum-exp with 70-digit Decimal arithmetic"
+    ],
+    "evidence_kind": "SYNTHETIC",
+    "failure_rule": "Any mismatch or sampled loss-bound violation fails reproduction.",
+    "hypothesis": "Engine signed-ceiling LMSR charges match an independent 70-digit Decimal cost function on the declared grid and maker-loss samples obey b log(3).",
+    "id": "lmsr",
+    "information_boundary": "No tasks, agents, outcomes or final cohort are consumed.",
+    "novelty_status": "KNOWN_PUBLISHED_METHOD",
+    "owner_approval_required": false,
+    "runner": "lmsr_baseline",
+    "scope": "APPROVED_SYNTHETIC_DEVELOPMENT_ONLY",
+    "seeds": [],
+    "signed_diagnostic": {
+      "criterion": "All declared signed potential deltas, signed-ceiling charges and certified dyadic intervals agree; positive, zero and negative charges are represented.",
+      "liquidities": [
+        1,
+        3,
+        8
+      ],
+      "status": "SUPPLEMENTAL_PREDECLARED_AFTER_ORIGINAL_UNIT_BUY_REPRODUCTION",
+      "transitions": [
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            9
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            9
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        [
+          [
+            2,
+            4,
+            7
+          ],
+          [
+            7,
+            4,
+            2
+          ]
+        ],
+        [
+          [
+            2,
+            4,
+            7
+          ],
+          [
+            4,
+            6,
+            9
+          ]
+        ],
+        [
+          [
+            3,
+            3,
+            3
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        [
+          [
+            2,
+            4,
+            7
+          ],
+          [
+            1,
+            8,
+            3
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ]
+        ]
+      ],
+      "version": "signed-lmsr-diagnostic-1"
+    },
+    "sources": [
+      "hanson-lmsr"
+    ],
+    "success_rule": "all_analytic_checks"
+  },
+  "version": "research-plan-1"
+}

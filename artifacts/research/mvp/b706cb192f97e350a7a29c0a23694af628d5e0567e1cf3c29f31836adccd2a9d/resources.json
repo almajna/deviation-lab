@@ -1,0 +1,46 @@
+{
+  "execution": {
+    "backend": "bubblewrap",
+    "engine_source_sha256": "7d88cd5dfa1d0bd72f0d7c9796a06206ceb1451228171ad67b1041b8a6049b78",
+    "harness_source_sha256": "e0dc9e86f27be854f560e186edad318f8e6ec4ff5819b3c4ab1419a63606dd64",
+    "inference_calls": 0,
+    "limits": {
+      "cpu_seconds": 25,
+      "file_bytes": 2000000,
+      "memory_mb": 768,
+      "output_bytes": 1000000,
+      "wall_seconds": 35
+    },
+    "memory_limit_enforced": true,
+    "paid_spend_usd": 0,
+    "status": "COMPLETED",
+    "stderr_tail": "",
+    "stdout_tail": "",
+    "supervisor_reaped_cpu_seconds": 0.0028929999999999997,
+    "wall_seconds": 0.27348992999999666,
+    "worker_cpu_seconds": 0.235481,
+    "worker_peak_rss_kib": 21456
+  },
+  "review": {
+    "backend": "bubblewrap",
+    "engine_source_sha256": "7d88cd5dfa1d0bd72f0d7c9796a06206ceb1451228171ad67b1041b8a6049b78",
+    "harness_source_sha256": "e0dc9e86f27be854f560e186edad318f8e6ec4ff5819b3c4ab1419a63606dd64",
+    "inference_calls": 0,
+    "limits": {
+      "cpu_seconds": 25,
+      "file_bytes": 2000000,
+      "memory_mb": 768,
+      "output_bytes": 1000000,
+      "wall_seconds": 35
+    },
+    "memory_limit_enforced": true,
+    "paid_spend_usd": 0,
+    "status": "COMPLETED",
+    "stderr_tail": "",
+    "stdout_tail": "",
+    "supervisor_reaped_cpu_seconds": 0.0028409999999999998,
+    "wall_seconds": 0.22205621199999825,
+    "worker_cpu_seconds": 0.189343,
+    "worker_peak_rss_kib": 21300
+  }
+}

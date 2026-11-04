@@ -1,0 +1,80 @@
+name: Bounded research harness
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  research:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 12
+    env:
+      DEVIATION_REQUIRE_SANDBOX: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install local package and OS sandbox
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y bubblewrap
+          python -m pip install --no-deps .
+      - name: Test adversarial boundaries and real OS sandbox
+        run: python -m unittest discover -s tests -p 'test_research*.py' -v
+      - name: Search public metadata with hard request, byte and time budgets
+        run: python -I -m deviation_research scout --out "$RUNNER_TEMP/scout.json" --max-requests 12 --wall-seconds 65
+      - name: Execute preregistered bounded synthetic cycle
+        run: python -I -m deviation_research cycle --scout-receipt "$RUNNER_TEMP/scout.json" --memory "$RUNNER_TEMP/research/memory.sqlite" --out "$RUNNER_TEMP/research"
+      - name: Cold-process reproduce every result and event
+        run: python -I -m deviation_research reproduce --evidence "$RUNNER_TEMP/research" --out "$RUNNER_TEMP/reproduction"
+      - name: Strict historical and current research source migration
+        run: |
+          python -I -m deviation_research_replay --out "$RUNNER_TEMP/research-rebase" --verify artifacts/research/rebase/manifest.json
+      - name: Verify retained negative, failure and resource evidence bindings
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from hashlib import sha256
+          import json
+          base = Path('artifacts/research')
+          manifest = base/'PROVENANCE.json'
+          if manifest.exists():
+              for name, expected in json.loads(manifest.read_text())['files'].items():
+                  assert sha256((base/name).read_bytes()).hexdigest() == expected, name
+          PY
+      - name: Preserve all successes, failures and network receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bounded-research-evidence
+          path: |
+            ${{ runner.temp }}/research
+            ${{ runner.temp }}/research-rebase
+            ${{ runner.temp }}/scout.json
+          retention-days: 14
+      - name: Log compact deterministic evidence for audit
+        if: always()
+        run: |
+          python - <<'PY'
+          import base64, io, os, pathlib, tarfile
+          root = pathlib.Path(os.environ['RUNNER_TEMP'])
+          buffer = io.BytesIO()
+          with tarfile.open(fileobj=buffer, mode='w:gz') as archive:
+              for folder in ['research', 'research-rebase', 'scout.json']:
+                  path = root/folder
+                  if path.exists():
+                      for item in ([path] if path.is_file() else sorted(path.rglob('*'))):
+                          if item.is_file() and not item.name.startswith('memory.sqlite'):
+                              archive.add(item, arcname=str(item.relative_to(root)))
+          encoded = base64.b64encode(buffer.getvalue()).decode()
+          print('RESEARCH_ARCHIVE_BEGIN')
+          for offset in range(0, len(encoded), 3000): print(encoded[offset:offset+3000])
+          print('RESEARCH_ARCHIVE_END')
+          PY

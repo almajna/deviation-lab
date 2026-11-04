@@ -1,0 +1,91 @@
+{
+  "data_kind": "SYNTHETIC",
+  "inference_calls": 0,
+  "novelty": "NOT_ESTABLISHED",
+  "paid_spend_usd": 0,
+  "preregistration_sha256": "a54fe2359cd3749d37a588d004439c758fc984135e48a5dbe5595eb2cd2434f3",
+  "records": [
+    {
+      "id": "lmsr",
+      "key": "17b898cd065279c25d3563d15ceb22322cd5bcf9ed4c1ba99dcdffd2c3d47221",
+      "result_sha256": "7175879e225bc6dd490c8e7c27770c7fa1f087070ee128d762d5f5153ccd5992",
+      "review": {
+        "checks": [
+          "243 analytic charge, funding and sampled bounded-loss checks"
+        ],
+        "criterion": "all_analytic_checks",
+        "criterion_status": "SUPPORTED_ON_REGISTERED_GRID",
+        "independent_scientific_review": "PENDING",
+        "integrity": "PASS",
+        "limitation": "Automated numerical gate, separately implemented certificate checker, shared trusted engine. No external peer review.",
+        "narrative_claim_status": "SCIENTIFIC_REVIEW_REQUIRED",
+        "novelty": "NOT_ESTABLISHED",
+        "result_sha256": "7175879e225bc6dd490c8e7c27770c7fa1f087070ee128d762d5f5153ccd5992",
+        "version": "research-review-1"
+      },
+      "rows": 243,
+      "status": "completed"
+    },
+    {
+      "error": "SandboxError: sandbox worker exit 1: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/tmp/deviation-research-worker-obv9zef1/src/deviation_research/worker.py\", line 150, in <module>\n    main()\n  File \"/tmp/deviation-research-worker-obv9zef1/src/deviation_research/worker.py\", line 140, in main\n    result = {\"lmsr_baseline\": lmsr_baseline, \"fee_sensitivity\": fee_sensitivity,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/deviation-research-worker-obv9zef1/src/deviation_research/worker.py\", line 71, in fee_sensitivity\n    game = prepare_game(scenario, \"strategic\", \"lmsr\")\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/deviation-research-worker-obv9zef1/src/deviation/attacks/game.py\", line 149, in prepare_game\n    if start == len(engine.schedule): raise Rejection(\"NO_CONTROLLED_TERMINAL_SUFFIX\")\n                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndeviation.markets.contracts.Rejection: NO_CONTROLLED_TERMINAL_SUFFIX\n",
+      "id": "fees",
+      "key": "add43da72150018c409b2ed50190c80a07e01bb283d482a64d770255559f4d87",
+      "status": "failed"
+    },
+    {
+      "id": "bounds",
+      "key": "4ffbf0bb040c4f308849bebe1427d02df6e8f02806168df3e21efc63a68f2b77",
+      "result_sha256": "e418e5e9c9905eb2768f42bc5e724ab4837f21c02da302f7f89af3c6db7fad7e",
+      "review": {
+        "checks": [
+          {
+            "strict_improvement": true,
+            "weak_dominance": true
+          },
+          "Every certificate and exact-baseline witness independently replayed"
+        ],
+        "criterion": "endpoint_dominance_with_strict",
+        "criterion_status": "SUPPORTED_ON_REGISTERED_GRID",
+        "independent_scientific_review": "PENDING",
+        "integrity": "PASS",
+        "limitation": "Automated numerical gate, separately implemented certificate checker, shared trusted engine. No external peer review.",
+        "narrative_claim_status": "SCIENTIFIC_REVIEW_REQUIRED",
+        "novelty": "NOT_ESTABLISHED",
+        "result_sha256": "e418e5e9c9905eb2768f42bc5e724ab4837f21c02da302f7f89af3c6db7fad7e",
+        "version": "research-review-1"
+      },
+      "rows": 12,
+      "status": "completed"
+    },
+    {
+      "id": "correlation",
+      "key": "c7f1609a70b5ef7e2f96db169b6e30cb9112d06adbf5df5d696404bb5461994f",
+      "result_sha256": "a6d2307460c8c2c4b113e43cc1f11ac46cf17a0b66abb3dddf39055dc41b94fb",
+      "review": {
+        "checks": [
+          {
+            "mean_total_proxy_pool_minus_market": {
+              "False": "0",
+              "True": "-1/6"
+            },
+            "uncertainty": "Three seed blocks, two tasks each; descriptive only, no generalization inference"
+          }
+        ],
+        "criterion": "pool_correlated_nonnegative_relative",
+        "criterion_status": "REJECTED_ON_REGISTERED_GRID",
+        "independent_scientific_review": "PENDING",
+        "integrity": "PASS",
+        "limitation": "Automated numerical gate, separately implemented certificate checker, shared trusted engine. No external peer review.",
+        "narrative_claim_status": "SCIENTIFIC_REVIEW_REQUIRED",
+        "novelty": "NOT_ESTABLISHED",
+        "result_sha256": "a6d2307460c8c2c4b113e43cc1f11ac46cf17a0b66abb3dddf39055dc41b94fb",
+        "version": "research-review-1"
+      },
+      "rows": 36,
+      "status": "completed"
+    }
+  ],
+  "scientific_review": "PENDING",
+  "sha256": "698ddacb07d7060a6306e9ee95578a3ada9a2d41b5f956cc2824020794b57468",
+  "version": "research-cycle-1"
+}

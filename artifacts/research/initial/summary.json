@@ -1,0 +1,49 @@
+{
+  "data_kind": "SYNTHETIC",
+  "inference_calls": 0,
+  "novelty": "NOT_ESTABLISHED",
+  "paid_spend_usd": 0,
+  "preregistration_sha256": "77b29ab57108463d3707d1c011c335f5182051a494285c12fd14e3848178753e",
+  "records": [
+    {
+      "id": "lmsr",
+      "key": "72f6e55bd98b3f0607858284193ee932f9975740b18f74873a89fcca312c35fc",
+      "result_sha256": "7175879e225bc6dd490c8e7c27770c7fa1f087070ee128d762d5f5153ccd5992",
+      "review": {
+        "checks": [
+          "243 analytic charge, funding and sampled bounded-loss checks"
+        ],
+        "hypothesis_status": "SUPPORTED_ON_REGISTERED_GRID",
+        "independent_scientific_review": "PENDING",
+        "integrity": "PASS",
+        "limitation": "Automated numerical gate, separately implemented certificate checker, shared trusted engine. No external peer review.",
+        "novelty": "NOT_ESTABLISHED",
+        "result_sha256": "7175879e225bc6dd490c8e7c27770c7fa1f087070ee128d762d5f5153ccd5992",
+        "version": "research-review-1"
+      },
+      "rows": 243,
+      "status": "completed"
+    },
+    {
+      "error": "SandboxError: sandbox worker exit 1: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/tmp/deviation-research-worker-0s42bcvx/src/deviation_research/worker.py\", line 144, in <module>\n    main()\n  File \"/tmp/deviation-research-worker-0s42bcvx/src/deviation_research/worker.py\", line 137, in main\n    result = {\"lmsr_baseline\": lmsr_baseline, \"fee_sensitivity\": fee_sensitivity,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/deviation-research-worker-0s42bcvx/src/deviation_research/worker.py\", line 75, in fee_sensitivity\n    outcome_mutation_invariant=game.observation() == other.observation(), **_cert_case(game)))\n                                                                            ^^^^^^^^^^^^^^^^\n  File \"/tmp/deviation-research-worker-0s42bcvx/src/deviation_research/worker.py\", line 53, in _cert_case\n    payoff={k: encoded(v) for k, v in payoff(selected).items()},\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/deviation-research-worker-0s42bcvx/src/deviation_research/worker.py\", line 53, in <dictcomp>\n    payoff={k: encoded(v) for k, v in payoff(selected).items()},\n               ^^^^^^^^^^\n  File \"/tmp/deviation-research-worker-0s42bcvx/src/deviation/verification/domain.py\", line 20, in encoded\n    x = Fraction(x)\n        ^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/fractions.py\", line 140, in __new__\n    raise TypeError(\"argument should be a string \"\nTypeError: argument should be a string or a Rational instance\n",
+      "id": "fees",
+      "key": "cb31e035626c73097da21e6afd657bac43bfe35ef4b27c109ec85c4b8f1838ff",
+      "status": "failed"
+    },
+    {
+      "error": "SandboxError: sandbox worker exit 1: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/tmp/deviation-research-worker-pflujt4b/src/deviation_research/worker.py\", line 144, in <module>\n    main()\n  File \"/tmp/deviation-research-worker-pflujt4b/src/deviation_research/worker.py\", line 137, in main\n    result = {\"lmsr_baseline\": lmsr_baseline, \"fee_sensitivity\": fee_sensitivity,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/deviation-research-worker-pflujt4b/src/deviation_research/worker.py\", line 88, in certificate_ablation\n    rows.append(dict(seed=seed, profile=profile, vector_limit=limit, **_cert_case(game, vector_limit=limit)))\n                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/deviation-research-worker-pflujt4b/src/deviation_research/worker.py\", line 53, in _cert_case\n    payoff={k: encoded(v) for k, v in payoff(selected).items()},\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/deviation-research-worker-pflujt4b/src/deviation_research/worker.py\", line 53, in <dictcomp>\n    payoff={k: encoded(v) for k, v in payoff(selected).items()},\n               ^^^^^^^^^^\n  File \"/tmp/deviation-research-worker-pflujt4b/src/deviation/verification/domain.py\", line 20, in encoded\n    x = Fraction(x)\n        ^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/fractions.py\", line 140, in __new__\n    raise TypeError(\"argument should be a string \"\nTypeError: argument should be a string or a Rational instance\n",
+      "id": "bounds",
+      "key": "2dea7a9d1909e758305a5d76426ec5a8d5a9617a569536809d4976ec7d33f65e",
+      "status": "failed"
+    },
+    {
+      "error": "SandboxError: sandbox worker exit 1: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/tmp/deviation-research-worker-0ktri7jx/src/deviation_research/worker.py\", line 144, in <module>\n    main()\n  File \"/tmp/deviation-research-worker-0ktri7jx/src/deviation_research/worker.py\", line 135, in main\n    result = review(payload)\n             ^^^^^^^^^^^^^^^\n  File \"/tmp/deviation-research-worker-0ktri7jx/src/deviation_research/review.py\", line 119, in review\n    require(sum(a[\"reservation\"] for a in row[\"plan\"][\"allocations\"]) <= scenario[\"reservation_budget\"], \"reservation budget violation\")\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/deviation-research-worker-0ktri7jx/src/deviation_research/review.py\", line 119, in <genexpr>\n    require(sum(a[\"reservation\"] for a in row[\"plan\"][\"allocations\"]) <= scenario[\"reservation_budget\"], \"reservation budget violation\")\n                ~^^^^^^^^^^^^^^^\nKeyError: 'reservation'\n",
+      "id": "correlation",
+      "key": "0a5be20f1d61953d18984e62c0efcaa4c277ebd0aa7f0078547735b7c1bdd9cc",
+      "status": "failed"
+    }
+  ],
+  "scientific_review": "PENDING",
+  "sha256": "a24a46019b1b761ebe0117cad3696ddc3265b7d5fc9742f83fa01744dade787b",
+  "version": "research-cycle-1"
+}

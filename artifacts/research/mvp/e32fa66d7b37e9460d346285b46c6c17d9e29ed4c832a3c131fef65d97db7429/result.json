@@ -1,0 +1,3643 @@
+{
+  "data_kind": "SYNTHETIC",
+  "kind": "forecast_correlation",
+  "rows": [
+    {
+      "correlated": false,
+      "mechanism": "lmsr",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "269c1986f2d74fc29741874893dee16e77dd3c468803e83080b159607d075c27",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "9f19c2cff9a826a21e6cb7045da8e665f517abd54ea51f5f27ae4e6784c96063",
+      "seed": 13,
+      "summary": {
+        "accepted": 4,
+        "controllers": {
+          "honest": {
+            "cash_delta": 46,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 46
+          },
+          "strategic": {
+            "cash_delta": 44,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 44
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.0,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.0
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 62,
+          "agent/z0": 52,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 5,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 5,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 3,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 5,
+          "scoring_pool": 52
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 1,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 2,
+          "reservation_spend": 2,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 92,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": false,
+      "mechanism": "pool",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "269c1986f2d74fc29741874893dee16e77dd3c468803e83080b159607d075c27",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "c973ded54d9e16a1bdbb7b40ad4bed480e1b9fee9efa8e7e6cb03e8a32ba3863",
+      "seed": 13,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 48,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 48
+          },
+          "strategic": {
+            "cash_delta": 44,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 44
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.0,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.0
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 64,
+          "agent/z0": 52,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 52
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 2,
+          "reservation_spend": 2,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 92,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": false,
+      "mechanism": "uniform",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "269c1986f2d74fc29741874893dee16e77dd3c468803e83080b159607d075c27",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "d3c8dad2150dd59d76af28bf37827fe1d49fe7e28f05c0dd292095f8b50403fe",
+      "seed": 13,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 48,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 48
+          },
+          "strategic": {
+            "cash_delta": 44,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 44
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.0,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.0
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 64,
+          "agent/z0": 52,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 52
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 2,
+          "reservation_spend": 2,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 92,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": false,
+      "mechanism": "cheapest",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "269c1986f2d74fc29741874893dee16e77dd3c468803e83080b159607d075c27",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "7d712470fe92ffc3a65c767a625f34ad9d6e0730d34b3c058d451d8c08c434ba",
+      "seed": 13,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 48,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 48
+          },
+          "strategic": {
+            "cash_delta": 44,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 44
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.0,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.0
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 64,
+          "agent/z0": 52,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 52
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 2,
+          "reservation_spend": 2,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 92,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": false,
+      "mechanism": "random",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "269c1986f2d74fc29741874893dee16e77dd3c468803e83080b159607d075c27",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "8ad82d5bc923e852fcbebe0608cd972a2238fd0189e7e6fa94c0e18c5f93a41b",
+      "seed": 13,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 48,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 48
+          },
+          "strategic": {
+            "cash_delta": 44,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 44
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.25,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.5
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 64,
+          "agent/z0": 52,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 52
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 3,
+          "reservation_spend": 3,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m1",
+              "realized_cost": 2,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 92,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": false,
+      "mechanism": "best-fixed",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "269c1986f2d74fc29741874893dee16e77dd3c468803e83080b159607d075c27",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "8f03d3c9a2e525ddd944915a129486e4143a7e1048a543988ab784128b344986",
+      "seed": 13,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 48,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 48
+          },
+          "strategic": {
+            "cash_delta": 44,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 44
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.75,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 1.5
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 64,
+          "agent/z0": 52,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 52
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 4,
+          "reservation_spend": 4,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m1",
+              "realized_cost": 2,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m1",
+              "realized_cost": 2,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 92,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": true,
+      "mechanism": "lmsr",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "880970b4b22c93f15458b8257eaf61852f2753c8bf50a9e0cf5da881494e5962",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "0758075ffd09aa1f831e15db243b9eb4ea8bfb117c2ebfa40349e8daa3ec8ee7",
+      "seed": 13,
+      "summary": {
+        "accepted": 4,
+        "controllers": {
+          "honest": {
+            "cash_delta": 59,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 59
+          },
+          "strategic": {
+            "cash_delta": 59,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 59
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.75,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 1.5
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 75,
+          "agent/z0": 67,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 5,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 3,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 3,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 3,
+          "scoring_pool": 28
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 1,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 1,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 1
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 4,
+          "reservation_spend": 4,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m1",
+              "realized_cost": 2,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m1",
+              "realized_cost": 2,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 116,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": true,
+      "mechanism": "pool",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "880970b4b22c93f15458b8257eaf61852f2753c8bf50a9e0cf5da881494e5962",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "ea1d453508832efa8067398b2a16d7c91d943963eb070a5be3e78cdf2645c074",
+      "seed": 13,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 58,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 58
+          },
+          "strategic": {
+            "cash_delta": 58,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 58
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.75,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 1.5
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 74,
+          "agent/z0": 66,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 28
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 4,
+          "reservation_spend": 4,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m1",
+              "realized_cost": 2,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m1",
+              "realized_cost": 2,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 116,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": true,
+      "mechanism": "uniform",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "880970b4b22c93f15458b8257eaf61852f2753c8bf50a9e0cf5da881494e5962",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "7418d6d3f58c383b75e63473bec83720cb53feefc9d0e47f38a6e0af8ac4d23f",
+      "seed": 13,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 58,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 58
+          },
+          "strategic": {
+            "cash_delta": 58,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 58
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.0,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.0
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 74,
+          "agent/z0": 66,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 28
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 2,
+          "reservation_spend": 2,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 116,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": true,
+      "mechanism": "cheapest",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "880970b4b22c93f15458b8257eaf61852f2753c8bf50a9e0cf5da881494e5962",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "212227d3f7790b4de352d92c68b82603dfebc15b3a7e02cf2d1864e2cf440332",
+      "seed": 13,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 58,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 58
+          },
+          "strategic": {
+            "cash_delta": 58,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 58
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.0,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.0
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 74,
+          "agent/z0": 66,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 28
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 2,
+          "reservation_spend": 2,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 116,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": true,
+      "mechanism": "random",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "880970b4b22c93f15458b8257eaf61852f2753c8bf50a9e0cf5da881494e5962",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "b5156460bda505f669496350273c706231f15456fe5c237bff18d4260b6af009",
+      "seed": 13,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 58,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 58
+          },
+          "strategic": {
+            "cash_delta": 58,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 58
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.25,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.5
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 74,
+          "agent/z0": 66,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 28
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 3,
+          "reservation_spend": 3,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m1",
+              "realized_cost": 2,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 116,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": true,
+      "mechanism": "best-fixed",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "880970b4b22c93f15458b8257eaf61852f2753c8bf50a9e0cf5da881494e5962",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "418f8c4c92818754fa792accf4de930e4a31a092f15bdc1959652de772f21f69",
+      "seed": 13,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 58,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 58
+          },
+          "strategic": {
+            "cash_delta": 58,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 58
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.75,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 1.5
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 74,
+          "agent/z0": 66,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 28
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 4,
+          "reservation_spend": 4,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m1",
+              "realized_cost": 2,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m1",
+              "realized_cost": 2,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 116,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": false,
+      "mechanism": "lmsr",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "537ce22cb78cca7fd9a7fbb2b948619e861c5421482f107cfc92594d668b6103",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "c9e78db7ac248b136779365261c9577994f5e06f55801ca0025bc306747e5336",
+      "seed": 29,
+      "summary": {
+        "accepted": 5,
+        "controllers": {
+          "honest": {
+            "cash_delta": 69,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 69
+          },
+          "strategic": {
+            "cash_delta": 60,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 60
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.25,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.5
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 85,
+          "agent/z0": 68,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 3,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 3,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 3,
+          "scoring_pool": 18
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 1,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 1,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 1
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 2,
+          "reservation_spend": 2,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 126,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": false,
+      "mechanism": "pool",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "537ce22cb78cca7fd9a7fbb2b948619e861c5421482f107cfc92594d668b6103",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "329125fdb27208a801bf26032e7d02272c5f295f9a7b0ddf793a7f784920bf8b",
+      "seed": 29,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 66,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 66
+          },
+          "strategic": {
+            "cash_delta": 60,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 60
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.25,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.5
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 82,
+          "agent/z0": 68,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 18
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 2,
+          "reservation_spend": 2,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 126,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": false,
+      "mechanism": "uniform",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "537ce22cb78cca7fd9a7fbb2b948619e861c5421482f107cfc92594d668b6103",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "e2becfd53a4af2c3304699cdc183db404a3b168cd3016b687ced342dfa840c88",
+      "seed": 29,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 66,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 66
+          },
+          "strategic": {
+            "cash_delta": 60,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 60
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.25,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.5
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 82,
+          "agent/z0": 68,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 18
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 2,
+          "reservation_spend": 2,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 126,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": false,
+      "mechanism": "cheapest",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "537ce22cb78cca7fd9a7fbb2b948619e861c5421482f107cfc92594d668b6103",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "5ec6aa1d15186451b4652b7dd7c4114441c6789c1b6f049aa24f27305a0e9deb",
+      "seed": 29,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 66,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 66
+          },
+          "strategic": {
+            "cash_delta": 60,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 60
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.25,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.5
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 82,
+          "agent/z0": 68,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 18
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 2,
+          "reservation_spend": 2,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 126,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": false,
+      "mechanism": "random",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "537ce22cb78cca7fd9a7fbb2b948619e861c5421482f107cfc92594d668b6103",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "a595a689b07e910ef0281bb419e8d7b92ba43188ca7071de162cde710aa0916b",
+      "seed": 29,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 66,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 66
+          },
+          "strategic": {
+            "cash_delta": 60,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 60
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.0,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.0
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 82,
+          "agent/z0": 68,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 18
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 4,
+          "reservation_spend": 4,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m1",
+              "realized_cost": 2,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m1",
+              "realized_cost": 2,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 126,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": false,
+      "mechanism": "best-fixed",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "537ce22cb78cca7fd9a7fbb2b948619e861c5421482f107cfc92594d668b6103",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "71e428dc217fffe7c69469def73bf81b0f7b5c60b811282386797ba30fcf8da3",
+      "seed": 29,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 66,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 66
+          },
+          "strategic": {
+            "cash_delta": 60,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 60
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.0,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.0
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 82,
+          "agent/z0": 68,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 18
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 4,
+          "reservation_spend": 4,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m1",
+              "realized_cost": 2,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m1",
+              "realized_cost": 2,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 126,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": true,
+      "mechanism": "lmsr",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "3c65426b9f0b08ddae9e43c487e6fe07821655d1b212c40da93f23f51f2e9b86",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "53e3da04bc15134a20d3dfc5aa2a175d38513c826a38e4016198b4a2085bec3e",
+      "seed": 29,
+      "summary": {
+        "accepted": 4,
+        "controllers": {
+          "honest": {
+            "cash_delta": 54,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 54
+          },
+          "strategic": {
+            "cash_delta": 54,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 54
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.25,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.5
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 70,
+          "agent/z0": 62,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 5,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 3,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 5,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 3,
+          "scoring_pool": 36
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 1,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 1
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 2,
+          "reservation_spend": 2,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 108,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": true,
+      "mechanism": "pool",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "3c65426b9f0b08ddae9e43c487e6fe07821655d1b212c40da93f23f51f2e9b86",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "37bd8281da69718022309810e7b8a19079e4d8895f891dc1185538d6ecc5d391",
+      "seed": 29,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 54,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 54
+          },
+          "strategic": {
+            "cash_delta": 54,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 54
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.25,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.5
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 70,
+          "agent/z0": 62,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 36
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 2,
+          "reservation_spend": 2,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 108,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": true,
+      "mechanism": "uniform",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "3c65426b9f0b08ddae9e43c487e6fe07821655d1b212c40da93f23f51f2e9b86",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "4335644d1fa2872d83c6105db6186cf2a0517025ccd53bde860a0e8141175e9e",
+      "seed": 29,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 54,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 54
+          },
+          "strategic": {
+            "cash_delta": 54,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 54
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.25,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.5
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 70,
+          "agent/z0": 62,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 36
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 2,
+          "reservation_spend": 2,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 108,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": true,
+      "mechanism": "cheapest",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "3c65426b9f0b08ddae9e43c487e6fe07821655d1b212c40da93f23f51f2e9b86",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "d189c06b33fed9ec8534e20f95a01dfab10a3b52fe907bae9c5a3473e8501e24",
+      "seed": 29,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 54,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 54
+          },
+          "strategic": {
+            "cash_delta": 54,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 54
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.25,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.5
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 70,
+          "agent/z0": 62,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 36
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 2,
+          "reservation_spend": 2,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 108,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": true,
+      "mechanism": "random",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "3c65426b9f0b08ddae9e43c487e6fe07821655d1b212c40da93f23f51f2e9b86",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "c7ebb80e35ac13591cf73d78182b90a749d50a9fa6c3f259b2d9b521bc1f3bbe",
+      "seed": 29,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 54,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 54
+          },
+          "strategic": {
+            "cash_delta": 54,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 54
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.0,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.0
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 70,
+          "agent/z0": 62,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 36
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 4,
+          "reservation_spend": 4,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m1",
+              "realized_cost": 2,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m1",
+              "realized_cost": 2,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 108,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": true,
+      "mechanism": "best-fixed",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "3c65426b9f0b08ddae9e43c487e6fe07821655d1b212c40da93f23f51f2e9b86",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "21587ec29aff42e6916d3d9bdb4820e6dd3d5f62cac30d104d03798f47615338",
+      "seed": 29,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 54,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 54
+          },
+          "strategic": {
+            "cash_delta": 54,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 54
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.0,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.0
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 70,
+          "agent/z0": 62,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 36
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 4,
+          "reservation_spend": 4,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m1",
+              "realized_cost": 2,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m1",
+              "realized_cost": 2,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 108,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": false,
+      "mechanism": "lmsr",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "956b43bd042f1233b228655cb4dd3a73ab7268c075ac3e09c711595dec5507fd",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "f58f8fd3d417dc467c5837e18a905f68175e9553df87a6c169873019ed8c5e62",
+      "seed": 47,
+      "summary": {
+        "accepted": 4,
+        "controllers": {
+          "honest": {
+            "cash_delta": 54,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 54
+          },
+          "strategic": {
+            "cash_delta": 56,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 56
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.25,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.5
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 70,
+          "agent/z0": 64,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 5,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 3,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 3,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 3,
+          "scoring_pool": 36
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 1,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 1,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 1
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 2,
+          "reservation_spend": 2,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 108,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": false,
+      "mechanism": "pool",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "956b43bd042f1233b228655cb4dd3a73ab7268c075ac3e09c711595dec5507fd",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "267d2d5de7f9338f9b3e44b9eb081ffae54ae7365bc39911fa43186526d19282",
+      "seed": 47,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 52,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 52
+          },
+          "strategic": {
+            "cash_delta": 56,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 56
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.25,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.5
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 68,
+          "agent/z0": 64,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 36
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 2,
+          "reservation_spend": 2,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 108,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": false,
+      "mechanism": "uniform",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "956b43bd042f1233b228655cb4dd3a73ab7268c075ac3e09c711595dec5507fd",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "2053210a2a6570f62195f8afee8388be78b180fc23dfbc9fb53ad83cb9971bfc",
+      "seed": 47,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 52,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 52
+          },
+          "strategic": {
+            "cash_delta": 56,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 56
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.25,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.5
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 68,
+          "agent/z0": 64,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 36
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 2,
+          "reservation_spend": 2,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 108,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": false,
+      "mechanism": "cheapest",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "956b43bd042f1233b228655cb4dd3a73ab7268c075ac3e09c711595dec5507fd",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "52739565e433f332ae72f16a7d8866dca87bc4069e6079d00b8df72e7812e3dd",
+      "seed": 47,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 52,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 52
+          },
+          "strategic": {
+            "cash_delta": 56,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 56
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.25,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.5
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 68,
+          "agent/z0": 64,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 36
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 2,
+          "reservation_spend": 2,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 108,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": false,
+      "mechanism": "random",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "956b43bd042f1233b228655cb4dd3a73ab7268c075ac3e09c711595dec5507fd",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "e47570b4e0e97c78e23e6b0eafe1a47fbd370dcb2dce7e00947113b062195d90",
+      "seed": 47,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 52,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 52
+          },
+          "strategic": {
+            "cash_delta": 56,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 56
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.0,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.0
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 68,
+          "agent/z0": 64,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 36
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 3,
+          "reservation_spend": 3,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m1",
+              "realized_cost": 2,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 108,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": false,
+      "mechanism": "best-fixed",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "956b43bd042f1233b228655cb4dd3a73ab7268c075ac3e09c711595dec5507fd",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "0cb840069f8cbac4dca35d1f9a349e14ed0de124227c2ff006d81452ae0b95f8",
+      "seed": 47,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 52,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 52
+          },
+          "strategic": {
+            "cash_delta": 56,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 56
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.0,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.0
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 68,
+          "agent/z0": 64,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 36
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 4,
+          "reservation_spend": 4,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m1",
+              "realized_cost": 2,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m1",
+              "realized_cost": 2,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 108,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": true,
+      "mechanism": "lmsr",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "b13b614b36171256f2c25f3abece0b136112bf5c86e8d343426c756bdbf89f94",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "f92dfebe4dbd1a453e6fb40019b80d0ad34b3fbcda9b8c78cc486c9b7eab5f49",
+      "seed": 47,
+      "summary": {
+        "accepted": 4,
+        "controllers": {
+          "honest": {
+            "cash_delta": 63,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 63
+          },
+          "strategic": {
+            "cash_delta": 63,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 63
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.25,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.5
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 79,
+          "agent/z0": 71,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 5,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 3,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 3,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 3,
+          "scoring_pool": 20
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 1,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 1,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 1
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 2,
+          "reservation_spend": 2,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 124,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": true,
+      "mechanism": "pool",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": null,
+            "reserved_cost": 0,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "b13b614b36171256f2c25f3abece0b136112bf5c86e8d343426c756bdbf89f94",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "08e591aee998cff8c5a1436bd3d7a85c18267cc46e8e9108c48731db5cf63991",
+      "seed": 47,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 62,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 62
+          },
+          "strategic": {
+            "cash_delta": 62,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 62
+          }
+        },
+        "evaluation": {
+          "abstentions": 1,
+          "mean_preference_proxy": 0.0,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.0
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 78,
+          "agent/z0": 70,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 20
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 2,
+          "reservation_spend": 2,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": null,
+              "realized_cost": 0,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m1",
+              "realized_cost": 2,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 124,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": true,
+      "mechanism": "uniform",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "b13b614b36171256f2c25f3abece0b136112bf5c86e8d343426c756bdbf89f94",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "930397e24be1a82fb8524c0ffac60dfd9e6d11ba041b650cbf4f8808ef51b35d",
+      "seed": 47,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 62,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 62
+          },
+          "strategic": {
+            "cash_delta": 62,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 62
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.25,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.5
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 78,
+          "agent/z0": 70,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 20
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 2,
+          "reservation_spend": 2,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 124,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": true,
+      "mechanism": "cheapest",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "b13b614b36171256f2c25f3abece0b136112bf5c86e8d343426c756bdbf89f94",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "e6ca9ea15608b0adaf64ce7d50cf9dda1c0f2614e24f37501ddcd2c8fa319c00",
+      "seed": 47,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 62,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 62
+          },
+          "strategic": {
+            "cash_delta": 62,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 62
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.25,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.5
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 78,
+          "agent/z0": 70,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 20
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 2,
+          "reservation_spend": 2,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 124,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": true,
+      "mechanism": "random",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m0",
+            "reserved_cost": 1,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "b13b614b36171256f2c25f3abece0b136112bf5c86e8d343426c756bdbf89f94",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "1be7319effe3f275e2eb9a5e00ea6be03e61dc882afff416dbd67b823e0edcb6",
+      "seed": 47,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 62,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 62
+          },
+          "strategic": {
+            "cash_delta": 62,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 62
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.0,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.0
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 78,
+          "agent/z0": 70,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 20
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 3,
+          "reservation_spend": 3,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m0",
+              "realized_cost": 1,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m1",
+              "realized_cost": 2,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 124,
+        "score_reserve": 144
+      }
+    },
+    {
+      "correlated": true,
+      "mechanism": "best-fixed",
+      "plan": {
+        "allocations": [
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-0"
+          },
+          {
+            "model_id": "m1",
+            "reserved_cost": 2,
+            "task_id": "task-1"
+          }
+        ],
+        "cost_unit": "nano_synthetic_units",
+        "reservation_artifact_sha256": "b13b614b36171256f2c25f3abece0b136112bf5c86e8d343426c756bdbf89f94",
+        "reservation_budget": 4,
+        "schema_version": "0.2"
+      },
+      "receipt_sha256": "68f399cc3b4391ae0eda8a88c4c668deb9f68e140371f31b32ee91bbe6d57235",
+      "seed": 47,
+      "summary": {
+        "accepted": 0,
+        "controllers": {
+          "honest": {
+            "cash_delta": 62,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 62
+          },
+          "strategic": {
+            "cash_delta": 62,
+            "external_benefit": 0,
+            "noncash_effort_cost": 0,
+            "utility": 62
+          }
+        },
+        "evaluation": {
+          "abstentions": 0,
+          "mean_preference_proxy": 0.0,
+          "phase": "POST_SETTLEMENT",
+          "total_preference_proxy": 0.0
+        },
+        "fees": 0,
+        "final_balances": {
+          "agent/h0": 78,
+          "agent/z0": 70,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 20
+        },
+        "initial_balances": {
+          "agent/h0": 16,
+          "agent/z0": 8,
+          "fee_sink": 0,
+          "maker/0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 4,
+          "maker/2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 4,
+          "maker/be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 4,
+          "maker/f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 4,
+          "scoring_pool": 144
+        },
+        "maker_losses": {
+          "0372d30771bb00268f22a84132bdd8d6e5f8f109ba9ed81e3129899a3cb83d1d": 0,
+          "2370b46caf5f83f5ce45a031970d2f3ccf80bf1e773888203b2782a9396e43ec": 0,
+          "be2114a885ddf087352ae474f52b05ed0d7847595984fe74e7a2826426ec2ec2": 0,
+          "f13146ac8e88f15d1afafe6901594bc441e56bb5dd43665741eb190290bd6227": 0
+        },
+        "realized_report": {
+          "cost_unit": "nano_synthetic_units",
+          "net_overrun": 0,
+          "phase": "SETTLED",
+          "positive_task_overruns": 0,
+          "realized_budget_excess": 0,
+          "realized_budget_violated": false,
+          "realized_spend": 4,
+          "reservation_spend": 4,
+          "schema_version": "0.2",
+          "selected_costs": [
+            {
+              "model_id": "m1",
+              "realized_cost": 2,
+              "task_id": "task-0"
+            },
+            {
+              "model_id": "m1",
+              "realized_cost": 2,
+              "task_id": "task-1"
+            }
+          ],
+          "unused_reservations": 0
+        },
+        "rejected": 0,
+        "score_paid": 124,
+        "score_reserve": 144
+      }
+    }
+  ],
+  "warning": "Two-agent prescribed belief perturbations; no posterior-optimality or general correlation claim"
+}

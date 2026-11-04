@@ -1,0 +1,20 @@
+{
+  "checks": [
+    {
+      "strict_improvement": true,
+      "weak_dominance": true
+    },
+    "Every certificate and exact-baseline witness independently replayed"
+  ],
+  "coverage_status": "COMPLETE_DECLARED_GRID",
+  "criterion": "endpoint_dominance_with_strict",
+  "criterion_status": "SUPPORTED_ON_REGISTERED_GRID",
+  "independent_scientific_review": "PENDING",
+  "integrity": "PASS",
+  "limitation": "Automated numerical gate, separately implemented certificate checker, shared trusted engine. No external peer review.",
+  "narrative_claim_status": "SCIENTIFIC_REVIEW_REQUIRED",
+  "novelty": "NOT_ESTABLISHED",
+  "result_sha256": "e418e5e9c9905eb2768f42bc5e724ab4837f21c02da302f7f89af3c6db7fad7e",
+  "signed_diagnostic_status": "NOT_REQUESTED",
+  "version": "research-review-1"
+}
