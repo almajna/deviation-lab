@@ -114,3 +114,12 @@ declared digest rebinding instead of weakening source checks or changing scienti
 values. Recorded LLM actions replay with exact original contexts and zero inference;
 remove automatic inference from integration CI. Routine reversible engineering;
 no final cohort, changed success criterion, spend, main push, merge or release.
+
+## D-FG-001 — 2026-11-03 — Feasibility scope and freeze
+
+Issue #30 uses a two-route synthetic fixture to reproduce the published robust
+allocation objective and a metadata-only audit of a separate LiveBench candidate.
+The recommendation is to pivot from a market-first claim to a matched-information
+test of scored provider reports. FG-1 freezes the comparison and decision rule
+before efficacy data are analyzed. The source and independent review gates must
+pass before any recorded evaluation. No shared contract changes are proposed.
