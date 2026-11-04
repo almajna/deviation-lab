@@ -4,7 +4,7 @@ from fractions import Fraction
 import json
 import unittest
 
-from run_autonomous_economy import (
+from scripts.run_autonomous_economy import (
     MODEL, REPORTS, RIVAL_B, SIGNALS, decode_call, evaluate, fixture, request_for, settle,
 )
 

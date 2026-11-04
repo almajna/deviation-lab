@@ -13,7 +13,7 @@ jobs:
     env:
       OLLAMA_HOST: 127.0.0.1:11434
       OLLAMA_NO_CLOUD: '1'
-      PYTHONPATH: src:scripts
+      PYTHONPATH: src
     steps:
       - uses: actions/checkout@v4
         with:
@@ -22,12 +22,13 @@ jobs:
           sparse-checkout: |
             /src/
             /scripts/run_autonomous_economy.py
+            /scripts/check_autonomous_economy.py
             /tests/test_autonomous_economy.py
-            /artifacts/llm_agents/autonomous_pool.json
+            /artifacts/llm_agents/autonomous_pool.json.gz
       - name: Run offline regressions
         run: python3 -m unittest discover -s tests -p test_autonomous_economy.py -v
       - name: Run pinned open-weight inference when requested or evidence is pending
-        if: ${{ github.event_name == 'workflow_dispatch' || hashFiles('artifacts/llm_agents/autonomous_pool.json') == '' }}
+        if: ${{ github.event_name == 'workflow_dispatch' || hashFiles('artifacts/llm_agents/autonomous_pool.json.gz') == '' }}
         shell: bash
         run: |
           set -euo pipefail
@@ -49,8 +50,9 @@ jobs:
         if: ${{ always() && !cancelled() }}
         shell: bash
         run: |
-          evidence=artifacts/llm_agents/autonomous_pool.json
-          if [[ -f "$RUNNER_TEMP/autonomous_pool.json" ]]; then
-            evidence="$RUNNER_TEMP/autonomous_pool.json"
+          evidence="$RUNNER_TEMP/autonomous_pool.json"
+          if [[ ! -f "$evidence" ]]; then
+            gzip -dc artifacts/llm_agents/autonomous_pool.json.gz > "$evidence"
           fi
           python3 scripts/run_autonomous_economy.py --verify "$evidence"
+          python3 scripts/check_autonomous_economy.py "$evidence"
