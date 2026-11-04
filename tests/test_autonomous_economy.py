@@ -4,6 +4,8 @@ from fractions import Fraction
 import json
 import unittest
 
+from scripts.check_autonomous_economy import check
+
 from scripts.run_autonomous_economy import (
     MODEL, REPORTS, RIVAL_B, SIGNALS, decode_call, evaluate, fixture, request_for, settle,
 )
@@ -18,6 +20,13 @@ class AutonomousEconomyTests(unittest.TestCase):
                 "prompt_eval_count": 250, "message": {"role": "assistant", "content": content}}
         return {"request": self.request, "response": {"http_body": json.dumps(body),
                 "read_limit_exceeded": False}, "error": None}
+
+    def test_independent_checker_rejects_incomplete_or_duplicate_coverage(self):
+        row = {"case": 0, "condition": "truthful", "belief": [6, 3, 1]}
+        for rows in ([], [row], [row] * 18):
+            with self.subTest(rows=len(rows)):
+                with self.assertRaisesRegex(ValueError, "frozen episode coverage"):
+                    check({"summary": {"episodes": rows}})
 
     def test_grammar_covers_full_action_space(self):
         self.assertEqual(len(REPORTS), 67)
