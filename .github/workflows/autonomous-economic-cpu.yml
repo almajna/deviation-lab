@@ -1,0 +1,58 @@
+name: Autonomous economic experiment CPU inference
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  structured-inference:
+    if: ${{ github.event.repository.visibility == 'public' && github.repository == 'almajna/deviation-lab' && (github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository) }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      OLLAMA_HOST: 127.0.0.1:11434
+      OLLAMA_NO_CLOUD: '1'
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /src/
+            /scripts/run_autonomous_economy.py
+            /scripts/check_autonomous_economy.py
+            /tests/test_autonomous_economy.py
+            /artifacts/llm_agents/autonomous_pool.json.gz
+      - name: Run offline regressions
+        run: python3 -m unittest discover -s tests -p test_autonomous_economy.py -v
+      - name: Run pinned open-weight inference when requested or evidence is pending
+        if: ${{ github.event_name == 'workflow_dispatch' || hashFiles('artifacts/llm_agents/autonomous_pool.json.gz') == '' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error --location --retry 2 \
+            "https://github.com/ollama/ollama/releases/download/v0.40.14/ollama-linux-amd64.tar.zst" \
+            -o "$RUNNER_TEMP/ollama.tar.zst"
+          echo "993e83d08c3d13d17c55009a3e2664c8a25445e644aec3a68bef5abb6abce67d  $RUNNER_TEMP/ollama.tar.zst" | sha256sum -c -
+          mkdir "$RUNNER_TEMP/ollama"
+          tar --zstd -xf "$RUNNER_TEMP/ollama.tar.zst" -C "$RUNNER_TEMP/ollama"
+          ollama="$RUNNER_TEMP/ollama/bin/ollama"
+          export OLLAMA_MODELS="$RUNNER_TEMP/models"
+          "$ollama" serve > "$RUNNER_TEMP/ollama.log" 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          curl --fail --silent --show-error --retry 20 --retry-connrefused --retry-delay 1 http://127.0.0.1:11434/api/version
+          "$ollama" pull qwen2.5:7b
+          python3 scripts/run_autonomous_economy.py --out "$RUNNER_TEMP/autonomous_pool.json"
+      - name: Cold-process replay of the recorded numerical results
+        if: ${{ always() && !cancelled() }}
+        shell: bash
+        run: |
+          evidence="$RUNNER_TEMP/autonomous_pool.json"
+          if [[ ! -f "$evidence" ]]; then
+            gzip -dc artifacts/llm_agents/autonomous_pool.json.gz > "$evidence"
+          fi
+          python3 scripts/run_autonomous_economy.py --verify "$evidence"
+          python3 scripts/check_autonomous_economy.py "$evidence"
