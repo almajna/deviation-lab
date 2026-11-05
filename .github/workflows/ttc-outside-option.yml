@@ -23,6 +23,7 @@ jobs:
           python research/ttc-outside-option/verify.py
           python research/ttc-outside-option/tie_limit.py
           python research/ttc-outside-option/verify_fraction.py
+          python research/ttc-outside-option/verify_welfare_bound.py
           python research/ttc-outside-option/exhaustive_general.py
           python research/ttc-outside-option/verify_potential.py
           python research/ttc-outside-option/theorem3_exact.py
