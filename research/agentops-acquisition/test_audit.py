@@ -1,4 +1,8 @@
 """Synthetic fixtures only; no source benchmark outcomes are included."""
+import io
+import json
+import tarfile
+import tempfile
 import unittest
 from collections import Counter
 from unittest.mock import patch
@@ -53,5 +57,36 @@ class Contract(unittest.TestCase):
                              b['policies'][policy]['agent_selections'])
             self.assertEqual(a['policies'][policy]['total_observed_acquisition_cost_usd'],
                              b['policies'][policy]['total_observed_acquisition_cost_usd'])
+
+    def test_tar_metadata_skipped_and_full_matrix_still_required(self):
+        with tempfile.NamedTemporaryFile(suffix='.tar.gz') as f:
+            with tarfile.open(fileobj=f,mode='w:gz') as tar:
+                side=tarfile.TarInfo('results/._a0_report.json')
+                raw=b'\x00\xffresource-fork'; side.size=len(raw); tar.addfile(side,io.BytesIO(raw))
+                link=tarfile.TarInfo('results/_combined/a0_report.json')
+                link.type=tarfile.SYMTYPE; link.linkname='../../nonexistent'; tar.addfile(link)
+                for i in range(8):
+                    agent=f'a{i}'
+                    rows=[{'agent_id':agent,'task_id':f't{t}','run_number':r,
+                           'condition':'clean','scores':{'completion':0.5,'cost':{'cost_usd':0.1}}}
+                          for t in range(100) for r in range(3)]
+                    raw=json.dumps({'agent_id':agent,'results':rows}).encode()
+                    item=tarfile.TarInfo(f'results/a{i}/{agent}_report.json')
+                    item.size=len(raw); tar.addfile(item,io.BytesIO(raw))
+            rows,tasks,agents,sha,members,conditions,skipped=audit.load_archive(f.name)
+            self.assertEqual(len(rows),2400)
+            self.assertEqual(skipped['symlink'],1)
+            self.assertEqual(skipped['appledouble'],1)
+            self.assertEqual(conditions['clean'],2400)
+
+    def test_tar_traversal_and_hardlinks_are_rejected(self):
+        for name,kind in [('../escape',tarfile.REGTYPE),('hardlink',tarfile.LNKTYPE)]:
+            with tempfile.NamedTemporaryFile(suffix='.tar.gz') as f:
+                with tarfile.open(fileobj=f,mode='w:gz') as tar:
+                    member=tarfile.TarInfo(name); member.type=kind; member.linkname='target'
+                    tar.addfile(member)
+                f.flush()
+                with self.assertRaisesRegex(ValueError,'unsafe archive member'):
+                    audit.load_archive(f.name)
 
 if __name__=='__main__': unittest.main()

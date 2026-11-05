@@ -53,20 +53,29 @@ def load_archive(path):
             buf=f.read(1024*1024)
             if not buf: break
             h.update(buf)
-    rows={}; members=[]; reports=0; size=0; condition_counts=Counter()
+    rows={}; members=[]; reports=0; size=0; condition_counts=Counter(); skipped=Counter()
     with tarfile.open(path,'r:gz') as archive:
         for m in archive:
             name=PurePosixPath(m.name)
-            if name.is_absolute() or '..' in name.parts or m.issym() or m.islnk():
+            if name.is_absolute() or '..' in name.parts or m.islnk():
                 raise ValueError('unsafe archive member')
-            if not (m.isfile() or m.isdir()):
+            if not (m.isfile() or m.isdir() or m.issym() or m.islnk()):
                 raise ValueError('unsupported archive member')
             if m.size < 0 or m.size > 50_000_000:
                 raise ValueError('archive member too large')
             size += m.size
             if size > 350_000_000 or len(members) >= 15000:
                 raise ValueError('archive bounds exceeded')
-            members.append({'name':m.name,'size':m.size,'type':'file' if m.isfile() else 'directory'})
+            kind=('symlink' if m.issym() else 'hardlink' if m.islnk() else 'file' if m.isfile() else 'directory')
+            members.append({'name':m.name,'size':m.size,'type':kind})
+            # Reject links as data members: do not resolve or dereference them.
+            if m.issym():
+                skipped[kind]+=1
+                continue
+            # AppleDouble resource forks are metadata, not JSON reports.
+            if name.name.startswith('._'):
+                skipped['appledouble']+=1
+                continue
             # Ignore optional duplicate _combined copies; read per-agent reports only.
             if m.isfile() and name.name.endswith('_report.json') and '_combined' not in name.parts:
                 stream=archive.extractfile(m)
@@ -81,7 +90,7 @@ def load_archive(path):
         for a in agents:
             if len([r for tt,aa,r in rows if tt==t and aa==a])!=3:
                 raise ValueError('incomplete task/agent repeat cell')
-    return rows,tasks,agents,h.hexdigest(),members,condition_counts
+    return rows,tasks,agents,h.hexdigest(),members,condition_counts,skipped
 
 def select(observations, agents, lo, hi, task, policy):
     # No held-back records are passed to this function.
@@ -147,8 +156,9 @@ def aggregate(rows,tasks,agents,source_sha):
 
 if __name__=='__main__':
     if len(sys.argv)!=4: raise SystemExit('usage: audit.py INPUT.tar.gz RESULTS.json MEMBERS.json')
-    rows,tasks,agents,checksum,members,condition_counts=load_archive(sys.argv[1])
+    rows,tasks,agents,checksum,members,condition_counts,skipped=load_archive(sys.argv[1])
     result=aggregate(rows,tasks,agents,checksum)
     result['condition_counts_in_reports']=dict(condition_counts)
+    result['archive_member_exclusions']=dict(skipped)
     Path(sys.argv[2]).write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
     Path(sys.argv[3]).write_text(json.dumps(members,indent=2,sort_keys=True)+'\n')
