@@ -1,0 +1,36 @@
+name: AgentOps aggregate receipt transfer
+on:
+  push:
+    branches: [research/agentops-aggregate-receipt-20261105]
+permissions:
+  actions: read
+  contents: read
+jobs:
+  receipt:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Download immutable aggregate artifact with read-only token
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh api -H 'Accept: application/vnd.github+json' /repos/almajna/deviation-lab/actions/artifacts/13449139652/zip > /tmp/aob-aggregate.zip
+          printf '%s  %s\n' 8097ac0b50a324a25762920746a48793a1f319c8103b1dea6ad7a170da5508ca /tmp/aob-aggregate.zip | sha256sum --check --status
+      - name: Emit only bounded aggregate receipts
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import base64, hashlib, json, zipfile
+          with zipfile.ZipFile('/tmp/aob-aggregate.zip') as z:
+              names=z.namelist()
+              if len(names)!=len(set(names)):
+                  raise SystemExit('duplicate zip names')
+              for name in ('results.json','source-receipt.json','SHA256SUMS'):
+                  if name not in names or z.getinfo(name).file_size>20000:
+                      raise SystemExit('missing/oversized allowlisted file')
+                  data=z.read(name)
+                  print('BEGIN',name,hashlib.sha256(data).hexdigest())
+                  print(base64.b64encode(data).decode())
+                  print('END',name)
+          PY
