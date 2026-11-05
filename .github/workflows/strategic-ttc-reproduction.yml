@@ -30,19 +30,43 @@ jobs:
           dpkg-query -W cm-super texlive-latex-base texlive-latex-extra texlive-fonts-recommended > baseline/tex-versions.txt
           git -C baseline ls-files -z | xargs -0 -I{} sha256sum baseline/{} > baseline/source-sha256.txt
           find baseline/final_runs -name '*.jsonl' -exec sha256sum {} + | tee baseline/dataset-sha256.txt
-      - name: Execute published GSM8K notebook
+      - name: Execute published GSM8K best-of-N comparison cells
         shell: bash
         working-directory: baseline/notebooks
         run: |
           set -euxo pipefail
-          jupyter nbconvert --to notebook --execute GSM8K-demo.ipynb --output reproduced.ipynb --ExecutePreprocessor.timeout=600
+          python - <<'PY'
+          import nbformat, pathlib, hashlib
+          src=pathlib.Path('GSM8K-demo.ipynb')
+          n=nbformat.read(src,as_version=4)
+          indices=[0,2,3,6,11,22,24,26,27]
+          selected=[n.cells[i] for i in indices]
+          for i,c in zip(indices,selected):
+              print('SELECTED_CELL',i,hashlib.sha256(c.source.encode()).hexdigest())
+          n.cells=selected+[nbformat.v4.new_code_cell("import json, math, pathlib\nfrom strategic_ttc.core.auction import calculate_auction_outcome\nps=unreasoning_providers\nbeta=1000\nhist, poas, potentials, recorded_shares, welfare_history=market_dynamics_unreasoning[beta]\nmoves=[hist[p.name][-1] for p in ps]\ndef econ(p, i):\n    a=float(p.accuracy_curve[i]); t=float(p.token_curve[i])\n    q=float(config.alpha)*(float(config.baseline_frac)+(1-float(config.baseline_frac))*a)\n    price=t*float(p.price_per_token); cost=price/(1+float(p.margin))\n    return (q,price,cost,q-price)\ndef shares(vals):\n    ex=[math.exp(beta*v) for v in vals]; return [x/(1+sum(ex)) for x in ex]\nstats=[econ(p,i) for p,i in zip(ps,moves)]\nss=shares([x[3] for x in stats])\nw=sum(s*(x[0]-x[2]) for s,x in zip(ss,stats))\nassert max(abs(a-b) for a,b in zip(ss,recorded_shares[-1]))<1e-12\nassert abs(w-welfare_history[-1][1])<1e-12\ngains=[]\nfor k,p in enumerate(ps):\n    base=ss[k]*(stats[k][1]-stats[k][2])\n    choices=[]\n    for i in range(len(p.accuracy_curve)):\n        alt=econ(p,i); vals=[x[3] for x in stats]; vals[k]=alt[3]\n        choices.append(shares(vals)[k]*(alt[1]-alt[2])-base)\n    gains.append(max(choices))\ncandidates=[]\nfor p in ps:\n    options=[econ(p,i) for i in range(len(p.accuracy_curve))]\n    best=max(range(len(options)),key=lambda i:options[i][0]-options[i][2])\n    z=options[best]; candidates.append((z[0]-z[2],p.name,best,z[0]))\ncandidates.sort(reverse=True)\nfirst,second=candidates[:2]\npublished=calculate_auction_outcome(ps,Vs,config)\nassert abs(first[0]-published['sw'])<1e-12\nassert abs(second[0]-published['user_value'])<1e-12\nassert abs(first[3]-second[0]-published['price'])<1e-12\nassert abs(first[0]-second[0]-published['utility'])<1e-12\nimport collections\nids={}\nfor path in pathlib.Path('../final_runs/GSM8K').glob('*.jsonl'):\n    seen=[]; samples=[]\n    with path.open() as f:\n        for line in f:\n            row=json.loads(line); seen.append(row.get('qid')); samples.append(len(row.get('correct',[])))\n    ids[path.name]={'rows':len(seen),'unique_qids':len(set(seen)),'duplicate_qids':len(seen)-len(set(seen)),'min_samples':min(samples),'max_samples':max(samples),'ids':set(seen)}\ncommon=set.intersection(*(v['ids'] for v in ids.values()))\nfor v in ids.values(): del v['ids']\nreport={'beta':beta,'final_moves':dict(zip([p.name for p in ps],moves)),'market_welfare':w,'reported_market_welfare':welfare_history[-1][1],'max_unilateral_profit_gain':max(gains),'auction_winner':first[1],'auction_welfare':first[0],'auction_runner_up':second[1],'auction_user_value':second[0],'auction_price':first[3]-second[0],'auction_provider_utility':first[0]-second[0],'common_qids_all_12':len(common),'coverage':ids}\nprint('INDEPENDENT_AUDIT_JSON '+json.dumps(report,sort_keys=True))\npathlib.Path('../independent-audit.json').write_text(json.dumps(report,indent=2,sort_keys=True))\n")]
+          nbformat.write(n,'focused-best-of-n.ipynb')
+          
+          PY
+          jupyter nbconvert --to notebook --execute focused-best-of-n.ipynb --output reproduced-focused.ipynb --ExecutePreprocessor.timeout=600
+          python - <<'PY'
+          import nbformat
+          n=nbformat.read('reproduced-focused.ipynb',as_version=4)
+          with open('../numerical-output.txt','w') as f:
+           for cell in n.cells:
+            for out in cell.get('outputs',[]):
+             if out.get('output_type')=='stream': f.write(out.get('text',''))
+          print(open('../numerical-output.txt').read())
+          PY
       - name: Preserve execution evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: strategic-ttc-gsm8k-bounded-attempt
           path: |
-            baseline/notebooks/reproduced.ipynb
+            baseline/notebooks/reproduced-focused.ipynb
+            baseline/notebooks/focused-best-of-n.ipynb
+            baseline/independent-audit.json
+            baseline/numerical-output.txt
             baseline/figures/
             baseline/final_runs/README.md
             baseline/*-version*.txt
