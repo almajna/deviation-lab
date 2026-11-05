@@ -32,6 +32,10 @@ test('keyboard navigation and narrow viewport remain usable', async ({ page }) =
 
 test('shows actual model choice and a separately certified counterfactual', async ({ page }) => {
   await page.goto('/');
+  await expect(page.getByText(/Qwen did not observe the rival’s realized report/)).toBeVisible();
+  await expect(page.getByText(/calculated retrospectively, holding that observed report/)).toBeVisible();
+  await expect(page.getByText(/does not establish that Qwen failed to choose an optimum/)).toBeVisible();
+  await expect(page.getByText(/general optimality, an equilibrium, real-world provider profit/)).toBeVisible();
   await page.getByLabel('Economic case').selectOption('0');
   await page.getByLabel('Economic condition').selectOption('utility_bonus');
   await expect(page.getByText('158 credits.', {exact: false})).toBeVisible();
