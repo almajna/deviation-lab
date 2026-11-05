@@ -1,0 +1,2 @@
+seed 20261106 games 2250 profiles 120250 equilibria 30457 outside_equilibrium_games 41 undefined_poa_games 15
+ALL_WELFARE_OPTIMA_AND_EQUILIBRIA_MATCH_EXHAUSTIVE_ENUMERATION

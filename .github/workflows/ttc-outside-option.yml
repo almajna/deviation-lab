@@ -26,6 +26,9 @@ jobs:
           python research/ttc-outside-option/verify_welfare_bound.py
           python research/ttc-outside-option/test_oracle.py
           python research/ttc-outside-option/verify_oracle_independent.py
+          python research/ttc-outside-option/test_equilibrium.py
+          python research/ttc-outside-option/test_mixed_actions.py
+          python research/ttc-outside-option/verify_equilibrium_independent.py
           python research/ttc-outside-option/exhaustive_general.py
           python research/ttc-outside-option/verify_potential.py
           python research/ttc-outside-option/theorem3_exact.py
