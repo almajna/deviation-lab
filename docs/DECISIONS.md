@@ -118,3 +118,5 @@ no final cohort, changed success criterion, spend, main push, merge or release.
 ## D-AE-001 — 2026-11-03 — Bounded autonomous report test
 
 For issue #33, use the merged static pool and its last-report certificate. Only the two B forecasts come from inference. Freeze the authored beliefs, three conditions, full simplex menu, runtime and model digest before experimental calls. Pair treatments by replaying the rival's recorded report and report the optimum conditional on that rival action. Preserve malformed and unprofitable decisions.
+
+- Reasoning protocol v1 used a single public CPU job triggered when its draft PR opened. The workflow reserved part of the 30-minute allowance for replay and evidence preservation. All 60 calls completed before that reserve. A fresh reviewer independently checked the frozen requests, exact payoff calculations, and memo diagnostics before the receipt was committed.
