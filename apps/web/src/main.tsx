@@ -14,7 +14,7 @@ function App() {
   const { row, priorCache, counts } = replayAt(chosen, cursor);
   const comparisons = conditions.map(c => ({ condition: c, stats: measured(findCase(run, 'latency', seed, c)) }));
   const honest = comparisons[0].stats;
-  return <main>
+  return <main style={{overflowWrap: 'anywhere'}}>
     <h1>Inside an AI Routing Manipulation</h1>
     <p><strong>Scientific verdict: INCONCLUSIVE.</strong> The original run missed the prespecified allocation threshold across seeds; the independent rerun met that threshold but failed a streaming control. These are controlled offline fixture providers, not production traffic or real LLM responses.</p>
     <section aria-labelledby="choices"><h2 id="choices">Select evidence</h2>
