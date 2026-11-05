@@ -1,0 +1,53 @@
+name: verify strategic-ttc notebook outputs
+on:
+  push:
+    branches: [research/strategic-ttc-reproduction]
+    paths: [.github/workflows/verify-strategic-ttc.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: 41977248056
+          name: strategic-ttc-gsm8k-bounded-attempt
+          path: full
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: 41978471949
+          name: strategic-ttc-gsm8k-bounded-attempt
+          path: focused
+      - name: Compare output and data provenance
+        shell: bash
+        run: |
+          set -euxo pipefail
+          python - <<'PY'
+          import json, pathlib, hashlib
+          full=json.loads(pathlib.Path('full/notebooks/reproduced.ipynb').read_text())
+          focused=json.loads(pathlib.Path('focused/notebooks/reproduced-focused.ipynb').read_text())
+          def text_for(nb):
+              matches=[]
+              for cell in nb['cells']:
+                  source=''.join(cell.get('source',[]))
+                  if source.lstrip().startswith('compare_market_to_auction('):
+                      out=''.join(''.join(x.get('text',[])) if isinstance(x.get('text',[]),list) else x.get('text','') for x in cell.get('outputs',[]))
+                      matches.append(out)
+              return matches
+          fulls=text_for(full); focus=text_for(focused)
+          assert len(fulls)==3 and len(focus)==1, (len(fulls),len(focus))
+          print('FULL BEST-OF-N OUTPUT\n'+fulls[1])
+          print('FOCUSED BEST-OF-N OUTPUT\n'+focus[0])
+          assert fulls[1]==focus[0], 'full and focused printed results differ'
+          def hashes(p):
+              return sorted(line.split()[0] for line in pathlib.Path(p).read_text().splitlines())
+          assert hashes('full/dataset-sha256.txt')==hashes('focused/dataset-sha256.txt')
+          assert hashes('full/source-sha256.txt')==hashes('focused/source-sha256.txt')
+          print('PASS full and focused tables match; dataset and source hashes match')
+          print('full notebook sha256',hashlib.sha256(pathlib.Path('full/notebooks/reproduced.ipynb').read_bytes()).hexdigest())
+          PY
