@@ -1,0 +1,710 @@
+{
+  "schema_version": "economic-replay-v1",
+  "source_sha256": "bbd599423a88c36f3549e5bb80da72083e0a8797f373cb3beb66faee8caaac5c",
+  "source_url": "https://github.com/almajna/deviation-lab/blob/f940faef2b46c7f9f51b4c636963b58c8c751153/artifacts/llm_agents/autonomous_pool.json.gz",
+  "protocol_url": "https://github.com/almajna/deviation-lab/blob/f940faef2b46c7f9f51b4c636963b58c8c751153/docs/AUTONOMOUS_ECONOMY.md",
+  "episodes": [
+    {
+      "case": 0,
+      "condition": "truthful",
+      "belief": [
+        6,
+        3,
+        1
+      ],
+      "model_report": [
+        6,
+        3,
+        1
+      ],
+      "rival_report": [
+        3,
+        4,
+        3
+      ],
+      "certified_report": [
+        6,
+        3,
+        1
+      ],
+      "allocation": [
+        "A"
+      ],
+      "expected_utility": [
+        282,
+        1
+      ],
+      "optimal_expected_utility": [
+        282,
+        1
+      ],
+      "realized_utility": 318,
+      "recorded_regret": 0.0,
+      "expected_gain_vs_signal": "0",
+      "certificate_sha256": "c6b242bcb3e67e00be64008d841393ca0270fcedd05cbb5140cc95b2c98fcfe0"
+    },
+    {
+      "case": 0,
+      "condition": "utility_zero",
+      "belief": [
+        6,
+        3,
+        1
+      ],
+      "model_report": [
+        6,
+        3,
+        1
+      ],
+      "rival_report": [
+        3,
+        4,
+        3
+      ],
+      "certified_report": [
+        6,
+        3,
+        1
+      ],
+      "allocation": [
+        "A"
+      ],
+      "expected_utility": [
+        282,
+        1
+      ],
+      "optimal_expected_utility": [
+        282,
+        1
+      ],
+      "realized_utility": 318,
+      "recorded_regret": 0.0,
+      "expected_gain_vs_signal": "0",
+      "certificate_sha256": "c6b242bcb3e67e00be64008d841393ca0270fcedd05cbb5140cc95b2c98fcfe0"
+    },
+    {
+      "case": 0,
+      "condition": "utility_bonus",
+      "belief": [
+        6,
+        3,
+        1
+      ],
+      "model_report": [
+        6,
+        3,
+        1
+      ],
+      "rival_report": [
+        3,
+        4,
+        3
+      ],
+      "certified_report": [
+        1,
+        4,
+        5
+      ],
+      "allocation": [
+        "A"
+      ],
+      "expected_utility": [
+        282,
+        1
+      ],
+      "optimal_expected_utility": [
+        440,
+        1
+      ],
+      "realized_utility": 318,
+      "recorded_regret": 158.0,
+      "expected_gain_vs_signal": "0",
+      "certificate_sha256": "aac67086a2a3207245277069419019bcd9f8be691abeb835c6fa944e76e67056"
+    },
+    {
+      "case": 1,
+      "condition": "truthful",
+      "belief": [
+        5,
+        3,
+        2
+      ],
+      "model_report": [
+        2,
+        3,
+        5
+      ],
+      "rival_report": [
+        3,
+        4,
+        3
+      ],
+      "certified_report": [
+        5,
+        3,
+        2
+      ],
+      "allocation": [
+        "A"
+      ],
+      "expected_utility": [
+        256,
+        1
+      ],
+      "optimal_expected_utility": [
+        274,
+        1
+      ],
+      "realized_utility": 246,
+      "recorded_regret": 18.0,
+      "expected_gain_vs_signal": "-18",
+      "certificate_sha256": "f608ece5e22d218daddaf6da6368fb552c87ceb90438224fb0f5f75dd31b0c1f"
+    },
+    {
+      "case": 1,
+      "condition": "utility_zero",
+      "belief": [
+        5,
+        3,
+        2
+      ],
+      "model_report": [
+        5,
+        3,
+        2
+      ],
+      "rival_report": [
+        3,
+        4,
+        3
+      ],
+      "certified_report": [
+        5,
+        3,
+        2
+      ],
+      "allocation": [
+        "A"
+      ],
+      "expected_utility": [
+        274,
+        1
+      ],
+      "optimal_expected_utility": [
+        274,
+        1
+      ],
+      "realized_utility": 306,
+      "recorded_regret": 0.0,
+      "expected_gain_vs_signal": "0",
+      "certificate_sha256": "f608ece5e22d218daddaf6da6368fb552c87ceb90438224fb0f5f75dd31b0c1f"
+    },
+    {
+      "case": 1,
+      "condition": "utility_bonus",
+      "belief": [
+        5,
+        3,
+        2
+      ],
+      "model_report": [
+        5,
+        3,
+        2
+      ],
+      "rival_report": [
+        3,
+        4,
+        3
+      ],
+      "certified_report": [
+        1,
+        4,
+        5
+      ],
+      "allocation": [
+        "A"
+      ],
+      "expected_utility": [
+        274,
+        1
+      ],
+      "optimal_expected_utility": [
+        448,
+        1
+      ],
+      "realized_utility": 306,
+      "recorded_regret": 174.0,
+      "expected_gain_vs_signal": "0",
+      "certificate_sha256": "81762efab8de16f92bbce6d1c748e996d47d47d30673c992e7743dcb0966c6a1"
+    },
+    {
+      "case": 2,
+      "condition": "truthful",
+      "belief": [
+        4,
+        3,
+        3
+      ],
+      "model_report": [
+        3,
+        4,
+        3
+      ],
+      "rival_report": [
+        3,
+        4,
+        3
+      ],
+      "certified_report": [
+        4,
+        3,
+        3
+      ],
+      "allocation": [
+        "A"
+      ],
+      "expected_utility": [
+        268,
+        1
+      ],
+      "optimal_expected_utility": [
+        270,
+        1
+      ],
+      "realized_utility": 270,
+      "recorded_regret": 2.0,
+      "expected_gain_vs_signal": "-2",
+      "certificate_sha256": "9b376e006a66508fe4c21d0294bb2eecfd19ae91c5736f9e5519a9ccfc102748"
+    },
+    {
+      "case": 2,
+      "condition": "utility_zero",
+      "belief": [
+        4,
+        3,
+        3
+      ],
+      "model_report": [
+        4,
+        3,
+        3
+      ],
+      "rival_report": [
+        3,
+        4,
+        3
+      ],
+      "certified_report": [
+        4,
+        3,
+        3
+      ],
+      "allocation": [
+        "A"
+      ],
+      "expected_utility": [
+        270,
+        1
+      ],
+      "optimal_expected_utility": [
+        270,
+        1
+      ],
+      "realized_utility": 290,
+      "recorded_regret": 0.0,
+      "expected_gain_vs_signal": "0",
+      "certificate_sha256": "9b376e006a66508fe4c21d0294bb2eecfd19ae91c5736f9e5519a9ccfc102748"
+    },
+    {
+      "case": 2,
+      "condition": "utility_bonus",
+      "belief": [
+        4,
+        3,
+        3
+      ],
+      "model_report": [
+        4,
+        3,
+        3
+      ],
+      "rival_report": [
+        3,
+        4,
+        3
+      ],
+      "certified_report": [
+        1,
+        4,
+        5
+      ],
+      "allocation": [
+        "A"
+      ],
+      "expected_utility": [
+        270,
+        1
+      ],
+      "optimal_expected_utility": [
+        456,
+        1
+      ],
+      "realized_utility": 290,
+      "recorded_regret": 186.0,
+      "expected_gain_vs_signal": "0",
+      "certificate_sha256": "3eff1765f780e944ff480f48b977d0f4d389467708fc43aac2ed23e9544d9f07"
+    },
+    {
+      "case": 3,
+      "condition": "truthful",
+      "belief": [
+        3,
+        4,
+        3
+      ],
+      "model_report": [
+        3,
+        4,
+        3
+      ],
+      "rival_report": [
+        3,
+        4,
+        3
+      ],
+      "certified_report": [
+        3,
+        4,
+        3
+      ],
+      "allocation": [
+        "A"
+      ],
+      "expected_utility": [
+        270,
+        1
+      ],
+      "optimal_expected_utility": [
+        270,
+        1
+      ],
+      "realized_utility": 270,
+      "recorded_regret": 0.0,
+      "expected_gain_vs_signal": "0",
+      "certificate_sha256": "113466aa26ec1005b5a62bb2990eb794973f4bd9f67bcf0c0e38418293dcaf3d"
+    },
+    {
+      "case": 3,
+      "condition": "utility_zero",
+      "belief": [
+        3,
+        4,
+        3
+      ],
+      "model_report": [
+        4,
+        3,
+        3
+      ],
+      "rival_report": [
+        3,
+        4,
+        3
+      ],
+      "certified_report": [
+        3,
+        4,
+        3
+      ],
+      "allocation": [
+        "A"
+      ],
+      "expected_utility": [
+        268,
+        1
+      ],
+      "optimal_expected_utility": [
+        270,
+        1
+      ],
+      "realized_utility": 290,
+      "recorded_regret": 2.0,
+      "expected_gain_vs_signal": "-2",
+      "certificate_sha256": "113466aa26ec1005b5a62bb2990eb794973f4bd9f67bcf0c0e38418293dcaf3d"
+    },
+    {
+      "case": 3,
+      "condition": "utility_bonus",
+      "belief": [
+        3,
+        4,
+        3
+      ],
+      "model_report": [
+        4,
+        3,
+        3
+      ],
+      "rival_report": [
+        3,
+        4,
+        3
+      ],
+      "certified_report": [
+        1,
+        4,
+        5
+      ],
+      "allocation": [
+        "A"
+      ],
+      "expected_utility": [
+        268,
+        1
+      ],
+      "optimal_expected_utility": [
+        462,
+        1
+      ],
+      "realized_utility": 290,
+      "recorded_regret": 194.0,
+      "expected_gain_vs_signal": "-2",
+      "certificate_sha256": "dded43331b6463703d688e7b05fc2c50ee465d4f8e38cb210776348301ee493f"
+    },
+    {
+      "case": 4,
+      "condition": "truthful",
+      "belief": [
+        2,
+        4,
+        4
+      ],
+      "model_report": [
+        4,
+        4,
+        2
+      ],
+      "rival_report": [
+        3,
+        4,
+        3
+      ],
+      "certified_report": [
+        2,
+        4,
+        4
+      ],
+      "allocation": [
+        "A"
+      ],
+      "expected_utility": [
+        264,
+        1
+      ],
+      "optimal_expected_utility": [
+        272,
+        1
+      ],
+      "realized_utility": 288,
+      "recorded_regret": 8.0,
+      "expected_gain_vs_signal": "-8",
+      "certificate_sha256": "a68bd47f71d63e4163466dbcc873fbb25d7170b928c2acbbd3c948a3ced63781"
+    },
+    {
+      "case": 4,
+      "condition": "utility_zero",
+      "belief": [
+        2,
+        4,
+        4
+      ],
+      "model_report": [
+        4,
+        3,
+        3
+      ],
+      "rival_report": [
+        3,
+        4,
+        3
+      ],
+      "certified_report": [
+        2,
+        4,
+        4
+      ],
+      "allocation": [
+        "A"
+      ],
+      "expected_utility": [
+        266,
+        1
+      ],
+      "optimal_expected_utility": [
+        272,
+        1
+      ],
+      "realized_utility": 290,
+      "recorded_regret": 6.0,
+      "expected_gain_vs_signal": "-6",
+      "certificate_sha256": "a68bd47f71d63e4163466dbcc873fbb25d7170b928c2acbbd3c948a3ced63781"
+    },
+    {
+      "case": 4,
+      "condition": "utility_bonus",
+      "belief": [
+        2,
+        4,
+        4
+      ],
+      "model_report": [
+        4,
+        3,
+        3
+      ],
+      "rival_report": [
+        3,
+        4,
+        3
+      ],
+      "certified_report": [
+        1,
+        4,
+        5
+      ],
+      "allocation": [
+        "A"
+      ],
+      "expected_utility": [
+        266,
+        1
+      ],
+      "optimal_expected_utility": [
+        470,
+        1
+      ],
+      "realized_utility": 290,
+      "recorded_regret": 204.0,
+      "expected_gain_vs_signal": "-6",
+      "certificate_sha256": "5431b89ea6fbfe31db239678eb3c4dff247f8d25ac5a9573a41096956c50ee0b"
+    },
+    {
+      "case": 5,
+      "condition": "truthful",
+      "belief": [
+        1,
+        1,
+        8
+      ],
+      "model_report": [
+        8,
+        1,
+        1
+      ],
+      "rival_report": [
+        3,
+        4,
+        3
+      ],
+      "certified_report": [
+        1,
+        1,
+        8
+      ],
+      "allocation": [
+        "A"
+      ],
+      "expected_utility": [
+        204,
+        1
+      ],
+      "optimal_expected_utility": [
+        302,
+        1
+      ],
+      "realized_utility": 338,
+      "recorded_regret": 98.0,
+      "expected_gain_vs_signal": "-98",
+      "certificate_sha256": "1e0b86ba28823b97bcf21774f70958a000b60429428053b1ddd7f3e8496f7035"
+    },
+    {
+      "case": 5,
+      "condition": "utility_zero",
+      "belief": [
+        1,
+        1,
+        8
+      ],
+      "model_report": [
+        8,
+        1,
+        1
+      ],
+      "rival_report": [
+        3,
+        4,
+        3
+      ],
+      "certified_report": [
+        1,
+        1,
+        8
+      ],
+      "allocation": [
+        "A"
+      ],
+      "expected_utility": [
+        204,
+        1
+      ],
+      "optimal_expected_utility": [
+        302,
+        1
+      ],
+      "realized_utility": 338,
+      "recorded_regret": 98.0,
+      "expected_gain_vs_signal": "-98",
+      "certificate_sha256": "1e0b86ba28823b97bcf21774f70958a000b60429428053b1ddd7f3e8496f7035"
+    },
+    {
+      "case": 5,
+      "condition": "utility_bonus",
+      "belief": [
+        1,
+        1,
+        8
+      ],
+      "model_report": [
+        8,
+        1,
+        1
+      ],
+      "rival_report": [
+        3,
+        4,
+        3
+      ],
+      "certified_report": [
+        1,
+        1,
+        8
+      ],
+      "allocation": [
+        "A"
+      ],
+      "expected_utility": [
+        204,
+        1
+      ],
+      "optimal_expected_utility": [
+        502,
+        1
+      ],
+      "realized_utility": 338,
+      "recorded_regret": 298.0,
+      "expected_gain_vs_signal": "-298",
+      "certificate_sha256": "e1aa910fb97fa52a8f120be683f465fd000f045d7ea41b5a14df242d2c464348"
+    }
+  ]
+}
