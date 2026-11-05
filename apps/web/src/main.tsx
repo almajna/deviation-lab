@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import { EconomicReplay } from './EconomicReplay';
 import raw from './data/routing.json';
 import { conditions, findCase, measured, replayAt, type Fixture } from './replay';
 
@@ -40,6 +41,7 @@ function App() {
     </section>
     <section aria-labelledby="limits"><h2 id="limits">Why the result is inconclusive</h2><p>Original inflated-minus-honest B allocation changes for seeds 7, 11, 23 were 0, 0, and 100 percentage points. Rerun changes were 65, 65, and 100. The frozen threshold was at least 50 points for every seed, with controls within 10 points.</p><p>In the rerun's seed 7 streaming control, honest and inflated routed 0 of 20 measured requests to B, while corrected routed 20 of 20. First time-to-first-token samples and subsequent history differed. This is startup timing sensitivity, not proof of a general production effect. The nonstream gateway matched honest allocation in all three seeds in both runs.</p>
     <p>No provider profit, deployment prevalence, or billing impact was measured. The gateway assumes visible output and a known tokenizer.</p></section>
+    <EconomicReplay />
     <section aria-labelledby="sources"><h2 id="sources">Evidence and source</h2><ul><li><a href={run.job_url}>Selected execution: original Actions job and preserved receipt logs</a></li><li>Raw results.json SHA-256: <code>{run.raw_sha256}</code></li><li><a href={run.source_url}>Pinned LiteLLM source</a></li><li><a href="https://github.com/almajna/deviation-lab/pull/39">Research closeout and both artifact links</a></li><li><a href="https://github.com/almajna/deviation-lab/blob/0820563fe772a6706e3420c4762211dea0513b6f/docs/LITELLM_REALITY_PROTOCOL.md">Frozen protocol</a></li></ul></section>
   </main>;
 }

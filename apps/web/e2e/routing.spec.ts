@@ -28,3 +28,15 @@ test('keyboard navigation and narrow viewport remain usable', async ({ page }) =
   await expect(page.getByRole('heading', {name: 'Request 24 of 24 — measured'})).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });
+
+
+test('shows actual model choice and a separately certified counterfactual', async ({ page }) => {
+  await page.goto('/');
+  await page.getByLabel('Economic case').selectOption('0');
+  await page.getByLabel('Economic condition').selectOption('utility_bonus');
+  await expect(page.getByText('158 credits.', {exact: false})).toBeVisible();
+  await expect(page.getByText('[6, 3, 1]', {exact: true})).toBeVisible();
+  await expect(page.getByText('[1, 4, 5]', {exact: true})).toBeVisible();
+  await page.getByLabel('Economic condition').selectOption('utility_zero');
+  await expect(page.getByRole('heading', {name: 'Case 1: utility zero'})).toBeVisible();
+});
