@@ -8,7 +8,8 @@ This is a theoretical correction candidate for [*Test-Time Compute Games*, arXiv
 2. Under the same example, Theorem 2(i) predicts the wrong equilibrium compute level because its comparison omits the outside value. We give a revised necessary-and-sufficient characterization under the explicit conditions in `PROOF.md`, including a blocker condition for other higher-margin actions.
 3. We give and prove an alternative generalized ordinal potential that includes the outside option as a fixed dummy participant. It requires finite actions, positive margins, and strict separation of the outside value from every feasible provider value. The dummy's margin is a proof device, not an actual payment.
 4. `WELFARE_BOUND.md` gives an independently checked two-provider counterexample to the unexpanded welfare inequality in Appendix C.4, Equation (55), even though each provider has an action offering users positive value. The first-order theorem display carries a higher-order qualification; we do not present it as an unconditional exact bound.
-5. `THEOREM3_TIE_NOTE.md` describes a separate sensitivity of Theorem 3 when a provider value equals the outside option. At such a tie the paper's strict indicators fail to sum to one, and the softmax limit differs; other tie rules can change the result. It does not refute a version with a consistent tie rule or no ties with the outside option.
+5. `ORACLE.md` proves and implements an exact welfare optimizer for the fully known perfect-rationality model: its allocation scan is linear in the number of provider actions under unit-cost arithmetic, and it returns an attaining profile. The Python input validation uses expected-time hashing. It does not solve the finite-β model or establish deployment performance.
+6. `THEOREM3_TIE_NOTE.md` describes a separate sensitivity of Theorem 3 when a provider value equals the outside option. At such a tie the paper's strict indicators fail to sum to one, and the softmax limit differs; other tie rules can change the result. It does not refute a version with a consistent tie rule or no ties with the outside option.
 
 The formal paper allows an abstention threshold and explicitly excludes ties between providers; our Theorems 1–2 example also has no ties with abstention. For the corrected general statements we explicitly impose no outside ties. See `PROOF.md` for the full case proof and assumptions. The claims are about the printed model, not an assertion that the authors intended the unrestricted domain.
 
@@ -21,6 +22,8 @@ python3 research/ttc-outside-option/verify.py
 python3 research/ttc-outside-option/tie_limit.py
 python3 research/ttc-outside-option/verify_fraction.py
 python3 research/ttc-outside-option/verify_welfare_bound.py
+python3 research/ttc-outside-option/test_oracle.py
+python3 research/ttc-outside-option/verify_oracle_independent.py
 python3 research/ttc-outside-option/exhaustive_general.py
 python3 research/ttc-outside-option/verify_potential.py
 python3 research/ttc-outside-option/theorem3_exact.py
@@ -29,6 +32,7 @@ python3 research/ttc-outside-option/theorem3_exact.py
 - The focused verifier exhausts the original four profiles and checks the published formula's sign failure.
 - An independently specified finite family contains 2,520 legal two-provider games, 10,080 profiles, and 20,160 deviations; all 5,006 profitable deviations increase the corrected potential and the equilibrium characterization matches direct enumeration. `PROTOCOL.md` documents the family; it was frozen before its enumeration but after an exploratory check.
 - A second implementation sampled 6,000 valid games covering 2–3 providers and 2–3 actions, then enumerated all 72,000 profiles and 345,000 deviations; the potential and equilibrium characterization passed. Seed: 771892. This is a bounded implementation check, not proof of the universal statements.
+- Two separate oracle checkers compared the optimizer against complete profile enumeration on 4,000 and 7,200 sampled synthetic games, respectively. The former also checks negative margins and nonzero outside values. These are conformance checks rather than empirical effect estimates.
 - An independent reviewer checked the proof by cases and separately enumerated 35,160 profiles for a logarithmic dummy-inclusive potential. The theorem 3 tie example and the welfare-bound counterexample were independently checked algebraically and using exact rational arithmetic.
 
 See `results.txt` for the 2,520-game output. Run the commands above to regenerate the other summaries. No stochastic significance test, real-world extrapolation, final holdout or model inference is involved.
