@@ -16,6 +16,8 @@ jobs:
         shell: bash
         run: |
           set -euxo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-base texlive-latex-extra texlive-fonts-recommended dvipng
           git clone https://github.com/Human-Centric-Machine-Learning/strategic-ttc.git baseline
           git -C baseline checkout --detach 42237fcb397191e8ce5c4d22f9e5f1fae9a5cf7d
           git -C baseline rev-parse HEAD
@@ -36,5 +38,6 @@ jobs:
           name: strategic-ttc-gsm8k-bounded-attempt
           path: |
             baseline/notebooks/reproduced.ipynb
+            baseline/figures/
             baseline/final_runs/README.md
           if-no-files-found: warn
