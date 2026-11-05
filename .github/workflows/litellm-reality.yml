@@ -13,7 +13,7 @@ jobs:
   offline-routing:
     if: ${{ github.event.repository.visibility == 'public' && github.repository == 'almajna/deviation-lab' && (github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository) }}
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
         with:
@@ -34,6 +34,15 @@ jobs:
           python -m pip install uv==0.13.7
           cd vendor/litellm
           uv sync --frozen --no-dev --no-default-groups --no-install-workspace --python 3.12
+      - name: Build the pinned LiteLLM native extension
+        working-directory: vendor/litellm
+        env:
+          CARGO_PROFILE_DEV_DEBUG: '0'
+          CARGO_INCREMENTAL: '0'
+        run: |
+          rustup toolchain install --no-self-update
+          uv pip install --python .venv/bin/python --no-deps --editable . \
+            --config-setting maturin.build-args=--locked
       - name: Prepare tokenizer before network isolation and record environment
         env:
           PYTHONPATH: vendor/litellm
@@ -43,10 +52,21 @@ jobs:
           LITELLM_RUST: 'false'
         run: |
           mkdir -p "$RUNNER_TEMP/reality"
-          vendor/litellm/.venv/bin/python -c 'import tiktoken; tiktoken.get_encoding("o200k_base"); import litellm; print(litellm.Router)'
           uv pip freeze --python vendor/litellm/.venv/bin/python > "$RUNNER_TEMP/reality/dependencies.txt"
           git -C vendor/litellm diff --exit-code
           git -C vendor/litellm rev-parse HEAD > "$RUNNER_TEMP/reality/source.txt"
+          vendor/litellm/.venv/bin/python - <<'PY'
+          from pathlib import Path
+          import litellm
+          from litellm.rust_bridge import _native
+          import tiktoken
+
+          source = Path("vendor/litellm/litellm").resolve()
+          assert Path(litellm.__file__).resolve().parent == source
+          assert Path(_native.__file__).resolve().parent == source / "rust_bridge"
+          print(litellm.Router, _native.__file__)
+          tiktoken.get_encoding("o200k_base")
+          PY
       - name: Execute real router with loopback as the only available network
         shell: bash
         run: |
