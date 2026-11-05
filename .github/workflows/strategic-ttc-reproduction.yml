@@ -1,0 +1,36 @@
+name: strategic-ttc reproduction
+on:
+  push:
+    branches: [research/strategic-ttc-reproduction]
+permissions:
+  contents: read
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Acquire pinned source and traces
+        shell: bash
+        run: |
+          set -euxo pipefail
+          git clone https://github.com/Human-Centric-Machine-Learning/strategic-ttc.git baseline
+          git -C baseline checkout --detach 42237fcb397191e8ce5c4d22f9e5f1fae9a5cf7d
+          git -C baseline rev-parse HEAD
+          python -m pip install numpy scipy pandas matplotlib seaborn jupyter nbconvert ipykernel pyyaml tqdm huggingface_hub
+          python -c "from huggingface_hub import snapshot_download; snapshot_download(repo_id='Human-Centric-Machine-Learning/strategic-ttc-data',repo_type='dataset',allow_patterns=['GSM8K/*.jsonl','README.md'],local_dir='baseline/final_runs')"
+          find baseline/final_runs -name '*.jsonl' -exec sha256sum {} +
+      - name: Execute published GSM8K notebook
+        shell: bash
+        working-directory: baseline/notebooks
+        run: |
+          set -euxo pipefail
+          jupyter nbconvert --to notebook --execute GSM8K-demo.ipynb --output reproduced.ipynb --ExecutePreprocessor.timeout=600
+      - name: Preserve execution evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: strategic-ttc-gsm8k-bounded-attempt
+          path: |
+            baseline/notebooks/reproduced.ipynb
+            baseline/final_runs/README.md
+          if-no-files-found: warn
