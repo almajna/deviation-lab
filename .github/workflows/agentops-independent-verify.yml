@@ -1,0 +1,38 @@
+name: AgentOps independent fixed-protocol verification
+on:
+  push:
+    branches: [research/agentops-independent-verify-20261105]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Stage previously verified release without opening records
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error --location --retry 2 --max-time 180 'https://github.com/kunwarshivam/agentops-bench/releases/download/v1.0/agentops-bench-v1.0-pilot-traces.tar.gz' --output /tmp/aob-independent.tar.gz
+          printf '%s  %s\n' e185bfd037fa9fa5727dbae0eb8eba421dfb5011dfec6f4dc60b111d51e7a85f /tmp/aob-independent.tar.gz | sha256sum --check --status
+          sudo install -d -m 0755 /tmp/aob-independent-input
+          sudo install -m 0644 /tmp/aob-independent.tar.gz /tmp/aob-independent-input/pilot.tar.gz
+          sudo install -m 0644 research/agentops-independent-verify/verify.py /tmp/aob-independent-input/verify.py
+          sudo install -m 0644 research/agentops-independent-verify/sandbox.sh /tmp/aob-independent-input/sandbox.sh
+          sudo install -d -m 0755 -o nobody -g nogroup /tmp/aob-independent-output
+      - name: Verify in isolated network namespace
+        run: |
+          set -euo pipefail
+          sudo unshare --net bash -c 'set -euo pipefail; ip link set lo up; exec setpriv --reuid=nobody --regid=nogroup --clear-groups --inh-caps=-all --bounding-set=-all --ambient-caps=-all --no-new-privs env -i PATH=/usr/bin:/bin HOME=/tmp LANG=C.UTF-8 bash /tmp/aob-independent-input/sandbox.sh'
+          sudo sh -c 'cd /tmp/aob-independent-output && sha256sum results.json > SHA256SUMS'
+          cat /tmp/aob-independent-output/results.json
+      - name: Preserve aggregate only
+        if: always()
+        uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08
+        with:
+          name: agentops-independent-verification
+          path: /tmp/aob-independent-output/
+          if-no-files-found: warn
+          retention-days: 90
