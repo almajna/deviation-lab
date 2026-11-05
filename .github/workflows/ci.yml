@@ -35,7 +35,16 @@ jobs:
         env:
           MPLCONFIGDIR: ${{ runner.temp }}/mpl
         run: |
-          python -I -m deviation_integration --cache "$RUNNER_TEMP/audit-cache" --download --out "$RUNNER_TEMP/integration" --plots --verify artifacts/integration/manifest.json
+          python -I -m deviation_integration --cache "$RUNNER_TEMP/audit-cache" --download --out "$RUNNER_TEMP/integration" --plots --verify docs/reproduction/integration-readme-migration.json
+      - name: Reproduce original integration manifest at its original source
+        env:
+          MPLCONFIGDIR: ${{ runner.temp }}/mpl
+        run: |
+          git worktree add --detach "$RUNNER_TEMP/original-source" 0820563fe772a6706e3420c4762211dea0513b6f
+          python -m venv --system-site-packages "$RUNNER_TEMP/original-venv"
+          "$RUNNER_TEMP/original-venv/bin/python" -m pip install --no-deps "$RUNNER_TEMP/original-source"
+          cd "$RUNNER_TEMP/original-source"
+          "$RUNNER_TEMP/original-venv/bin/python" -I -m deviation_integration --cache "$RUNNER_TEMP/audit-cache" --download --out "$RUNNER_TEMP/integration-original" --plots --verify artifacts/integration/manifest.json
       - name: Generate synthetic replay and validate flags
         run: |
           python -I -m deviation demo --out "$RUNNER_TEMP/deviation_demo.json"

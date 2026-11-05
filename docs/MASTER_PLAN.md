@@ -1,3 +1,5 @@
+> **Historical planning document.** For current project state and navigation, see [status](STATUS.md) and the [README](../README.md).
+
 # DEVIATION — master plan and critical path
 
 **Project**: adversarial laboratory for AI resource markets. **Repository**: https://github.com/almajna/deviation-lab. **North star**: credible mechanisms research plus a beautiful, interactive, reproducible *exploit theater*. **Release policy**: internal >=90/100 and all scientific blockers closed; external perceived impressiveness cannot be guaranteed.
