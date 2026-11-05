@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
       - name: Acquire pinned source and traces
         shell: bash
         run: |
@@ -16,7 +19,8 @@ jobs:
           git clone https://github.com/Human-Centric-Machine-Learning/strategic-ttc.git baseline
           git -C baseline checkout --detach 42237fcb397191e8ce5c4d22f9e5f1fae9a5cf7d
           git -C baseline rev-parse HEAD
-          python -m pip install numpy scipy pandas matplotlib seaborn jupyter nbconvert ipykernel pyyaml tqdm huggingface_hub
+          python -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install numpy==2.3.5 scipy==1.16.3 pandas==2.3.3 matplotlib==3.10.7 seaborn==0.13.2 jupyter nbconvert ipykernel pyyaml tqdm huggingface_hub==1.1.7 transformers==5.0.0rc0 pydantic datasets sympy
           python -c "from huggingface_hub import snapshot_download; snapshot_download(repo_id='Human-Centric-Machine-Learning/strategic-ttc-data',repo_type='dataset',allow_patterns=['GSM8K/*.jsonl','README.md'],local_dir='baseline/final_runs')"
           find baseline/final_runs -name '*.jsonl' -exec sha256sum {} +
       - name: Execute published GSM8K notebook
