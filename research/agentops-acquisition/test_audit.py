@@ -73,6 +73,7 @@ class Contract(unittest.TestCase):
                     raw=json.dumps({'agent_id':agent,'results':rows}).encode()
                     item=tarfile.TarInfo(f'results/a{i}/{agent}_report.json')
                     item.size=len(raw); tar.addfile(item,io.BytesIO(raw))
+            f.flush()
             rows,tasks,agents,sha,members,conditions,skipped=audit.load_archive(f.name)
             self.assertEqual(len(rows),2400)
             self.assertEqual(skipped['symlink'],1)
