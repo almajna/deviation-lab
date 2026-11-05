@@ -37,6 +37,9 @@ test('shows actual model choice and a separately certified counterfactual', asyn
   await expect(page.getByText('158 credits.', {exact: false})).toBeVisible();
   await expect(page.getByText('[6, 3, 1]', {exact: true})).toBeVisible();
   await expect(page.getByText('[1, 4, 5]', {exact: true})).toBeVisible();
+  await page.getByRole('button', {name: 'Next economic case'}).click();
+  await expect(page.getByRole('heading', {name: 'Case 2: utility bonus'})).toBeVisible();
+  await page.getByRole('button', {name: 'Previous economic case'}).click();
   await page.getByLabel('Economic condition').selectOption('utility_zero');
   await expect(page.getByRole('heading', {name: 'Case 1: utility zero'})).toBeVisible();
 });

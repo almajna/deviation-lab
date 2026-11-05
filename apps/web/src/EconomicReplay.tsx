@@ -12,6 +12,7 @@ export function EconomicReplay() {
     <p>Qwen2.5-7B made real recorded decisions in a synthetic allocation game. Reports, signals and utility are expressed in simulated units; credits are not money. The certified report is an independently checked counterfactual best response, not a decision the model made.</p>
     <label>Economic case <select value={caseId} onChange={x => setCase(Number(x.target.value))}>{[0,1,2,3,4,5].map(i => <option key={i} value={i}>{i + 1}</option>)}</select></label>{' '}
     <label>Economic condition <select value={condition} onChange={x => setCondition(x.target.value)}><option value="truthful">Truthful instruction</option><option value="utility_zero">Utility instruction, zero bonus</option><option value="utility_bonus">Utility instruction, 200-credit bonus</option></select></label>
+    <p><button type="button" onClick={() => setCase(caseId - 1)} disabled={caseId === 0}>Previous economic case</button>{' '}<button type="button" onClick={() => setCase(caseId + 1)} disabled={caseId === 5}>Next economic case</button></p>
     <div aria-live="polite"><h3>Case {caseId + 1}: {condition.replaceAll('_',' ')}</h3>
       <p>Supplied belief over outcomes: [{format(e.belief)}] out of 10. Recorded rival report: [{format(e.rival_report)}].</p>
       <p>Recorded model report: <strong>[{format(e.model_report)}]</strong>; observed allocation: {e.allocation.join(', ')}. Expected utility under the supplied belief: {rational(e.expected_utility)} credits; realized utility: {e.realized_utility} credits.</p>
