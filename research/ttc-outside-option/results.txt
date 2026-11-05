@@ -1,0 +1,8 @@
+counterexample profile (0, 0) values (Fraction(1, 1), Fraction(-4, 5)) winner 0 utilities (Fraction(1, 2), Fraction(0, 1)) deviation_delta (Fraction(-1, 2), Fraction(0, 1)) NE True
+counterexample profile (0, 1) values (Fraction(1, 1), Fraction(-9, 5)) winner 0 utilities (Fraction(1, 2), Fraction(0, 1)) deviation_delta (Fraction(-1, 2), Fraction(0, 1)) NE True
+counterexample profile (1, 0) values (Fraction(-1, 10), Fraction(-4, 5)) winner -1 utilities (Fraction(0, 1), Fraction(0, 1)) deviation_delta (Fraction(1, 2), Fraction(0, 1)) NE False
+counterexample profile (1, 1) values (Fraction(-1, 10), Fraction(-9, 5)) winner -1 utilities (Fraction(0, 1), Fraction(0, 1)) deviation_delta (Fraction(1, 2), Fraction(0, 1)) NE False
+paper_potential_change=ln(1/2)<0, independent of C; paper_theta1=1; actual_NE_theta1=0
+complete_family specs 90 legal_games 2520 profiles 10080 NE_profiles 5350 deviations 20160 profitable_deviations 5006
+corrected_potential_and_equilibrium_characterization PASS
+script_sha256 21b7ce3780ce1c3ad3f2d4fcf8148df88ea2083e4244b8a4cbc46b30c8aaa4fc

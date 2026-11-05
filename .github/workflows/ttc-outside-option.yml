@@ -1,0 +1,28 @@
+name: Test-time compute outside-option audit
+on:
+  pull_request:
+    paths:
+      - 'research/ttc-outside-option/**'
+      - '.github/workflows/ttc-outside-option.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.11', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Verify paper counterexamples and corrected potential
+        run: |
+          python research/ttc-outside-option/verify.py
+          python research/ttc-outside-option/tie_limit.py
+          python research/ttc-outside-option/verify_fraction.py
+          python research/ttc-outside-option/exhaustive_general.py
+          python research/ttc-outside-option/verify_potential.py
+          python research/ttc-outside-option/theorem3_exact.py
