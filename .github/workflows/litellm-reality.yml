@@ -1,0 +1,88 @@
+name: Pinned LiteLLM offline reality test
+on:
+  pull_request:
+    paths:
+      - 'scripts/*litellm_reality.py'
+      - 'tests/test_litellm_reality.py'
+      - 'experiments/litellm_reality_v1.json'
+      - '.github/workflows/litellm-reality.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-routing:
+    if: ${{ github.event.repository.visibility == 'public' && github.repository == 'almajna/deviation-lab' && (github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository) }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check receipt-validator regressions
+        run: python -m unittest discover -s tests -p test_litellm_reality.py -v
+      - uses: actions/checkout@v4
+        with:
+          repository: BerriAI/litellm
+          ref: 44b85d0c5c3093543b1f911c6808836f16dd3a58
+          path: vendor/litellm
+          persist-credentials: false
+      - name: Install exact upstream locked SDK dependencies
+        run: |
+          python -m pip install uv==0.13.7
+          cd vendor/litellm
+          uv sync --frozen --no-dev --no-default-groups --no-install-workspace --python 3.12
+      - name: Prepare tokenizer before network isolation and record environment
+        env:
+          PYTHONPATH: vendor/litellm
+          TIKTOKEN_CACHE_DIR: ${{ runner.temp }}/tiktoken
+          LITELLM_OFFLINE_MODE: 'true'
+          LITELLM_LOCAL_MODEL_COST_MAP: 'True'
+          LITELLM_RUST: 'false'
+        run: |
+          mkdir -p "$RUNNER_TEMP/reality"
+          vendor/litellm/.venv/bin/python -c 'import tiktoken; tiktoken.get_encoding("o200k_base"); import litellm; print(litellm.Router)'
+          uv pip freeze --python vendor/litellm/.venv/bin/python > "$RUNNER_TEMP/reality/dependencies.txt"
+          git -C vendor/litellm diff --exit-code
+          git -C vendor/litellm rev-parse HEAD > "$RUNNER_TEMP/reality/source.txt"
+      - name: Execute real router with loopback as the only available network
+        shell: bash
+        run: |
+          sudo unshare --net -- bash -c '
+            set -euo pipefail
+            ip link set lo up
+            test -z "$(ip route show default)"
+            exec env -i PATH="$1" PYTHONPATH="$2/vendor/litellm:$2/scripts" \
+              TIKTOKEN_CACHE_DIR="$3/tiktoken" LITELLM_OFFLINE_MODE=true \
+              LITELLM_LOCAL_MODEL_COST_MAP=True LITELLM_RUST=false PYTHONDONTWRITEBYTECODE=1 \
+              EXPERIMENT_GITHUB_SHA="$4" EXPERIMENT_RUN_ID="$5" EXPERIMENT_RUN_ATTEMPT="$6" \
+              "$2/vendor/litellm/.venv/bin/python" "$2/scripts/run_litellm_reality.py" \
+              --config "$2/experiments/litellm_reality_v1.json" --source "$2/vendor/litellm" \
+              --out "$3/reality/results.json"
+          ' bash "$PATH" "$GITHUB_WORKSPACE" "$RUNNER_TEMP" "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT"
+      - name: Independent standard-library receipt check
+        run: python scripts/check_litellm_reality.py "$RUNNER_TEMP/reality/results.json"
+      - name: Preserve complete evidence, including failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: litellm-reality-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/reality
+          retention-days: 30
+      - name: Preserve compact evidence in durable job logs
+        if: always()
+        run: |
+          python - <<'PY'
+          import base64, gzip, os
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'reality'
+          for name in ('results.json', 'dependencies.txt', 'source.txt'):
+              path=root/name
+              if path.exists():
+                  data=base64.b64encode(gzip.compress(path.read_bytes(),mtime=0)).decode()
+                  print('REALITY_FILE_BEGIN '+name)
+                  for offset in range(0,len(data),6000): print('REALITY_CHUNK '+data[offset:offset+6000])
+                  print('REALITY_FILE_END '+name)
+          PY
