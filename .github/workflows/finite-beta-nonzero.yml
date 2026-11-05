@@ -1,0 +1,75 @@
+name: Finite-beta nonzero-outside original-source audit
+on:
+  push:
+    branches: [research/finite-beta-nonzero-outside-check]
+    paths: ['research/finite-beta-nonzero/**', '.github/workflows/finite-beta-nonzero.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+      - name: Stage pinned author source and dependencies
+        run: |
+          set -euo pipefail
+          git clone https://github.com/Human-Centric-Machine-Learning/strategic-ttc.git "$RUNNER_TEMP/published-source"
+          git -C "$RUNNER_TEMP/published-source" checkout --detach 42237fcb397191e8ce5c4d22f9e5f1fae9a5cf7d
+          test "$(git -C "$RUNNER_TEMP/published-source" rev-parse HEAD)" = 42237fcb397191e8ce5c4d22f9e5f1fae9a5cf7d
+          test "$(git -C "$RUNNER_TEMP/published-source" hash-object strategic_ttc/core/game_dynamics.py)" = ed675a2dda0581af449a50aaafdeef72b05f03bf
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends iproute2
+          python -m pip install numpy==2.3.5 tqdm==4.67.1
+      - name: Download pinned aggregate artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh api repos/almajna/deviation-lab/actions/artifacts/13445404664/zip > "$RUNNER_TEMP/frozen-audit.zip"
+          printf '%s  %s\n' 5e8751c18ea37ec78a469fe85229b9a2f083e8b3c51b7d6e0ef6ab374a06f379 "$RUNNER_TEMP/frozen-audit.zip" | sha256sum --check
+      - name: Verify and extract aggregate inputs
+        run: |
+          set -euo pipefail
+          AUDIT_ZIP="$RUNNER_TEMP/frozen-audit.zip" OUTPUT_DIR="$RUNNER_TEMP" python - <<'PY'
+          import hashlib,os,pathlib,zipfile
+          expected={'finite-beta-input.json':'0b250d5f432bda276525fed3f046f6abbf3dd68f69e041c18fef95558d30ce54', 'finite-beta-canonical.json':'9b9b99c8ceeef5022ef4a1f55a469cda5b6396fe685f7102be10684dd7e7635b'}
+          with zipfile.ZipFile(os.environ['AUDIT_ZIP']) as z:
+              assert z.testzip() is None
+              for name,digest in expected.items():
+                  infos=[x for x in z.infolist() if x.filename.rsplit('/',1)[-1]==name]
+                  assert len(infos)==1 and infos[0].file_size<100000
+                  data=z.read(infos[0]);assert hashlib.sha256(data).hexdigest()==digest
+                  (pathlib.Path(os.environ['OUTPUT_DIR'])/name).write_bytes(data)
+          PY
+          sha256sum research/finite-beta-nonzero/* > "$RUNNER_TEMP/audit-sources.sha256"
+          python -m pip freeze > "$RUNNER_TEMP/versions.txt"
+      - name: Execute pinned source without network or privileges
+        run: |
+          set -euo pipefail
+          export TASK_WORKSPACE="$GITHUB_WORKSPACE" TASK_TEMP="$RUNNER_TEMP"
+          export TASK_PYTHON_PATH="$(dirname "$(command -v python)")"
+          export TASK_UID="$(id -u)" TASK_GID="$(id -g)"
+          sudo env -i PATH="$TASK_PYTHON_PATH:/usr/sbin:/usr/bin:/sbin:/bin" TASK_WORKSPACE="$TASK_WORKSPACE" TASK_TEMP="$TASK_TEMP" TASK_UID="$TASK_UID" TASK_GID="$TASK_GID" \
+            unshare --net /bin/bash -eu -o pipefail -c '
+              exec setpriv --reuid "$TASK_UID" --regid "$TASK_GID" --clear-groups \
+                --bounding-set=-all --inh-caps=-all --ambient-caps=-all --no-new-privs \
+                /bin/bash "$TASK_WORKSPACE/research/finite-beta-nonzero/official-nonzero-offline.sh"
+            '
+      - name: Preserve results even on failure
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: finite-beta-nonzero-outside-audit
+          path: |
+            research/finite-beta-nonzero/
+            ${{ runner.temp }}/official-nonzero-results.json
+            ${{ runner.temp }}/audit-sources.sha256
+            ${{ runner.temp }}/versions.txt
+          if-no-files-found: warn
