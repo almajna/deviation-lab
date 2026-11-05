@@ -1,0 +1,49 @@
+name: Independent exhaustive finite-beta verification
+on:
+  push:
+    branches: [research/finite-beta-independent-verification]
+    paths:
+      - '.github/workflows/finite-beta-independent.yml'
+      - 'research/finite-beta-independent/**'
+permissions:
+  contents: read
+  actions: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Download and verify original frozen archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh api repos/almajna/deviation-lab/actions/artifacts/13445404664/zip > "$RUNNER_TEMP/frozen-audit.zip"
+          printf '%s  %s\n' 5e8751c18ea37ec78a469fe85229b9a2f083e8b3c51b7d6e0ef6ab374a06f379 "$RUNNER_TEMP/frozen-audit.zip" | sha256sum --check
+      - name: Enumerate all profiles without network or credentials
+        run: |
+          set -euo pipefail
+          export TASK_WORKSPACE="$GITHUB_WORKSPACE" TASK_ARCHIVE="$RUNNER_TEMP/frozen-audit.zip" TASK_RESULT_DIR="$RUNNER_TEMP"
+          export TASK_UID="$(id -u)" TASK_GID="$(id -g)"
+          sudo env -i PATH=/usr/sbin:/usr/bin:/sbin:/bin TASK_WORKSPACE="$TASK_WORKSPACE" TASK_ARCHIVE="$TASK_ARCHIVE" TASK_RESULT_DIR="$TASK_RESULT_DIR" TASK_UID="$TASK_UID" TASK_GID="$TASK_GID" \
+            unshare --net /bin/bash -eu -o pipefail -c '
+              ip link set lo up
+              exec setpriv --reuid "$TASK_UID" --regid "$TASK_GID" --clear-groups \
+                --bounding-set=-all --inh-caps=-all --ambient-caps=-all --no-new-privs \
+                /bin/bash "$TASK_WORKSPACE/research/finite-beta-independent/run_offline.sh"
+            '
+      - name: Preserve verification evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: finite-beta-independent-verification
+          path: |
+            research/finite-beta-independent/
+            ${{ runner.temp }}/curves.txt
+            ${{ runner.temp }}/compiler-version.txt
+            ${{ runner.temp }}/exhaustive-output.txt
+            ${{ runner.temp }}/verification-sha256.txt
+          if-no-files-found: warn
