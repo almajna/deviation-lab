@@ -1,0 +1,37 @@
+name: Joule released-source audit
+on:
+  push:
+    branches: ['research/joule-source-audit-20261105']
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Stage pinned public source
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y python3-yaml
+          sudo install -d -m 0755 /tmp/joule-source/harness /tmp/joule-source/grading /tmp/joule-source/tasks/preview/{joule-001,joule-002,joule-004}
+          base='https://raw.githubusercontent.com/blankline-org/joule-index/1e4c50dd8af9aa898e4ebb9bfd1acb77adb2ff71'
+          for file in harness/run.py grading/score.py tasks/preview/joule-001/task.yaml tasks/preview/joule-002/task.yaml tasks/preview/joule-004/task.yaml; do
+            curl --fail --silent --show-error --location --max-time 30 "$base/$file" | sudo tee "/tmp/joule-source/$file" >/dev/null
+          done
+          test "$(git hash-object /tmp/joule-source/harness/run.py)" = 5df0a7dc9da12b204e79930aeb3395f8ffc31007
+          test "$(git hash-object /tmp/joule-source/grading/score.py)" = 1c1379c5df18821513f4d78480f4c27966562287
+          test "$(git hash-object /tmp/joule-source/tasks/preview/joule-001/task.yaml)" = 417051c67181db9f6098d1925e0f250327091e26
+          test "$(git hash-object /tmp/joule-source/tasks/preview/joule-002/task.yaml)" = 723a2423f944d7d78a23f174c42753a6df42f515
+          test "$(git hash-object /tmp/joule-source/tasks/preview/joule-004/task.yaml)" = 43bcadeeea6f203e2b03b73b319d4935031eff32
+          sudo install -m 0644 research/joule-source-audit/check_source.py /tmp/joule-source/check_source.py
+          sudo install -m 0644 research/joule-source-audit/sandbox.sh /tmp/joule-source/sandbox.sh
+      - name: Execute actual source offline without privileges
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo unshare --net bash -c 'set -euo pipefail; ip link set lo up; exec setpriv --reuid=nobody --regid=nogroup --clear-groups --inh-caps=-all --bounding-set=-all --ambient-caps=-all --no-new-privs env -i PATH=/usr/bin:/bin HOME=/tmp LANG=C.UTF-8 PYTHONDONTWRITEBYTECODE=1 bash /tmp/joule-source/sandbox.sh'

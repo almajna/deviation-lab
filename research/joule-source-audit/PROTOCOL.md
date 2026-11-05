@@ -1,0 +1,7 @@
+# Released Joule Index source audit
+
+Scope: inspect and execute exact published code `blankline-org/joule-index@1e4c50dd8af9aa898e4ebb9bfd1acb77adb2ff71` against its three public preview task YAMLs, and synthetic file-modification fixtures. No model inference, holdouts, live requests to agents, original published run traces or paid calls. No assumption that current scores were produced by this exact version or that models opened links.
+
+Pin git object IDs for source files and three YAMLs. From released harness, call `write_prompt_file` and test whether its generated text includes each task's own `human_reference_pr_url`. From released scoring module, call `snapshot_file_state`, `diff_states` and `compute_attention` to compare two deliberately different synthetic replacements of joule-001's single ground-truth file with an additional unrelated file deleted in both. Test whether scores agree and deleted file is omitted from touched-set metric. Synthetic byte strings do not establish real correctness or actual malicious behavior.
+
+Before source execution, verify pins; execute untrusted source only as unprivileged user, with no network, inherited credentials or capabilities, in an ephemeral GitHub-hosted runner. Output only URLs-presence flags, task dates, synthetic hashes, and scores. Publish no alleged vulnerability, no raw prompts or original run results. Failure/null retained. Ask independent reviewer to approve workflow prior to trigger.
