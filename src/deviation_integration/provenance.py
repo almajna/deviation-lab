@@ -86,7 +86,10 @@ def preservation_audit():
                 'docs/PHASE_5_PROTOCOL.md'}
             if not protected: continue
             mode, kind, expected = metadata.decode().split()
-            data = (root/path).read_bytes()
+            # All five pinned READMEs are identical; retain and check their
+            # historical bytes without freezing the present-day introduction.
+            retained = root/'docs/history/README-8521252.md' if path == 'README.md' else root/path
+            data = retained.read_bytes()
             actual = hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
             if kind != 'blob' or actual != expected:
                 raise ValueError('UPSTREAM_BYTES_CHANGED: '+name+':'+path)

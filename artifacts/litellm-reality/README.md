@@ -1,13 +1,13 @@
 # LiteLLM receipt preservation and verification
 
-The two compressed receipt files here were recovered from the `REALITY_FILE` sections of the original Actions job logs. They contain the consolidated `results.json` emitted in each attempt, not the complete original Actions ZIP. The original ZIPs additionally include per-case files and execution logs; durable archival of those original ZIPs remains outstanding. Do not represent this recovery as a byte-for-byte copy of the ZIPs.
+The complete original Actions ZIPs are preserved here as `attempt-1-original.zip` and `attempt-2-original.zip`. Their SHA-256 digests match GitHub’s reported artifact digests; each contains 81 files, including 39 per-case execution logs. The separate compressed receipt files were recovered from the `REALITY_FILE` sections of the job logs; each decompresses to the same `results.json` found in its corresponding original ZIP.
 
 | Attempt | Actions artifact | ZIP SHA-256 reported by GitHub | Recovered uncompressed results SHA-256 |
 | --- | --- | --- | --- |
 | 1 | [13377897666](https://github.com/almajna/deviation-lab/actions/runs/41944311832/artifacts/13377897666) | `038bf0657b440fcab1c417cf187168755019e0c67fdd855656809facb3f4333c` | `5c7be87debfcbbebf64ba8c96a78d038dcbeae43a5d1a367bf4ba57af94e8df3` |
 | 2 | [13383218090](https://github.com/almajna/deviation-lab/actions/runs/41944311832/artifacts/13383218090) | `4a86895bc765e62e383bf3b370f40394fb6ead384728592a85c8d25db3fb936e` | `79c7773ace3f0db8d1de7d9adcce5864b75b428011ecd832dd52683719b58b04` |
 
-GitHub reported both artifacts expire on 2026-12-05. Jobs: [attempt 1](https://github.com/almajna/deviation-lab/actions/runs/41944311832/job/126972599498), [attempt 2](https://github.com/almajna/deviation-lab/actions/runs/41944311832/job/127013368999). Both attempts used the same frozen experiment checkout `cdfb31cb53ac7c96c723c3cee7994246935fdc4f` and upstream pin in `source.txt`; exact provenance and limits are in [PR #39](https://github.com/almajna/deviation-lab/pull/39).
+The original Actions artifacts expire on 2026-12-05; the complete ZIP bytes are also tracked in this repository. Jobs: [attempt 1](https://github.com/almajna/deviation-lab/actions/runs/41944311832/job/126972599498), [attempt 2](https://github.com/almajna/deviation-lab/actions/runs/41944311832/job/127013368999). Both attempts used the same frozen experiment checkout `cdfb31cb53ac7c96c723c3cee7994246935fdc4f` and upstream pin in `source.txt`; exact provenance and limits are in [PR #39](https://github.com/almajna/deviation-lab/pull/39).
 
 From the repository root, verify the compressed bytes and recompute receipt statistics without installing LiteLLM or issuing requests:
 

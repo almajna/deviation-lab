@@ -6,7 +6,7 @@ Snapshot based on main `0820563fe772a6706e3420c4762211dea0513b6f` (2026-11-04 Pa
 - Recorded open-weight experiments and a controlled LiteLLM study are present. See the [results index](RESULTS.md). LiteLLM's scientific verdict is **INCONCLUSIVE**.
 - The data audit identifies 247 complete four-model exploratory tasks and 988 outcomes; important data, cost and license caveats remain. The final holdout has not been evaluated. See [data audit](DATA_AUDIT.md) and [Phase 5](PHASE_5_RESULTS.md).
 - A frontend PR exists but is separately owned; this documentation update does not assess its current quality or release readiness.
-- The proposed [public introduction](../README_RELEASE_DRAFT.md) remains a draft: replacing the existing README fails the historical research preservation guard in `src/deviation_research_replay/provenance.py`. The guard and original README are unchanged. Full original LiteLLM ZIP preservation, current-head checks, and release approval remain required. Historical agent review is not external peer review.
+- The root README introduces the research and links to the evidence. Both original LiteLLM Actions ZIPs and the separately recovered consolidated receipts are retained with hashes. Current-head checks and release approval remain required. Historical agent review is not external peer review.
 
 ## Open pull requests at this snapshot
 
