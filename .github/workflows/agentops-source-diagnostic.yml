@@ -25,8 +25,10 @@ jobs:
       - name: Inspect structure in isolated namespace
         run: |
           set -euo pipefail
-          sudo unshare --net bash -c 'set -euo pipefail; ip link set lo up; exec setpriv --reuid=nobody --regid=nogroup --clear-groups --inh-caps=-all --bounding-set=-all --ambient-caps=-all --no-new-privs env -i PATH=/usr/bin:/bin HOME=/tmp LANG=C.UTF-8 bash /tmp/aob-diag-input/sandbox.sh'
-          cat /tmp/aob-diag-output/metadata.json
+          status=0
+          sudo unshare --net bash -c 'set -euo pipefail; ip link set lo up; exec setpriv --reuid=nobody --regid=nogroup --clear-groups --inh-caps=-all --bounding-set=-all --ambient-caps=-all --no-new-privs env -i PATH=/usr/bin:/bin HOME=/tmp LANG=C.UTF-8 bash /tmp/aob-diag-input/sandbox.sh' || status=$?
+          if [ -f /tmp/aob-diag-output/metadata.json ]; then cat /tmp/aob-diag-output/metadata.json; fi
+          exit "$status"
       - name: Preserve metadata only
         if: always()
         uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08
