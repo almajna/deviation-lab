@@ -1,0 +1,19 @@
+# Strategic TTC GSM8K reproduction
+
+Verdict: REPRODUCED for execution of the pinned GSM8K notebook and the separately checked best-of-N comparison, with limitations below. This is not a validation of every paper claim or every number in the full notebook.
+
+- Published source: Human-Centric-Machine-Learning/strategic-ttc at 42237fcb397191e8ce5c4d22f9e5f1fae9a5cf7d.
+- Full unchanged notebook execution: https://github.com/almajna/deviation-lab/actions/runs/41977248056 at DEVIATION commit db465992dc9f4583b297de864e45e7cb066891da. Artifact 13393160973, ZIP SHA-256 5fd6ff80ec4d06d6c333cf4777669f150d03a53d182c1115810d2292ecb26bd0. It contains the executed notebook, figures, source and trace hash manifests, dependency versions and dataset card.
+- Focused best-of-N run and independent arithmetic: https://github.com/almajna/deviation-lab/actions/runs/41978471949 at c26594fd8943be94ced087346455db50eca3d9d2. Artifact 13392433958, ZIP SHA-256 3a2ff5243b7c2dc88a657d640a6b0f6651e84828f9944e00d2b0af0837099b34.
+- Full-vs-focused comparison: https://github.com/almajna/deviation-lab/actions/runs/41978963268. Printed best-of-N tables match exactly; source and dataset hashes match. Full notebook SHA-256 f7cb2d74078537145997be1fccb03e912de297aef642534d7f201229f0027c94.
+- GitHub Actions artifacts are retention-limited; expiration 2027-02-03. Download before expiration for long-term archival. No raw dataset included in artifacts.
+
+For the published nine-provider best-of-N setting at beta=1000 and margin 0.25, printed social welfare is 0.00583 for the simulated market and 0.00693 for its within-model welfare optimum. The auction selects Qwen2.5-7B, with Qwen2.5-3B runner-up. Independent arithmetic: market welfare 0.005834676401319926, auction welfare 0.007359574653880151, user value 0.007176287834321988, price 0.00032085848864996016, provider utility 0.00018328681955816304. At the checked market endpoint no single provider has a profitable alternative among the six released choices. The independent calculation uses the same fitted historical curves and output actions, not a fresh independent reconstruction of all curves or brute-force optimum. Sequential provider order is randomized without an internal seed, so byte-identical output is not promised for all runs.
+
+Each of the 12 downloaded GSM8K traces has 1,319 rows, no duplicate qids, and the same 1,319 qids; nine traces have 128 samples per question and three have 32. This is ID coverage, not proof of semantic alignment of every prompt. Trace SHA-256 hashes are in both artifacts and run logs. The dataset card labels the traces MIT; underlying source terms remain separate. GPQA and AIME were not used.
+
+The implementation constructs thetas 1,4,8,16,32,64 for 128 samples, omitting theta=2. Paper descriptions include theta=2. Do not silently repair or equate the two action spaces. Printed values match the checked-in notebook's prior outputs to its displayed precision; comparisons with rounded paper tables require their original assumptions and formatting.
+
+Information boundary: correctness, ground truths and future generated answers are retrospective evaluation outcomes, not per-task pre-allocation inputs. Model generations and reward scores are available only after the corresponding generation and scoring occur, with costs and timing accounted for. Historical aggregate curves are legitimate only when fitted on separate allowed historical tasks and available before allocation. The paper's same-dataset curves characterize a retrospective simulation, not verified live forecasts.
+
+Scientific assessment: NO-GO for a DEVIATION novelty claim on the evidence presently available. The paper already studies strategic test-time compute and its reverse second-price auction. No precise, validated DEVIATION result beyond that baseline has been established. No new hypothesis was tested here.
