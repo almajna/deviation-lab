@@ -9,7 +9,7 @@ permissions:
 jobs:
   research:
     runs-on: ubuntu-22.04
-    timeout-minutes: 12
+    timeout-minutes: 25
     env:
       DEVIATION_REQUIRE_SANDBOX: '1'
       PYTHONDONTWRITEBYTECODE: '1'
@@ -36,7 +36,14 @@ jobs:
         run: python -I -m deviation_research reproduce --evidence "$RUNNER_TEMP/research" --out "$RUNNER_TEMP/reproduction"
       - name: Strict historical and current research source migration
         run: |
-          python -I -m deviation_research_replay --out "$RUNNER_TEMP/research-rebase" --verify artifacts/research/rebase/manifest.json
+          python -I -m deviation_research_replay --out "$RUNNER_TEMP/research-rebase" --verify docs/reproduction/research-readme-migration.json
+      - name: Reproduce original research manifest at its original source
+        run: |
+          git worktree add --detach "$RUNNER_TEMP/original-research-source" 0820563fe772a6706e3420c4762211dea0513b6f
+          python -m venv --system-site-packages "$RUNNER_TEMP/original-research-venv"
+          "$RUNNER_TEMP/original-research-venv/bin/python" -m pip install --no-deps "$RUNNER_TEMP/original-research-source"
+          cd "$RUNNER_TEMP/original-research-source"
+          "$RUNNER_TEMP/original-research-venv/bin/python" -I -m deviation_research_replay --out "$RUNNER_TEMP/research-rebase-original" --verify artifacts/research/rebase/manifest.json
       - name: Verify retained negative, failure and resource evidence bindings
         run: |
           python - <<'PY'

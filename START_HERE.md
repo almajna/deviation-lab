@@ -1,3 +1,5 @@
+> **Historical planning document.** For current project state and navigation, see [status](docs/STATUS.md) and the [README](README.md).
+
 # DEVIATION — START HERE
 
 This is a **repository bootstrap package**, not a claim that the research project is finished. It adds project instructions, scientific protocols, agent task briefs, a small working Python example, and CI to the existing repository at `https://github.com/almajna/deviation-lab`.

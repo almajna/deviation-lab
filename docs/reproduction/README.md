@@ -1,0 +1,3 @@
+# README provenance migration
+
+The original README and integration verifier from commit `8521252fceb8eb9cb3877badc9fbbd29bf995e1a` are retained in `docs/history/` and checked against their pinned Git blobs. Both original scientific manifests remain unchanged. The two manifests in this directory change only the SHA-256 of the corresponding updated provenance adapter; all numerical file hashes and scientific fields remain identical. The research guard additionally pins the replacement integration adapter and continues to verify every other protected working-tree file. CI replays both current source against the migration manifests and original source `0820563fe772a6706e3420c4762211dea0513b6f` against the original manifests.

@@ -1,26 +1,22 @@
-# DEVIATION — status
+# Project status
 
-**Stage:** Backend integration of PRs #19/#23/#25/#24 on codex/final-backend-integration, issue #28. Original evidence and scientific limitations preserved; full cloud reproduction and exact-head CI/review in progress. No final evaluation or release.
-**Release status:** NOT READY.
-**Real-world result claims:** NONE.
-**Last verified:** 2026-11-03 Pacific: recovered source history and immutable original bytes; 245 tests pass on native Python 3.11/3.12 in the cloud and an independent clean Python 3.12 wheel. A completed hosted Python 3.11 generation produced all 194 manifest-bound files; strict final-head CI and independent full-manifest agreement are in progress. See BACKEND_INTEGRATION.md and integration PR for final evidence.
+Snapshot based on main `0820563fe772a6706e3420c4762211dea0513b6f` (2026-11-04 Pacific). This is a research release candidate, **not a finished or approved public release**. Earlier plans, protocols and review notes preserve their historical context; their progress statements may be stale.
 
-## Milestone tracker
-| ID | Milestone | Status | Owner | Required proof |
-|---|---|---|---|---|
-| M0 | Research design and contracts | Gate A v0.2 approved and merged | Codex integrator | PR #6, exact-head owner approval, ancestry and CI verified |
-| M1 | Real data audit | Accepted exploratory pool: 247 tasks / 988 outcomes; no broad empirical GO | Research worker | Unchanged Phase 1 evidence and approved limitations |
-| M2 | Simulator core | v0.2 merged in PR #9; 77 implementation tests/replay and CI passed | Codex core worker | Issue #7, implementation PR/CI, hidden-info and accounting invariants |
-| M3 | Markets | v0.3 engine merged in PR #14; approved source ancestry verified | Codex economic backend owner | Issue #13, actual engine tests, independent review, installed/historical replay, green CI |
-| M4 | Attacks | Merged PR #16; finite exact/bounded search and conditional synthetic counterexample independently verified | Adversarial worker | Issue #15, source-bound receipts, independent payoff challenge and CI |
-| M5 | Benchmark | Working exploratory benchmark; reviewed protocol, paired baselines/uncertainty, negative/null results; under PR review | Research worker | Issue #18, source-bound tables/plots, clean installed reproduction and CI; final holdout disabled |
-| M6 | Visualization | Preparation PR #10 merged; app implementation/visual quality not verified by backend owner | Claude Code frontend worker | Issue #8, frontend PR with build/interaction/screenshots |
-| M7 | Policy search | Not started | Research worker | Search traces, held-out test, zero-cost default |
-| M8 | Red-team review | Independent backend source/math/reproduction review in progress; no release qualification | Independent reviewer | Exact-source evidence and integration PR; external/human review separate |
-| M9 | Release | Not started | Integrator + human | `docs/RELEASE_CHECKLIST.md` and external review |
+- Economic simulation, markets, bounded attack search, certificate checking and backend integration are present on main. See [backend integration](BACKEND_INTEGRATION.md), [adversarial lab](ADVERSARIAL_LAB.md) and [certificate evaluation](../artifacts/verification/REPORT.md).
+- Recorded open-weight experiments and a controlled LiteLLM study are present. See the [results index](RESULTS.md). LiteLLM's scientific verdict is **INCONCLUSIVE**.
+- The data audit identifies 247 complete four-model exploratory tasks and 988 outcomes; important data, cost and license caveats remain. The final holdout has not been evaluated. See [data audit](DATA_AUDIT.md) and [Phase 5](PHASE_5_RESULTS.md).
+- A frontend PR exists but is separately owned; this documentation update does not assess its current quality or release readiness.
+- The root README introduces the research and links to the evidence. Both original LiteLLM Actions ZIPs and the separately recovered consolidated receipts are retained with hashes. Current-head checks and release approval remain required. Historical agent review is not external peer review.
 
-## Human decisions
-- Review the Phase 5 implementation PR before human merge. Gate A/B are approved; evaluation/release gates remain open.
-- Approve proposed main protections and identify a separate GitHub reviewer before activating them.
-- Approve important scope/assumption changes.
-- Authorize final release only after independent audit.
+## Open pull requests at this snapshot
+
+| PR | Classification | Status at inspection |
+| --- | --- | --- |
+| [#17](https://github.com/almajna/deviation-lab/pull/17) | Frontend implementation; separately owned | Open; requires its own current-head review. |
+| [#25](https://github.com/almajna/deviation-lab/pull/25) | Certificate work, previously integrated through backend PR #29 | Open stacked PR; compare current trees and review before any closure. |
+| [#31](https://github.com/almajna/deviation-lab/pull/31) | Research feasibility gate | Draft; reported merge conflict and unresolved data eligibility. |
+| [#34](https://github.com/almajna/deviation-lab/pull/34) | Agent instruction configuration | Open; independent review pending. |
+| [#35](https://github.com/almajna/deviation-lab/pull/35) | Separate reasoning experiment | Draft; reports a negative frozen result; evidence lives on its branch. |
+| [#37](https://github.com/almajna/deviation-lab/pull/37) | Frontier sprint research notes | Draft; source-level lead subsequently studied in merged #39; review notes independently. |
+
+No PR is merged or closed by this status update. Open PR status can change; consult GitHub for current state.
