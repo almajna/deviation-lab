@@ -1,0 +1,79 @@
+name: Offline finite-beta GSM8K baseline audit
+on:
+  push:
+    branches: [research/finite-beta-ttc-audit]
+    paths:
+      - '.github/workflows/finite-beta-gsm8k.yml'
+      - 'research/finite-beta/**'
+permissions:
+  contents: read
+jobs:
+  finite-beta:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      HF_HUB_DISABLE_TELEMETRY: '1'
+      DO_NOT_TRACK: '1'
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+      - name: Stage verified public baseline and dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-base texlive-latex-extra texlive-fonts-recommended dvipng cm-super iproute2
+          kpsewhich type1ec.sty
+          git clone https://github.com/Human-Centric-Machine-Learning/strategic-ttc.git baseline
+          git -C baseline checkout --detach 42237fcb397191e8ce5c4d22f9e5f1fae9a5cf7d
+          test "$(git -C baseline rev-parse HEAD)" = 42237fcb397191e8ce5c4d22f9e5f1fae9a5cf7d
+          python -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install numpy==2.3.5 scipy==1.16.3 pandas==2.3.3 matplotlib==3.10.7 seaborn==0.13.2 jupyter nbconvert ipykernel pyyaml tqdm huggingface_hub==1.1.7 transformers==5.0.0rc0 pydantic datasets sympy
+          python -c "from huggingface_hub import snapshot_download; snapshot_download(repo_id='Human-Centric-Machine-Learning/strategic-ttc-data',repo_type='dataset',allow_patterns=['GSM8K/*.jsonl','README.md'],local_dir='baseline/final_runs')"
+          test "$(find baseline/final_runs/GSM8K -maxdepth 1 -name '*.jsonl' | wc -l | tr -d ' ')" = 12
+          sha256sum --check research/finite-beta/expected-dataset-sha256.txt
+          cp research/finite-beta/expected-dataset-sha256.txt baseline/dataset-sha256.txt
+          (cd baseline && git ls-files -z | xargs -0 sha256sum) > baseline/source-sha256.txt
+          sha256sum research/finite-beta/* > baseline/audit-source-sha256.txt
+          python --version > baseline/python-version.txt
+          python -m pip freeze > baseline/dependency-versions.txt
+          dpkg-query -W cm-super texlive-latex-base texlive-latex-extra texlive-fonts-recommended > baseline/tex-versions.txt
+      - name: Reproduce author cells and evaluate offline
+        shell: bash
+        run: |
+          set -euo pipefail
+          export TASK_WORKSPACE="$GITHUB_WORKSPACE"
+          export TASK_PYTHON_PATH="$(dirname "$(command -v python)")"
+          export TASK_UID="$(id -u)" TASK_GID="$(id -g)"
+          # Set up loopback, then irrevocably drop privileges before upstream code.
+          sudo env -i PATH="$TASK_PYTHON_PATH:/usr/sbin:/usr/bin:/sbin:/bin" TASK_WORKSPACE="$TASK_WORKSPACE" TASK_UID="$TASK_UID" TASK_GID="$TASK_GID" MPLBACKEND=Agg \
+            unshare --net /bin/bash -eu -o pipefail -c '
+              ip link set lo up
+              exec setpriv --reuid "$TASK_UID" --regid "$TASK_GID" --clear-groups \
+                --bounding-set=-all --inh-caps=-all --ambient-caps=-all --no-new-privs \
+                /bin/bash "$TASK_WORKSPACE/research/finite-beta/run_offline.sh"
+            '
+      - name: Preserve auditable evidence and failures
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: finite-beta-gsm8k-audit
+          path: |
+            research/finite-beta/
+            baseline/notebooks/finite-beta-selected.ipynb
+            baseline/notebooks/finite-beta-executed.ipynb
+            baseline/finite-beta-input.json
+            baseline/finite-beta-results.json
+            baseline/finite-beta-canonical.json
+            baseline/finite-beta-certificate.json
+            baseline/notebook-streams.txt
+            baseline/notebook-execution-succeeded.txt
+            baseline/final_runs/README.md
+            baseline/*-version*.txt
+            baseline/*-sha256.txt
+          if-no-files-found: warn
